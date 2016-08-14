@@ -1,2 +1,2 @@
-# pokemon
+# Pokémon Researcher
 A fanfiction-esque derivative work of Pokémon set in the real world
