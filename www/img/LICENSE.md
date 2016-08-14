@@ -24,36 +24,33 @@ From The Spriters Resource user [Jackster](http://www.spriters-resource.com/subm
 
 ### PokemonMysteryDungeon[xxx].png
 
-From The Spriters Resource user [Mystery_Dungeon](http://www.spriters-resource.com/submitter/Mystery_Dungeon/)
+From The Spriters Resource users [Mystery_Dungeon](http://www.spriters-resource.com/submitter/Mystery_Dungeon/),
+[Mighty Jetters](http://www.spriters-resource.com/submitter/Mighty+Jetters/),
+[Solink](http://www.spriters-resource.com/submitter/Solink/),
+[Mr. C](http://www.spriters-resource.com/submitter/Mr.+C/)
 
+* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/41540/
+* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/48096/
+* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/47911/
+* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/52336/
+* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/40838/
 * http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5243/
 * http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5244/
 * http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5245/
 * http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5246/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5247/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5248/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5249/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5250/
+* [Ditto](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5247/)
+* [Porygon](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5248/)
+* [Kabuto](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5249/)
+* [Kabutops](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5250/)
 * [Aerodactyl](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5251/)
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5252/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5256/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5257/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5258/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5259/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5260/
-
-### PokemonMysteryDungeon[xxx].png
-
-From The Spriters Resource user [Mr. C](http://www.spriters-resource.com/submitter/Mr.+C/)
-
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/52336/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/40838/
-
-### PokemonMysteryDungeon[xxx].png
-
-From The Spriters Resource user [Mighty Jetters](http://www.spriters-resource.com/submitter/Mighty+Jetters/)
-
+* [Snorlax](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5252/)
 * [Articuno](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/48016/)
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/41540/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/48096/
-* http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/47911/
+* [Dratini](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5256/)
+* [Dragonair](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5257/)
+* [Dragonite](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5258/)
+* [Mew](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5260/)
+* [Mewtwo](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5259/)
+
+## Image Transform
+
+Thanks to [Online Image Editor](http://www.online-image-editor.com/) for so easily and freely removing color backgrounds from these sprite sheets!
