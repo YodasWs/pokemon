@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Pokémon Researchers | Map Overview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="www/css/main.css"/>
+<style>
+body > header > h1,
+body > header > h2 {
+	display: inline-block;
+}
+body > header > h1 + h2 {
+	margin-left: 3rem;
+}
+#map {
+	border: 1px solid black;
+	min-height: 500px;
+	width: 100%;
+}
+</style>
+<script>
+// For anything requiring a loaded dependency
+window.onReady = function(cb){
+var c=0,a=function(){if(!c){if(document.readyState=='complete'){cb();c=true}}}
+if(Element.prototype.addEventListener)document.addEventListener('readystatechange',a)
+else if(Element.prototype.attachEvent)document.attachEvent('onreadystatechange',a)
+};
+// Build Basic Game Object
+window.pokemon={defaults:{}}
+</script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyBeRM7BDdB6UzJ-z_IJftYP6lMx3e4u5H4&v=3&region=US&libraries=geometry"></script>
+<script src="www/res/zepto.min.js"></script>
+<script src="www/res/upgrdr.js"></script>
+<script>
+window.$ = Zepto;
+pokemon.worldMap = {
+	geocoder:{},
+	infoWindows:[],
+	map:{},
+	routes:[],
+	markers:[],
+	options:{},
+	clusterer:{}
+}
+
+$(document).on('ready', function(){
+	if (!document.getElementById("map")) return false;
+	pokemon.worldMap.geocoder = new google.maps.Geocoder();
+	pokemon.worldMap.options = {
+		zoom: 13,
+		center: new google.maps.LatLng(35.410694, -80.84285),
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		keyboardShortcuts: true,
+		disableDefaultUI: true,
+		mapTypeControl: false,
+		scaleControl: false,
+		scrollWheel: true,
+		zoomControl: true,
+		panControl: true,
+		minZoom: 1,
+		maxZoom: 16
+	};
+	pokemon.worldMap.map = new google.maps.Map(document.getElementById("map"), pokemon.worldMap.options)
+	pokemon.worldMap.bikeLayer = new google.maps.BicyclingLayer()
+	pokemon.worldMap.bikeLayer.setMap(pokemon.worldMap.map)
+	var listPolylinePoints = function() {
+		var str = ''
+		this.j.forEach(function(p,i) {
+			str += '{"lat":' + p.lat() + ',"lng":' + p.lng()
+			if (p.r) str += ',"r":' + p.r
+			str += '},'
+		})
+		console.log(str.trim(','))
+	};
+	$.ajax({
+		url:'www/world/us.json',
+		dataType:'json',
+		success:function(data){
+			data.cities.forEach(function(city) {
+//				console.log(city);
+				new google.maps.Circle({
+					strokeColor:'#888888',
+					strokeOpacity:0.8,
+					strokeWeight:2,
+					fillColor:'#888888',
+					fillOpacity:0.35,
+					map:pokemon.worldMap.map,
+					center:{"lat":city.lat,"lng":city.lng},
+					radius:city.r * 1000
+				})
+				pokemon.worldMap.map.setCenter({"lat":city.lat,"lng":city.lng})
+			})
+			data.routes.forEach(function(route,j) {
+				var side1 = []
+				var side2 = []
+				var path = new google.maps.Polyline({
+					map:pokemon.worldMap.map,
+					strokeColor:'#008800',
+					strokeOpacity:0.8,
+					strokeWeight:2,
+					path:route.points,
+					editable:true,
+					geodesic:true
+				})
+				route.points.forEach(function(p, i){
+					var thisPoint = new google.maps.LatLng(p.lat, p.lng),
+						nextPoint,
+						prevPoint,
+						heading = [],
+						offsetHeading,
+						pgon
+					// Find Headings for Offsets
+					if (i < route.points.length - 1) {
+						nextPoint = new google.maps.LatLng(route.points[i+1].lat, route.points[i+1].lng)
+						heading.push(google.maps.geometry.spherical.computeHeading(thisPoint, nextPoint))
+					}
+					if (i > 0) {
+						prevPoint = new google.maps.LatLng(route.points[i-1].lat, route.points[i-1].lng)
+						heading.push(google.maps.geometry.spherical.computeHeading(thisPoint, prevPoint))
+					}
+					if (heading.length == 1) {
+						offsetHeading = heading[0] + 90
+					} else if (heading.length == 2) {
+						offsetHeading = (heading[0] + heading[1]) / 2
+					}
+					while (offsetHeading < 0) offsetHeading += 180
+					while (offsetHeading > 180) offsetHeading -= 180
+					if (heading.length == 2) {
+						if (i == 6) {
+							console.log(route.name)
+console.log(heading[0])
+console.log(heading[1])
+						}
+						if (-90 < heading[0] && heading[0] < 0 && 90 < heading[1] && heading[1] < 180) {
+//							offsetHeading += 180
+						}
+					}
+					// Add Offset Points
+var radius = (p.r || route.r) * 1000
+if (p.r) console.log(i + ': ' + radius)
+					side1.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading))
+					side2.unshift(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading + 180))
+					if (i == 0) {
+						var cir = [135,90,45];
+						if (heading[0] > 180 || heading[0] < 0) {
+							console.log(route.name)
+							console.log(heading[0])
+							cir.reverse()
+						}
+						cir.forEach(function(a){
+							if (heading[0] > 180 || heading[0] < 0) a += 180
+							side2.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading + a))
+						})
+					} else if (i == route.points.length - 1) {
+						[45,90,135].forEach(function(a){
+							side1.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading - a))
+						})
+					}
+				})
+				// Construct Polygon
+				pgon = side1.concat(side2)
+				pgon = new google.maps.Polygon({
+					map:pokemon.worldMap.map,
+					strokeColor:'#008800',
+					strokeOpacity:0.5,
+					strokeWeight:1,
+					fillColor:'#008800',
+					fillOpacity:0.2,
+					path:pgon
+				})
+				var mvc = path.getPath()
+				route.points.forEach(function(p, i){
+					if (p.r) mvc.j[i].r = p.r
+				})
+				google.maps.event.addListener(mvc, 'insert_at', listPolylinePoints)
+				google.maps.event.addListener(mvc, 'remove_at', listPolylinePoints)
+				google.maps.event.addListener(mvc, 'set_at', listPolylinePoints)
+				pokemon.worldMap.routes.push(path)
+			})
+		}
+	})
+});
+</script>
+</head>
+<body>
+<header>
+	<h1>Pokémon Researchers</h1>
+	<h2>Map Overview</h2>
+</header>
+<main>
+<div id="map"></div>
+</main>
+</body>
+</html>
