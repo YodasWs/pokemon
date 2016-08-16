@@ -1,4 +1,5 @@
 #.gitignore
 Thumbs.db
+site.conf
 *.swp
 *~

@@ -34,7 +34,7 @@ window.pokemon={defaults:{}}
 <script src="www/res/upgrdr.js"></script>
 <script>
 window.$ = Zepto;
-pokemon.worldMap = {
+pokemon.world = {
 	geocoder:{},
 	infoWindows:[],
 	map:{},
@@ -46,8 +46,8 @@ pokemon.worldMap = {
 
 $(document).on('ready', function(){
 	if (!document.getElementById("map")) return false;
-	pokemon.worldMap.geocoder = new google.maps.Geocoder();
-	pokemon.worldMap.options = {
+	pokemon.world.geocoder = new google.maps.Geocoder();
+	pokemon.world.options = {
 		zoom: 13,
 		center: new google.maps.LatLng(35.410694, -80.84285),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -61,15 +61,13 @@ $(document).on('ready', function(){
 		minZoom: 1,
 		maxZoom: 16
 	};
-	pokemon.worldMap.map = new google.maps.Map(document.getElementById("map"), pokemon.worldMap.options)
-	pokemon.worldMap.bikeLayer = new google.maps.BicyclingLayer()
-	pokemon.worldMap.bikeLayer.setMap(pokemon.worldMap.map)
+	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options)
+	pokemon.world.bikeLayer = new google.maps.BicyclingLayer()
+	pokemon.world.bikeLayer.setMap(pokemon.world.map)
 	var listPolylinePoints = function() {
 		var str = ''
 		this.j.forEach(function(p,i) {
-			str += '{"lat":' + p.lat() + ',"lng":' + p.lng()
-			if (p.r) str += ',"r":' + p.r
-			str += '},'
+			str += '{"lat":' + p.lat() + ',"lng":' + p.lng() + '},'
 		})
 		console.log(str.trim(','))
 	};
@@ -77,6 +75,8 @@ $(document).on('ready', function(){
 		url:'www/world/us.json',
 		dataType:'json',
 		success:function(data){
+			pokemon.json = pokemon.json||{}
+			pokemon.json['us'] = data
 			data.cities.forEach(function(city) {
 //				console.log(city);
 				new google.maps.Circle({
@@ -85,17 +85,17 @@ $(document).on('ready', function(){
 					strokeWeight:2,
 					fillColor:'#888888',
 					fillOpacity:0.35,
-					map:pokemon.worldMap.map,
+					map:pokemon.world.map,
 					center:{"lat":city.lat,"lng":city.lng},
-					radius:city.r * 1000
+					radius:city.r || 1000
 				})
-				pokemon.worldMap.map.setCenter({"lat":city.lat,"lng":city.lng})
+				pokemon.world.map.setCenter({"lat":city.lat,"lng":city.lng})
 			})
 			data.routes.forEach(function(route,j) {
 				var side1 = []
 				var side2 = []
 				var path = new google.maps.Polyline({
-					map:pokemon.worldMap.map,
+					map:pokemon.world.map,
 					strokeColor:'#008800',
 					strokeOpacity:0.8,
 					strokeWeight:2,
@@ -137,8 +137,7 @@ console.log(heading[1])
 						}
 					}
 					// Add Offset Points
-var radius = (p.r || route.r) * 1000
-if (p.r) console.log(i + ': ' + radius)
+					var radius = p.r || route.r || 100
 					side1.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading))
 					side2.unshift(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading + 180))
 					if (i == 0) {
@@ -161,7 +160,7 @@ if (p.r) console.log(i + ': ' + radius)
 				// Construct Polygon
 				pgon = side1.concat(side2)
 				pgon = new google.maps.Polygon({
-					map:pokemon.worldMap.map,
+					map:pokemon.world.map,
 					strokeColor:'#008800',
 					strokeOpacity:0.5,
 					strokeWeight:1,
@@ -170,15 +169,16 @@ if (p.r) console.log(i + ': ' + radius)
 					path:pgon
 				})
 				var mvc = path.getPath()
-				route.points.forEach(function(p, i){
-					if (p.r) mvc.j[i].r = p.r
-				})
 				google.maps.event.addListener(mvc, 'insert_at', listPolylinePoints)
 				google.maps.event.addListener(mvc, 'remove_at', listPolylinePoints)
 				google.maps.event.addListener(mvc, 'set_at', listPolylinePoints)
-				pokemon.worldMap.routes.push(path)
+				pokemon.world.routes.push(path)
 			})
+			$(document).trigger('loaded')
 		}
+	})
+	// Load Pokémon Spawn Data
+	$(document).on('loaded', function(e){
 	})
 });
 </script>
