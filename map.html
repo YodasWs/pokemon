@@ -39,86 +39,67 @@ pokemon.world = {
 	infoWindows:[],
 	map:{},
 	routes:[],
+	polygons:[],
 	markers:[],
 	options:{},
 	clusterer:{}
 }
-
-$(document).on('ready', function(){
-	if (!document.getElementById("map")) return false;
-	pokemon.world.geocoder = new google.maps.Geocoder();
-	pokemon.world.options = {
-		zoom: 13,
-		center: new google.maps.LatLng(35.410694, -80.84285),
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		keyboardShortcuts: true,
-		disableDefaultUI: true,
-		mapTypeControl: false,
-		scaleControl: false,
-		scrollWheel: true,
-		zoomControl: true,
-		panControl: true,
-		minZoom: 1,
-		maxZoom: 16
-	};
-	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options)
-	pokemon.world.bikeLayer = new google.maps.BicyclingLayer()
-	pokemon.world.bikeLayer.setMap(pokemon.world.map)
-	var listPolylinePoints = function() {
-		var str = ''
-		this.j.forEach(function(p,i) {
-			str += '{"lat":' + p.lat() + ',"lng":' + p.lng() + '},'
-		})
-		console.log(str.trim(','))
-	};
-	$.ajax({
-		url:'www/world/us.json',
-		dataType:'json',
-		success:function(data){
-			pokemon.json = pokemon.json||{}
-			pokemon.json['us'] = data
-			data.cities.forEach(function(city) {
-//				console.log(city);
-				new google.maps.Circle({
-					strokeColor:'#888888',
-					strokeOpacity:0.8,
-					strokeWeight:2,
-					fillColor:'#888888',
-					fillOpacity:0.35,
-					map:pokemon.world.map,
-					center:{"lat":city.lat,"lng":city.lng},
-					radius:city.r || 1000
-				})
-				pokemon.world.map.setCenter({"lat":city.lat,"lng":city.lng})
-			})
-			data.routes.forEach(function(route,j) {
+var listPolylinePoints = function() {
+	var str = ''
+		console.log(this)
+	this.forEach(function(p,i) {
+		str += '{"lat":' + p.lat() + ',"lng":' + p.lng() + '},'
+	})
+	console.log(str.trim(','))
+	pokemon.world.drawRoutes()
+};
+pokemon.world.drawRoutes = function(){
+	pokemon.world.polygons.forEach(function(p,i){
+		p.setMap(null)
+		delete pokemon.world.polygons[i]
+	})
+	pokemon.world.routes.forEach(function(r,i){
+		r.setMap(null)
+		delete pokemon.world.routes[i]
+		pokemon.world.drawRoute(r)
+	})
+}
+pokemon.world.drawRoute = function(route){
 				var side1 = [],
 					side2 = [],
 					cir = [45,90,135],
 					lastHeading = null,
+					points = route.getPath ? route.getPath().getArray() : (route.points || route.getArray()),
 					path = new google.maps.Polyline({
 						map:pokemon.world.map,
 						strokeColor:'#008800',
 						strokeOpacity:0.8,
 						strokeWeight:2,
-						path:route.points,
+						path:points,
 						editable:true,
 						geodesic:true
 					})
-				route.points.forEach(function(p, i){
-					var thisPoint = new google.maps.LatLng(p.lat, p.lng),
+				points.forEach(function(p, i){
+					var pLat = typeof p.lat === 'function' ? p.lat() : p.lat,
+						pLng = typeof p.lng === 'function' ? p.lng() : p.lng,
+						thisPoint = new google.maps.LatLng(pLat, pLng),
+						nlat, nlng,
 						nextPoint,
 						prevPoint,
 						heading = [],
 						offsetHeading,
 						pgon
 					// Find Headings for Offsets
-					if (i < route.points.length - 1) {
-						nextPoint = new google.maps.LatLng(route.points[i+1].lat, route.points[i+1].lng)
+					if (i < points.length - 1) {
+						nLat = typeof points[i+1].lat === 'function' ? points[i+1].lat() : points[i+1].lat
+						nLng = typeof points[i+1].lng === 'function' ? points[i+1].lng() : points[i+1].lng
+						nextPoint = new google.maps.LatLng(nLat, nLng)
 						heading.push(google.maps.geometry.spherical.computeHeading(thisPoint, nextPoint))
 					}
 					if (i > 0) {
-						prevPoint = new google.maps.LatLng(route.points[i-1].lat, route.points[i-1].lng)
+						nLat = typeof points[i-1].lat === 'function' ? points[i-1].lat() : points[i-1].lat
+						nLng = typeof points[i-1].lng === 'function' ? points[i-1].lng() : points[i-1].lng
+						prevPoint = new google.maps.LatLng(nLat, nLng)
 						heading.push(google.maps.geometry.spherical.computeHeading(thisPoint, prevPoint))
 					}
 					if (heading.length == 1) {
@@ -141,9 +122,7 @@ $(document).on('ready', function(){
 							if (heading[0] > 180 || heading[0] < 0) a += 180
 							side2.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading - a))
 						})
-					} else if (i == route.points.length - 1) {
-						console.log(route.name)
-						console.log(offsetHeading)
+					} else if (i == points.length - 1) {
 						if (offsetHeading < -90) {
 							cir.reverse()
 						}
@@ -172,7 +151,50 @@ $(document).on('ready', function(){
 				google.maps.event.addListener(mvc, 'remove_at', listPolylinePoints)
 				google.maps.event.addListener(mvc, 'set_at', listPolylinePoints)
 				pokemon.world.routes.push(path)
+				pokemon.world.polygons.push(pgon)
+}
+
+$(document).on('ready', function(){
+	if (!document.getElementById("map")) return false;
+	pokemon.world.geocoder = new google.maps.Geocoder();
+	pokemon.world.options = {
+		zoom: 13,
+		center: new google.maps.LatLng(35.410694, -80.84285),
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		keyboardShortcuts: true,
+		disableDefaultUI: true,
+		mapTypeControl: false,
+		scaleControl: false,
+		scrollWheel: true,
+		zoomControl: true,
+		panControl: true,
+		minZoom: 1,
+		maxZoom: 16
+	};
+	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options)
+	pokemon.world.bikeLayer = new google.maps.BicyclingLayer()
+	pokemon.world.bikeLayer.setMap(pokemon.world.map)
+	$.ajax({
+		url:'www/world/us.json',
+		dataType:'json',
+		success:function(data){
+			pokemon.json = pokemon.json||{}
+			pokemon.json['us'] = data
+			data.cities.forEach(function(city) {
+//				console.log(city);
+				new google.maps.Circle({
+					strokeColor:'#888888',
+					strokeOpacity:0.8,
+					strokeWeight:2,
+					fillColor:'#888888',
+					fillOpacity:0.35,
+					map:pokemon.world.map,
+					center:{"lat":city.lat,"lng":city.lng},
+					radius:city.r || 1000
+				})
+				pokemon.world.map.setCenter({"lat":city.lat,"lng":city.lng})
 			})
+			data.routes.forEach(pokemon.world.drawRoute)
 			$(document).trigger('loaded')
 		}
 	})
