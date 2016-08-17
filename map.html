@@ -92,17 +92,19 @@ $(document).on('ready', function(){
 				pokemon.world.map.setCenter({"lat":city.lat,"lng":city.lng})
 			})
 			data.routes.forEach(function(route,j) {
-				var side1 = []
-				var side2 = []
-				var path = new google.maps.Polyline({
-					map:pokemon.world.map,
-					strokeColor:'#008800',
-					strokeOpacity:0.8,
-					strokeWeight:2,
-					path:route.points,
-					editable:true,
-					geodesic:true
-				})
+				var side1 = [],
+					side2 = [],
+					cir = [45,90,135],
+					lastHeading = null,
+					path = new google.maps.Polyline({
+						map:pokemon.world.map,
+						strokeColor:'#008800',
+						strokeOpacity:0.8,
+						strokeWeight:2,
+						path:route.points,
+						editable:true,
+						geodesic:true
+					})
 				route.points.forEach(function(p, i){
 					var thisPoint = new google.maps.LatLng(p.lat, p.lng),
 						nextPoint,
@@ -124,38 +126,35 @@ $(document).on('ready', function(){
 					} else if (heading.length == 2) {
 						offsetHeading = (heading[0] + heading[1]) / 2
 					}
-					while (offsetHeading < 0) offsetHeading += 180
-					while (offsetHeading > 180) offsetHeading -= 180
-					if (heading.length == 2) {
-						if (i == 6) {
-							console.log(route.name)
-console.log(heading[0])
-console.log(heading[1])
-						}
-						if (-90 < heading[0] && heading[0] < 0 && 90 < heading[1] && heading[1] < 180) {
-//							offsetHeading += 180
-						}
-					}
+					while (offsetHeading < lastHeading - 90) offsetHeading += 180
+					while (offsetHeading > lastHeading + 90) offsetHeading -= 180
 					// Add Offset Points
 					var radius = p.r || route.r || 100
 					side1.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading))
 					side2.unshift(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading + 180))
 					if (i == 0) {
-						var cir = [135,90,45];
-						if (heading[0] > 180 || heading[0] < 0) {
-							console.log(route.name)
-							console.log(heading[0])
+						cir = [135,90,45]
+						if (heading[0] < 0 || heading[0] > 180) {
 							cir.reverse()
 						}
 						cir.forEach(function(a){
 							if (heading[0] > 180 || heading[0] < 0) a += 180
-							side2.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading + a))
+							side2.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading - a))
 						})
 					} else if (i == route.points.length - 1) {
-						[45,90,135].forEach(function(a){
-							side1.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading - a))
+						console.log(route.name)
+						console.log(offsetHeading)
+						if (offsetHeading < -90) {
+							cir.reverse()
+						}
+						cir.forEach(function(a){
+							if (offsetHeading > 0) {
+								a *= -1
+							}
+							side1.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading + a))
 						})
 					}
+					lastHeading = offsetHeading
 				})
 				// Construct Polygon
 				pgon = side1.concat(side2)
