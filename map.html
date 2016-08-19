@@ -41,7 +41,51 @@ pokemon.world = {
 	routes:[],
 	polygons:[],
 	markers:[],
-	options:{},
+	options:{
+		map:{
+			zoom: 13,
+			keyboardShortcuts: true,
+			disableDefaultUI: true,
+			mapTypeControl: false,
+			scaleControl: false,
+			scrollWheel: true,
+			zoomControl: true,
+			panControl: true,
+			minZoom: 1,
+			maxZoom: 16
+		},
+		terrain:{
+			"standard":{
+				strokeOpacity:0.8,
+				strokeWeight:2,
+				fillOpacity:0.35
+			},
+			"city":{
+				strokeColor:'#888888',
+				fillColor:'#888888'
+			},
+			"creek":{
+				strokeColor:'#008800',
+				fillColor:'#008800'
+			},
+			"grass":{
+				strokeColor:'#008800',
+				fillColor:'#008800'
+			},
+			"forest":{
+				strokeColor:'#008800',
+				fillColor:'#008800'
+			},
+			"cave":{
+				strokeColor:'brown',
+				fillColor:'#brown'
+			},
+			"mountain":{
+				strokeColor:'brown',
+				fillColor:'#brown'
+			},
+		}
+	},
 	clusterer:{}
 }
 var listPolylinePoints = function() {
@@ -52,7 +96,20 @@ var listPolylinePoints = function() {
 	})
 	console.log(str.trim(','))
 	pokemon.world.drawRoutes()
-};
+},
+echoPointCoords = function(e) {
+	if (e.vertex) {
+		var p = this.getPath().getAt(e.vertex)
+		console.log(e.vertex + ': {"lat":' + p.lat() + ',"lng":' + p.lng() + '}')
+	}
+},
+rmPoint = function(e) {
+	if (e.vertex) {
+		var p = this.getPath().getAt(e.vertex)
+		this.removeAt(e.vertex)
+		console.log('Removed {"lat":' + p.lat() + ',"lng":' + p.lng() + '}')
+	}
+}
 pokemon.world.drawRoutes = function(){
 	pokemon.world.polygons.forEach(function(p,i){
 		p.setMap(null)
@@ -70,15 +127,16 @@ pokemon.world.drawRoute = function(route){
 					cir = [45,90,135],
 					lastHeading = null,
 					points = route.getPath ? route.getPath().getArray() : (route.points || route.getArray()),
-					path = new google.maps.Polyline({
-						map:pokemon.world.map,
-						strokeColor:'#008800',
-						strokeOpacity:0.8,
-						strokeWeight:2,
-						path:points,
-						editable:true,
-						geodesic:true
-					})
+					path = new google.maps.Polyline(Zepto.extend({},
+						pokemon.world.options.terrain.standard,
+						pokemon.world.options.terrain[route.terrain],
+						{
+							map:pokemon.world.map,
+							path:points,
+							editable:true,
+							geodesic:true
+						}
+					))
 				points.forEach(function(p, i){
 					var pLat = typeof p.lat === 'function' ? p.lat() : p.lat,
 						pLng = typeof p.lng === 'function' ? p.lng() : p.lng,
@@ -137,19 +195,23 @@ pokemon.world.drawRoute = function(route){
 				})
 				// Construct Polygon
 				pgon = side1.concat(side2)
-				pgon = new google.maps.Polygon({
-					map:pokemon.world.map,
-					strokeColor:'#008800',
-					strokeOpacity:0.5,
-					strokeWeight:1,
-					fillColor:'#008800',
-					fillOpacity:0.2,
-					path:pgon
-				})
+				pgon = new google.maps.Polygon(Zepto.extend({},
+					pokemon.world.options.terrain.standard,
+					pokemon.world.options.terrain[route.terrain],
+					{
+						map:pokemon.world.map,
+						strokeOpacity:0.5,
+						strokeWeight:1,
+						fillOpacity:0.2,
+						path:pgon
+					}
+				))
 				var mvc = path.getPath()
 				google.maps.event.addListener(mvc, 'insert_at', listPolylinePoints)
 				google.maps.event.addListener(mvc, 'remove_at', listPolylinePoints)
 				google.maps.event.addListener(mvc, 'set_at', listPolylinePoints)
+				google.maps.event.addListener(path, 'click', echoPointCoords)
+				google.maps.event.addListener(path, 'dblclick', rmPoint)
 				pokemon.world.routes.push(path)
 				pokemon.world.polygons.push(pgon)
 }
@@ -157,21 +219,11 @@ pokemon.world.drawRoute = function(route){
 $(document).on('ready', function(){
 	if (!document.getElementById("map")) return false;
 	pokemon.world.geocoder = new google.maps.Geocoder();
-	pokemon.world.options = {
-		zoom: 13,
+	$.extend(pokemon.world.options.map, {
 		center: new google.maps.LatLng(35.410694, -80.84285),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		keyboardShortcuts: true,
-		disableDefaultUI: true,
-		mapTypeControl: false,
-		scaleControl: false,
-		scrollWheel: true,
-		zoomControl: true,
-		panControl: true,
-		minZoom: 1,
-		maxZoom: 16
-	};
-	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options)
+	});
+	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options.map)
 	pokemon.world.bikeLayer = new google.maps.BicyclingLayer()
 	pokemon.world.bikeLayer.setMap(pokemon.world.map)
 	$.ajax({
@@ -180,19 +232,18 @@ $(document).on('ready', function(){
 		success:function(data){
 			pokemon.json = pokemon.json||{}
 			pokemon.json['us'] = data
-			data.cities.forEach(function(city) {
-//				console.log(city);
-				new google.maps.Circle({
-					strokeColor:'#888888',
-					strokeOpacity:0.8,
-					strokeWeight:2,
-					fillColor:'#888888',
-					fillOpacity:0.35,
-					map:pokemon.world.map,
-					center:{"lat":city.lat,"lng":city.lng},
-					radius:city.r || 1000
-				})
-				pokemon.world.map.setCenter({"lat":city.lat,"lng":city.lng})
+			data.centers.forEach(function(center) {
+//				console.log(center);
+				new google.maps.Circle(Zepto.extend({},
+					pokemon.world.options.terrain.standard,
+					pokemon.world.options.terrain[center.terrain],
+					{
+						map:pokemon.world.map,
+						center:{"lat":center.lat,"lng":center.lng},
+						radius:center.r || 1000
+					}
+				))
+				pokemon.world.map.setCenter({"lat":center.lat,"lng":center.lng})
 			})
 			data.routes.forEach(pokemon.world.drawRoute)
 			$(document).trigger('loaded')
