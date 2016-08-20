@@ -40,7 +40,7 @@ pokemon.world = {
 	map:{},
 	routes:[],
 	polygons:[],
-	markers:[],
+	gyms:[],
 	options:{
 		map:{
 			zoom: 13,
@@ -106,7 +106,7 @@ echoPointCoords = function(e) {
 rmPoint = function(e) {
 	if (e.vertex) {
 		var p = this.getPath().getAt(e.vertex)
-		this.removeAt(e.vertex)
+		this.getPath().removeAt(e.vertex)
 		console.log('Removed {"lat":' + p.lat() + ',"lng":' + p.lng() + '}')
 	}
 }
@@ -131,7 +131,6 @@ pokemon.world.drawRoute = function(route){
 						pokemon.world.options.terrain.standard,
 						pokemon.world.options.terrain[route.terrain],
 						{
-							map:pokemon.world.map,
 							path:points,
 							editable:true,
 							geodesic:true
@@ -160,7 +159,9 @@ pokemon.world.drawRoute = function(route){
 						prevPoint = new google.maps.LatLng(nLat, nLng)
 						heading.push(google.maps.geometry.spherical.computeHeading(thisPoint, prevPoint))
 					}
-					if (heading.length == 1) {
+					if (typeof p.offsetHeading !== 'undefined' && p.offsetHeading != null) offsetHeading = p.offsetHeading
+					else if (typeof route.offsetHeading !== 'undefined' && route.offsetHeading != null) offsetHeading = route.offsetHeading
+					else if (heading.length == 1) {
 						offsetHeading = heading[0] + 90
 					} else if (heading.length == 2) {
 						offsetHeading = (heading[0] + heading[1]) / 2
@@ -181,7 +182,7 @@ pokemon.world.drawRoute = function(route){
 							side2.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading - a))
 						})
 					} else if (i == points.length - 1) {
-						if (offsetHeading < -90) {
+						if (offsetHeading < -90 || (offsetHeading < 0 && lastHeading < 0)) {
 							cir.reverse()
 						}
 						cir.forEach(function(a){
@@ -199,7 +200,6 @@ pokemon.world.drawRoute = function(route){
 					pokemon.world.options.terrain.standard,
 					pokemon.world.options.terrain[route.terrain],
 					{
-						map:pokemon.world.map,
 						strokeOpacity:0.5,
 						strokeWeight:1,
 						fillOpacity:0.2,
@@ -224,6 +224,7 @@ $(document).on('ready', function(){
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 	});
 	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options.map)
+	pokemon.world.options.terrain.standard.map = pokemon.world.map
 	pokemon.world.bikeLayer = new google.maps.BicyclingLayer()
 	pokemon.world.bikeLayer.setMap(pokemon.world.map)
 	$.ajax({
@@ -238,7 +239,6 @@ $(document).on('ready', function(){
 					pokemon.world.options.terrain.standard,
 					pokemon.world.options.terrain[center.terrain],
 					{
-						map:pokemon.world.map,
 						center:{"lat":center.lat,"lng":center.lng},
 						radius:center.r || 1000
 					}
@@ -247,6 +247,19 @@ $(document).on('ready', function(){
 			})
 			data.routes.forEach(pokemon.world.drawRoute)
 			$(document).trigger('loaded')
+		}
+	})
+	$.ajax({
+		url:'www/world/gyms.json',
+		dataType:'json',
+		success:function(gyms){
+			gyms.forEach(function(gym){
+				pokemon.world.gyms.push(new google.maps.Marker({
+					position:{"lat":gym.lat,"lng":gym.lng},
+					map:pokemon.world.map,
+					title: gym.name
+				}))
+			})
 		}
 	})
 	// Load Pokémon Spawn Data
