@@ -52,7 +52,97 @@ pokemon.world = {
 			panControl:false,
 			draggable:false,
 			maxZoom:20,
-			minZoom:1
+			minZoom:1,
+			styles:[
+				{
+				"stylers": [
+					{ "visibility": "off" }
+				]
+				},{
+				"featureType": "road.highway",
+				"elementType": "geometry",
+				"stylers": [
+					{ "visibility": "simplified" },
+					{ "weight": 3 },
+					{ "hue": "#ff6e00" },
+					{ "saturation": 79 },
+					{ "lightness": -17 }
+				]
+				},{
+				"featureType": "road.arterial",
+				"elementType": "geometry",
+				"stylers": [
+					{ "visibility": "simplified" },
+					{ "weight": 2 }
+				]
+				},{
+				"featureType": "road.local",
+				"elementType": "geometry",
+				"stylers": [
+					{ "visibility": "simplified" },
+					{ "weight": 1 }
+				]
+				},{
+				"featureType": "road.highway.controlled_access",
+				"elementType": "geometry",
+				"stylers": [
+					{ "weight": 4 },
+					{ "hue": "#ff0000" }
+				]
+				},{
+				"featureType": "poi.park",
+				"elementType": "geometry",
+				"stylers": [
+					{ "visibility": "on" },
+					{ "hue": "#1aff00" },
+					{ "saturation": -42 },
+					{ "lightness": -46 }
+				]
+				},{
+				"featureType": "poi.medical",
+				"elementType": "geometry",
+				"stylers": [
+					{ "visibility": "simplified" }
+				]
+				},{
+				"featureType": "transit.line",
+				"elementType": "geometry",
+				"stylers": [
+					{ "visibility": "simplified" },
+					{ "hue": "#ff0900" },
+					{ "saturation": 100 },
+					{ "weight": 1.5 },
+					{ "lightness": -16 }
+				]
+				},{
+				"featureType": "water",
+				"elementType": "geometry",
+				"stylers": [
+					{ "visibility": "simplified" }
+				]
+				},{
+				"featureType": "landscape.natural",
+				"elementType": "geometry",
+				"stylers": [
+					{ "visibility": "on" },
+					{ "hue": "#11ff00" },
+					{ "saturation": 28 },
+					{ "lightness": -17 }
+				]
+				},{
+				"featureType": "transit.station.rail",
+				"elementType": "labels.icon",
+				"stylers": [
+					{ "visibility": "on" }
+				]
+				},{
+				"featureType": "transit.station.bus",
+				"elementType": "labels",
+				"stylers": [
+					{ "visibility": "on" }
+				]
+				}
+			]
 		},
 		terrain:{
 			"standard":{
