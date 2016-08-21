@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>Pokemon Adventure</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<title>Pokémon Adventure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 <link rel="stylesheet" href="css/main.css"/>
+<style>
+body > header > h1,
+body > header > h2 {
+	display: inline-block;
+}
+body > header > h1 + h2 {
+	margin-left: 3rem;
+}
+</style>
 <script>
 // For anything requiring a loaded dependency
 window.onReady = function(cb){
@@ -13,21 +22,220 @@ if(Element.prototype.addEventListener)document.addEventListener('readystatechang
 else if(Element.prototype.attachEvent)document.attachEvent('onreadystatechange',a)
 };
 // Build Basic Game Object
-window.pokémon={defaults:{}}
+window.pokemon={defaults:{}}
 </script>
-<script src="res/phaser.min.js" async></script>
-<script src="res/zepto.min.js" async></script>
-<script src="js/mainmenu.js" async></script>
-<script src="js/load.js" async></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyBeRM7BDdB6UzJ-z_IJftYP6lMx3e4u5H4&v=3&region=US&libraries=geometry"></script>
+<script src="res/zepto.min.js"></script>
+<script src="res/upgrdr.js"></script>
 <script>
-// Wait for document ready
-window.onReady(function() {
-	pokémon.phaser = new Phaser.Game(800, 520, Phaser.CANVAS, 'map')
-	pokémon.phaser.state.add('Boot', pokémon.Boot)
-	pokémon.phaser.state.add('Load', pokémon.Load)
-	pokémon.phaser.state.add('MainMenu', pokémon.MainMenu)
-	pokémon.phaser.state.start('Boot')
-})
+window.$ = Zepto;
+pokemon.world = {
+	geocoder:{},
+	infoWindows:[],
+	map:{},
+	routes:[],
+	centers:[],
+	gyms:[],
+	options:{
+		map:{
+			zoom: 18,
+			mapTypeId:'terrain',
+			disableDoubleClickZoom:false,
+			fullscreenControl:false,
+			keyboardShortcuts:false,
+			disableDefaultUI:true,
+			mapTypeControl:false,
+			rotateControl:true,
+			scaleControl:false,
+			scrollWheel:false,
+			zoomControl:false,
+			panControl:false,
+			draggable:false,
+			maxZoom:20,
+			minZoom:1
+		},
+		terrain:{
+			"standard":{
+				strokeOpacity:0.8,
+				strokeWeight:2,
+				fillOpacity:0.35
+			},
+			"city":{
+				strokeColor:'#888888',
+				fillColor:'#888888'
+			},
+			"creek":{
+				strokeColor:'#008800',
+				fillColor:'#008800'
+			},
+			"grass":{
+				strokeColor:'#008800',
+				fillColor:'#008800'
+			},
+			"forest":{
+				strokeColor:'#008800',
+				fillColor:'#008800'
+			},
+			"cave":{
+				strokeColor:'brown',
+				fillColor:'#brown'
+			},
+			"mountain":{
+				strokeColor:'brown',
+				fillColor:'#brown'
+			},
+		}
+	},
+	clusterer:{}
+}
+pokemon.world.drawRoute = function(route){
+	var side1 = [],
+		side2 = [],
+		cir = [45,90,135],
+		lastHeading = null,
+		points = route.getPath ? route.getPath().getArray() : (route.points || route.getArray()),
+		path = new google.maps.Polyline(Zepto.extend({},
+			pokemon.world.options.terrain.standard,
+			pokemon.world.options.terrain[route.terrain],
+			{
+				path:points,
+				geodesic:true,
+				map:null
+			}
+		))
+	points.forEach(function(p, i){
+		var pLat = typeof p.lat === 'function' ? p.lat() : p.lat,
+			pLng = typeof p.lng === 'function' ? p.lng() : p.lng,
+			thisPoint = new google.maps.LatLng(pLat, pLng),
+			nlat, nlng,
+			nextPoint,
+			prevPoint,
+			heading = [],
+			offsetHeading,
+			pgon
+		// Find Headings for Offsets
+		if (i < points.length - 1) {
+			nLat = typeof points[i+1].lat === 'function' ? points[i+1].lat() : points[i+1].lat
+			nLng = typeof points[i+1].lng === 'function' ? points[i+1].lng() : points[i+1].lng
+			nextPoint = new google.maps.LatLng(nLat, nLng)
+			heading.push(google.maps.geometry.spherical.computeHeading(thisPoint, nextPoint))
+		}
+		if (i > 0) {
+			nLat = typeof points[i-1].lat === 'function' ? points[i-1].lat() : points[i-1].lat
+			nLng = typeof points[i-1].lng === 'function' ? points[i-1].lng() : points[i-1].lng
+			prevPoint = new google.maps.LatLng(nLat, nLng)
+			heading.push(google.maps.geometry.spherical.computeHeading(thisPoint, prevPoint))
+		}
+		if (typeof p.offsetHeading !== 'undefined' && p.offsetHeading != null) offsetHeading = p.offsetHeading
+		else if (typeof route.offsetHeading !== 'undefined' && route.offsetHeading != null) offsetHeading = route.offsetHeading
+		else if (heading.length == 1) {
+			offsetHeading = heading[0] + 90
+		} else if (heading.length == 2) {
+			offsetHeading = (heading[0] + heading[1]) / 2
+		}
+		while (offsetHeading < lastHeading - 90) offsetHeading += 180
+		while (offsetHeading > lastHeading + 90) offsetHeading -= 180
+		// Add Offset Points
+		var radius = p.r || route.r || 100
+		side1.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading))
+		side2.unshift(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading + 180))
+		if (i == 0) {
+			cir = [135,90,45]
+			if (heading[0] < 0 || heading[0] > 180) {
+				cir.reverse()
+			}
+			cir.forEach(function(a){
+				if (heading[0] > 180 || heading[0] < 0) a += 180
+				side2.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading - a))
+			})
+		} else if (i == points.length - 1) {
+			if (offsetHeading < -90 || (offsetHeading < 0 && lastHeading < 0)) {
+				cir.reverse()
+			}
+			cir.forEach(function(a){
+				if (offsetHeading > 0) {
+					a *= -1
+				}
+				side1.push(google.maps.geometry.spherical.computeOffset(thisPoint, radius, offsetHeading + a))
+			})
+		}
+		lastHeading = offsetHeading
+	})
+	// Construct Polygon
+	pgon = side1.concat(side2)
+	pokemon.world.routes.push(new google.maps.Polygon(Zepto.extend({},
+		pokemon.world.options.terrain.standard,
+		pokemon.world.options.terrain[route.terrain],
+		{
+			strokeOpacity:0.5,
+			strokeWeight:1,
+			fillOpacity:0.2,
+			path:pgon
+		}
+	)))
+}
+
+$(document).on('ready', function(){
+	if (!document.getElementById("map")) return false;
+	pokemon.world.geocoder = new google.maps.Geocoder();
+	$.extend(pokemon.world.options.map, {
+		center: new google.maps.LatLng(35.410694, -80.84285),
+		mapTypeId: google.maps.MapTypeId.TERRAIN,
+	});
+	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options.map)
+	pokemon.world.options.terrain.standard.map = pokemon.world.map
+//	pokemon.world.bikeLayer = new google.maps.BicyclingLayer()
+//	pokemon.world.bikeLayer.setMap(pokemon.world.map)
+	$.ajax({
+		url:'world/us.json',
+		dataType:'json',
+		success:function(data){
+			pokemon.json = pokemon.json||{}
+			pokemon.json['us'] = data
+			data.centers.forEach(function(center) {
+				pokemon.world.centers.push(new google.maps.Circle(Zepto.extend({},
+					pokemon.world.options.terrain.standard,
+					pokemon.world.options.terrain[center.terrain],
+					{
+						center:{"lat":center.lat,"lng":center.lng},
+						radius:center.r || 1000
+					}
+				)))
+				pokemon.world.map.setCenter({"lat":center.lat,"lng":center.lng})
+			})
+			data.routes.forEach(pokemon.world.drawRoute)
+			$(document).trigger('loaded')
+		}
+	})
+	$.ajax({
+		url:'world/gyms.json',
+		dataType:'json',
+		success:function(gyms){
+			gyms.forEach(function(gym){
+				pokemon.world.gyms.push(new google.maps.Marker({
+					position:{"lat":gym.lat,"lng":gym.lng},
+					map:pokemon.world.map,
+					title: gym.name,
+					label:'G'
+				}))
+			})
+		}
+	})
+	// Load Pokémon Spawn Data
+	$.ajax({
+		url:'world/spawn.json',
+		dataType:'json',
+		success:function(data){
+			pokemon.json = pokemon.json||{}
+			pokemon.json['spawn'] = data
+			for (var i in data) {
+			}
+			$(document).trigger('loaded')
+		}
+	})
+	$(document).on('loaded', function(e){
+	})
+});
 </script>
 </head>
 <body>
@@ -35,6 +243,9 @@ window.onReady(function() {
 	<h1>Pokémon Adventure</h1>
 </header>
 <main>
+<div id="board">
+	<div id="map"></div>
+</div>
 </main>
 </body>
 </html>

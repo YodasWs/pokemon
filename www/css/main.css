@@ -1,7 +1,39 @@
 * { box-sizing: border-box; }
-:root { font-size: 12pt; }
+:root { font-size: 12pt; height: 100%; }
 html,
-body {
+body,
+h1 {
 	padding: 0;
 	margin: 0;
+}
+
+body {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	perspective: 10in;
+}
+#board {
+	--diameter: 250vh;
+	position: absolute;
+	overflow: hidden;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	top: 0;
+}
+.gm-style > div {
+	border-radius: 50%;
+}
+#map {
+	border-radius: 50%;
+	height: var(--diameter);
+	width: var(--diameter);
+	position: absolute;
+	overflow: hidden;
+	right: calc( 50vw - var(--diameter) / 2);
+	left: calc( 50vw - var(--diameter) / 2);
+	transform: rotateX(45deg) translateZ(calc(var(--diameter) / 4.5)) translateY(calc( 0px - var(--diameter) / 40 ));
+	transform-origin: center center;
+	background-color: transparent !important;
 }
