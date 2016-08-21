@@ -63,10 +63,7 @@ pokemon.world = {
 				"elementType": "geometry",
 				"stylers": [
 					{ "visibility": "simplified" },
-					{ "weight": 3 },
-					{ "hue": "#ff6e00" },
-					{ "saturation": 79 },
-					{ "lightness": -17 }
+					{ "weight": 3 }
 				]
 				},{
 				"featureType": "road.arterial",
@@ -86,17 +83,16 @@ pokemon.world = {
 				"featureType": "road.highway.controlled_access",
 				"elementType": "geometry",
 				"stylers": [
-					{ "weight": 4 },
-					{ "hue": "#ff0000" }
+					{ "hue": "#ff0900" },
+					{ "saturation": 100 },
+					{ "lightness": -14 }
 				]
 				},{
 				"featureType": "poi.park",
 				"elementType": "geometry",
 				"stylers": [
 					{ "visibility": "on" },
-					{ "hue": "#1aff00" },
-					{ "saturation": -42 },
-					{ "lightness": -46 }
+					{ "hue": "#1aff00" }
 				]
 				},{
 				"featureType": "poi.medical",
@@ -124,10 +120,7 @@ pokemon.world = {
 				"featureType": "landscape.natural",
 				"elementType": "geometry",
 				"stylers": [
-					{ "visibility": "on" },
-					{ "hue": "#11ff00" },
-					{ "saturation": 28 },
-					{ "lightness": -17 }
+					{ "visibility": "on" }
 				]
 				},{
 				"featureType": "transit.station.rail",
@@ -137,7 +130,7 @@ pokemon.world = {
 				]
 				},{
 				"featureType": "transit.station.bus",
-				"elementType": "labels",
+				"elementType": "labels.icon",
 				"stylers": [
 					{ "visibility": "on" }
 				]
@@ -274,8 +267,8 @@ $(document).on('ready', function(){
 	});
 	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options.map)
 	pokemon.world.options.terrain.standard.map = pokemon.world.map
-//	pokemon.world.bikeLayer = new google.maps.BicyclingLayer()
-//	pokemon.world.bikeLayer.setMap(pokemon.world.map)
+	pokemon.world.bikeLayer = new google.maps.BicyclingLayer()
+	pokemon.world.bikeLayer.setMap(pokemon.world.map)
 	$.ajax({
 		url:'world/us.json',
 		dataType:'json',
