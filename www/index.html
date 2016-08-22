@@ -51,8 +51,8 @@ pokemon.world = {
 			zoomControl:false,
 			panControl:false,
 			draggable:false,
-			maxZoom:20,
-			minZoom:1,
+			maxZoom:18,
+			minZoom:18,
 			styles:[
 				{
 				"stylers": [
@@ -63,21 +63,21 @@ pokemon.world = {
 				"elementType": "geometry",
 				"stylers": [
 					{ "visibility": "simplified" },
-					{ "weight": 3 }
+					{ "weight": 15 }
 				]
 				},{
 				"featureType": "road.arterial",
 				"elementType": "geometry",
 				"stylers": [
 					{ "visibility": "simplified" },
-					{ "weight": 2 }
+					{ "weight": 10 }
 				]
 				},{
 				"featureType": "road.local",
 				"elementType": "geometry",
 				"stylers": [
 					{ "visibility": "simplified" },
-					{ "weight": 1 }
+					{ "weight": 10 }
 				]
 				},{
 				"featureType": "road.highway.controlled_access",
@@ -85,7 +85,8 @@ pokemon.world = {
 				"stylers": [
 					{ "hue": "#ff0900" },
 					{ "saturation": 100 },
-					{ "lightness": -14 }
+					{ "lightness": -14 },
+					{ "weight": 20 }
 				]
 				},{
 				"featureType": "poi.park",
@@ -107,7 +108,7 @@ pokemon.world = {
 					{ "visibility": "simplified" },
 					{ "hue": "#ff0900" },
 					{ "saturation": 100 },
-					{ "weight": 1.5 },
+					{ "weight": 20 },
 					{ "lightness": -16 }
 				]
 				},{
@@ -328,6 +329,7 @@ $(document).on('ready', function(){
 <main>
 <div id="board">
 	<div id="map"></div>
+	<div id="player"></div>
 </div>
 </main>
 </body>

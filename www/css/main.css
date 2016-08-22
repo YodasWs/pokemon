@@ -33,7 +33,18 @@ body {
 	overflow: hidden;
 	right: calc( 50vw - var(--diameter) / 2);
 	left: calc( 50vw - var(--diameter) / 2);
-	transform: rotateX(45deg) translateZ(calc(var(--diameter) / 4.5)) translateY(calc( 0px - var(--diameter) / 40 ));
+	transform: rotateX(60deg) translateZ(calc(var(--diameter) / 3)) translateY(calc( 0px - var(--diameter) / 40 ));
 	transform-origin: center center;
 	background-color: transparent !important;
+}
+
+#player {
+	position: absolute;
+	height: 22px;
+	width: 16px;
+	background-image: url('../img/SapphireMay.png');
+	background-position: -126px -5px;
+	right: calc(50% - 8px);
+	left: calc(50% - 8px);
+	bottom: 10vh;
 }
