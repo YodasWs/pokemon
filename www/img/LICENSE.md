@@ -51,6 +51,14 @@ From The Spriters Resource users [Mystery_Dungeon](http://www.spriters-resource.
 * [Mew](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5260/)
 * [Mewtwo](http://www.spriters-resource.com/game_boy_advance/pokemonmysterydungeonredrescueteam/sheet/5259/)
 
+### Pokémon Ruby and Sapphire
+
+From The Spriters Resource users [LF](http://www.spriters-resource.com/submitter/LF/),
+[wormintheworks](http://www.spriters-resource.com/submitter/wormintheworks/),
+[Polar Koala](http://www.spriters-resource.com/submitter/Polar+Koala/)
+
+* [Heroine](http://www.spriters-resource.com/game_boy_advance/pokemonrubysapphire/sheet/8141/)
+
 ## Image Transform
 
 Thanks to [Online Image Editor](http://www.online-image-editor.com/) for so easily and freely removing color backgrounds from these sprite sheets!
