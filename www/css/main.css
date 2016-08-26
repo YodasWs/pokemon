@@ -89,3 +89,43 @@ body {
 	background-position: calc( -3 * var(--width)) 0px;
 	transform: translateZ(calc(var(--width) / 4));
 }
+
+#battle {
+	visibility: hidden;
+	background: white;
+	opacity: 0;
+	position: fixed;
+	z-index: -1;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	top: 0;
+}
+#battle.show {
+	visibility: visible;
+	opacity: 1;
+	z-index: 1;
+	transition: opacity 500ms;
+}
+#battle .pokemon-img {
+	opacity: 0;
+	--bg-size: 2;
+	position: absolute;
+	right: 10vw;
+	top: 10vh;
+	height: 60px;
+	width: 80px;
+}
+#battle.show .pokemon-img {
+	opacity: 1;
+	transition: opacity 2s 500ms;
+}
+
+#battle .pokemon-img.oras {
+	background-image: url('../img/PokemonORAS.png');
+	background-size: calc( var(--bg-size) * 1600%);
+}
+#battle .pokemon-img.oras.pkmn-25 {
+	background-position: calc( var(--bg-size) * -40px) calc( var(--bg-size) * -0px);
+	background-position: calc(-41px * var(--bg-size)) calc(-32px * var(--bg-size));
+}
