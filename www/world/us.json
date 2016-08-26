@@ -20,6 +20,7 @@
 	},
 	{
 		"name":"Huntersville, NC",
+		"terrain":"city",
 		"lng":-80.8428500,
 		"lat":35.4106940,
 		"r":2000,
