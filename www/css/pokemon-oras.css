@@ -80,20 +80,68 @@
 	background-position: calc(-1160px * var(--bg-size)) 0px;
 }
 .pokemon-img.oras.pkmn-25 {
-	background-position: calc(-40px * var(--bg-size)) calc(-32px * var(--bg-size));
+	background-position: calc(-40px * var(--bg-size)) calc(-30px * var(--bg-size));
 }
 .pokemon-img.oras.pkmn-26 {
-	background-position: calc(-280px * var(--bg-size)) calc(-32px * var(--bg-size));
+	background-position: calc(-280px * var(--bg-size)) calc(-30px * var(--bg-size));
 }
 .pokemon-img.oras.pkmn-27 {
-	background-position: calc(-320px * var(--bg-size)) calc(-32px * var(--bg-size));
+	background-position: calc(-320px * var(--bg-size)) calc(-30px * var(--bg-size));
 }
 .pokemon-img.oras.pkmn-28 {
-	background-position: calc(-360px * var(--bg-size)) calc(-32px * var(--bg-size));
+	background-position: calc(-360px * var(--bg-size)) calc(-30px * var(--bg-size));
 }
 .pokemon-img.oras.pkmn-29 {
-	background-position: calc(-400px * var(--bg-size)) calc(-32px * var(--bg-size));
+	background-position: calc(-400px * var(--bg-size)) calc(-30px * var(--bg-size));
 }
 .pokemon-img.oras.pkmn-30 {
-	background-position: calc(-440px * var(--bg-size)) calc(-32px * var(--bg-size));
+	background-position: calc(-440px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-31 {
+	background-position: calc(-480px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-32 {
+	background-position: calc(-520px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-33 {
+	background-position: calc(-560px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-34 {
+	background-position: calc(-600px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-35 {
+	background-position: calc(-680px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-36 {
+	background-position: calc(-720px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-37 {
+	background-position: calc(-800px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-38 {
+	background-position: calc(-840px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-39 {
+	background-position: calc(-880px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-40 {
+	background-position: calc(-960px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-41 {
+	background-position: calc(-1040px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-42 {
+	background-position: calc(-1080px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-43 {
+	background-position: calc(-1120px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-44 {
+	background-position: calc(-1160px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-45 {
+	background-position: calc(-1200px * var(--bg-size)) calc(-30px * var(--bg-size));
+}
+.pokemon-img.oras.pkmn-46 {
+	background-position: calc(-1240px * var(--bg-size)) calc(-30px * var(--bg-size));
 }
