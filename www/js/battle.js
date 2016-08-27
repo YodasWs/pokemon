@@ -3,23 +3,35 @@ pokemon.battle = {
 		console.log('Starting battle')
 		var fldBattle = $('#battle')
 
+console.log(pokemon.battle.foe.pokemon)
 		// Add Foe's Pokémon to Field
 		;['player','foe'].forEach(function(t){
 			(t == 'foe' ?  pokemon.battle[t] : pokemon[t]).pokemon.forEach(function(p){
 				var $img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
+				$img.addClass(pokemon.data.getPokemonImageClass(p.number))
 				fldBattle.find('.trainer.' + t + ' .pokemon').append($img)
 			})
 		})
 
-
-		switch (pokemon.player.generation) {
-		case 5:
-			fldBattle.find('.pokemon-img').addClass('oras')
-			break;
-		}
 		$('#battle').addClass('show')
 	},
 	foe:{}
+}
+
+pokemon.data = pokemon.data || {}
+pokemon.data.getPokemonImageClass = function(intSpecies){
+	if (!intSpecies || !Number.isInteger(intSpecies) || intSpecies <= 0) {
+		throw TypeError("Need a positive integer in pokemon.wildEncounter")
+	}
+	switch (pokemon.player.generation) {
+	case 1:
+		if (intSpecies <= 151) {
+		}
+	case 6:
+		if (intSpecies <= 721) {
+			return 'oras';
+		}
+	}
 }
 
 pokemon.wildEncounter = function(intSpecies) {

@@ -20,7 +20,7 @@ pokemon.Player = function(name, pokemonList){
 		enumerable: true
 	})
 	Object.defineProperty(this, 'generation', {
-		get: function() { return 5 },
+		get: function() { return 6 },
 		enumerable: true
 	})
 }
@@ -76,35 +76,6 @@ pokemon.PokemonList.prototype.push = function() {
 pokemon.player = new pokemon.Player('Sam');
 pokemon.player.level = 1;
 pokemon.player.pokemon.push(
-//	new pokemon.Pokemon(1, 9),
-//	new pokemon.Pokemon(2, 9),
-//	new pokemon.Pokemon(3, 9),
-//	new pokemon.Pokemon(4, 10),
-//	new pokemon.Pokemon(5, 20),
-//	new pokemon.Pokemon(6, 30),
-//	new pokemon.Pokemon(7, 10),
-//	new pokemon.Pokemon(8, 10),
-//	new pokemon.Pokemon(9, 10),
-//	new pokemon.Pokemon(10, 8),
-//	new pokemon.Pokemon(11, 8),
-//	new pokemon.Pokemon(12, 8),
-//	new pokemon.Pokemon(13, 8),
-//	new pokemon.Pokemon(14, 8),
-//	new pokemon.Pokemon(15, 8),
-//	new pokemon.Pokemon(16, 8),
-//	new pokemon.Pokemon(17, 8),
-//	new pokemon.Pokemon(18, 8),
-//	new pokemon.Pokemon(19, 8),
-//	new pokemon.Pokemon(20, 8),
-//	new pokemon.Pokemon(21, 8),
-//	new pokemon.Pokemon(22, 8),
-//	new pokemon.Pokemon(23, 8),
-//	new pokemon.Pokemon(24, 8),
-	new pokemon.Pokemon(25, 8),
-	new pokemon.Pokemon(26, 8),
-	new pokemon.Pokemon(27, 8),
-	new pokemon.Pokemon(28, 8),
-	new pokemon.Pokemon(29, 8),
-	new pokemon.Pokemon(30, 10)
+	new pokemon.Pokemon(4, 10)
 )
 console.log(pokemon.player.pokemon)
