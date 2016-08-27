@@ -2,7 +2,15 @@ pokemon.battle = {
 	start:function(){
 		console.log('Starting battle')
 		var fldBattle = $('#battle')
-		$(fldBattle.find('.pokemon-img').get(0)).addClass('pkmn-' + pokemon.battle.foe.pokemon[0].number)
+
+		// Add Foe's Pokémon to Field
+		;['player','foe'].forEach(function(t){
+			(t == 'foe' ?  pokemon.battle[t] : pokemon[t]).pokemon.forEach(function(p){
+				var $img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
+				fldBattle.find('.trainer.' + t + ' .pokemon').append($img)
+			})
+		})
+
 
 		switch (pokemon.player.generation) {
 		case 5:

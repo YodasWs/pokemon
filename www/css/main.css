@@ -107,25 +107,28 @@ body {
 	z-index: 1;
 	transition: opacity 500ms;
 }
-#battle .pokemon-img {
-	opacity: 0;
-	--bg-size: 2;
+
+#battle .trainer.foe {
 	position: absolute;
 	right: 10vw;
 	top: 10vh;
-	height: 60px;
-	width: 80px;
+}
+#battle .trainer.player {
+	position: absolute;
+	left: 10vw;
+	bottom: 10vh;
+}
+
+#battle .trainer .pokemon {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
+}
+
+#battle .pokemon-img {
+	opacity: 0;
 }
 #battle.show .pokemon-img {
 	opacity: 1;
 	transition: opacity 2s 500ms;
-}
-
-#battle .pokemon-img.oras {
-	background-image: url('../img/PokemonORAS.png');
-	background-size: calc( var(--bg-size) * 1600%);
-}
-#battle .pokemon-img.oras.pkmn-25 {
-	background-position: calc( var(--bg-size) * -40px) calc( var(--bg-size) * -0px);
-	background-position: calc(-41px * var(--bg-size)) calc(-32px * var(--bg-size));
 }
