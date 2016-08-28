@@ -123,12 +123,18 @@ body {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: flex-end;
+	align-items: flex-end;
 }
 
 #battle .pokemon-img {
 	opacity: 0;
+	--size: 2;
 }
 #battle.show .pokemon-img {
 	opacity: 1;
 	transition: opacity 2s 500ms;
+}
+
+#battle .pokemon-img.active {
+	--size: 4;
 }

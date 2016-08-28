@@ -6,16 +6,23 @@ pokemon.battle = {
 console.log(pokemon.battle.foe.pokemon)
 		// Add Foe's Pokémon to Field
 		;['player','foe'].forEach(function(t){
-			(t == 'foe' ?  pokemon.battle[t] : pokemon[t]).pokemon.forEach(function(p){
-				var $img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
-				$img.addClass(pokemon.data.getPokemonImageClass(p.number))
-				fldBattle.find('.trainer.' + t + ' .pokemon').append($img)
+			var trainer = (t == 'foe' ?  pokemon.battle[t] : pokemon[t])
+			trainer.pokemon.forEach(function(p,i){
+				p.img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
+				p.img.addClass(pokemon.data.getPokemonImageClass(p.number))
+				fldBattle.find('.trainer.' + t + ' .pokemon').append(p.img)
+				if (i === 0) pokemon.battle.activatePokemon(trainer, p)
 			})
 		})
-
 		$('#battle').addClass('show')
 	},
-	foe:{}
+	foe:{},
+	activatePokemon:function(trainer, pokemon){
+		trainer.pokemon.forEach(function(p){
+			if (p.img && p.img.removeClass) p.img.removeClass('active')
+		})
+		pokemon.img.addClass('active')
+	}
 }
 
 pokemon.data = pokemon.data || {}
