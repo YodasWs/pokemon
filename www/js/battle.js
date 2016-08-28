@@ -17,18 +17,19 @@ console.log(pokemon.battle.foe.pokemon)
 		$('#battle').addClass('show')
 	},
 	foe:{},
-	activatePokemon:function(trainer, pokemon){
+	activatePokemon:function(trainer, pkmn){
 		trainer.pokemon.forEach(function(p){
 			if (p.img && p.img.removeClass) p.img.removeClass('active')
 		})
-		pokemon.img.addClass('active')
+		if (trainer === pokemon.player) $('.pokemon-name').text(pkmn.name)
+		pkmn.img.addClass('active')
 	}
 }
 
 pokemon.data = pokemon.data || {}
 pokemon.data.getPokemonImageClass = function(intSpecies){
 	if (!intSpecies || !Number.isInteger(intSpecies) || intSpecies <= 0) {
-		throw TypeError("Need a positive integer in pokemon.wildEncounter")
+		throw TypeError("Need a positive integer in pokemon.data.getPokemonImageClass")
 	}
 	switch (pokemon.player.generation) {
 	case 1:
@@ -51,6 +52,7 @@ pokemon.wildEncounter = function(intSpecies) {
 		list.push(new pokemon.Pokemon(intSpecies, intLevel))
 	}
 	pokemon.battle.foe = new pokemon.Trainer(list)
+	$('#battle').addClass('wild')
 	console.log(pokemon.battle.foe)
 	pokemon.battle.start()
 }
