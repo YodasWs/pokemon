@@ -26,6 +26,7 @@ pokemon.Pokemon = function(intSpecies, intLevel){
 }
 
 pokemon.PokemonList = function(){
+	this.length = 0
 }
 pokemon.PokemonList.prototype = Object.create(Array.prototype)
 pokemon.PokemonList.prototype.constructor = pokemon.PokemonList

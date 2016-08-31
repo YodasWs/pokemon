@@ -1,3 +1,4 @@
+/*
 pokemon.Trainer = function(pokemonList){
 	this.pokemon = null
 	if (typeof pokemonList === 'undefined' || pokemonList === null) {
@@ -13,8 +14,14 @@ pokemon.Trainer = function(pokemonList){
 		this.pokemon = pokemonList
 	}
 }
-pokemon.Player = function(name, pokemonList){
-	pokemon.Trainer.call(this, pokemonList)
+/**/
+
+pokemon.Trainer = function(){
+	this.pokemon = new pokemon.PokemonList()
+}
+pokemon.Player = function(name){
+	pokemon.Trainer.call(this)
+	this.level = 1
 	Object.defineProperty(this, 'name', {
 		get: function() { return name },
 		enumerable: true
@@ -26,3 +33,6 @@ pokemon.Player = function(name, pokemonList){
 }
 pokemon.Player.prototype = Object.create(pokemon.Trainer.prototype)
 pokemon.Player.prototype.constructor = pokemon.Player
+
+pokemon.data = pokemon.data || {}
+pokemon.battle = {}
