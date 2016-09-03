@@ -22,6 +22,10 @@
 	right: 10vw;
 	top: 10vh;
 }
+#battle .trainer.foe > .inactive.pokemon {
+	display: none;
+}
+
 #battle .trainer.player {
 	position: absolute;
 	bottom: 10vh;

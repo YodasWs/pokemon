@@ -34,152 +34,27 @@ window.pokemon={defaults:{}}
 <script src="js/pokemon.js" async></script>
 <script src="js/trainer.js" async></script>
 <script src="js/battle.js" async></script>
+<script src="js/map-styles.js"></script>
 <script src="res/zepto.min.js"></script>
 <script src="res/upgrdr.js"></script>
 <script>
 window.$ = Zepto;
-pokemon.world = {
-	geocoder:{},
-	infoWindows:[],
-	map:{},
-	routes:[],
-	centers:[],
-	gyms:[],
-	options:{
-		map:{
-			zoom: 18,
-			mapTypeId:'terrain',
-			disableDoubleClickZoom:true,
-			fullscreenControl:false,
-			keyboardShortcuts:false,
-			disableDefaultUI:true,
-			mapTypeControl:false,
-			rotateControl:true,
-			scaleControl:false,
-			scrollWheel:false,
-			zoomControl:false,
-			panControl:false,
-			draggable:false,
-			maxZoom:18,
-			minZoom:18,
-			styles:[
-				{
-				"stylers": [
-					{ "visibility": "off" }
-				]
-				},{
-				"featureType": "road.highway",
-				"elementType": "geometry",
-				"stylers": [
-					{ "visibility": "simplified" },
-					{ "weight": 15 }
-				]
-				},{
-				"featureType": "road.arterial",
-				"elementType": "geometry",
-				"stylers": [
-					{ "visibility": "simplified" },
-					{ "weight": 10 }
-				]
-				},{
-				"featureType": "road.local",
-				"elementType": "geometry",
-				"stylers": [
-					{ "visibility": "simplified" },
-					{ "weight": 10 }
-				]
-				},{
-				"featureType": "road.highway.controlled_access",
-				"elementType": "geometry",
-				"stylers": [
-					{ "hue": "#ff0900" },
-					{ "saturation": 100 },
-					{ "lightness": -14 },
-					{ "weight": 20 }
-				]
-				},{
-				"featureType": "poi.park",
-				"elementType": "geometry",
-				"stylers": [
-					{ "visibility": "on" },
-					{ "hue": "#1aff00" }
-				]
-				},{
-				"featureType": "poi.medical",
-				"elementType": "geometry",
-				"stylers": [
-					{ "visibility": "simplified" }
-				]
-				},{
-				"featureType": "transit.line",
-				"elementType": "geometry",
-				"stylers": [
-					{ "visibility": "simplified" },
-					{ "hue": "#ff0900" },
-					{ "saturation": 100 },
-					{ "weight": 20 },
-					{ "lightness": -16 }
-				]
-				},{
-				"featureType": "water",
-				"elementType": "geometry",
-				"stylers": [
-					{ "visibility": "simplified" }
-				]
-				},{
-				"featureType": "landscape.natural",
-				"elementType": "geometry",
-				"stylers": [
-					{ "visibility": "on" }
-				]
-				},{
-				"featureType": "transit.station.rail",
-				"elementType": "labels.icon",
-				"stylers": [
-					{ "visibility": "on" }
-				]
-				},{
-				"featureType": "transit.station.bus",
-				"elementType": "labels.icon",
-				"stylers": [
-					{ "visibility": "on" }
-				]
-				}
-			]
-		},
-		terrain:{
-			"standard":{
-				strokeOpacity:0.8,
-				strokeWeight:2,
-				fillOpacity:0.35
-			},
-			"city":{
-				strokeColor:'#888888',
-				fillColor:'#888888'
-			},
-			"creek":{
-				strokeColor:'#008800',
-				fillColor:'#008800'
-			},
-			"grass":{
-				strokeColor:'#008800',
-				fillColor:'#008800'
-			},
-			"forest":{
-				strokeColor:'#008800',
-				fillColor:'#008800'
-			},
-			"cave":{
-				strokeColor:'brown',
-				fillColor:'#brown'
-			},
-			"mountain":{
-				strokeColor:'brown',
-				fillColor:'#brown'
-			},
-		}
-	},
-	clusterer:{}
+pokemon.world.options.map = {
+	zoom: 18,
+	mapTypeId:'terrain',
+	disableDoubleClickZoom:true,
+	fullscreenControl:false,
+	keyboardShortcuts:false,
+	disableDefaultUI:true,
+	mapTypeControl:false,
+	rotateControl:true,
+	scaleControl:false,
+	scrollWheel:false,
+	zoomControl:false,
+	panControl:false,
+	draggable:false,
+	maxZoom:18,
+	minZoom:18
 }
 pokemon.world.drawRoute = function(route){
 	var side1 = [],
@@ -274,6 +149,7 @@ $(document).on('ready', function(){
 	$.extend(pokemon.world.options.map, {
 		center: new google.maps.LatLng(35.410694, -80.84285),
 		mapTypeId: google.maps.MapTypeId.TERRAIN,
+		styles:window.mapStyles,
 	});
 	pokemon.world.map = new google.maps.Map(document.getElementById("map"), pokemon.world.options.map)
 	pokemon.world.options.terrain.standard.map = pokemon.world.map
