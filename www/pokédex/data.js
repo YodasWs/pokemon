@@ -1,3 +1,10 @@
+Zepto.fn.delayShow = function(classname) {
+	this.show()
+	setTimeout(function(self) {
+		self.addClass(classname)
+	}, 10, this)
+	return this
+}
 pokemon.data = pokemon.data || {}
 pokemon.data.getPokemonImageClass = function(intSpecies){
 	if (!intSpecies || !Number.isInteger(intSpecies) || intSpecies <= 0) {

@@ -1,5 +1,9 @@
 * { box-sizing: border-box; }
-:root { font-size: 12pt; height: 100%; }
+:root {
+	font-family: 'Trebuchet MS', 'Open Sans', sans-serif;
+	font-size: 12pt;
+	height: 100%;
+}
 html,
 body,
 h1 {
@@ -15,7 +19,7 @@ body {
 }
 #board {
 	transform-style: preserve-3d;
-	--diameter: 350vh;
+	--diameter: 400vh;
 	--bottom: 20vh;
 	position: absolute;
 	overflow: hidden;

@@ -361,18 +361,26 @@ window.onReady(function(){
 </div>
 <div id="battle">
 	<div class="trainer foe">
-		<div class="pokemon"></div>
+		<div class="inactive pokemon"></div>
+		<div class="active pokemon"></div>
 	</div>
 	<div class="trainer player">
-		<div class="pokemon"></div>
+		<div class="active pokemon"></div>
 		<div class="menu">What will <span class="pokemon-name"></span> do?
 			<ul>
-				<li><a data-action="fight">Fight</a>
-					<ul class="moves"></ul>
+				<li><button data-action="fight">Fight</button>
+					<ul class="moves">
+						<li><button data-action="">Tackle</button></li>
+						<li><button data-action="">Bite</button></li>
+						<li><button data-action="">Ember</button></li>
+						<li><button data-action="">Sand-Attack</button></li>
+					</ul>
 				</li>
-				<li data-action="bag">Check Bag</li>
-				<li data-action="pkmn">Switch Pokémon</li>
-				<li data-action="run">Run</li>
+				<li><button data-action="bag">Check Bag</button></li>
+				<li><button data-action="pkmn">Switch Pokémon</button>
+					<div class="inactive pokemon"></div>
+				</li>
+				<li><button data-action="run">Run</button></li>
 			</ul>
 		</div>
 	</div>

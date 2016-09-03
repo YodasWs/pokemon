@@ -33,6 +33,3 @@ pokemon.Player = function(name){
 }
 pokemon.Player.prototype = Object.create(pokemon.Trainer.prototype)
 pokemon.Player.prototype.constructor = pokemon.Player
-
-pokemon.data = pokemon.data || {}
-pokemon.battle = {}

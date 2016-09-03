@@ -24,21 +24,47 @@ pokemon.Battle.prototype.start = function(){
 			p.battleStats = new pokemon.BattleStats()
 			p.img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
 			p.img.addClass(pokemon.data.getPokemonImageClass(p.number))
-			fldBattle.find('.trainer.' + t + ' .pokemon').append(p.img)
-			if (i === 0) pokemon.battle.activatePokemon(t, p)
+			fldBattle.find('.trainer.' + t + ' .inactive.pokemon').append(p.img)
 		})
+	})
+
+	$('[data-action="pkmn"], [data-action="fight"]').off('click').on('click', function() {
+		$(this).parents('li').siblings().find('[data-action].active').removeClass('active')
+		$(this).toggleClass('active')
 	})
 
 	// Start
 	fldBattle.addClass('show')
+	setTimeout(function() {
+		// Activate Pokémon
+		;['player','foe'].forEach(function(t){
+			pokemon.battle.activatePokemon(t, pokemon.battle[t].pokemon[0])
+		})
+		setTimeout(function() {
+			// Start Round
+			pokemon.battle.startRound()
+		}, 1000)
+	}, 500)
+}
+pokemon.Battle.prototype.startRound = function(){
+	pokemon.battle.activePokemon.foe.forEach(function(){
+		// TODO: Select foe's action
+	})
+	pokemon.battle.readyPkmn(0)
+}
+pokemon.Battle.prototype.readyPkmn = function(pkmn){
+	pkmn = pokemon.battle.activePokemon.player[pkmn]
+	$('.pokemon-img.ready').removeClass('ready')
+	$('.pokemon-name').text(pkmn.name)
+	pkmn.img.addClass('ready')
+	$('#battle').find('.menu').delayShow('show')
 }
 pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn){
-	pokemon.battle.activePokemon[trainer] = pkmn
+	pokemon.battle.activePokemon[trainer] = [pkmn]
 	pokemon.battle[trainer].pokemon.forEach(function(p){
 		if (p.img && p.img.removeClass) p.img.removeClass('active')
 	})
-	if (trainer == 'player') $('.pokemon-name').text(pkmn.name)
-	pkmn.img.addClass('active')
+	pkmn.img.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
 }
 
 pokemon.wildEncounter = function(intSpecies) {
@@ -63,3 +89,4 @@ pokemon.wildEncounter = function(intSpecies) {
 
 	pokemon.battle.start()
 }
+pokemon.battle = {}
