@@ -20,3 +20,12 @@ pokemon.data.getPokemonImageClass = function(intSpecies){
 		}
 	}
 }
+Math.randInt = function(min, max) {
+	if (!arguments || arguments.length === 0)
+		return Math.floor(Math.random() * 10)
+	else if (arguments.length === 1)
+		return Math.floor(Math.random() * arguments[0])
+	else if (arguments.length >= 2)
+		return Math.floor(Math.random() * (arguments[1] - arguments[0]) + arguments[0])
+}
+pokemon.data.statKeys = [ 'hp', 'atk', 'def', 'spatk', 'spdef', 'spd' ];

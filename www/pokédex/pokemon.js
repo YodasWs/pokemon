@@ -1,7 +1,6 @@
 pokemon.data = pokemon.data || {}
 pokemon.data.pokemon = {
 	1:{
-		num:1,
 		species:"Bulbasaur",
 		types:["Grass","Poison"],
 		genderRatio:{M:0.875,F:0.125},
@@ -14,7 +13,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	2:{
-		num:2,
 		species:"Ivysaur",
 		types:["Grass","Poison"],
 		genderRatio:{M:0.875,F:0.125},
@@ -25,11 +23,9 @@ pokemon.data.pokemon = {
 		color:"Green",
 		prevo:1,
 		evos:[{num:3,trigger:"level",when:32}],
-		evoLevel:16,
 		eggGroups:["Monster","Grass"],
 	},
 	3:{
-		num:3,
 		species:"Venusaur",
 		types:["Grass","Poison"],
 		genderRatio:{M:0.875,F:0.125},
@@ -39,12 +35,10 @@ pokemon.data.pokemon = {
 		weightkg:100,
 		color:"Green",
 		prevo:2,
-		evoLevel:32,
 		eggGroups:["Monster","Grass"],
 		otherFormes:["venusaurmega"],
 	},
 	"Mega-3":{
-		num:3,
 		species:"Venusaur-Mega",
 		baseSpecies:"Venusaur",
 		forme:"Mega",
@@ -59,7 +53,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	4:{
-		num:4,
 		species:"Charmander",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -72,7 +65,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	5:{
-		num:5,
 		species:"Charmeleon",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -87,7 +79,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	6:{
-		num:6,
 		species:"Charizard",
 		types:["Fire","Flying"],
 		genderRatio:{M:0.875,F:0.125},
@@ -102,7 +93,6 @@ pokemon.data.pokemon = {
 		otherFormes:["charizardmegax","charizardmegay"],
 	},
 	"Mega-X-6":{
-		num:6,
 		species:"Charizard-Mega-X",
 		baseSpecies:"Charizard",
 		forme:"Mega-X",
@@ -117,7 +107,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	"Mega-Y-6":{
-		num:6,
 		species:"Charizard-Mega-Y",
 		baseSpecies:"Charizard",
 		forme:"Mega-Y",
@@ -132,7 +121,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	7:{
-		num:7,
 		species:"Squirtle",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -145,7 +133,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	8:{
-		num:8,
 		species:"Wartortle",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -160,7 +147,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	9:{
-		num:9,
 		species:"Blastoise",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -175,7 +161,6 @@ pokemon.data.pokemon = {
 		otherFormes:["blastoisemega"],
 	},
 	"Mega-9":{
-		num:9,
 		species:"Blastoise-Mega",
 		baseSpecies:"Blastoise",
 		forme:"Mega",
@@ -190,7 +175,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	10:{
-		num:10,
 		species:"Caterpie",
 		types:["Bug"],
 		baseStats:{hp:45,atk:30,def:35,spatk:20,spdef:20,spd:45},
@@ -202,7 +186,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	11:{
-		num:11,
 		species:"Metapod",
 		types:["Bug"],
 		baseStats:{hp:50,atk:20,def:55,spatk:25,spdef:25,spd:30},
@@ -216,7 +199,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	12:{
-		num:12,
 		species:"Butterfree",
 		types:["Bug","Flying"],
 		baseStats:{hp:60,atk:45,def:50,spatk:90,spdef:80,spd:70},
@@ -229,7 +211,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	13:{
-		num:13,
 		species:"Weedle",
 		types:["Bug","Poison"],
 		baseStats:{hp:40,atk:35,def:30,spatk:20,spdef:20,spd:50},
@@ -241,7 +222,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	14:{
-		num:14,
 		species:"Kakuna",
 		types:["Bug","Poison"],
 		baseStats:{hp:45,atk:25,def:50,spatk:25,spdef:25,spd:35},
@@ -255,7 +235,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	15:{
-		num:15,
 		species:"Beedrill",
 		types:["Bug","Poison"],
 		baseStats:{hp:65,atk:90,def:40,spatk:45,spdef:80,spd:75},
@@ -269,7 +248,6 @@ pokemon.data.pokemon = {
 		otherFormes:["beedrillmega"],
 	},
 	"Mega-15":{
-		num:15,
 		species:"Beedrill-Mega",
 		baseSpecies:"Beedrill",
 		forme:"Mega",
@@ -283,7 +261,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	16:{
-		num:16,
 		species:"Pidgey",
 		types:["Normal","Flying"],
 		baseStats:{hp:40,atk:45,def:40,spatk:35,spdef:35,spd:56},
@@ -295,7 +272,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	17:{
-		num:17,
 		species:"Pidgeotto",
 		types:["Normal","Flying"],
 		baseStats:{hp:63,atk:60,def:55,spatk:50,spdef:50,spd:71},
@@ -309,7 +285,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	18:{
-		num:18,
 		species:"Pidgeot",
 		types:["Normal","Flying"],
 		baseStats:{hp:83,atk:80,def:75,spatk:70,spdef:70,spd:101},
@@ -323,7 +298,6 @@ pokemon.data.pokemon = {
 		otherFormes:["pidgeotmega"],
 	},
 	"Mega-18":{
-		num:18,
 		species:"Pidgeot-Mega",
 		baseSpecies:"Pidgeot",
 		forme:"Mega",
@@ -337,7 +311,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	19:{
-		num:19,
 		species:"Rattata",
 		types:["Normal"],
 		baseStats:{hp:30,atk:56,def:35,spatk:25,spdef:35,spd:72},
@@ -349,7 +322,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	20:{
-		num:20,
 		species:"Raticate",
 		types:["Normal"],
 		baseStats:{hp:55,atk:81,def:60,spatk:50,spdef:70,spd:97},
@@ -362,7 +334,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	21:{
-		num:21,
 		species:"Spearow",
 		types:["Normal","Flying"],
 		baseStats:{hp:40,atk:60,def:30,spatk:31,spdef:31,spd:70},
@@ -374,7 +345,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	22:{
-		num:22,
 		species:"Fearow",
 		types:["Normal","Flying"],
 		baseStats:{hp:65,atk:90,def:65,spatk:61,spdef:61,spd:100},
@@ -387,7 +357,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	23:{
-		num:23,
 		species:"Ekans",
 		types:["Poison"],
 		baseStats:{hp:35,atk:60,def:44,spatk:40,spdef:54,spd:55},
@@ -399,7 +368,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Dragon"],
 	},
 	24:{
-		num:24,
 		species:"Arbok",
 		types:["Poison"],
 		baseStats:{hp:60,atk:85,def:69,spatk:65,spdef:79,spd:80},
@@ -411,7 +379,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Dragon"],
 	},
 	25:{
-		num:25,
 		species:"Pikachu",
 		types:["Electric"],
 		baseStats:{hp:35,atk:55,def:40,spatk:50,spdef:50,spd:90},
@@ -425,7 +392,6 @@ pokemon.data.pokemon = {
 		otherFormes:["pikachucosplay","pikachurockstar","pikachubelle","pikachupopstar","pikachuphd","pikachulibre"],
 	},
 	"Cosplay-25":{
-		num:25,
 		species:"Pikachu-Cosplay",
 		baseSpecies:"Pikachu",
 		forme:"Cosplay",
@@ -440,7 +406,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Rock-Star-25":{
-		num:25,
 		species:"Pikachu-Rock-Star",
 		baseSpecies:"Pikachu",
 		forme:"Rock-Star",
@@ -455,7 +420,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Belle-25":{
-		num:25,
 		species:"Pikachu-Belle",
 		baseSpecies:"Pikachu",
 		forme:"Belle",
@@ -470,7 +434,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Pop-Star-25":{
-		num:25,
 		species:"Pikachu-Pop-Star",
 		baseSpecies:"Pikachu",
 		forme:"Pop-Star",
@@ -485,7 +448,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"PhD-25":{
-		num:25,
 		species:"Pikachu-PhD",
 		baseSpecies:"Pikachu",
 		forme:"PhD",
@@ -500,7 +462,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Libre-25":{
-		num:25,
 		species:"Pikachu-Libre",
 		baseSpecies:"Pikachu",
 		forme:"Libre",
@@ -515,7 +476,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	26:{
-		num:26,
 		species:"Raichu",
 		types:["Electric"],
 		baseStats:{hp:60,atk:90,def:55,spatk:90,spdef:80,spd:110},
@@ -527,7 +487,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Fairy"],
 	},
 	27:{
-		num:27,
 		species:"Sandshrew",
 		types:["Ground"],
 		baseStats:{hp:50,atk:75,def:85,spatk:20,spdef:30,spd:40},
@@ -539,7 +498,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	28:{
-		num:28,
 		species:"Sandslash",
 		types:["Ground"],
 		baseStats:{hp:75,atk:100,def:110,spatk:45,spdef:55,spd:65},
@@ -552,7 +510,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	29:{
-		num:29,
 		species:"Nidoran-F",
 		types:["Poison"],
 		gender:"F",
@@ -565,7 +522,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	30:{
-		num:30,
 		species:"Nidorina",
 		types:["Poison"],
 		gender:"F",
@@ -580,7 +536,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	31:{
-		num:31,
 		species:"Nidoqueen",
 		types:["Poison","Ground"],
 		gender:"F",
@@ -594,7 +549,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	32:{
-		num:32,
 		species:"Nidoran-M",
 		types:["Poison"],
 		gender:"M",
@@ -607,7 +561,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	33:{
-		num:33,
 		species:"Nidorino",
 		types:["Poison"],
 		gender:"M",
@@ -622,7 +575,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	34:{
-		num:34,
 		species:"Nidoking",
 		types:["Poison","Ground"],
 		gender:"M",
@@ -636,7 +588,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	35:{
-		num:35,
 		species:"Clefairy",
 		types:["Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -650,7 +601,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	36:{
-		num:36,
 		species:"Clefable",
 		types:["Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -663,7 +613,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	37:{
-		num:37,
 		species:"Vulpix",
 		types:["Fire"],
 		genderRatio:{M:0.25,F:0.75},
@@ -676,7 +625,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	38:{
-		num:38,
 		species:"Ninetales",
 		types:["Fire"],
 		genderRatio:{M:0.25,F:0.75},
@@ -689,7 +637,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	39:{
-		num:39,
 		species:"Jigglypuff",
 		types:["Normal","Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -703,7 +650,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	40:{
-		num:40,
 		species:"Wigglytuff",
 		types:["Normal","Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -716,7 +662,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	41:{
-		num:41,
 		species:"Zubat",
 		types:["Poison","Flying"],
 		baseStats:{hp:40,atk:45,def:35,spatk:30,spdef:40,spd:55},
@@ -728,7 +673,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	42:{
-		num:42,
 		species:"Golbat",
 		types:["Poison","Flying"],
 		baseStats:{hp:75,atk:80,def:70,spatk:65,spdef:75,spd:90},
@@ -742,7 +686,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	43:{
-		num:43,
 		species:"Oddish",
 		types:["Grass","Poison"],
 		baseStats:{hp:45,atk:50,def:55,spatk:75,spdef:65,spd:30},
@@ -754,7 +697,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	44:{
-		num:44,
 		species:"Gloom",
 		types:["Grass","Poison"],
 		baseStats:{hp:60,atk:65,def:70,spatk:85,spdef:75,spd:40},
@@ -768,7 +710,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	45:{
-		num:45,
 		species:"Vileplume",
 		types:["Grass","Poison"],
 		baseStats:{hp:75,atk:80,def:85,spatk:110,spdef:90,spd:50},
@@ -781,7 +722,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	46:{
-		num:46,
 		species:"Paras",
 		types:["Bug","Grass"],
 		baseStats:{hp:35,atk:70,def:55,spatk:45,spdef:55,spd:25},
@@ -793,7 +733,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug","Grass"],
 	},
 	47:{
-		num:47,
 		species:"Parasect",
 		types:["Bug","Grass"],
 		baseStats:{hp:60,atk:95,def:80,spatk:60,spdef:80,spd:30},
@@ -806,7 +745,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug","Grass"],
 	},
 	48:{
-		num:48,
 		species:"Venonat",
 		types:["Bug","Poison"],
 		baseStats:{hp:60,atk:55,def:50,spatk:40,spdef:55,spd:45},
@@ -818,7 +756,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	49:{
-		num:49,
 		species:"Venomoth",
 		types:["Bug","Poison"],
 		baseStats:{hp:70,atk:65,def:60,spatk:90,spdef:75,spd:90},
@@ -831,7 +768,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	50:{
-		num:50,
 		species:"Diglett",
 		types:["Ground"],
 		baseStats:{hp:10,atk:55,def:25,spatk:35,spdef:45,spd:95},
@@ -843,7 +779,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	51:{
-		num:51,
 		species:"Dugtrio",
 		types:["Ground"],
 		baseStats:{hp:35,atk:80,def:50,spatk:50,spdef:70,spd:120},
@@ -856,7 +791,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	52:{
-		num:52,
 		species:"Meowth",
 		types:["Normal"],
 		baseStats:{hp:40,atk:45,def:35,spatk:40,spdef:40,spd:90},
@@ -868,7 +802,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	53:{
-		num:53,
 		species:"Persian",
 		types:["Normal"],
 		baseStats:{hp:65,atk:70,def:60,spatk:65,spdef:65,spd:115},
@@ -881,7 +814,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	54:{
-		num:54,
 		species:"Psyduck",
 		types:["Water"],
 		baseStats:{hp:50,atk:52,def:48,spatk:65,spdef:50,spd:55},
@@ -893,7 +825,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	55:{
-		num:55,
 		species:"Golduck",
 		types:["Water"],
 		baseStats:{hp:80,atk:82,def:78,spatk:95,spdef:80,spd:85},
@@ -906,7 +837,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	56:{
-		num:56,
 		species:"Mankey",
 		types:["Fighting"],
 		baseStats:{hp:40,atk:80,def:35,spatk:35,spdef:45,spd:70},
@@ -918,7 +848,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	57:{
-		num:57,
 		species:"Primeape",
 		types:["Fighting"],
 		baseStats:{hp:65,atk:105,def:60,spatk:60,spdef:70,spd:95},
@@ -931,7 +860,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	58:{
-		num:58,
 		species:"Growlithe",
 		types:["Fire"],
 		genderRatio:{M:0.75,F:0.25},
@@ -944,7 +872,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	59:{
-		num:59,
 		species:"Arcanine",
 		types:["Fire"],
 		genderRatio:{M:0.75,F:0.25},
@@ -957,7 +884,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	60:{
-		num:60,
 		species:"Poliwag",
 		types:["Water"],
 		baseStats:{hp:40,atk:50,def:40,spatk:40,spdef:40,spd:90},
@@ -969,7 +895,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	61:{
-		num:61,
 		species:"Poliwhirl",
 		types:["Water"],
 		baseStats:{hp:65,atk:65,def:65,spatk:50,spdef:50,spd:90},
@@ -983,7 +908,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	62:{
-		num:62,
 		species:"Poliwrath",
 		types:["Water","Fighting"],
 		baseStats:{hp:90,atk:95,def:95,spatk:70,spdef:90,spd:70},
@@ -996,7 +920,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	63:{
-		num:63,
 		species:"Abra",
 		types:["Psychic"],
 		genderRatio:{M:0.75,F:0.25},
@@ -1009,7 +932,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	64:{
-		num:64,
 		species:"Kadabra",
 		types:["Psychic"],
 		genderRatio:{M:0.75,F:0.25},
@@ -1024,7 +946,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	65:{
-		num:65,
 		species:"Alakazam",
 		types:["Psychic"],
 		genderRatio:{M:0.75,F:0.25},
@@ -1039,7 +960,6 @@ pokemon.data.pokemon = {
 		otherFormes:["alakazammega"],
 	},
 	"Mega-65":{
-		num:65,
 		species:"Alakazam-Mega",
 		baseSpecies:"Alakazam",
 		forme:"Mega",
@@ -1054,7 +974,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	66:{
-		num:66,
 		species:"Machop",
 		types:["Fighting"],
 		genderRatio:{M:0.75,F:0.25},
@@ -1067,7 +986,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	67:{
-		num:67,
 		species:"Machoke",
 		types:["Fighting"],
 		genderRatio:{M:0.75,F:0.25},
@@ -1082,7 +1000,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	68:{
-		num:68,
 		species:"Machamp",
 		types:["Fighting"],
 		genderRatio:{M:0.75,F:0.25},
@@ -1096,7 +1013,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	69:{
-		num:69,
 		species:"Bellsprout",
 		types:["Grass","Poison"],
 		baseStats:{hp:50,atk:75,def:35,spatk:70,spdef:30,spd:40},
@@ -1108,7 +1024,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	70:{
-		num:70,
 		species:"Weepinbell",
 		types:["Grass","Poison"],
 		baseStats:{hp:65,atk:90,def:50,spatk:85,spdef:45,spd:55},
@@ -1122,7 +1037,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	71:{
-		num:71,
 		species:"Victreebel",
 		types:["Grass","Poison"],
 		baseStats:{hp:80,atk:105,def:65,spatk:100,spdef:70,spd:70},
@@ -1135,7 +1049,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	72:{
-		num:72,
 		species:"Tentacool",
 		types:["Water","Poison"],
 		baseStats:{hp:40,atk:40,def:35,spatk:50,spdef:100,spd:70},
@@ -1147,7 +1060,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	73:{
-		num:73,
 		species:"Tentacruel",
 		types:["Water","Poison"],
 		baseStats:{hp:80,atk:70,def:65,spatk:80,spdef:120,spd:100},
@@ -1160,7 +1072,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	74:{
-		num:74,
 		species:"Geodude",
 		types:["Rock","Ground"],
 		baseStats:{hp:40,atk:80,def:100,spatk:30,spdef:30,spd:20},
@@ -1172,7 +1083,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	75:{
-		num:75,
 		species:"Graveler",
 		types:["Rock","Ground"],
 		baseStats:{hp:55,atk:95,def:115,spatk:45,spdef:45,spd:35},
@@ -1186,7 +1096,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	76:{
-		num:76,
 		species:"Golem",
 		types:["Rock","Ground"],
 		baseStats:{hp:80,atk:120,def:130,spatk:55,spdef:65,spd:45},
@@ -1199,7 +1108,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	77:{
-		num:77,
 		species:"Ponyta",
 		types:["Fire"],
 		baseStats:{hp:50,atk:85,def:55,spatk:65,spdef:65,spd:90},
@@ -1211,7 +1119,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	78:{
-		num:78,
 		species:"Rapidash",
 		types:["Fire"],
 		baseStats:{hp:65,atk:100,def:70,spatk:80,spdef:80,spd:105},
@@ -1224,7 +1131,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	79:{
-		num:79,
 		species:"Slowpoke",
 		types:["Water","Psychic"],
 		baseStats:{hp:90,atk:65,def:65,spatk:40,spdef:40,spd:15},
@@ -1236,7 +1142,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	80:{
-		num:80,
 		species:"Slowbro",
 		types:["Water","Psychic"],
 		baseStats:{hp:95,atk:75,def:110,spatk:100,spdef:80,spd:30},
@@ -1250,7 +1155,6 @@ pokemon.data.pokemon = {
 		otherFormes:["slowbromega"],
 	},
 	"Mega-80":{
-		num:80,
 		species:"Slowbro-Mega",
 		baseSpecies:"Slowbro",
 		forme:"Mega",
@@ -1264,7 +1168,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	81:{
-		num:81,
 		species:"Magnemite",
 		types:["Electric","Steel"],
 		gender:"N",
@@ -1277,7 +1180,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	82:{
-		num:82,
 		species:"Magneton",
 		types:["Electric","Steel"],
 		gender:"N",
@@ -1292,7 +1194,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	83:{
-		num:83,
 		species:"Farfetch'd",
 		types:["Normal","Flying"],
 		baseStats:{hp:52,atk:65,def:55,spatk:58,spdef:62,spd:60},
@@ -1303,7 +1204,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Field"],
 	},
 	84:{
-		num:84,
 		species:"Doduo",
 		types:["Normal","Flying"],
 		baseStats:{hp:35,atk:85,def:45,spatk:35,spdef:35,spd:75},
@@ -1315,7 +1215,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	85:{
-		num:85,
 		species:"Dodrio",
 		types:["Normal","Flying"],
 		baseStats:{hp:60,atk:110,def:70,spatk:60,spdef:60,spd:100},
@@ -1328,7 +1227,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	86:{
-		num:86,
 		species:"Seel",
 		types:["Water"],
 		baseStats:{hp:65,atk:45,def:55,spatk:45,spdef:70,spd:45},
@@ -1340,7 +1238,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	87:{
-		num:87,
 		species:"Dewgong",
 		types:["Water","Ice"],
 		baseStats:{hp:90,atk:70,def:80,spatk:70,spdef:95,spd:70},
@@ -1353,7 +1250,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	88:{
-		num:88,
 		species:"Grimer",
 		types:["Poison"],
 		baseStats:{hp:80,atk:80,def:50,spatk:40,spdef:50,spd:25},
@@ -1365,7 +1261,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	89:{
-		num:89,
 		species:"Muk",
 		types:["Poison"],
 		baseStats:{hp:105,atk:105,def:75,spatk:65,spdef:100,spd:50},
@@ -1378,7 +1273,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	90:{
-		num:90,
 		species:"Shellder",
 		types:["Water"],
 		baseStats:{hp:30,atk:65,def:100,spatk:45,spdef:25,spd:40},
@@ -1390,7 +1284,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	91:{
-		num:91,
 		species:"Cloyster",
 		types:["Water","Ice"],
 		baseStats:{hp:50,atk:95,def:180,spatk:85,spdef:45,spd:70},
@@ -1402,7 +1295,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	92:{
-		num:92,
 		species:"Gastly",
 		types:["Ghost","Poison"],
 		baseStats:{hp:30,atk:35,def:30,spatk:100,spdef:35,spd:80},
@@ -1414,7 +1306,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	93:{
-		num:93,
 		species:"Haunter",
 		types:["Ghost","Poison"],
 		baseStats:{hp:45,atk:50,def:45,spatk:115,spdef:55,spd:95},
@@ -1428,7 +1319,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	94:{
-		num:94,
 		species:"Gengar",
 		types:["Ghost","Poison"],
 		baseStats:{hp:60,atk:65,def:60,spatk:130,spdef:75,spd:110},
@@ -1442,7 +1332,6 @@ pokemon.data.pokemon = {
 		otherFormes:["gengarmega"],
 	},
 	"Mega-94":{
-		num:94,
 		species:"Gengar-Mega",
 		baseSpecies:"Gengar",
 		forme:"Mega",
@@ -1456,7 +1345,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	95:{
-		num:95,
 		species:"Onix",
 		types:["Rock","Ground"],
 		baseStats:{hp:35,atk:45,def:160,spatk:30,spdef:45,spd:70},
@@ -1468,7 +1356,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	96:{
-		num:96,
 		species:"Drowzee",
 		types:["Psychic"],
 		baseStats:{hp:60,atk:48,def:45,spatk:43,spdef:90,spd:42},
@@ -1480,7 +1367,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	97:{
-		num:97,
 		species:"Hypno",
 		types:["Psychic"],
 		baseStats:{hp:85,atk:73,def:70,spatk:73,spdef:115,spd:67},
@@ -1493,7 +1379,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	98:{
-		num:98,
 		species:"Krabby",
 		types:["Water"],
 		baseStats:{hp:30,atk:105,def:90,spatk:25,spdef:25,spd:50},
@@ -1505,7 +1390,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	99:{
-		num:99,
 		species:"Kingler",
 		types:["Water"],
 		baseStats:{hp:55,atk:130,def:115,spatk:50,spdef:50,spd:75},
@@ -1518,7 +1402,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	100:{
-		num:100,
 		species:"Voltorb",
 		types:["Electric"],
 		gender:"N",
@@ -1531,7 +1414,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	101:{
-		num:101,
 		species:"Electrode",
 		types:["Electric"],
 		gender:"N",
@@ -1545,7 +1427,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	102:{
-		num:102,
 		species:"Exeggcute",
 		types:["Grass","Psychic"],
 		baseStats:{hp:60,atk:40,def:80,spatk:60,spdef:45,spd:40},
@@ -1557,7 +1438,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	103:{
-		num:103,
 		species:"Exeggutor",
 		types:["Grass","Psychic"],
 		baseStats:{hp:95,atk:95,def:85,spatk:125,spdef:65,spd:55},
@@ -1569,7 +1449,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	104:{
-		num:104,
 		species:"Cubone",
 		types:["Ground"],
 		baseStats:{hp:50,atk:50,def:95,spatk:40,spdef:50,spd:35},
@@ -1581,7 +1460,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	105:{
-		num:105,
 		species:"Marowak",
 		types:["Ground"],
 		baseStats:{hp:60,atk:80,def:110,spatk:50,spdef:80,spd:45},
@@ -1594,7 +1472,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	106:{
-		num:106,
 		species:"Hitmonlee",
 		types:["Fighting"],
 		gender:"M",
@@ -1608,7 +1485,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	107:{
-		num:107,
 		species:"Hitmonchan",
 		types:["Fighting"],
 		gender:"M",
@@ -1622,7 +1498,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	108:{
-		num:108,
 		species:"Lickitung",
 		types:["Normal"],
 		baseStats:{hp:90,atk:55,def:75,spatk:60,spdef:75,spd:30},
@@ -1634,7 +1509,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	109:{
-		num:109,
 		species:"Koffing",
 		types:["Poison"],
 		baseStats:{hp:40,atk:65,def:95,spatk:60,spdef:45,spd:35},
@@ -1646,7 +1520,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	110:{
-		num:110,
 		species:"Weezing",
 		types:["Poison"],
 		baseStats:{hp:65,atk:90,def:120,spatk:85,spdef:70,spd:60},
@@ -1659,7 +1532,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	111:{
-		num:111,
 		species:"Rhyhorn",
 		types:["Ground","Rock"],
 		baseStats:{hp:80,atk:85,def:95,spatk:30,spdef:30,spd:25},
@@ -1671,7 +1543,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	112:{
-		num:112,
 		species:"Rhydon",
 		types:["Ground","Rock"],
 		baseStats:{hp:105,atk:130,def:120,spatk:45,spdef:45,spd:40},
@@ -1685,7 +1556,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	113:{
-		num:113,
 		species:"Chansey",
 		types:["Normal"],
 		gender:"F",
@@ -1699,7 +1569,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	114:{
-		num:114,
 		species:"Tangela",
 		types:["Grass"],
 		baseStats:{hp:65,atk:55,def:115,spatk:100,spdef:40,spd:60},
@@ -1711,7 +1580,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	115:{
-		num:115,
 		species:"Kangaskhan",
 		types:["Normal"],
 		gender:"F",
@@ -1724,7 +1592,6 @@ pokemon.data.pokemon = {
 		otherFormes:["kangaskhanmega"],
 	},
 	"Mega-115":{
-		num:115,
 		species:"Kangaskhan-Mega",
 		baseSpecies:"Kangaskhan",
 		forme:"Mega",
@@ -1739,7 +1606,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	116:{
-		num:116,
 		species:"Horsea",
 		types:["Water"],
 		baseStats:{hp:30,atk:40,def:70,spatk:70,spdef:25,spd:60},
@@ -1751,7 +1617,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	117:{
-		num:117,
 		species:"Seadra",
 		types:["Water"],
 		baseStats:{hp:55,atk:65,def:95,spatk:95,spdef:45,spd:85},
@@ -1765,7 +1630,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	118:{
-		num:118,
 		species:"Goldeen",
 		types:["Water"],
 		baseStats:{hp:45,atk:67,def:60,spatk:35,spdef:50,spd:63},
@@ -1777,7 +1641,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	119:{
-		num:119,
 		species:"Seaking",
 		types:["Water"],
 		baseStats:{hp:80,atk:92,def:65,spatk:65,spdef:80,spd:68},
@@ -1790,7 +1653,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	120:{
-		num:120,
 		species:"Staryu",
 		types:["Water"],
 		gender:"N",
@@ -1803,7 +1665,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	121:{
-		num:121,
 		species:"Starmie",
 		types:["Water","Psychic"],
 		gender:"N",
@@ -1816,7 +1677,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	122:{
-		num:122,
 		species:"Mr. Mime",
 		types:["Psychic","Fairy"],
 		baseStats:{hp:40,atk:45,def:65,spatk:100,spdef:120,spd:90},
@@ -1829,7 +1689,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	123:{
-		num:123,
 		species:"Scyther",
 		types:["Bug","Flying"],
 		baseStats:{hp:70,atk:110,def:80,spatk:55,spdef:80,spd:105},
@@ -1841,7 +1700,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	124:{
-		num:124,
 		species:"Jynx",
 		types:["Ice","Psychic"],
 		gender:"F",
@@ -1855,7 +1713,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	125:{
-		num:125,
 		species:"Electabuzz",
 		types:["Electric"],
 		genderRatio:{M:0.75,F:0.25},
@@ -1870,7 +1727,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	126:{
-		num:126,
 		species:"Magmar",
 		types:["Fire"],
 		genderRatio:{M:0.75,F:0.25},
@@ -1885,7 +1741,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	127:{
-		num:127,
 		species:"Pinsir",
 		types:["Bug"],
 		baseStats:{hp:65,atk:125,def:100,spatk:55,spdef:70,spd:85},
@@ -1897,7 +1752,6 @@ pokemon.data.pokemon = {
 		otherFormes:["pinsirmega"],
 	},
 	"Mega-127":{
-		num:127,
 		species:"Pinsir-Mega",
 		baseSpecies:"Pinsir",
 		forme:"Mega",
@@ -1911,7 +1765,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	128:{
-		num:128,
 		species:"Tauros",
 		types:["Normal"],
 		gender:"M",
@@ -1923,7 +1776,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	129:{
-		num:129,
 		species:"Magikarp",
 		types:["Water"],
 		baseStats:{hp:20,atk:10,def:55,spatk:15,spdef:20,spd:80},
@@ -1935,7 +1787,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2","Dragon"],
 	},
 	130:{
-		num:130,
 		species:"Gyarados",
 		types:["Water","Flying"],
 		baseStats:{hp:95,atk:125,def:79,spatk:60,spdef:100,spd:81},
@@ -1949,7 +1800,6 @@ pokemon.data.pokemon = {
 		otherFormes:["gyaradosmega"],
 	},
 	"Mega-130":{
-		num:130,
 		species:"Gyarados-Mega",
 		baseSpecies:"Gyarados",
 		forme:"Mega",
@@ -1963,7 +1813,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2","Dragon"],
 	},
 	131:{
-		num:131,
 		species:"Lapras",
 		types:["Water","Ice"],
 		baseStats:{hp:130,atk:85,def:80,spatk:85,spdef:95,spd:60},
@@ -1974,7 +1823,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	132:{
-		num:132,
 		species:"Ditto",
 		types:["Normal"],
 		gender:"N",
@@ -1986,7 +1834,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Ditto"],
 	},
 	133:{
-		num:133,
 		species:"Eevee",
 		types:["Normal"],
 		genderRatio:{M:0.875,F:0.125},
@@ -1999,7 +1846,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	134:{
-		num:134,
 		species:"Vaporeon",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2012,7 +1858,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	135:{
-		num:135,
 		species:"Jolteon",
 		types:["Electric"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2025,7 +1870,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	136:{
-		num:136,
 		species:"Flareon",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2038,7 +1882,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	137:{
-		num:137,
 		species:"Porygon",
 		types:["Normal"],
 		gender:"N",
@@ -2051,7 +1894,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	138:{
-		num:138,
 		species:"Omanyte",
 		types:["Rock","Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2064,7 +1906,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	139:{
-		num:139,
 		species:"Omastar",
 		types:["Rock","Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2078,7 +1919,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	140:{
-		num:140,
 		species:"Kabuto",
 		types:["Rock","Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2091,7 +1931,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	141:{
-		num:141,
 		species:"Kabutops",
 		types:["Rock","Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2105,7 +1944,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	142:{
-		num:142,
 		species:"Aerodactyl",
 		types:["Rock","Flying"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2118,7 +1956,6 @@ pokemon.data.pokemon = {
 		otherFormes:["aerodactylmega"],
 	},
 	"Mega-142":{
-		num:142,
 		species:"Aerodactyl-Mega",
 		baseSpecies:"Aerodactyl",
 		forme:"Mega",
@@ -2133,7 +1970,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	143:{
-		num:143,
 		species:"Snorlax",
 		types:["Normal"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2146,7 +1982,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	144:{
-		num:144,
 		species:"Articuno",
 		types:["Ice","Flying"],
 		gender:"N",
@@ -2158,7 +1993,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	145:{
-		num:145,
 		species:"Zapdos",
 		types:["Electric","Flying"],
 		gender:"N",
@@ -2170,7 +2004,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	146:{
-		num:146,
 		species:"Moltres",
 		types:["Fire","Flying"],
 		gender:"N",
@@ -2182,7 +2015,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	147:{
-		num:147,
 		species:"Dratini",
 		types:["Dragon"],
 		baseStats:{hp:41,atk:64,def:45,spatk:50,spdef:50,spd:50},
@@ -2194,7 +2026,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	148:{
-		num:148,
 		species:"Dragonair",
 		types:["Dragon"],
 		baseStats:{hp:61,atk:84,def:65,spatk:70,spdef:70,spd:70},
@@ -2208,7 +2039,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	149:{
-		num:149,
 		species:"Dragonite",
 		types:["Dragon","Flying"],
 		baseStats:{hp:91,atk:134,def:95,spatk:100,spdef:100,spd:80},
@@ -2221,7 +2051,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	150:{
-		num:150,
 		species:"Mewtwo",
 		types:["Psychic"],
 		gender:"N",
@@ -2234,7 +2063,6 @@ pokemon.data.pokemon = {
 		otherFormes:["mewtwomegax","mewtwomegay"],
 	},
 	"Mega-X-150":{
-		num:150,
 		species:"Mewtwo-Mega-X",
 		baseSpecies:"Mewtwo",
 		forme:"Mega-X",
@@ -2249,7 +2077,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Mega-Y-150":{
-		num:150,
 		species:"Mewtwo-Mega-Y",
 		baseSpecies:"Mewtwo",
 		forme:"Mega-Y",
@@ -2264,7 +2091,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	151:{
-		num:151,
 		species:"Mew",
 		types:["Psychic"],
 		gender:"N",
@@ -2276,7 +2102,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	152:{
-		num:152,
 		species:"Chikorita",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2289,7 +2114,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	153:{
-		num:153,
 		species:"Bayleef",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2304,7 +2128,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	154:{
-		num:154,
 		species:"Meganium",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2318,7 +2141,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	155:{
-		num:155,
 		species:"Cyndaquil",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2331,7 +2153,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	156:{
-		num:156,
 		species:"Quilava",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2346,7 +2167,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	157:{
-		num:157,
 		species:"Typhlosion",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2360,7 +2180,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	158:{
-		num:158,
 		species:"Totodile",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2373,7 +2192,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	159:{
-		num:159,
 		species:"Croconaw",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2388,7 +2206,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	160:{
-		num:160,
 		species:"Feraligatr",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2402,7 +2219,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	161:{
-		num:161,
 		species:"Sentret",
 		types:["Normal"],
 		baseStats:{hp:35,atk:46,def:34,spatk:35,spdef:45,spd:20},
@@ -2414,7 +2230,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	162:{
-		num:162,
 		species:"Furret",
 		types:["Normal"],
 		baseStats:{hp:85,atk:76,def:64,spatk:45,spdef:55,spd:90},
@@ -2427,7 +2242,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	163:{
-		num:163,
 		species:"Hoothoot",
 		types:["Normal","Flying"],
 		baseStats:{hp:60,atk:30,def:30,spatk:36,spdef:56,spd:50},
@@ -2439,7 +2253,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	164:{
-		num:164,
 		species:"Noctowl",
 		types:["Normal","Flying"],
 		baseStats:{hp:100,atk:50,def:50,spatk:76,spdef:96,spd:70},
@@ -2452,7 +2265,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	165:{
-		num:165,
 		species:"Ledyba",
 		types:["Bug","Flying"],
 		baseStats:{hp:40,atk:20,def:30,spatk:40,spdef:80,spd:55},
@@ -2464,7 +2276,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	166:{
-		num:166,
 		species:"Ledian",
 		types:["Bug","Flying"],
 		baseStats:{hp:55,atk:35,def:50,spatk:55,spdef:110,spd:85},
@@ -2477,7 +2288,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	167:{
-		num:167,
 		species:"Spinarak",
 		types:["Bug","Poison"],
 		baseStats:{hp:40,atk:60,def:40,spatk:40,spdef:40,spd:30},
@@ -2489,7 +2299,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	168:{
-		num:168,
 		species:"Ariados",
 		types:["Bug","Poison"],
 		baseStats:{hp:70,atk:90,def:70,spatk:60,spdef:60,spd:40},
@@ -2502,7 +2311,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	169:{
-		num:169,
 		species:"Crobat",
 		types:["Poison","Flying"],
 		baseStats:{hp:85,atk:90,def:80,spatk:70,spdef:80,spd:130},
@@ -2515,7 +2323,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	170:{
-		num:170,
 		species:"Chinchou",
 		types:["Water","Electric"],
 		baseStats:{hp:75,atk:38,def:38,spatk:56,spdef:56,spd:67},
@@ -2527,7 +2334,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	171:{
-		num:171,
 		species:"Lanturn",
 		types:["Water","Electric"],
 		baseStats:{hp:125,atk:58,def:58,spatk:76,spdef:76,spd:67},
@@ -2540,7 +2346,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	172:{
-		num:172,
 		species:"Pichu",
 		types:["Electric"],
 		baseStats:{hp:20,atk:40,def:15,spatk:35,spdef:35,spd:60},
@@ -2553,7 +2358,6 @@ pokemon.data.pokemon = {
 		otherFormes:["pichuspikyeared"],
 	},
 	"Spiky-eared-172":{
-		num:172,
 		species:"Pichu-Spiky-eared",
 		baseSpecies:"Pichu",
 		forme:"Spiky-eared",
@@ -2567,7 +2371,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	173:{
-		num:173,
 		species:"Cleffa",
 		types:["Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -2580,7 +2383,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	174:{
-		num:174,
 		species:"Igglybuff",
 		types:["Normal","Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -2593,7 +2395,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	175:{
-		num:175,
 		species:"Togepi",
 		types:["Fairy"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2606,7 +2407,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	176:{
-		num:176,
 		species:"Togetic",
 		types:["Fairy","Flying"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2621,7 +2421,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Fairy"],
 	},
 	177:{
-		num:177,
 		species:"Natu",
 		types:["Psychic","Flying"],
 		baseStats:{hp:40,atk:50,def:45,spatk:70,spdef:45,spd:70},
@@ -2633,7 +2432,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	178:{
-		num:178,
 		species:"Xatu",
 		types:["Psychic","Flying"],
 		baseStats:{hp:65,atk:75,def:70,spatk:95,spdef:70,spd:95},
@@ -2646,7 +2444,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	179:{
-		num:179,
 		species:"Mareep",
 		types:["Electric"],
 		baseStats:{hp:55,atk:40,def:40,spatk:65,spdef:45,spd:35},
@@ -2658,7 +2455,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	180:{
-		num:180,
 		species:"Flaaffy",
 		types:["Electric"],
 		baseStats:{hp:70,atk:55,def:55,spatk:80,spdef:60,spd:45},
@@ -2672,7 +2468,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	181:{
-		num:181,
 		species:"Ampharos",
 		types:["Electric"],
 		baseStats:{hp:90,atk:75,def:85,spatk:115,spdef:90,spd:55},
@@ -2686,7 +2481,6 @@ pokemon.data.pokemon = {
 		otherFormes:["ampharosmega"],
 	},
 	"Mega-181":{
-		num:181,
 		species:"Ampharos-Mega",
 		baseSpecies:"Ampharos",
 		forme:"Mega",
@@ -2700,7 +2494,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	182:{
-		num:182,
 		species:"Bellossom",
 		types:["Grass"],
 		baseStats:{hp:75,atk:80,def:95,spatk:90,spdef:100,spd:50},
@@ -2713,7 +2506,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	183:{
-		num:183,
 		species:"Marill",
 		types:["Water","Fairy"],
 		baseStats:{hp:70,atk:20,def:50,spatk:20,spdef:50,spd:40},
@@ -2726,7 +2518,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Fairy"],
 	},
 	184:{
-		num:184,
 		species:"Azumarill",
 		types:["Water","Fairy"],
 		baseStats:{hp:100,atk:50,def:80,spatk:60,spdef:80,spd:50},
@@ -2739,7 +2530,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Fairy"],
 	},
 	185:{
-		num:185,
 		species:"Sudowoodo",
 		types:["Rock"],
 		baseStats:{hp:70,atk:100,def:115,spatk:30,spdef:65,spd:30},
@@ -2752,7 +2542,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	186:{
-		num:186,
 		species:"Politoed",
 		types:["Water"],
 		baseStats:{hp:90,atk:75,def:75,spatk:90,spdef:100,spd:70},
@@ -2765,7 +2554,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	187:{
-		num:187,
 		species:"Hoppip",
 		types:["Grass","Flying"],
 		baseStats:{hp:35,atk:35,def:40,spatk:35,spdef:55,spd:50},
@@ -2777,7 +2565,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	188:{
-		num:188,
 		species:"Skiploom",
 		types:["Grass","Flying"],
 		baseStats:{hp:55,atk:45,def:50,spatk:45,spdef:65,spd:80},
@@ -2791,7 +2578,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	189:{
-		num:189,
 		species:"Jumpluff",
 		types:["Grass","Flying"],
 		baseStats:{hp:75,atk:55,def:70,spatk:55,spdef:95,spd:110},
@@ -2804,7 +2590,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	190:{
-		num:190,
 		species:"Aipom",
 		types:["Normal"],
 		baseStats:{hp:55,atk:70,def:55,spatk:40,spdef:55,spd:85},
@@ -2816,7 +2601,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	191:{
-		num:191,
 		species:"Sunkern",
 		types:["Grass"],
 		baseStats:{hp:30,atk:30,def:30,spatk:30,spdef:30,spd:30},
@@ -2828,7 +2612,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	192:{
-		num:192,
 		species:"Sunflora",
 		types:["Grass"],
 		baseStats:{hp:75,atk:75,def:55,spatk:105,spdef:85,spd:30},
@@ -2840,7 +2623,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	193:{
-		num:193,
 		species:"Yanma",
 		types:["Bug","Flying"],
 		baseStats:{hp:65,atk:65,def:45,spatk:75,spdef:45,spd:95},
@@ -2852,7 +2634,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	194:{
-		num:194,
 		species:"Wooper",
 		types:["Water","Ground"],
 		baseStats:{hp:55,atk:45,def:45,spatk:25,spdef:25,spd:15},
@@ -2864,7 +2645,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	195:{
-		num:195,
 		species:"Quagsire",
 		types:["Water","Ground"],
 		baseStats:{hp:95,atk:85,def:85,spatk:65,spdef:65,spd:35},
@@ -2877,7 +2657,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	196:{
-		num:196,
 		species:"Espeon",
 		types:["Psychic"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2891,7 +2670,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	197:{
-		num:197,
 		species:"Umbreon",
 		types:["Dark"],
 		genderRatio:{M:0.875,F:0.125},
@@ -2905,7 +2683,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	198:{
-		num:198,
 		species:"Murkrow",
 		types:["Dark","Flying"],
 		baseStats:{hp:60,atk:85,def:42,spatk:85,spdef:42,spd:91},
@@ -2917,7 +2694,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	199:{
-		num:199,
 		species:"Slowking",
 		types:["Water","Psychic"],
 		baseStats:{hp:95,atk:75,def:80,spatk:100,spdef:110,spd:30},
@@ -2929,7 +2705,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	200:{
-		num:200,
 		species:"Misdreavus",
 		types:["Ghost"],
 		baseStats:{hp:60,atk:60,def:60,spatk:85,spdef:85,spd:85},
@@ -2941,7 +2716,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	201:{
-		num:201,
 		species:"Unown",
 		baseForme:"A",
 		types:["Psychic"],
@@ -2955,7 +2729,6 @@ pokemon.data.pokemon = {
 		otherForms:["unownb","unownc","unownd","unowne","unownf","unowng","unownh","unowni","unownj","unownk","unownl","unownm","unownn","unowno","unownp","unownq","unownr","unowns","unownt","unownu","unownv","unownw","unownx","unowny","unownz","unownexclamation","unownquestion"],
 	},
 	202:{
-		num:202,
 		species:"Wobbuffet",
 		types:["Psychic"],
 		baseStats:{hp:190,atk:33,def:58,spatk:33,spdef:58,spd:33},
@@ -2968,7 +2741,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	203:{
-		num:203,
 		species:"Girafarig",
 		types:["Normal","Psychic"],
 		baseStats:{hp:70,atk:80,def:65,spatk:90,spdef:65,spd:85},
@@ -2979,7 +2751,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	204:{
-		num:204,
 		species:"Pineco",
 		types:["Bug"],
 		baseStats:{hp:50,atk:65,def:90,spatk:35,spdef:35,spd:15},
@@ -2991,7 +2762,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	205:{
-		num:205,
 		species:"Forretress",
 		types:["Bug","Steel"],
 		baseStats:{hp:75,atk:90,def:140,spatk:60,spdef:60,spd:40},
@@ -3004,7 +2774,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	206:{
-		num:206,
 		species:"Dunsparce",
 		types:["Normal"],
 		baseStats:{hp:100,atk:70,def:70,spatk:65,spdef:65,spd:45},
@@ -3015,7 +2784,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	207:{
-		num:207,
 		species:"Gligar",
 		types:["Ground","Flying"],
 		baseStats:{hp:65,atk:75,def:105,spatk:35,spdef:65,spd:85},
@@ -3027,7 +2795,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	208:{
-		num:208,
 		species:"Steelix",
 		types:["Steel","Ground"],
 		baseStats:{hp:75,atk:85,def:200,spatk:55,spdef:65,spd:30},
@@ -3040,7 +2807,6 @@ pokemon.data.pokemon = {
 		otherFormes:["steelixmega"],
 	},
 	"Mega-208":{
-		num:208,
 		species:"Steelix-Mega",
 		baseSpecies:"Steelix",
 		forme:"Mega",
@@ -3054,7 +2820,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	209:{
-		num:209,
 		species:"Snubbull",
 		types:["Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -3067,7 +2832,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Fairy"],
 	},
 	210:{
-		num:210,
 		species:"Granbull",
 		types:["Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -3081,7 +2845,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Fairy"],
 	},
 	211:{
-		num:211,
 		species:"Qwilfish",
 		types:["Water","Poison"],
 		baseStats:{hp:65,atk:95,def:75,spatk:55,spdef:55,spd:85},
@@ -3092,7 +2855,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	212:{
-		num:212,
 		species:"Scizor",
 		types:["Bug","Steel"],
 		baseStats:{hp:70,atk:130,def:100,spatk:55,spdef:80,spd:65},
@@ -3105,7 +2867,6 @@ pokemon.data.pokemon = {
 		otherFormes:["scizormega"],
 	},
 	"Mega-212":{
-		num:212,
 		species:"Scizor-Mega",
 		baseSpecies:"Scizor",
 		forme:"Mega",
@@ -3119,7 +2880,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	213:{
-		num:213,
 		species:"Shuckle",
 		types:["Bug","Rock"],
 		baseStats:{hp:20,atk:10,def:230,spatk:10,spdef:230,spd:5},
@@ -3130,7 +2890,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	214:{
-		num:214,
 		species:"Heracross",
 		types:["Bug","Fighting"],
 		baseStats:{hp:80,atk:125,def:75,spatk:40,spdef:95,spd:85},
@@ -3142,7 +2901,6 @@ pokemon.data.pokemon = {
 		otherFormes:["heracrossmega"],
 	},
 	"Mega-214":{
-		num:214,
 		species:"Heracross-Mega",
 		baseSpecies:"Heracross",
 		forme:"Mega",
@@ -3156,7 +2914,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	215:{
-		num:215,
 		species:"Sneasel",
 		types:["Dark","Ice"],
 		baseStats:{hp:55,atk:95,def:55,spatk:35,spdef:75,spd:115},
@@ -3168,7 +2925,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	216:{
-		num:216,
 		species:"Teddiursa",
 		types:["Normal"],
 		baseStats:{hp:60,atk:80,def:50,spatk:50,spdef:50,spd:40},
@@ -3180,7 +2936,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	217:{
-		num:217,
 		species:"Ursaring",
 		types:["Normal"],
 		baseStats:{hp:90,atk:130,def:75,spatk:75,spdef:75,spd:55},
@@ -3193,7 +2948,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	218:{
-		num:218,
 		species:"Slugma",
 		types:["Fire"],
 		baseStats:{hp:40,atk:40,def:40,spatk:70,spdef:40,spd:20},
@@ -3205,7 +2959,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	219:{
-		num:219,
 		species:"Magcargo",
 		types:["Fire","Rock"],
 		baseStats:{hp:50,atk:50,def:120,spatk:80,spdef:80,spd:30},
@@ -3218,7 +2971,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	220:{
-		num:220,
 		species:"Swinub",
 		types:["Ice","Ground"],
 		baseStats:{hp:50,atk:50,def:40,spatk:30,spdef:30,spd:50},
@@ -3230,7 +2982,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	221:{
-		num:221,
 		species:"Piloswine",
 		types:["Ice","Ground"],
 		baseStats:{hp:100,atk:100,def:80,spatk:60,spdef:60,spd:50},
@@ -3244,7 +2995,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	222:{
-		num:222,
 		species:"Corsola",
 		types:["Water","Rock"],
 		genderRatio:{M:0.25,F:0.75},
@@ -3256,7 +3006,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	223:{
-		num:223,
 		species:"Remoraid",
 		types:["Water"],
 		baseStats:{hp:35,atk:65,def:35,spatk:65,spdef:35,spd:65},
@@ -3268,7 +3017,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 2"],
 	},
 	224:{
-		num:224,
 		species:"Octillery",
 		types:["Water"],
 		baseStats:{hp:75,atk:105,def:75,spatk:105,spdef:75,spd:45},
@@ -3281,7 +3029,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 2"],
 	},
 	225:{
-		num:225,
 		species:"Delibird",
 		types:["Ice","Flying"],
 		baseStats:{hp:45,atk:55,def:45,spatk:65,spdef:45,spd:75},
@@ -3292,7 +3039,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	226:{
-		num:226,
 		species:"Mantine",
 		types:["Water","Flying"],
 		baseStats:{hp:65,atk:40,def:70,spatk:80,spdef:140,spd:70},
@@ -3304,7 +3050,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	227:{
-		num:227,
 		species:"Skarmory",
 		types:["Steel","Flying"],
 		baseStats:{hp:65,atk:80,def:140,spatk:40,spdef:70,spd:70},
@@ -3315,7 +3060,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	228:{
-		num:228,
 		species:"Houndour",
 		types:["Dark","Fire"],
 		baseStats:{hp:45,atk:60,def:30,spatk:80,spdef:50,spd:65},
@@ -3327,7 +3071,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	229:{
-		num:229,
 		species:"Houndoom",
 		types:["Dark","Fire"],
 		baseStats:{hp:75,atk:90,def:50,spatk:110,spdef:80,spd:95},
@@ -3341,7 +3084,6 @@ pokemon.data.pokemon = {
 		otherFormes:["houndoommega"],
 	},
 	"Mega-229":{
-		num:229,
 		species:"Houndoom-Mega",
 		baseSpecies:"Houndoom",
 		forme:"Mega",
@@ -3355,7 +3097,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	230:{
-		num:230,
 		species:"Kingdra",
 		types:["Water","Dragon"],
 		baseStats:{hp:75,atk:95,def:95,spatk:95,spdef:95,spd:85},
@@ -3368,7 +3109,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	231:{
-		num:231,
 		species:"Phanpy",
 		types:["Ground"],
 		baseStats:{hp:90,atk:60,def:60,spatk:40,spdef:40,spd:40},
@@ -3380,7 +3120,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	232:{
-		num:232,
 		species:"Donphan",
 		types:["Ground"],
 		baseStats:{hp:90,atk:120,def:120,spatk:60,spdef:60,spd:50},
@@ -3393,7 +3132,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	porygon2:{
-		num:233,
 		species:"Porygon2",
 		types:["Normal"],
 		gender:"N",
@@ -3407,7 +3145,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	234:{
-		num:234,
 		species:"Stantler",
 		types:["Normal"],
 		baseStats:{hp:73,atk:95,def:62,spatk:85,spdef:65,spd:85},
@@ -3418,7 +3155,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	235:{
-		num:235,
 		species:"Smeargle",
 		types:["Normal"],
 		baseStats:{hp:55,atk:20,def:35,spatk:20,spdef:45,spd:75},
@@ -3429,7 +3165,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	236:{
-		num:236,
 		species:"Tyrogue",
 		types:["Fighting"],
 		gender:"M",
@@ -3442,7 +3177,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	237:{
-		num:237,
 		species:"Hitmontop",
 		types:["Fighting"],
 		gender:"M",
@@ -3456,7 +3190,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	238:{
-		num:238,
 		species:"Smoochum",
 		types:["Ice","Psychic"],
 		gender:"F",
@@ -3469,7 +3202,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	239:{
-		num:239,
 		species:"Elekid",
 		types:["Electric"],
 		genderRatio:{M:0.75,F:0.25},
@@ -3482,7 +3214,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	240:{
-		num:240,
 		species:"Magby",
 		types:["Fire"],
 		genderRatio:{M:0.75,F:0.25},
@@ -3495,7 +3226,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	241:{
-		num:241,
 		species:"Miltank",
 		types:["Normal"],
 		gender:"F",
@@ -3507,7 +3237,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	242:{
-		num:242,
 		species:"Blissey",
 		types:["Normal"],
 		gender:"F",
@@ -3521,7 +3250,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	243:{
-		num:243,
 		species:"Raikou",
 		types:["Electric"],
 		gender:"N",
@@ -3533,7 +3261,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	244:{
-		num:244,
 		species:"Entei",
 		types:["Fire"],
 		gender:"N",
@@ -3545,7 +3272,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	245:{
-		num:245,
 		species:"Suicune",
 		types:["Water"],
 		gender:"N",
@@ -3557,7 +3283,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	246:{
-		num:246,
 		species:"Larvitar",
 		types:["Rock","Ground"],
 		baseStats:{hp:50,atk:64,def:50,spatk:45,spdef:50,spd:41},
@@ -3569,7 +3294,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	247:{
-		num:247,
 		species:"Pupitar",
 		types:["Rock","Ground"],
 		baseStats:{hp:70,atk:84,def:70,spatk:65,spdef:70,spd:51},
@@ -3583,7 +3307,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	248:{
-		num:248,
 		species:"Tyranitar",
 		types:["Rock","Dark"],
 		baseStats:{hp:100,atk:134,def:110,spatk:95,spdef:100,spd:61},
@@ -3597,7 +3320,6 @@ pokemon.data.pokemon = {
 		otherFormes:["tyranitarmega"],
 	},
 	"Mega-248":{
-		num:248,
 		species:"Tyranitar-Mega",
 		baseSpecies:"Tyranitar",
 		forme:"Mega",
@@ -3611,7 +3333,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	249:{
-		num:249,
 		species:"Lugia",
 		types:["Psychic","Flying"],
 		gender:"N",
@@ -3623,7 +3344,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	250:{
-		num:250,
 		species:"Ho-Oh",
 		types:["Fire","Flying"],
 		gender:"N",
@@ -3635,7 +3355,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	251:{
-		num:251,
 		species:"Celebi",
 		types:["Psychic","Grass"],
 		gender:"N",
@@ -3647,7 +3366,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	252:{
-		num:252,
 		species:"Treecko",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3660,7 +3378,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	253:{
-		num:253,
 		species:"Grovyle",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3675,7 +3392,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	254:{
-		num:254,
 		species:"Sceptile",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3690,7 +3406,6 @@ pokemon.data.pokemon = {
 		otherFormes:["sceptilemega"],
 	},
 	"Mega-254":{
-		num:254,
 		species:"Sceptile-Mega",
 		baseSpecies:"Sceptile",
 		forme:"Mega",
@@ -3705,7 +3420,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	255:{
-		num:255,
 		species:"Torchic",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3718,7 +3432,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	256:{
-		num:256,
 		species:"Combusken",
 		types:["Fire","Fighting"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3733,7 +3446,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	257:{
-		num:257,
 		species:"Blaziken",
 		types:["Fire","Fighting"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3748,7 +3460,6 @@ pokemon.data.pokemon = {
 		otherFormes:["blazikenmega"],
 	},
 	"Mega-257":{
-		num:257,
 		species:"Blaziken-Mega",
 		baseSpecies:"Blaziken",
 		forme:"Mega",
@@ -3763,7 +3474,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	258:{
-		num:258,
 		species:"Mudkip",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3776,7 +3486,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	259:{
-		num:259,
 		species:"Marshtomp",
 		types:["Water","Ground"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3791,7 +3500,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	260:{
-		num:260,
 		species:"Swampert",
 		types:["Water","Ground"],
 		genderRatio:{M:0.875,F:0.125},
@@ -3806,7 +3514,6 @@ pokemon.data.pokemon = {
 		otherFormes:["swampertmega"],
 	},
 	"Mega-260":{
-		num:260,
 		species:"Swampert-Mega",
 		baseSpecies:"Swampert",
 		forme:"Mega",
@@ -3821,7 +3528,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Water 1"],
 	},
 	261:{
-		num:261,
 		species:"Poochyena",
 		types:["Dark"],
 		baseStats:{hp:35,atk:55,def:35,spatk:30,spdef:30,spd:35},
@@ -3833,7 +3539,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	262:{
-		num:262,
 		species:"Mightyena",
 		types:["Dark"],
 		baseStats:{hp:70,atk:90,def:70,spatk:60,spdef:60,spd:70},
@@ -3846,7 +3551,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	263:{
-		num:263,
 		species:"Zigzagoon",
 		types:["Normal"],
 		baseStats:{hp:38,atk:30,def:41,spatk:30,spdef:41,spd:60},
@@ -3858,7 +3562,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	264:{
-		num:264,
 		species:"Linoone",
 		types:["Normal"],
 		baseStats:{hp:78,atk:70,def:61,spatk:50,spdef:61,spd:100},
@@ -3871,7 +3574,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	265:{
-		num:265,
 		species:"Wurmple",
 		types:["Bug"],
 		baseStats:{hp:45,atk:45,def:35,spatk:20,spdef:30,spd:20},
@@ -3883,7 +3585,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	266:{
-		num:266,
 		species:"Silcoon",
 		types:["Bug"],
 		baseStats:{hp:50,atk:35,def:55,spatk:25,spdef:25,spd:15},
@@ -3897,7 +3598,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	267:{
-		num:267,
 		species:"Beautifly",
 		types:["Bug","Flying"],
 		baseStats:{hp:60,atk:70,def:50,spatk:100,spdef:50,spd:65},
@@ -3910,7 +3610,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	268:{
-		num:268,
 		species:"Cascoon",
 		types:["Bug"],
 		baseStats:{hp:50,atk:35,def:55,spatk:25,spdef:25,spd:15},
@@ -3924,7 +3623,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	269:{
-		num:269,
 		species:"Dustox",
 		types:["Bug","Poison"],
 		baseStats:{hp:60,atk:50,def:70,spatk:50,spdef:90,spd:65},
@@ -3937,7 +3635,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	270:{
-		num:270,
 		species:"Lotad",
 		types:["Water","Grass"],
 		baseStats:{hp:40,atk:30,def:30,spatk:40,spdef:50,spd:30},
@@ -3949,7 +3646,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Grass"],
 	},
 	271:{
-		num:271,
 		species:"Lombre",
 		types:["Water","Grass"],
 		baseStats:{hp:60,atk:50,def:50,spatk:60,spdef:70,spd:50},
@@ -3963,7 +3659,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Grass"],
 	},
 	272:{
-		num:272,
 		species:"Ludicolo",
 		types:["Water","Grass"],
 		baseStats:{hp:80,atk:70,def:70,spatk:90,spdef:100,spd:70},
@@ -3976,7 +3671,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Grass"],
 	},
 	273:{
-		num:273,
 		species:"Seedot",
 		types:["Grass"],
 		baseStats:{hp:40,atk:40,def:50,spatk:30,spdef:30,spd:30},
@@ -3988,7 +3682,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Grass"],
 	},
 	274:{
-		num:274,
 		species:"Nuzleaf",
 		types:["Grass","Dark"],
 		baseStats:{hp:70,atk:70,def:40,spatk:60,spdef:40,spd:60},
@@ -4002,7 +3695,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Grass"],
 	},
 	275:{
-		num:275,
 		species:"Shiftry",
 		types:["Grass","Dark"],
 		baseStats:{hp:90,atk:100,def:60,spatk:90,spdef:60,spd:80},
@@ -4015,7 +3707,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Grass"],
 	},
 	276:{
-		num:276,
 		species:"Taillow",
 		types:["Normal","Flying"],
 		baseStats:{hp:40,atk:55,def:30,spatk:30,spdef:30,spd:85},
@@ -4027,7 +3718,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	277:{
-		num:277,
 		species:"Swellow",
 		types:["Normal","Flying"],
 		baseStats:{hp:60,atk:85,def:60,spatk:50,spdef:50,spd:125},
@@ -4040,7 +3730,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	278:{
-		num:278,
 		species:"Wingull",
 		types:["Water","Flying"],
 		baseStats:{hp:40,atk:30,def:30,spatk:55,spdef:30,spd:85},
@@ -4052,7 +3741,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Flying"],
 	},
 	279:{
-		num:279,
 		species:"Pelipper",
 		types:["Water","Flying"],
 		baseStats:{hp:60,atk:50,def:100,spatk:85,spdef:70,spd:65},
@@ -4065,7 +3753,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Flying"],
 	},
 	280:{
-		num:280,
 		species:"Ralts",
 		types:["Psychic","Fairy"],
 		baseStats:{hp:28,atk:25,def:25,spatk:45,spdef:35,spd:40},
@@ -4077,7 +3764,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	281:{
-		num:281,
 		species:"Kirlia",
 		types:["Psychic","Fairy"],
 		baseStats:{hp:38,atk:35,def:35,spatk:65,spdef:55,spd:50},
@@ -4091,7 +3777,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	282:{
-		num:282,
 		species:"Gardevoir",
 		types:["Psychic","Fairy"],
 		baseStats:{hp:68,atk:65,def:65,spatk:125,spdef:115,spd:80},
@@ -4105,7 +3790,6 @@ pokemon.data.pokemon = {
 		otherFormes:["gardevoirmega"],
 	},
 	"Mega-282":{
-		num:282,
 		species:"Gardevoir-Mega",
 		baseSpecies:"Gardevoir",
 		forme:"Mega",
@@ -4119,7 +3803,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	283:{
-		num:283,
 		species:"Surskit",
 		types:["Bug","Water"],
 		baseStats:{hp:40,atk:30,def:32,spatk:50,spdef:52,spd:65},
@@ -4131,7 +3814,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Bug"],
 	},
 	284:{
-		num:284,
 		species:"Masquerain",
 		types:["Bug","Flying"],
 		baseStats:{hp:70,atk:60,def:62,spatk:80,spdef:82,spd:60},
@@ -4144,7 +3826,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Bug"],
 	},
 	285:{
-		num:285,
 		species:"Shroomish",
 		types:["Grass"],
 		baseStats:{hp:60,atk:40,def:60,spatk:40,spdef:60,spd:35},
@@ -4156,7 +3837,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	286:{
-		num:286,
 		species:"Breloom",
 		types:["Grass","Fighting"],
 		baseStats:{hp:60,atk:130,def:80,spatk:60,spdef:60,spd:70},
@@ -4169,7 +3849,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	287:{
-		num:287,
 		species:"Slakoth",
 		types:["Normal"],
 		baseStats:{hp:60,atk:60,def:60,spatk:35,spdef:35,spd:30},
@@ -4181,7 +3860,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	288:{
-		num:288,
 		species:"Vigoroth",
 		types:["Normal"],
 		baseStats:{hp:80,atk:80,def:80,spatk:55,spdef:55,spd:90},
@@ -4195,7 +3873,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	289:{
-		num:289,
 		species:"Slaking",
 		types:["Normal"],
 		baseStats:{hp:150,atk:160,def:100,spatk:95,spdef:65,spd:100},
@@ -4208,7 +3885,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	290:{
-		num:290,
 		species:"Nincada",
 		types:["Bug","Ground"],
 		baseStats:{hp:31,atk:45,def:90,spatk:30,spdef:30,spd:40},
@@ -4220,7 +3896,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	291:{
-		num:291,
 		species:"Ninjask",
 		types:["Bug","Flying"],
 		baseStats:{hp:61,atk:90,def:45,spatk:50,spdef:50,spd:160},
@@ -4233,7 +3908,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	292:{
-		num:292,
 		species:"Shedinja",
 		types:["Bug","Ghost"],
 		gender:"N",
@@ -4248,7 +3922,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	293:{
-		num:293,
 		species:"Whismur",
 		types:["Normal"],
 		baseStats:{hp:64,atk:51,def:23,spatk:51,spdef:23,spd:28},
@@ -4260,7 +3933,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	294:{
-		num:294,
 		species:"Loudred",
 		types:["Normal"],
 		baseStats:{hp:84,atk:71,def:43,spatk:71,spdef:43,spd:48},
@@ -4274,7 +3946,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	295:{
-		num:295,
 		species:"Exploud",
 		types:["Normal"],
 		baseStats:{hp:104,atk:91,def:63,spatk:91,spdef:73,spd:68},
@@ -4287,7 +3958,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	296:{
-		num:296,
 		species:"Makuhita",
 		types:["Fighting"],
 		genderRatio:{M:0.75,F:0.25},
@@ -4300,7 +3970,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	297:{
-		num:297,
 		species:"Hariyama",
 		types:["Fighting"],
 		genderRatio:{M:0.75,F:0.25},
@@ -4314,7 +3983,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	298:{
-		num:298,
 		species:"Azurill",
 		types:["Normal","Fairy"],
 		genderRatio:{M:0.25,F:0.75},
@@ -4327,7 +3995,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	299:{
-		num:299,
 		species:"Nosepass",
 		types:["Rock"],
 		baseStats:{hp:30,atk:45,def:135,spatk:45,spdef:90,spd:30},
@@ -4339,7 +4006,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	300:{
-		num:300,
 		species:"Skitty",
 		types:["Normal"],
 		genderRatio:{M:0.25,F:0.75},
@@ -4352,7 +4018,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Fairy"],
 	},
 	301:{
-		num:301,
 		species:"Delcatty",
 		types:["Normal"],
 		genderRatio:{M:0.25,F:0.75},
@@ -4365,7 +4030,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Fairy"],
 	},
 	302:{
-		num:302,
 		species:"Sableye",
 		types:["Dark","Ghost"],
 		baseStats:{hp:50,atk:75,def:75,spatk:65,spdef:65,spd:50},
@@ -4377,7 +4041,6 @@ pokemon.data.pokemon = {
 		otherFormes:["sableyemega"],
 	},
 	"Mega-302":{
-		num:302,
 		species:"Sableye-Mega",
 		baseSpecies:"Sableye",
 		forme:"Mega",
@@ -4391,7 +4054,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	303:{
-		num:303,
 		species:"Mawile",
 		types:["Steel","Fairy"],
 		baseStats:{hp:50,atk:85,def:85,spatk:55,spdef:55,spd:50},
@@ -4403,7 +4065,6 @@ pokemon.data.pokemon = {
 		otherFormes:["mawilemega"],
 	},
 	"Mega-303":{
-		num:303,
 		species:"Mawile-Mega",
 		baseSpecies:"Mawile",
 		forme:"Mega",
@@ -4417,7 +4078,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Fairy"],
 	},
 	304:{
-		num:304,
 		species:"Aron",
 		types:["Steel","Rock"],
 		baseStats:{hp:50,atk:70,def:100,spatk:40,spdef:40,spd:30},
@@ -4429,7 +4089,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	305:{
-		num:305,
 		species:"Lairon",
 		types:["Steel","Rock"],
 		baseStats:{hp:60,atk:90,def:140,spatk:50,spdef:50,spd:40},
@@ -4443,7 +4102,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	306:{
-		num:306,
 		species:"Aggron",
 		types:["Steel","Rock"],
 		baseStats:{hp:70,atk:110,def:180,spatk:60,spdef:60,spd:50},
@@ -4457,7 +4115,6 @@ pokemon.data.pokemon = {
 		otherFormes:["aggronmega"],
 	},
 	"Mega-306":{
-		num:306,
 		species:"Aggron-Mega",
 		baseSpecies:"Aggron",
 		forme:"Mega",
@@ -4471,7 +4128,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	307:{
-		num:307,
 		species:"Meditite",
 		types:["Fighting","Psychic"],
 		baseStats:{hp:30,atk:40,def:55,spatk:40,spdef:55,spd:60},
@@ -4483,7 +4139,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	308:{
-		num:308,
 		species:"Medicham",
 		types:["Fighting","Psychic"],
 		baseStats:{hp:60,atk:60,def:75,spatk:60,spdef:75,spd:80},
@@ -4497,7 +4152,6 @@ pokemon.data.pokemon = {
 		otherFormes:["medichammega"],
 	},
 	"Mega-308":{
-		num:308,
 		species:"Medicham-Mega",
 		baseSpecies:"Medicham",
 		forme:"Mega",
@@ -4511,7 +4165,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	309:{
-		num:309,
 		species:"Electrike",
 		types:["Electric"],
 		baseStats:{hp:40,atk:45,def:40,spatk:65,spdef:40,spd:65},
@@ -4523,7 +4176,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	310:{
-		num:310,
 		species:"Manectric",
 		types:["Electric"],
 		baseStats:{hp:70,atk:75,def:60,spatk:105,spdef:60,spd:105},
@@ -4537,7 +4189,6 @@ pokemon.data.pokemon = {
 		otherFormes:["manectricmega"],
 	},
 	"Mega-310":{
-		num:310,
 		species:"Manectric-Mega",
 		baseSpecies:"Manectric",
 		forme:"Mega",
@@ -4551,7 +4202,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	311:{
-		num:311,
 		species:"Plusle",
 		types:["Electric"],
 		baseStats:{hp:60,atk:50,def:40,spatk:85,spdef:75,spd:95},
@@ -4562,7 +4212,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	312:{
-		num:312,
 		species:"Minun",
 		types:["Electric"],
 		baseStats:{hp:60,atk:40,def:50,spatk:75,spdef:85,spd:95},
@@ -4573,7 +4222,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	313:{
-		num:313,
 		species:"Volbeat",
 		types:["Bug"],
 		gender:"M",
@@ -4585,7 +4233,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug","Human-Like"],
 	},
 	314:{
-		num:314,
 		species:"Illumise",
 		types:["Bug"],
 		gender:"F",
@@ -4597,7 +4244,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug","Human-Like"],
 	},
 	315:{
-		num:315,
 		species:"Roselia",
 		types:["Grass","Poison"],
 		baseStats:{hp:50,atk:60,def:45,spatk:100,spdef:80,spd:65},
@@ -4610,7 +4256,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	316:{
-		num:316,
 		species:"Gulpin",
 		types:["Poison"],
 		baseStats:{hp:70,atk:43,def:53,spatk:43,spdef:53,spd:40},
@@ -4622,7 +4267,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	317:{
-		num:317,
 		species:"Swalot",
 		types:["Poison"],
 		baseStats:{hp:100,atk:73,def:83,spatk:73,spdef:83,spd:55},
@@ -4635,7 +4279,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	318:{
-		num:318,
 		species:"Carvanha",
 		types:["Water","Dark"],
 		baseStats:{hp:45,atk:90,def:20,spatk:65,spdef:20,spd:65},
@@ -4647,7 +4290,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	319:{
-		num:319,
 		species:"Sharpedo",
 		types:["Water","Dark"],
 		baseStats:{hp:70,atk:120,def:40,spatk:95,spdef:40,spd:95},
@@ -4661,7 +4303,6 @@ pokemon.data.pokemon = {
 		otherFormes:["sharpedomega"],
 	},
 	"Mega-319":{
-		num:319,
 		species:"Sharpedo-Mega",
 		baseSpecies:"Sharpedo",
 		forme:"Mega",
@@ -4675,7 +4316,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	320:{
-		num:320,
 		species:"Wailmer",
 		types:["Water"],
 		baseStats:{hp:130,atk:70,def:35,spatk:70,spdef:35,spd:60},
@@ -4687,7 +4327,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Water 2"],
 	},
 	321:{
-		num:321,
 		species:"Wailord",
 		types:["Water"],
 		baseStats:{hp:170,atk:90,def:45,spatk:90,spdef:45,spd:60},
@@ -4700,7 +4339,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Water 2"],
 	},
 	322:{
-		num:322,
 		species:"Numel",
 		types:["Fire","Ground"],
 		baseStats:{hp:60,atk:60,def:40,spatk:65,spdef:45,spd:35},
@@ -4712,7 +4350,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	323:{
-		num:323,
 		species:"Camerupt",
 		types:["Fire","Ground"],
 		baseStats:{hp:70,atk:100,def:70,spatk:105,spdef:75,spd:40},
@@ -4726,7 +4363,6 @@ pokemon.data.pokemon = {
 		otherFormes:["cameruptmega"],
 	},
 	"Mega-323":{
-		num:323,
 		species:"Camerupt-Mega",
 		baseSpecies:"Camerupt",
 		forme:"Mega",
@@ -4740,7 +4376,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	324:{
-		num:324,
 		species:"Torkoal",
 		types:["Fire"],
 		baseStats:{hp:70,atk:85,def:140,spatk:85,spdef:70,spd:20},
@@ -4751,7 +4386,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	325:{
-		num:325,
 		species:"Spoink",
 		types:["Psychic"],
 		baseStats:{hp:60,atk:25,def:35,spatk:70,spdef:80,spd:60},
@@ -4763,7 +4397,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	326:{
-		num:326,
 		species:"Grumpig",
 		types:["Psychic"],
 		baseStats:{hp:80,atk:45,def:65,spatk:90,spdef:110,spd:80},
@@ -4776,7 +4409,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	327:{
-		num:327,
 		species:"Spinda",
 		types:["Normal"],
 		baseStats:{hp:60,atk:60,def:60,spatk:60,spdef:60,spd:60},
@@ -4787,7 +4419,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	328:{
-		num:328,
 		species:"Trapinch",
 		types:["Ground"],
 		baseStats:{hp:45,atk:100,def:45,spatk:45,spdef:45,spd:10},
@@ -4799,7 +4430,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	329:{
-		num:329,
 		species:"Vibrava",
 		types:["Ground","Dragon"],
 		baseStats:{hp:50,atk:70,def:50,spatk:50,spdef:50,spd:70},
@@ -4813,7 +4443,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	330:{
-		num:330,
 		species:"Flygon",
 		types:["Ground","Dragon"],
 		baseStats:{hp:80,atk:100,def:80,spatk:80,spdef:80,spd:100},
@@ -4826,7 +4455,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	331:{
-		num:331,
 		species:"Cacnea",
 		types:["Grass"],
 		baseStats:{hp:50,atk:85,def:40,spatk:85,spdef:40,spd:35},
@@ -4838,7 +4466,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass","Human-Like"],
 	},
 	332:{
-		num:332,
 		species:"Cacturne",
 		types:["Grass","Dark"],
 		baseStats:{hp:70,atk:115,def:60,spatk:115,spdef:60,spd:55},
@@ -4851,7 +4478,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass","Human-Like"],
 	},
 	333:{
-		num:333,
 		species:"Swablu",
 		types:["Normal","Flying"],
 		baseStats:{hp:45,atk:40,def:60,spatk:40,spdef:75,spd:50},
@@ -4863,7 +4489,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Dragon"],
 	},
 	334:{
-		num:334,
 		species:"Altaria",
 		types:["Dragon","Flying"],
 		baseStats:{hp:75,atk:70,def:90,spatk:70,spdef:105,spd:80},
@@ -4877,7 +4502,6 @@ pokemon.data.pokemon = {
 		otherFormes:["altariamega"],
 	},
 	"Mega-334":{
-		num:334,
 		species:"Altaria-Mega",
 		baseSpecies:"Altaria",
 		forme:"Mega",
@@ -4891,7 +4515,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Dragon"],
 	},
 	335:{
-		num:335,
 		species:"Zangoose",
 		types:["Normal"],
 		baseStats:{hp:73,atk:115,def:60,spatk:60,spdef:60,spd:90},
@@ -4902,7 +4525,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	336:{
-		num:336,
 		species:"Seviper",
 		types:["Poison"],
 		baseStats:{hp:73,atk:100,def:60,spatk:100,spdef:60,spd:65},
@@ -4913,7 +4535,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Dragon"],
 	},
 	337:{
-		num:337,
 		species:"Lunatone",
 		types:["Rock","Psychic"],
 		gender:"N",
@@ -4925,7 +4546,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	338:{
-		num:338,
 		species:"Solrock",
 		types:["Rock","Psychic"],
 		gender:"N",
@@ -4937,7 +4557,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	339:{
-		num:339,
 		species:"Barboach",
 		types:["Water","Ground"],
 		baseStats:{hp:50,atk:48,def:43,spatk:46,spdef:41,spd:60},
@@ -4949,7 +4568,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	340:{
-		num:340,
 		species:"Whiscash",
 		types:["Water","Ground"],
 		baseStats:{hp:110,atk:78,def:73,spatk:76,spdef:71,spd:60},
@@ -4962,7 +4580,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	341:{
-		num:341,
 		species:"Corphish",
 		types:["Water"],
 		baseStats:{hp:43,atk:80,def:65,spatk:50,spdef:35,spd:35},
@@ -4974,7 +4591,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	342:{
-		num:342,
 		species:"Crawdaunt",
 		types:["Water","Dark"],
 		baseStats:{hp:63,atk:120,def:85,spatk:90,spdef:55,spd:55},
@@ -4987,7 +4603,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	343:{
-		num:343,
 		species:"Baltoy",
 		types:["Ground","Psychic"],
 		gender:"N",
@@ -5000,7 +4615,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	344:{
-		num:344,
 		species:"Claydol",
 		types:["Ground","Psychic"],
 		gender:"N",
@@ -5014,7 +4628,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	345:{
-		num:345,
 		species:"Lileep",
 		types:["Rock","Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5027,7 +4640,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	346:{
-		num:346,
 		species:"Cradily",
 		types:["Rock","Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5041,7 +4653,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	347:{
-		num:347,
 		species:"Anorith",
 		types:["Rock","Bug"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5054,7 +4665,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	348:{
-		num:348,
 		species:"Armaldo",
 		types:["Rock","Bug"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5068,7 +4678,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	349:{
-		num:349,
 		species:"Feebas",
 		types:["Water"],
 		baseStats:{hp:20,atk:15,def:20,spatk:10,spdef:55,spd:80},
@@ -5080,7 +4689,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	350:{
-		num:350,
 		species:"Milotic",
 		types:["Water"],
 		baseStats:{hp:95,atk:60,def:79,spatk:100,spdef:125,spd:81},
@@ -5092,7 +4700,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	351:{
-		num:351,
 		species:"Castform",
 		types:["Normal"],
 		baseStats:{hp:70,atk:70,def:70,spatk:70,spdef:70,spd:70},
@@ -5104,7 +4711,6 @@ pokemon.data.pokemon = {
 		otherFormes:["castformsunny","castformrainy","castformsnowy"],
 	},
 	"Sunny-351":{
-		num:351,
 		species:"Castform-Sunny",
 		baseSpecies:"Castform",
 		forme:"Sunny",
@@ -5118,7 +4724,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Amorphous"],
 	},
 	"Rainy-351":{
-		num:351,
 		species:"Castform-Rainy",
 		baseSpecies:"Castform",
 		forme:"Rainy",
@@ -5132,7 +4737,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Amorphous"],
 	},
 	"Snowy-351":{
-		num:351,
 		species:"Castform-Snowy",
 		baseSpecies:"Castform",
 		forme:"Snowy",
@@ -5146,7 +4750,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Amorphous"],
 	},
 	352:{
-		num:352,
 		species:"Kecleon",
 		types:["Normal"],
 		baseStats:{hp:60,atk:90,def:70,spatk:60,spdef:120,spd:40},
@@ -5157,7 +4760,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	353:{
-		num:353,
 		species:"Shuppet",
 		types:["Ghost"],
 		baseStats:{hp:44,atk:75,def:35,spatk:63,spdef:33,spd:45},
@@ -5169,7 +4771,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	354:{
-		num:354,
 		species:"Banette",
 		types:["Ghost"],
 		baseStats:{hp:64,atk:115,def:65,spatk:83,spdef:63,spd:65},
@@ -5183,7 +4784,6 @@ pokemon.data.pokemon = {
 		otherFormes:["banettemega"],
 	},
 	"Mega-354":{
-		num:354,
 		species:"Banette-Mega",
 		baseSpecies:"Banette",
 		forme:"Mega",
@@ -5197,7 +4797,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	355:{
-		num:355,
 		species:"Duskull",
 		types:["Ghost"],
 		baseStats:{hp:20,atk:40,def:90,spatk:30,spdef:90,spd:25},
@@ -5209,7 +4808,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	356:{
-		num:356,
 		species:"Dusclops",
 		types:["Ghost"],
 		baseStats:{hp:40,atk:70,def:130,spatk:60,spdef:130,spd:25},
@@ -5223,7 +4821,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	357:{
-		num:357,
 		species:"Tropius",
 		types:["Grass","Flying"],
 		baseStats:{hp:99,atk:68,def:83,spatk:72,spdef:87,spd:51},
@@ -5234,7 +4831,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	358:{
-		num:358,
 		species:"Chimecho",
 		types:["Psychic"],
 		baseStats:{hp:65,atk:50,def:70,spatk:95,spdef:80,spd:65},
@@ -5246,7 +4842,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	359:{
-		num:359,
 		species:"Absol",
 		types:["Dark"],
 		baseStats:{hp:65,atk:130,def:60,spatk:75,spdef:60,spd:75},
@@ -5258,7 +4853,6 @@ pokemon.data.pokemon = {
 		otherFormes:["absolmega"],
 	},
 	"Mega-359":{
-		num:359,
 		species:"Absol-Mega",
 		baseSpecies:"Absol",
 		forme:"Mega",
@@ -5272,7 +4866,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	360:{
-		num:360,
 		species:"Wynaut",
 		types:["Psychic"],
 		baseStats:{hp:95,atk:23,def:48,spatk:23,spdef:48,spd:23},
@@ -5284,7 +4877,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	361:{
-		num:361,
 		species:"Snorunt",
 		types:["Ice"],
 		baseStats:{hp:50,atk:50,def:50,spatk:50,spdef:50,spd:50},
@@ -5296,7 +4888,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Mineral"],
 	},
 	362:{
-		num:362,
 		species:"Glalie",
 		types:["Ice"],
 		baseStats:{hp:80,atk:80,def:80,spatk:80,spdef:80,spd:80},
@@ -5310,7 +4901,6 @@ pokemon.data.pokemon = {
 		otherFormes:["glaliemega"],
 	},
 	"Mega-362":{
-		num:362,
 		species:"Glalie-Mega",
 		baseSpecies:"Glalie",
 		forme:"Mega",
@@ -5324,7 +4914,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Mineral"],
 	},
 	363:{
-		num:363,
 		species:"Spheal",
 		types:["Ice","Water"],
 		baseStats:{hp:70,atk:40,def:50,spatk:55,spdef:50,spd:25},
@@ -5336,7 +4925,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	364:{
-		num:364,
 		species:"Sealeo",
 		types:["Ice","Water"],
 		baseStats:{hp:90,atk:60,def:70,spatk:75,spdef:70,spd:45},
@@ -5350,7 +4938,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	365:{
-		num:365,
 		species:"Walrein",
 		types:["Ice","Water"],
 		baseStats:{hp:110,atk:80,def:90,spatk:95,spdef:90,spd:65},
@@ -5363,7 +4950,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	366:{
-		num:366,
 		species:"Clamperl",
 		types:["Water"],
 		baseStats:{hp:35,atk:64,def:85,spatk:74,spdef:55,spd:32},
@@ -5375,7 +4961,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	367:{
-		num:367,
 		species:"Huntail",
 		types:["Water"],
 		baseStats:{hp:55,atk:104,def:105,spatk:94,spdef:75,spd:52},
@@ -5387,7 +4972,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	368:{
-		num:368,
 		species:"Gorebyss",
 		types:["Water"],
 		baseStats:{hp:55,atk:84,def:105,spatk:114,spdef:75,spd:52},
@@ -5399,7 +4983,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	369:{
-		num:369,
 		species:"Relicanth",
 		types:["Water","Rock"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5411,7 +4994,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 2"],
 	},
 	370:{
-		num:370,
 		species:"Luvdisc",
 		types:["Water"],
 		genderRatio:{M:0.25,F:0.75},
@@ -5423,7 +5005,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	371:{
-		num:371,
 		species:"Bagon",
 		types:["Dragon"],
 		baseStats:{hp:45,atk:75,def:60,spatk:40,spdef:30,spd:50},
@@ -5435,7 +5016,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	372:{
-		num:372,
 		species:"Shelgon",
 		types:["Dragon"],
 		baseStats:{hp:65,atk:95,def:100,spatk:60,spdef:50,spd:50},
@@ -5449,7 +5029,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	373:{
-		num:373,
 		species:"Salamence",
 		types:["Dragon","Flying"],
 		baseStats:{hp:95,atk:135,def:80,spatk:110,spdef:80,spd:100},
@@ -5463,7 +5042,6 @@ pokemon.data.pokemon = {
 		otherFormes:["salamencemega"],
 	},
 	"Mega-373":{
-		num:373,
 		species:"Salamence-Mega",
 		baseSpecies:"Salamence",
 		forme:"Mega",
@@ -5477,7 +5055,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	374:{
-		num:374,
 		species:"Beldum",
 		types:["Steel","Psychic"],
 		gender:"N",
@@ -5490,7 +5067,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	375:{
-		num:375,
 		species:"Metang",
 		types:["Steel","Psychic"],
 		gender:"N",
@@ -5505,7 +5081,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	376:{
-		num:376,
 		species:"Metagross",
 		types:["Steel","Psychic"],
 		gender:"N",
@@ -5520,7 +5095,6 @@ pokemon.data.pokemon = {
 		otherFormes:["metagrossmega"],
 	},
 	"Mega-376":{
-		num:376,
 		species:"Metagross-Mega",
 		baseSpecies:"Metagross",
 		forme:"Mega",
@@ -5535,7 +5109,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	377:{
-		num:377,
 		species:"Regirock",
 		types:["Rock"],
 		gender:"N",
@@ -5547,7 +5120,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	378:{
-		num:378,
 		species:"Regice",
 		types:["Ice"],
 		gender:"N",
@@ -5559,7 +5131,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	379:{
-		num:379,
 		species:"Registeel",
 		types:["Steel"],
 		gender:"N",
@@ -5571,7 +5142,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	380:{
-		num:380,
 		species:"Latias",
 		types:["Dragon","Psychic"],
 		gender:"F",
@@ -5584,7 +5154,6 @@ pokemon.data.pokemon = {
 		otherFormes:["latiasmega"],
 	},
 	"Mega-380":{
-		num:380,
 		species:"Latias-Mega",
 		baseSpecies:"Latias",
 		forme:"Mega",
@@ -5599,7 +5168,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	381:{
-		num:381,
 		species:"Latios",
 		types:["Dragon","Psychic"],
 		gender:"M",
@@ -5612,7 +5180,6 @@ pokemon.data.pokemon = {
 		otherFormes:["latiosmega"],
 	},
 	"Mega-381":{
-		num:381,
 		species:"Latios-Mega",
 		baseSpecies:"Latios",
 		forme:"Mega",
@@ -5627,7 +5194,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	382:{
-		num:382,
 		species:"Kyogre",
 		types:["Water"],
 		gender:"N",
@@ -5640,7 +5206,6 @@ pokemon.data.pokemon = {
 		otherFormes:["kyogreprimal"],
 	},
 	"Primal-382":{
-		num:382,
 		species:"Kyogre-Primal",
 		baseSpecies:"Kyogre",
 		forme:"Primal",
@@ -5655,7 +5220,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	383:{
-		num:383,
 		species:"Groudon",
 		types:["Ground"],
 		gender:"N",
@@ -5668,7 +5232,6 @@ pokemon.data.pokemon = {
 		otherFormes:["groudonprimal"],
 	},
 	"Primal-383":{
-		num:383,
 		species:"Groudon-Primal",
 		baseSpecies:"Groudon",
 		forme:"Primal",
@@ -5683,7 +5246,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	384:{
-		num:384,
 		species:"Rayquaza",
 		types:["Dragon","Flying"],
 		gender:"N",
@@ -5696,7 +5258,6 @@ pokemon.data.pokemon = {
 		otherFormes:["rayquazamega"],
 	},
 	"Mega-384":{
-		num:384,
 		species:"Rayquaza-Mega",
 		baseSpecies:"Rayquaza",
 		forme:"Mega",
@@ -5711,7 +5272,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	385:{
-		num:385,
 		species:"Jirachi",
 		types:["Steel","Psychic"],
 		gender:"N",
@@ -5723,7 +5283,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	386:{
-		num:386,
 		species:"Deoxys",
 		baseForme:"Normal",
 		types:["Psychic"],
@@ -5737,7 +5296,6 @@ pokemon.data.pokemon = {
 		otherFormes:["deoxysattack","deoxysdefense","deoxysspeed"],
 	},
 	"Attack-386":{
-		num:386,
 		species:"Deoxys-Attack",
 		baseSpecies:"Deoxys",
 		forme:"Attack",
@@ -5752,7 +5310,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Defense-386":{
-		num:386,
 		species:"Deoxys-Defense",
 		baseSpecies:"Deoxys",
 		forme:"Defense",
@@ -5767,7 +5324,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Speed-386":{
-		num:386,
 		species:"Deoxys-Speed",
 		baseSpecies:"Deoxys",
 		forme:"Speed",
@@ -5782,7 +5338,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	387:{
-		num:387,
 		species:"Turtwig",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5795,7 +5350,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	388:{
-		num:388,
 		species:"Grotle",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5810,7 +5364,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	389:{
-		num:389,
 		species:"Torterra",
 		types:["Grass","Ground"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5824,7 +5377,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	390:{
-		num:390,
 		species:"Chimchar",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5837,7 +5389,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	391:{
-		num:391,
 		species:"Monferno",
 		types:["Fire","Fighting"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5852,7 +5403,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	392:{
-		num:392,
 		species:"Infernape",
 		types:["Fire","Fighting"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5866,7 +5416,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	393:{
-		num:393,
 		species:"Piplup",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5879,7 +5428,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	394:{
-		num:394,
 		species:"Prinplup",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5894,7 +5442,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	395:{
-		num:395,
 		species:"Empoleon",
 		types:["Water","Steel"],
 		genderRatio:{M:0.875,F:0.125},
@@ -5908,7 +5455,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	396:{
-		num:396,
 		species:"Starly",
 		types:["Normal","Flying"],
 		baseStats:{hp:40,atk:55,def:30,spatk:30,spdef:30,spd:60},
@@ -5920,7 +5466,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	397:{
-		num:397,
 		species:"Staravia",
 		types:["Normal","Flying"],
 		baseStats:{hp:55,atk:75,def:50,spatk:40,spdef:40,spd:80},
@@ -5934,7 +5479,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	398:{
-		num:398,
 		species:"Staraptor",
 		types:["Normal","Flying"],
 		baseStats:{hp:85,atk:120,def:70,spatk:50,spdef:60,spd:100},
@@ -5947,7 +5491,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	399:{
-		num:399,
 		species:"Bidoof",
 		types:["Normal"],
 		baseStats:{hp:59,atk:45,def:40,spatk:35,spdef:40,spd:31},
@@ -5959,7 +5502,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	400:{
-		num:400,
 		species:"Bibarel",
 		types:["Normal","Water"],
 		baseStats:{hp:79,atk:85,def:60,spatk:55,spdef:60,spd:71},
@@ -5972,7 +5514,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	401:{
-		num:401,
 		species:"Kricketot",
 		types:["Bug"],
 		baseStats:{hp:37,atk:25,def:41,spatk:25,spdef:41,spd:25},
@@ -5984,7 +5525,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	402:{
-		num:402,
 		species:"Kricketune",
 		types:["Bug"],
 		baseStats:{hp:77,atk:85,def:51,spatk:55,spdef:51,spd:65},
@@ -5997,7 +5537,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	403:{
-		num:403,
 		species:"Shinx",
 		types:["Electric"],
 		baseStats:{hp:45,atk:65,def:34,spatk:40,spdef:34,spd:45},
@@ -6009,7 +5548,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	404:{
-		num:404,
 		species:"Luxio",
 		types:["Electric"],
 		baseStats:{hp:60,atk:85,def:49,spatk:60,spdef:49,spd:60},
@@ -6023,7 +5561,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	405:{
-		num:405,
 		species:"Luxray",
 		types:["Electric"],
 		baseStats:{hp:80,atk:120,def:79,spatk:95,spdef:79,spd:70},
@@ -6036,7 +5573,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	406:{
-		num:406,
 		species:"Budew",
 		types:["Grass","Poison"],
 		baseStats:{hp:40,atk:30,def:35,spatk:50,spdef:70,spd:55},
@@ -6048,7 +5584,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	407:{
-		num:407,
 		species:"Roserade",
 		types:["Grass","Poison"],
 		baseStats:{hp:60,atk:70,def:65,spatk:125,spdef:105,spd:90},
@@ -6060,7 +5595,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	408:{
-		num:408,
 		species:"Cranidos",
 		types:["Rock"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6073,7 +5607,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	409:{
-		num:409,
 		species:"Rampardos",
 		types:["Rock"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6087,7 +5620,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	410:{
-		num:410,
 		species:"Shieldon",
 		types:["Rock","Steel"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6100,7 +5632,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	411:{
-		num:411,
 		species:"Bastiodon",
 		types:["Rock","Steel"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6114,7 +5645,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	412:{
-		num:412,
 		species:"Burmy",
 		baseForme:"Grass",
 		types:["Bug"],
@@ -6128,7 +5658,6 @@ pokemon.data.pokemon = {
 		otherForms:["burmysandy","burmytrash"],
 	},
 	413:{
-		num:413,
 		species:"Wormadam",
 		baseForme:"Grass",
 		types:["Bug","Grass"],
@@ -6144,7 +5673,6 @@ pokemon.data.pokemon = {
 		otherFormes:["wormadamsandy","wormadamtrash"],
 	},
 	"Sandy-413":{
-		num:413,
 		species:"Wormadam-Sandy",
 		baseSpecies:"Wormadam",
 		forme:"Sandy",
@@ -6161,7 +5689,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	"Trash-413":{
-		num:413,
 		species:"Wormadam-Trash",
 		baseSpecies:"Wormadam",
 		forme:"Trash",
@@ -6178,7 +5705,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	414:{
-		num:414,
 		species:"Mothim",
 		types:["Bug","Flying"],
 		gender:"M",
@@ -6192,7 +5718,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	415:{
-		num:415,
 		species:"Combee",
 		types:["Bug","Flying"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6205,7 +5730,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	416:{
-		num:416,
 		species:"Vespiquen",
 		types:["Bug","Flying"],
 		gender:"F",
@@ -6219,7 +5743,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	417:{
-		num:417,
 		species:"Pachirisu",
 		types:["Electric"],
 		baseStats:{hp:60,atk:45,def:70,spatk:45,spdef:90,spd:95},
@@ -6230,7 +5753,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Fairy"],
 	},
 	418:{
-		num:418,
 		species:"Buizel",
 		types:["Water"],
 		baseStats:{hp:55,atk:65,def:35,spatk:60,spdef:30,spd:85},
@@ -6242,7 +5764,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	419:{
-		num:419,
 		species:"Floatzel",
 		types:["Water"],
 		baseStats:{hp:85,atk:105,def:55,spatk:85,spdef:50,spd:115},
@@ -6255,7 +5776,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Field"],
 	},
 	420:{
-		num:420,
 		species:"Cherubi",
 		types:["Grass"],
 		baseStats:{hp:45,atk:35,def:45,spatk:62,spdef:53,spd:35},
@@ -6267,7 +5787,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	421:{
-		num:421,
 		species:"Cherrim",
 		baseForme:"Overcast",
 		types:["Grass"],
@@ -6282,7 +5801,6 @@ pokemon.data.pokemon = {
 		otherFormes:["cherrimsunshine"],
 	},
 	"Sunshine-421":{
-		num:421,
 		species:"Cherrim-Sunshine",
 		baseSpecies:"Cherrim",
 		forme:"Sunshine",
@@ -6298,7 +5816,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	422:{
-		num:422,
 		species:"Shellos",
 		baseForme:"West",
 		types:["Water"],
@@ -6312,7 +5829,6 @@ pokemon.data.pokemon = {
 		otherForms:["shelloseast"],
 	},
 	423:{
-		num:423,
 		species:"Gastrodon",
 		baseForme:"West",
 		types:["Water","Ground"],
@@ -6327,7 +5843,6 @@ pokemon.data.pokemon = {
 		otherForms:["gastrodoneast"],
 	},
 	424:{
-		num:424,
 		species:"Ambipom",
 		types:["Normal"],
 		baseStats:{hp:75,atk:100,def:66,spatk:60,spdef:66,spd:115},
@@ -6341,7 +5856,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	425:{
-		num:425,
 		species:"Drifloon",
 		types:["Ghost","Flying"],
 		baseStats:{hp:90,atk:50,def:34,spatk:60,spdef:44,spd:70},
@@ -6353,7 +5867,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	426:{
-		num:426,
 		species:"Drifblim",
 		types:["Ghost","Flying"],
 		baseStats:{hp:150,atk:80,def:44,spatk:90,spdef:54,spd:80},
@@ -6366,7 +5879,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	427:{
-		num:427,
 		species:"Buneary",
 		types:["Normal"],
 		baseStats:{hp:55,atk:66,def:44,spatk:44,spdef:56,spd:85},
@@ -6378,7 +5890,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	428:{
-		num:428,
 		species:"Lopunny",
 		types:["Normal"],
 		baseStats:{hp:65,atk:76,def:84,spatk:54,spdef:96,spd:105},
@@ -6392,7 +5903,6 @@ pokemon.data.pokemon = {
 		otherFormes:["lopunnymega"],
 	},
 	"Mega-428":{
-		num:428,
 		species:"Lopunny-Mega",
 		baseSpecies:"Lopunny",
 		forme:"Mega",
@@ -6406,7 +5916,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	429:{
-		num:429,
 		species:"Mismagius",
 		types:["Ghost"],
 		baseStats:{hp:60,atk:60,def:60,spatk:105,spdef:105,spd:105},
@@ -6418,7 +5927,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	430:{
-		num:430,
 		species:"Honchkrow",
 		types:["Dark","Flying"],
 		baseStats:{hp:100,atk:125,def:52,spatk:105,spdef:52,spd:71},
@@ -6430,7 +5938,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	431:{
-		num:431,
 		species:"Glameow",
 		types:["Normal"],
 		genderRatio:{M:0.25,F:0.75},
@@ -6443,7 +5950,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	432:{
-		num:432,
 		species:"Purugly",
 		types:["Normal"],
 		genderRatio:{M:0.25,F:0.75},
@@ -6457,7 +5963,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	433:{
-		num:433,
 		species:"Chingling",
 		types:["Psychic"],
 		baseStats:{hp:45,atk:30,def:50,spatk:65,spdef:50,spd:45},
@@ -6469,7 +5974,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	434:{
-		num:434,
 		species:"Stunky",
 		types:["Poison","Dark"],
 		baseStats:{hp:63,atk:63,def:47,spatk:41,spdef:41,spd:74},
@@ -6481,7 +5985,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	435:{
-		num:435,
 		species:"Skuntank",
 		types:["Poison","Dark"],
 		baseStats:{hp:103,atk:93,def:67,spatk:71,spdef:61,spd:84},
@@ -6494,7 +5997,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	436:{
-		num:436,
 		species:"Bronzor",
 		types:["Steel","Psychic"],
 		gender:"N",
@@ -6507,7 +6009,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	437:{
-		num:437,
 		species:"Bronzong",
 		types:["Steel","Psychic"],
 		gender:"N",
@@ -6521,7 +6022,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	438:{
-		num:438,
 		species:"Bonsly",
 		types:["Rock"],
 		baseStats:{hp:50,atk:80,def:95,spatk:10,spdef:45,spd:10},
@@ -6533,7 +6033,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	439:{
-		num:439,
 		species:"Mime Jr.",
 		types:["Psychic","Fairy"],
 		baseStats:{hp:20,atk:25,def:45,spatk:70,spdef:90,spd:60},
@@ -6545,7 +6044,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	440:{
-		num:440,
 		species:"Happiny",
 		types:["Normal"],
 		gender:"F",
@@ -6558,7 +6056,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	441:{
-		num:441,
 		species:"Chatot",
 		types:["Normal","Flying"],
 		baseStats:{hp:76,atk:65,def:45,spatk:92,spdef:42,spd:91},
@@ -6569,7 +6066,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	442:{
-		num:442,
 		species:"Spiritomb",
 		types:["Ghost","Dark"],
 		baseStats:{hp:50,atk:92,def:108,spatk:92,spdef:108,spd:35},
@@ -6580,7 +6076,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	443:{
-		num:443,
 		species:"Gible",
 		types:["Dragon","Ground"],
 		baseStats:{hp:58,atk:70,def:45,spatk:40,spdef:45,spd:42},
@@ -6592,7 +6087,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	444:{
-		num:444,
 		species:"Gabite",
 		types:["Dragon","Ground"],
 		baseStats:{hp:68,atk:90,def:65,spatk:50,spdef:55,spd:82},
@@ -6606,7 +6100,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	445:{
-		num:445,
 		species:"Garchomp",
 		types:["Dragon","Ground"],
 		baseStats:{hp:108,atk:130,def:95,spatk:80,spdef:85,spd:102},
@@ -6620,7 +6113,6 @@ pokemon.data.pokemon = {
 		otherFormes:["garchompmega"],
 	},
 	"Mega-445":{
-		num:445,
 		species:"Garchomp-Mega",
 		baseSpecies:"Garchomp",
 		forme:"Mega",
@@ -6634,7 +6126,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	446:{
-		num:446,
 		species:"Munchlax",
 		types:["Normal"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6647,7 +6138,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	447:{
-		num:447,
 		species:"Riolu",
 		types:["Fighting"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6660,7 +6150,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	448:{
-		num:448,
 		species:"Lucario",
 		types:["Fighting","Steel"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6675,7 +6164,6 @@ pokemon.data.pokemon = {
 		otherFormes:["lucariomega"],
 	},
 	"Mega-448":{
-		num:448,
 		species:"Lucario-Mega",
 		baseSpecies:"Lucario",
 		forme:"Mega",
@@ -6690,7 +6178,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	449:{
-		num:449,
 		species:"Hippopotas",
 		types:["Ground"],
 		baseStats:{hp:68,atk:72,def:78,spatk:38,spdef:42,spd:32},
@@ -6702,7 +6189,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	450:{
-		num:450,
 		species:"Hippowdon",
 		types:["Ground"],
 		baseStats:{hp:108,atk:112,def:118,spatk:68,spdef:72,spd:47},
@@ -6715,7 +6201,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	451:{
-		num:451,
 		species:"Skorupi",
 		types:["Poison","Bug"],
 		baseStats:{hp:40,atk:50,def:90,spatk:30,spdef:55,spd:65},
@@ -6727,7 +6212,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug","Water 3"],
 	},
 	452:{
-		num:452,
 		species:"Drapion",
 		types:["Poison","Dark"],
 		baseStats:{hp:70,atk:90,def:110,spatk:60,spdef:75,spd:95},
@@ -6740,7 +6224,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug","Water 3"],
 	},
 	453:{
-		num:453,
 		species:"Croagunk",
 		types:["Poison","Fighting"],
 		baseStats:{hp:48,atk:61,def:40,spatk:61,spdef:40,spd:50},
@@ -6752,7 +6235,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	454:{
-		num:454,
 		species:"Toxicroak",
 		types:["Poison","Fighting"],
 		baseStats:{hp:83,atk:106,def:65,spatk:86,spdef:65,spd:85},
@@ -6765,7 +6247,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	455:{
-		num:455,
 		species:"Carnivine",
 		types:["Grass"],
 		baseStats:{hp:74,atk:100,def:72,spatk:90,spdef:72,spd:46},
@@ -6776,7 +6257,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	456:{
-		num:456,
 		species:"Finneon",
 		types:["Water"],
 		baseStats:{hp:49,atk:49,def:56,spatk:49,spdef:61,spd:66},
@@ -6788,7 +6268,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	457:{
-		num:457,
 		species:"Lumineon",
 		types:["Water"],
 		baseStats:{hp:69,atk:69,def:76,spatk:69,spdef:86,spd:91},
@@ -6801,7 +6280,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	458:{
-		num:458,
 		species:"Mantyke",
 		types:["Water","Flying"],
 		baseStats:{hp:45,atk:20,def:50,spatk:60,spdef:120,spd:50},
@@ -6813,7 +6291,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	459:{
-		num:459,
 		species:"Snover",
 		types:["Grass","Ice"],
 		baseStats:{hp:60,atk:62,def:50,spatk:62,spdef:60,spd:40},
@@ -6825,7 +6302,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	460:{
-		num:460,
 		species:"Abomasnow",
 		types:["Grass","Ice"],
 		baseStats:{hp:90,atk:92,def:75,spatk:92,spdef:85,spd:60},
@@ -6839,7 +6315,6 @@ pokemon.data.pokemon = {
 		otherFormes:["abomasnowmega"],
 	},
 	"Mega-460":{
-		num:460,
 		species:"Abomasnow-Mega",
 		baseSpecies:"Abomasnow",
 		forme:"Mega",
@@ -6853,7 +6328,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Grass"],
 	},
 	461:{
-		num:461,
 		species:"Weavile",
 		types:["Dark","Ice"],
 		baseStats:{hp:70,atk:120,def:65,spatk:45,spdef:85,spd:125},
@@ -6866,7 +6340,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	462:{
-		num:462,
 		species:"Magnezone",
 		types:["Electric","Steel"],
 		gender:"N",
@@ -6880,7 +6353,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	463:{
-		num:463,
 		species:"Lickilicky",
 		types:["Normal"],
 		baseStats:{hp:110,atk:85,def:95,spatk:80,spdef:95,spd:50},
@@ -6894,7 +6366,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	464:{
-		num:464,
 		species:"Rhyperior",
 		types:["Ground","Rock"],
 		baseStats:{hp:115,atk:140,def:130,spatk:55,spdef:55,spd:40},
@@ -6907,7 +6378,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Field"],
 	},
 	465:{
-		num:465,
 		species:"Tangrowth",
 		types:["Grass"],
 		baseStats:{hp:100,atk:100,def:125,spatk:110,spdef:50,spd:50},
@@ -6921,7 +6391,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	466:{
-		num:466,
 		species:"Electivire",
 		types:["Electric"],
 		genderRatio:{M:0.75,F:0.25},
@@ -6935,7 +6404,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	467:{
-		num:467,
 		species:"Magmortar",
 		types:["Fire"],
 		genderRatio:{M:0.75,F:0.25},
@@ -6949,7 +6417,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	468:{
-		num:468,
 		species:"Togekiss",
 		types:["Fairy","Flying"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6963,7 +6430,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Fairy"],
 	},
 	469:{
-		num:469,
 		species:"Yanmega",
 		types:["Bug","Flying"],
 		baseStats:{hp:86,atk:76,def:86,spatk:116,spdef:56,spd:95},
@@ -6977,7 +6443,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	470:{
-		num:470,
 		species:"Leafeon",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -6991,7 +6456,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	471:{
-		num:471,
 		species:"Glaceon",
 		types:["Ice"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7005,7 +6469,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	472:{
-		num:472,
 		species:"Gliscor",
 		types:["Ground","Flying"],
 		baseStats:{hp:75,atk:95,def:125,spatk:45,spdef:75,spd:95},
@@ -7018,7 +6481,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	473:{
-		num:473,
 		species:"Mamoswine",
 		types:["Ice","Ground"],
 		baseStats:{hp:110,atk:130,def:80,spatk:70,spdef:60,spd:80},
@@ -7032,7 +6494,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	474:{
-		num:474,
 		species:"Porygon-Z",
 		types:["Normal"],
 		gender:"N",
@@ -7045,7 +6506,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	475:{
-		num:475,
 		species:"Gallade",
 		types:["Psychic","Fighting"],
 		gender:"M",
@@ -7060,7 +6520,6 @@ pokemon.data.pokemon = {
 		otherFormes:["gallademega"],
 	},
 	"Mega-475":{
-		num:475,
 		species:"Gallade-Mega",
 		baseSpecies:"Gallade",
 		forme:"Mega",
@@ -7075,7 +6534,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	476:{
-		num:476,
 		species:"Probopass",
 		types:["Rock","Steel"],
 		baseStats:{hp:60,atk:55,def:145,spatk:75,spdef:150,spd:40},
@@ -7088,7 +6546,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	477:{
-		num:477,
 		species:"Dusknoir",
 		types:["Ghost"],
 		baseStats:{hp:45,atk:100,def:135,spatk:65,spdef:135,spd:45},
@@ -7101,7 +6558,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	478:{
-		num:478,
 		species:"Froslass",
 		types:["Ice","Ghost"],
 		gender:"F",
@@ -7114,7 +6570,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Mineral"],
 	},
 	479:{
-		num:479,
 		species:"Rotom",
 		types:["Electric","Ghost"],
 		gender:"N",
@@ -7127,7 +6582,6 @@ pokemon.data.pokemon = {
 		otherFormes:["rotomheat","rotomwash","rotomfrost","rotomfan","rotommow"],
 	},
 	"Heat-479":{
-		num:479,
 		species:"Rotom-Heat",
 		baseSpecies:"Rotom",
 		forme:"Heat",
@@ -7142,7 +6596,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	"Wash-479":{
-		num:479,
 		species:"Rotom-Wash",
 		baseSpecies:"Rotom",
 		forme:"Wash",
@@ -7157,7 +6610,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	"Frost-479":{
-		num:479,
 		species:"Rotom-Frost",
 		baseSpecies:"Rotom",
 		forme:"Frost",
@@ -7172,7 +6624,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	"Fan-479":{
-		num:479,
 		species:"Rotom-Fan",
 		baseSpecies:"Rotom",
 		forme:"Fan",
@@ -7187,7 +6638,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	"Mow-479":{
-		num:479,
 		species:"Rotom-Mow",
 		baseSpecies:"Rotom",
 		forme:"Mow",
@@ -7202,7 +6652,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	480:{
-		num:480,
 		species:"Uxie",
 		types:["Psychic"],
 		gender:"N",
@@ -7214,7 +6663,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	481:{
-		num:481,
 		species:"Mesprit",
 		types:["Psychic"],
 		gender:"N",
@@ -7226,7 +6674,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	482:{
-		num:482,
 		species:"Azelf",
 		types:["Psychic"],
 		gender:"N",
@@ -7238,7 +6685,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	483:{
-		num:483,
 		species:"Dialga",
 		types:["Steel","Dragon"],
 		gender:"N",
@@ -7250,7 +6696,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	484:{
-		num:484,
 		species:"Palkia",
 		types:["Water","Dragon"],
 		gender:"N",
@@ -7262,7 +6707,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	485:{
-		num:485,
 		species:"Heatran",
 		types:["Fire","Steel"],
 		baseStats:{hp:91,atk:90,def:106,spatk:130,spdef:106,spd:77},
@@ -7273,7 +6717,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	486:{
-		num:486,
 		species:"Regigigas",
 		types:["Normal"],
 		gender:"N",
@@ -7285,7 +6728,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	487:{
-		num:487,
 		species:"Giratina",
 		baseForme:"Altered",
 		types:["Ghost","Dragon"],
@@ -7299,7 +6741,6 @@ pokemon.data.pokemon = {
 		otherFormes:["giratinaorigin"],
 	},
 	"Origin-487":{
-		num:487,
 		species:"Giratina-Origin",
 		baseSpecies:"Giratina",
 		forme:"Origin",
@@ -7314,7 +6755,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	488:{
-		num:488,
 		species:"Cresselia",
 		types:["Psychic"],
 		gender:"F",
@@ -7326,7 +6766,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	489:{
-		num:489,
 		species:"Phione",
 		types:["Water"],
 		gender:"N",
@@ -7338,7 +6777,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Fairy"],
 	},
 	490:{
-		num:490,
 		species:"Manaphy",
 		types:["Water"],
 		gender:"N",
@@ -7350,7 +6788,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Fairy"],
 	},
 	491:{
-		num:491,
 		species:"Darkrai",
 		types:["Dark"],
 		gender:"N",
@@ -7362,7 +6799,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	492:{
-		num:492,
 		species:"Shaymin",
 		baseForme:"Land",
 		types:["Grass"],
@@ -7376,7 +6812,6 @@ pokemon.data.pokemon = {
 		otherFormes:["shayminsky"],
 	},
 	"Sky-492":{
-		num:492,
 		species:"Shaymin-Sky",
 		baseSpecies:"Shaymin",
 		forme:"Sky",
@@ -7391,7 +6826,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	493:{
-		num:493,
 		species:"Arceus",
 		baseForme:"Normal",
 		types:["Normal"],
@@ -7405,7 +6839,6 @@ pokemon.data.pokemon = {
 		otherFormes:["arceusbug","arceusdark","arceusdragon","arceuselectric","arceusfairy","arceusfighting","arceusfire","arceusflying","arceusghost","arceusgrass","arceusground","arceusice","arceuspoison","arceuspsychic","arceusrock","arceussteel","arceuswater"],
 	},
 	"Bug-493":{
-		num:493,
 		species:"Arceus-Bug",
 		baseSpecies:"Arceus",
 		forme:"Bug",
@@ -7420,7 +6853,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Dark-493":{
-		num:493,
 		species:"Arceus-Dark",
 		baseSpecies:"Arceus",
 		forme:"Dark",
@@ -7435,7 +6867,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Dragon-493":{
-		num:493,
 		species:"Arceus-Dragon",
 		baseSpecies:"Arceus",
 		forme:"Dragon",
@@ -7450,7 +6881,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Electric-493":{
-		num:493,
 		species:"Arceus-Electric",
 		baseSpecies:"Arceus",
 		forme:"Electric",
@@ -7465,7 +6895,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Fairy-493":{
-		num:493,
 		species:"Arceus-Fairy",
 		baseSpecies:"Arceus",
 		forme:"Fairy",
@@ -7480,7 +6909,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Fighting-493":{
-		num:493,
 		species:"Arceus-Fighting",
 		baseSpecies:"Arceus",
 		forme:"Fighting",
@@ -7495,7 +6923,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Fire-493":{
-		num:493,
 		species:"Arceus-Fire",
 		baseSpecies:"Arceus",
 		forme:"Fire",
@@ -7510,7 +6937,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Flying-493":{
-		num:493,
 		species:"Arceus-Flying",
 		baseSpecies:"Arceus",
 		forme:"Flying",
@@ -7525,7 +6951,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Ghost-493":{
-		num:493,
 		species:"Arceus-Ghost",
 		baseSpecies:"Arceus",
 		forme:"Ghost",
@@ -7540,7 +6965,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Grass-493":{
-		num:493,
 		species:"Arceus-Grass",
 		baseSpecies:"Arceus",
 		forme:"Grass",
@@ -7555,7 +6979,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Ground-493":{
-		num:493,
 		species:"Arceus-Ground",
 		baseSpecies:"Arceus",
 		forme:"Ground",
@@ -7570,7 +6993,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Ice-493":{
-		num:493,
 		species:"Arceus-Ice",
 		baseSpecies:"Arceus",
 		forme:"Ice",
@@ -7585,7 +7007,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Poison-493":{
-		num:493,
 		species:"Arceus-Poison",
 		baseSpecies:"Arceus",
 		forme:"Poison",
@@ -7600,7 +7021,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Psychic-493":{
-		num:493,
 		species:"Arceus-Psychic",
 		baseSpecies:"Arceus",
 		forme:"Psychic",
@@ -7615,7 +7035,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Rock-493":{
-		num:493,
 		species:"Arceus-Rock",
 		baseSpecies:"Arceus",
 		forme:"Rock",
@@ -7630,7 +7049,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Steel-493":{
-		num:493,
 		species:"Arceus-Steel",
 		baseSpecies:"Arceus",
 		forme:"Steel",
@@ -7645,7 +7063,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Water-493":{
-		num:493,
 		species:"Arceus-Water",
 		baseSpecies:"Arceus",
 		forme:"Water",
@@ -7660,7 +7077,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	494:{
-		num:494,
 		species:"Victini",
 		types:["Psychic","Fire"],
 		gender:"N",
@@ -7672,7 +7088,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	495:{
-		num:495,
 		species:"Snivy",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7685,7 +7100,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Grass"],
 	},
 	496:{
-		num:496,
 		species:"Servine",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7700,7 +7114,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Grass"],
 	},
 	497:{
-		num:497,
 		species:"Serperior",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7714,7 +7127,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Grass"],
 	},
 	498:{
-		num:498,
 		species:"Tepig",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7727,7 +7139,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	499:{
-		num:499,
 		species:"Pignite",
 		types:["Fire","Fighting"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7742,7 +7153,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	500:{
-		num:500,
 		species:"Emboar",
 		types:["Fire","Fighting"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7756,7 +7166,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	501:{
-		num:501,
 		species:"Oshawott",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7769,7 +7178,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	502:{
-		num:502,
 		species:"Dewott",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7784,7 +7192,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	503:{
-		num:503,
 		species:"Samurott",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7798,7 +7205,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	504:{
-		num:504,
 		species:"Patrat",
 		types:["Normal"],
 		baseStats:{hp:45,atk:55,def:39,spatk:35,spdef:39,spd:42},
@@ -7810,7 +7216,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	505:{
-		num:505,
 		species:"Watchog",
 		types:["Normal"],
 		baseStats:{hp:60,atk:85,def:69,spatk:60,spdef:69,spd:77},
@@ -7823,7 +7228,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	506:{
-		num:506,
 		species:"Lillipup",
 		types:["Normal"],
 		baseStats:{hp:45,atk:60,def:45,spatk:25,spdef:45,spd:55},
@@ -7835,7 +7239,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	507:{
-		num:507,
 		species:"Herdier",
 		types:["Normal"],
 		baseStats:{hp:65,atk:80,def:65,spatk:35,spdef:65,spd:60},
@@ -7849,7 +7252,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	508:{
-		num:508,
 		species:"Stoutland",
 		types:["Normal"],
 		baseStats:{hp:85,atk:110,def:90,spatk:45,spdef:90,spd:80},
@@ -7862,7 +7264,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	509:{
-		num:509,
 		species:"Purrloin",
 		types:["Dark"],
 		baseStats:{hp:41,atk:50,def:37,spatk:50,spdef:37,spd:66},
@@ -7874,7 +7275,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	510:{
-		num:510,
 		species:"Liepard",
 		types:["Dark"],
 		baseStats:{hp:64,atk:88,def:50,spatk:88,spdef:50,spd:106},
@@ -7887,7 +7287,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	511:{
-		num:511,
 		species:"Pansage",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7900,7 +7299,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	512:{
-		num:512,
 		species:"Simisage",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7913,7 +7311,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	513:{
-		num:513,
 		species:"Pansear",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7926,7 +7323,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	514:{
-		num:514,
 		species:"Simisear",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7939,7 +7335,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	515:{
-		num:515,
 		species:"Panpour",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7952,7 +7347,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	516:{
-		num:516,
 		species:"Simipour",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -7965,7 +7359,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	517:{
-		num:517,
 		species:"Munna",
 		types:["Psychic"],
 		baseStats:{hp:76,atk:25,def:45,spatk:67,spdef:55,spd:24},
@@ -7977,7 +7370,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	518:{
-		num:518,
 		species:"Musharna",
 		types:["Psychic"],
 		baseStats:{hp:116,atk:55,def:85,spatk:107,spdef:95,spd:29},
@@ -7989,7 +7381,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	519:{
-		num:519,
 		species:"Pidove",
 		types:["Normal","Flying"],
 		baseStats:{hp:50,atk:55,def:50,spatk:36,spdef:30,spd:43},
@@ -8001,7 +7392,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	520:{
-		num:520,
 		species:"Tranquill",
 		types:["Normal","Flying"],
 		baseStats:{hp:62,atk:77,def:62,spatk:50,spdef:42,spd:65},
@@ -8015,7 +7405,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	521:{
-		num:521,
 		species:"Unfezant",
 		types:["Normal","Flying"],
 		baseStats:{hp:80,atk:115,def:80,spatk:65,spdef:55,spd:93},
@@ -8028,7 +7417,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	522:{
-		num:522,
 		species:"Blitzle",
 		types:["Electric"],
 		baseStats:{hp:45,atk:60,def:32,spatk:50,spdef:32,spd:76},
@@ -8040,7 +7428,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	523:{
-		num:523,
 		species:"Zebstrika",
 		types:["Electric"],
 		baseStats:{hp:75,atk:100,def:63,spatk:80,spdef:63,spd:116},
@@ -8053,7 +7440,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	524:{
-		num:524,
 		species:"Roggenrola",
 		types:["Rock"],
 		baseStats:{hp:55,atk:75,def:85,spatk:25,spdef:25,spd:15},
@@ -8065,7 +7451,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	525:{
-		num:525,
 		species:"Boldore",
 		types:["Rock"],
 		baseStats:{hp:70,atk:105,def:105,spatk:50,spdef:40,spd:20},
@@ -8079,7 +7464,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	526:{
-		num:526,
 		species:"Gigalith",
 		types:["Rock"],
 		baseStats:{hp:85,atk:135,def:130,spatk:60,spdef:80,spd:25},
@@ -8092,7 +7476,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	527:{
-		num:527,
 		species:"Woobat",
 		types:["Psychic","Flying"],
 		baseStats:{hp:55,atk:45,def:43,spatk:55,spdef:43,spd:72},
@@ -8104,7 +7487,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Field"],
 	},
 	528:{
-		num:528,
 		species:"Swoobat",
 		types:["Psychic","Flying"],
 		baseStats:{hp:67,atk:57,def:55,spatk:77,spdef:55,spd:114},
@@ -8117,7 +7499,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Field"],
 	},
 	529:{
-		num:529,
 		species:"Drilbur",
 		types:["Ground"],
 		baseStats:{hp:60,atk:85,def:40,spatk:30,spdef:45,spd:68},
@@ -8129,7 +7510,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	530:{
-		num:530,
 		species:"Excadrill",
 		types:["Ground","Steel"],
 		baseStats:{hp:110,atk:135,def:60,spatk:50,spdef:65,spd:88},
@@ -8142,7 +7522,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	531:{
-		num:531,
 		species:"Audino",
 		types:["Normal"],
 		baseStats:{hp:103,atk:60,def:86,spatk:60,spdef:86,spd:50},
@@ -8154,7 +7533,6 @@ pokemon.data.pokemon = {
 		otherFormes:["audinomega"],
 	},
 	"Mega-531":{
-		num:531,
 		species:"Audino-Mega",
 		baseSpecies:"Audino",
 		forme:"Mega",
@@ -8168,7 +7546,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	532:{
-		num:532,
 		species:"Timburr",
 		types:["Fighting"],
 		genderRatio:{M:0.75,F:0.25},
@@ -8181,7 +7558,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	533:{
-		num:533,
 		species:"Gurdurr",
 		types:["Fighting"],
 		genderRatio:{M:0.75,F:0.25},
@@ -8196,7 +7572,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	534:{
-		num:534,
 		species:"Conkeldurr",
 		types:["Fighting"],
 		genderRatio:{M:0.75,F:0.25},
@@ -8210,7 +7585,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	535:{
-		num:535,
 		species:"Tympole",
 		types:["Water"],
 		baseStats:{hp:50,atk:50,def:40,spatk:50,spdef:40,spd:64},
@@ -8222,7 +7596,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	536:{
-		num:536,
 		species:"Palpitoad",
 		types:["Water","Ground"],
 		baseStats:{hp:75,atk:65,def:55,spatk:65,spdef:55,spd:69},
@@ -8236,7 +7609,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	537:{
-		num:537,
 		species:"Seismitoad",
 		types:["Water","Ground"],
 		baseStats:{hp:105,atk:95,def:75,spatk:85,spdef:75,spd:74},
@@ -8249,7 +7621,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	538:{
-		num:538,
 		species:"Throh",
 		types:["Fighting"],
 		gender:"M",
@@ -8261,7 +7632,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	539:{
-		num:539,
 		species:"Sawk",
 		types:["Fighting"],
 		gender:"M",
@@ -8273,7 +7643,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	540:{
-		num:540,
 		species:"Sewaddle",
 		types:["Bug","Grass"],
 		baseStats:{hp:45,atk:53,def:70,spatk:40,spdef:60,spd:42},
@@ -8285,7 +7654,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	541:{
-		num:541,
 		species:"Swadloon",
 		types:["Bug","Grass"],
 		baseStats:{hp:55,atk:63,def:90,spatk:50,spdef:80,spd:42},
@@ -8299,7 +7667,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	542:{
-		num:542,
 		species:"Leavanny",
 		types:["Bug","Grass"],
 		baseStats:{hp:75,atk:103,def:80,spatk:70,spdef:80,spd:92},
@@ -8312,7 +7679,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	543:{
-		num:543,
 		species:"Venipede",
 		types:["Bug","Poison"],
 		baseStats:{hp:30,atk:45,def:59,spatk:30,spdef:39,spd:57},
@@ -8324,7 +7690,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	544:{
-		num:544,
 		species:"Whirlipede",
 		types:["Bug","Poison"],
 		baseStats:{hp:40,atk:55,def:99,spatk:40,spdef:79,spd:47},
@@ -8338,7 +7703,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	545:{
-		num:545,
 		species:"Scolipede",
 		types:["Bug","Poison"],
 		baseStats:{hp:60,atk:100,def:89,spatk:55,spdef:69,spd:112},
@@ -8351,7 +7715,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	546:{
-		num:546,
 		species:"Cottonee",
 		types:["Grass","Fairy"],
 		baseStats:{hp:40,atk:27,def:60,spatk:37,spdef:50,spd:66},
@@ -8363,7 +7726,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	547:{
-		num:547,
 		species:"Whimsicott",
 		types:["Grass","Fairy"],
 		baseStats:{hp:60,atk:67,def:85,spatk:77,spdef:75,spd:116},
@@ -8375,7 +7737,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Grass"],
 	},
 	548:{
-		num:548,
 		species:"Petilil",
 		types:["Grass"],
 		gender:"F",
@@ -8388,7 +7749,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	549:{
-		num:549,
 		species:"Lilligant",
 		types:["Grass"],
 		gender:"F",
@@ -8401,7 +7761,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	550:{
-		num:550,
 		species:"Basculin",
 		baseForme:"Red-Striped",
 		types:["Water"],
@@ -8414,7 +7773,6 @@ pokemon.data.pokemon = {
 		otherFormes:["basculinbluestriped"],
 	},
 	"Blue-Striped-550":{
-		num:550,
 		species:"Basculin-Blue-Striped",
 		baseSpecies:"Basculin",
 		forme:"Blue-Striped",
@@ -8428,7 +7786,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 2"],
 	},
 	551:{
-		num:551,
 		species:"Sandile",
 		types:["Ground","Dark"],
 		baseStats:{hp:50,atk:72,def:35,spatk:35,spdef:35,spd:65},
@@ -8440,7 +7797,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	552:{
-		num:552,
 		species:"Krokorok",
 		types:["Ground","Dark"],
 		baseStats:{hp:60,atk:82,def:45,spatk:45,spdef:45,spd:74},
@@ -8454,7 +7810,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	553:{
-		num:553,
 		species:"Krookodile",
 		types:["Ground","Dark"],
 		baseStats:{hp:95,atk:117,def:80,spatk:65,spdef:70,spd:92},
@@ -8467,7 +7822,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	554:{
-		num:554,
 		species:"Darumaka",
 		types:["Fire"],
 		baseStats:{hp:70,atk:90,def:45,spatk:15,spdef:45,spd:50},
@@ -8479,7 +7833,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	555:{
-		num:555,
 		species:"Darmanitan",
 		baseForme:"Standard",
 		types:["Fire"],
@@ -8494,7 +7847,6 @@ pokemon.data.pokemon = {
 		otherFormes:["darmanitanzen"],
 	},
 	"Zen-555":{
-		num:555,
 		species:"Darmanitan-Zen",
 		baseSpecies:"Darmanitan",
 		forme:"Zen",
@@ -8510,7 +7862,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	556:{
-		num:556,
 		species:"Maractus",
 		types:["Grass"],
 		baseStats:{hp:75,atk:86,def:67,spatk:106,spdef:67,spd:60},
@@ -8521,7 +7872,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	557:{
-		num:557,
 		species:"Dwebble",
 		types:["Bug","Rock"],
 		baseStats:{hp:50,atk:65,def:85,spatk:35,spdef:35,spd:55},
@@ -8533,7 +7883,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug","Mineral"],
 	},
 	558:{
-		num:558,
 		species:"Crustle",
 		types:["Bug","Rock"],
 		baseStats:{hp:70,atk:95,def:125,spatk:65,spdef:75,spd:45},
@@ -8546,7 +7895,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug","Mineral"],
 	},
 	559:{
-		num:559,
 		species:"Scraggy",
 		types:["Dark","Fighting"],
 		baseStats:{hp:50,atk:75,def:70,spatk:35,spdef:70,spd:48},
@@ -8558,7 +7906,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Dragon"],
 	},
 	560:{
-		num:560,
 		species:"Scrafty",
 		types:["Dark","Fighting"],
 		baseStats:{hp:65,atk:90,def:115,spatk:45,spdef:115,spd:58},
@@ -8571,7 +7918,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Dragon"],
 	},
 	561:{
-		num:561,
 		species:"Sigilyph",
 		types:["Psychic","Flying"],
 		baseStats:{hp:72,atk:58,def:80,spatk:103,spdef:80,spd:97},
@@ -8582,7 +7928,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	562:{
-		num:562,
 		species:"Yamask",
 		types:["Ghost"],
 		baseStats:{hp:38,atk:30,def:85,spatk:55,spdef:65,spd:30},
@@ -8594,7 +7939,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral","Amorphous"],
 	},
 	563:{
-		num:563,
 		species:"Cofagrigus",
 		types:["Ghost"],
 		baseStats:{hp:58,atk:50,def:145,spatk:95,spdef:105,spd:30},
@@ -8607,7 +7951,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral","Amorphous"],
 	},
 	564:{
-		num:564,
 		species:"Tirtouga",
 		types:["Water","Rock"],
 		genderRatio:{M:0.875,F:0.125},
@@ -8620,7 +7963,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	565:{
-		num:565,
 		species:"Carracosta",
 		types:["Water","Rock"],
 		genderRatio:{M:0.875,F:0.125},
@@ -8634,7 +7976,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	566:{
-		num:566,
 		species:"Archen",
 		types:["Rock","Flying"],
 		genderRatio:{M:0.875,F:0.125},
@@ -8647,7 +7988,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Water 3"],
 	},
 	567:{
-		num:567,
 		species:"Archeops",
 		types:["Rock","Flying"],
 		genderRatio:{M:0.875,F:0.125},
@@ -8661,7 +8001,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying","Water 3"],
 	},
 	568:{
-		num:568,
 		species:"Trubbish",
 		types:["Poison"],
 		baseStats:{hp:50,atk:50,def:62,spatk:40,spdef:62,spd:65},
@@ -8673,7 +8012,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	569:{
-		num:569,
 		species:"Garbodor",
 		types:["Poison"],
 		baseStats:{hp:80,atk:95,def:82,spatk:60,spdef:82,spd:75},
@@ -8686,7 +8024,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	570:{
-		num:570,
 		species:"Zorua",
 		types:["Dark"],
 		genderRatio:{M:0.875,F:0.125},
@@ -8699,7 +8036,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	571:{
-		num:571,
 		species:"Zoroark",
 		types:["Dark"],
 		genderRatio:{M:0.875,F:0.125},
@@ -8713,7 +8049,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	572:{
-		num:572,
 		species:"Minccino",
 		types:["Normal"],
 		genderRatio:{M:0.25,F:0.75},
@@ -8726,7 +8061,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	573:{
-		num:573,
 		species:"Cinccino",
 		types:["Normal"],
 		genderRatio:{M:0.25,F:0.75},
@@ -8739,7 +8073,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	574:{
-		num:574,
 		species:"Gothita",
 		types:["Psychic"],
 		genderRatio:{M:0.25,F:0.75},
@@ -8752,7 +8085,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	575:{
-		num:575,
 		species:"Gothorita",
 		types:["Psychic"],
 		genderRatio:{M:0.25,F:0.75},
@@ -8767,7 +8099,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	576:{
-		num:576,
 		species:"Gothitelle",
 		types:["Psychic"],
 		genderRatio:{M:0.25,F:0.75},
@@ -8781,7 +8112,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	577:{
-		num:577,
 		species:"Solosis",
 		types:["Psychic"],
 		baseStats:{hp:45,atk:30,def:40,spatk:105,spdef:50,spd:20},
@@ -8793,7 +8123,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	578:{
-		num:578,
 		species:"Duosion",
 		types:["Psychic"],
 		baseStats:{hp:65,atk:40,def:50,spatk:125,spdef:60,spd:30},
@@ -8807,7 +8136,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	579:{
-		num:579,
 		species:"Reuniclus",
 		types:["Psychic"],
 		baseStats:{hp:110,atk:65,def:75,spatk:125,spdef:85,spd:30},
@@ -8820,7 +8148,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	580:{
-		num:580,
 		species:"Ducklett",
 		types:["Water","Flying"],
 		baseStats:{hp:62,atk:44,def:50,spatk:44,spdef:50,spd:55},
@@ -8832,7 +8159,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Flying"],
 	},
 	581:{
-		num:581,
 		species:"Swanna",
 		types:["Water","Flying"],
 		baseStats:{hp:75,atk:87,def:63,spatk:87,spdef:63,spd:98},
@@ -8845,7 +8171,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Flying"],
 	},
 	582:{
-		num:582,
 		species:"Vanillite",
 		types:["Ice"],
 		baseStats:{hp:36,atk:50,def:50,spatk:65,spdef:60,spd:44},
@@ -8857,7 +8182,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	583:{
-		num:583,
 		species:"Vanillish",
 		types:["Ice"],
 		baseStats:{hp:51,atk:65,def:65,spatk:80,spdef:75,spd:59},
@@ -8871,7 +8195,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	584:{
-		num:584,
 		species:"Vanilluxe",
 		types:["Ice"],
 		baseStats:{hp:71,atk:95,def:85,spatk:110,spdef:95,spd:79},
@@ -8884,7 +8207,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	585:{
-		num:585,
 		species:"Deerling",
 		baseForme:"Spring",
 		types:["Normal","Grass"],
@@ -8898,7 +8220,6 @@ pokemon.data.pokemon = {
 		otherForms:["deerlingsummer","deerlingautumn","deerlingwinter"],
 	},
 	586:{
-		num:586,
 		species:"Sawsbuck",
 		baseForme:"Spring",
 		types:["Normal","Grass"],
@@ -8913,7 +8234,6 @@ pokemon.data.pokemon = {
 		otherForms:["sawsbucksummer","sawsbuckautumn","sawsbuckwinter"],
 	},
 	587:{
-		num:587,
 		species:"Emolga",
 		types:["Electric","Flying"],
 		baseStats:{hp:55,atk:75,def:60,spatk:75,spdef:60,spd:103},
@@ -8924,7 +8244,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	588:{
-		num:588,
 		species:"Karrablast",
 		types:["Bug"],
 		baseStats:{hp:50,atk:75,def:45,spatk:40,spdef:45,spd:60},
@@ -8936,7 +8255,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	589:{
-		num:589,
 		species:"Escavalier",
 		types:["Bug","Steel"],
 		baseStats:{hp:70,atk:135,def:105,spatk:60,spdef:105,spd:20},
@@ -8948,7 +8266,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	590:{
-		num:590,
 		species:"Foongus",
 		types:["Grass","Poison"],
 		baseStats:{hp:69,atk:55,def:45,spatk:55,spdef:55,spd:15},
@@ -8960,7 +8277,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	591:{
-		num:591,
 		species:"Amoonguss",
 		types:["Grass","Poison"],
 		baseStats:{hp:114,atk:85,def:70,spatk:85,spdef:80,spd:30},
@@ -8973,7 +8289,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass"],
 	},
 	592:{
-		num:592,
 		species:"Frillish",
 		types:["Water","Ghost"],
 		baseStats:{hp:55,atk:40,def:50,spatk:65,spdef:85,spd:40},
@@ -8985,7 +8300,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	593:{
-		num:593,
 		species:"Jellicent",
 		types:["Water","Ghost"],
 		baseStats:{hp:100,atk:60,def:70,spatk:85,spdef:105,spd:60},
@@ -8998,7 +8312,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	594:{
-		num:594,
 		species:"Alomomola",
 		types:["Water"],
 		baseStats:{hp:165,atk:75,def:80,spatk:40,spdef:45,spd:65},
@@ -9009,7 +8322,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 2"],
 	},
 	595:{
-		num:595,
 		species:"Joltik",
 		types:["Bug","Electric"],
 		baseStats:{hp:50,atk:47,def:50,spatk:57,spdef:50,spd:65},
@@ -9021,7 +8333,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	596:{
-		num:596,
 		species:"Galvantula",
 		types:["Bug","Electric"],
 		baseStats:{hp:70,atk:77,def:60,spatk:97,spdef:60,spd:108},
@@ -9034,7 +8345,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	597:{
-		num:597,
 		species:"Ferroseed",
 		types:["Grass","Steel"],
 		baseStats:{hp:44,atk:50,def:91,spatk:24,spdef:86,spd:10},
@@ -9046,7 +8356,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass","Mineral"],
 	},
 	598:{
-		num:598,
 		species:"Ferrothorn",
 		types:["Grass","Steel"],
 		baseStats:{hp:74,atk:94,def:131,spatk:54,spdef:116,spd:20},
@@ -9059,7 +8368,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass","Mineral"],
 	},
 	599:{
-		num:599,
 		species:"Klink",
 		types:["Steel"],
 		gender:"N",
@@ -9072,7 +8380,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	600:{
-		num:600,
 		species:"Klang",
 		types:["Steel"],
 		gender:"N",
@@ -9087,7 +8394,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	601:{
-		num:601,
 		species:"Klinklang",
 		types:["Steel"],
 		gender:"N",
@@ -9101,7 +8407,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	602:{
-		num:602,
 		species:"Tynamo",
 		types:["Electric"],
 		baseStats:{hp:35,atk:55,def:40,spatk:45,spdef:40,spd:60},
@@ -9113,7 +8418,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	603:{
-		num:603,
 		species:"Eelektrik",
 		types:["Electric"],
 		baseStats:{hp:65,atk:85,def:70,spatk:75,spdef:70,spd:40},
@@ -9127,7 +8431,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	604:{
-		num:604,
 		species:"Eelektross",
 		types:["Electric"],
 		baseStats:{hp:85,atk:115,def:80,spatk:105,spdef:80,spd:50},
@@ -9140,7 +8443,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	605:{
-		num:605,
 		species:"Elgyem",
 		types:["Psychic"],
 		baseStats:{hp:55,atk:55,def:55,spatk:85,spdef:55,spd:30},
@@ -9152,7 +8454,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	606:{
-		num:606,
 		species:"Beheeyem",
 		types:["Psychic"],
 		baseStats:{hp:75,atk:75,def:75,spatk:125,spdef:95,spd:40},
@@ -9165,7 +8466,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	607:{
-		num:607,
 		species:"Litwick",
 		types:["Ghost","Fire"],
 		baseStats:{hp:50,atk:30,def:55,spatk:65,spdef:55,spd:20},
@@ -9177,7 +8477,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	608:{
-		num:608,
 		species:"Lampent",
 		types:["Ghost","Fire"],
 		baseStats:{hp:60,atk:40,def:60,spatk:95,spdef:60,spd:55},
@@ -9191,7 +8490,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	609:{
-		num:609,
 		species:"Chandelure",
 		types:["Ghost","Fire"],
 		baseStats:{hp:60,atk:55,def:90,spatk:145,spdef:90,spd:80},
@@ -9204,7 +8502,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	610:{
-		num:610,
 		species:"Axew",
 		types:["Dragon"],
 		baseStats:{hp:46,atk:87,def:60,spatk:30,spdef:40,spd:57},
@@ -9216,7 +8513,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	611:{
-		num:611,
 		species:"Fraxure",
 		types:["Dragon"],
 		baseStats:{hp:66,atk:117,def:70,spatk:40,spdef:50,spd:67},
@@ -9230,7 +8526,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	612:{
-		num:612,
 		species:"Haxorus",
 		types:["Dragon"],
 		baseStats:{hp:76,atk:147,def:90,spatk:60,spdef:70,spd:97},
@@ -9243,7 +8538,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	613:{
-		num:613,
 		species:"Cubchoo",
 		types:["Ice"],
 		baseStats:{hp:55,atk:70,def:40,spatk:60,spdef:40,spd:40},
@@ -9255,7 +8549,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	614:{
-		num:614,
 		species:"Beartic",
 		types:["Ice"],
 		baseStats:{hp:95,atk:110,def:80,spatk:70,spdef:80,spd:50},
@@ -9268,7 +8561,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	615:{
-		num:615,
 		species:"Cryogonal",
 		types:["Ice"],
 		gender:"N",
@@ -9280,7 +8572,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	616:{
-		num:616,
 		species:"Shelmet",
 		types:["Bug"],
 		baseStats:{hp:50,atk:40,def:85,spatk:40,spdef:65,spd:25},
@@ -9292,7 +8583,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	617:{
-		num:617,
 		species:"Accelgor",
 		types:["Bug"],
 		baseStats:{hp:80,atk:70,def:40,spatk:100,spdef:60,spd:145},
@@ -9304,7 +8594,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	618:{
-		num:618,
 		species:"Stunfisk",
 		types:["Ground","Electric"],
 		baseStats:{hp:109,atk:66,def:84,spatk:81,spdef:99,spd:32},
@@ -9315,7 +8604,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Amorphous"],
 	},
 	619:{
-		num:619,
 		species:"Mienfoo",
 		types:["Fighting"],
 		baseStats:{hp:45,atk:85,def:50,spatk:55,spdef:50,spd:65},
@@ -9327,7 +8615,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	620:{
-		num:620,
 		species:"Mienshao",
 		types:["Fighting"],
 		baseStats:{hp:65,atk:125,def:60,spatk:95,spdef:60,spd:105},
@@ -9340,7 +8627,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	621:{
-		num:621,
 		species:"Druddigon",
 		types:["Dragon"],
 		baseStats:{hp:77,atk:120,def:90,spatk:60,spdef:90,spd:48},
@@ -9351,7 +8637,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	622:{
-		num:622,
 		species:"Golett",
 		types:["Ground","Ghost"],
 		gender:"N",
@@ -9364,7 +8649,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	623:{
-		num:623,
 		species:"Golurk",
 		types:["Ground","Ghost"],
 		gender:"N",
@@ -9378,7 +8662,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	624:{
-		num:624,
 		species:"Pawniard",
 		types:["Dark","Steel"],
 		baseStats:{hp:45,atk:85,def:70,spatk:40,spdef:40,spd:60},
@@ -9390,7 +8673,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	625:{
-		num:625,
 		species:"Bisharp",
 		types:["Dark","Steel"],
 		baseStats:{hp:65,atk:125,def:100,spatk:60,spdef:70,spd:70},
@@ -9403,7 +8685,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	626:{
-		num:626,
 		species:"Bouffalant",
 		types:["Normal"],
 		baseStats:{hp:95,atk:110,def:95,spatk:40,spdef:95,spd:55},
@@ -9414,7 +8695,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	627:{
-		num:627,
 		species:"Rufflet",
 		types:["Normal","Flying"],
 		gender:"M",
@@ -9427,7 +8707,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	628:{
-		num:628,
 		species:"Braviary",
 		types:["Normal","Flying"],
 		gender:"M",
@@ -9441,7 +8720,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	629:{
-		num:629,
 		species:"Vullaby",
 		types:["Dark","Flying"],
 		gender:"F",
@@ -9454,7 +8732,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	630:{
-		num:630,
 		species:"Mandibuzz",
 		types:["Dark","Flying"],
 		gender:"F",
@@ -9468,7 +8745,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	631:{
-		num:631,
 		species:"Heatmor",
 		types:["Fire"],
 		baseStats:{hp:85,atk:97,def:66,spatk:105,spdef:66,spd:65},
@@ -9479,7 +8755,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	632:{
-		num:632,
 		species:"Durant",
 		types:["Bug","Steel"],
 		baseStats:{hp:58,atk:109,def:112,spatk:48,spdef:48,spd:109},
@@ -9490,7 +8765,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	633:{
-		num:633,
 		species:"Deino",
 		types:["Dark","Dragon"],
 		baseStats:{hp:52,atk:65,def:50,spatk:45,spdef:50,spd:38},
@@ -9502,7 +8776,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	634:{
-		num:634,
 		species:"Zweilous",
 		types:["Dark","Dragon"],
 		baseStats:{hp:72,atk:85,def:70,spatk:65,spdef:70,spd:58},
@@ -9516,7 +8789,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	635:{
-		num:635,
 		species:"Hydreigon",
 		types:["Dark","Dragon"],
 		baseStats:{hp:92,atk:105,def:90,spatk:125,spdef:90,spd:98},
@@ -9529,7 +8801,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	636:{
-		num:636,
 		species:"Larvesta",
 		types:["Bug","Fire"],
 		baseStats:{hp:55,atk:85,def:55,spatk:50,spdef:55,spd:60},
@@ -9541,7 +8812,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	637:{
-		num:637,
 		species:"Volcarona",
 		types:["Bug","Fire"],
 		baseStats:{hp:85,atk:60,def:65,spatk:135,spdef:105,spd:100},
@@ -9554,7 +8824,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	638:{
-		num:638,
 		species:"Cobalion",
 		types:["Steel","Fighting"],
 		gender:"N",
@@ -9566,7 +8835,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	639:{
-		num:639,
 		species:"Terrakion",
 		types:["Rock","Fighting"],
 		gender:"N",
@@ -9578,7 +8846,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	640:{
-		num:640,
 		species:"Virizion",
 		types:["Grass","Fighting"],
 		gender:"N",
@@ -9590,7 +8857,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	641:{
-		num:641,
 		species:"Tornadus",
 		baseForme:"Incarnate",
 		types:["Flying"],
@@ -9604,7 +8870,6 @@ pokemon.data.pokemon = {
 		otherFormes:["tornadustherian"],
 	},
 	"Therian-641":{
-		num:641,
 		species:"Tornadus-Therian",
 		baseSpecies:"Tornadus",
 		forme:"Therian",
@@ -9619,7 +8884,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	642:{
-		num:642,
 		species:"Thundurus",
 		baseForme:"Incarnate",
 		types:["Electric","Flying"],
@@ -9633,7 +8897,6 @@ pokemon.data.pokemon = {
 		otherFormes:["thundurustherian"],
 	},
 	"Therian-642":{
-		num:642,
 		species:"Thundurus-Therian",
 		baseSpecies:"Thundurus",
 		forme:"Therian",
@@ -9648,7 +8911,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	643:{
-		num:643,
 		species:"Reshiram",
 		types:["Dragon","Fire"],
 		gender:"N",
@@ -9660,7 +8922,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	644:{
-		num:644,
 		species:"Zekrom",
 		types:["Dragon","Electric"],
 		gender:"N",
@@ -9672,7 +8933,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	645:{
-		num:645,
 		species:"Landorus",
 		baseForme:"Incarnate",
 		types:["Ground","Flying"],
@@ -9686,7 +8946,6 @@ pokemon.data.pokemon = {
 		otherFormes:["landorustherian"],
 	},
 	"Therian-645":{
-		num:645,
 		species:"Landorus-Therian",
 		baseSpecies:"Landorus",
 		forme:"Therian",
@@ -9701,7 +8960,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	646:{
-		num:646,
 		species:"Kyurem",
 		types:["Dragon","Ice"],
 		gender:"N",
@@ -9714,7 +8972,6 @@ pokemon.data.pokemon = {
 		otherFormes:["kyuremblack","kyuremwhite"],
 	},
 	"Black-646":{
-		num:646,
 		species:"Kyurem-Black",
 		baseSpecies:"Kyurem",
 		forme:"Black",
@@ -9729,7 +8986,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"White-646":{
-		num:646,
 		species:"Kyurem-White",
 		baseSpecies:"Kyurem",
 		forme:"White",
@@ -9744,7 +9000,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	647:{
-		num:647,
 		species:"Keldeo",
 		baseForme:"Ordinary",
 		types:["Water","Fighting"],
@@ -9758,7 +9013,6 @@ pokemon.data.pokemon = {
 		otherFormes:["keldeoresolute"],
 	},
 	"Resolute-647":{
-		num:647,
 		species:"Keldeo-Resolute",
 		baseSpecies:"Keldeo",
 		forme:"Resolute",
@@ -9773,7 +9027,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	648:{
-		num:648,
 		species:"Meloetta",
 		baseForme:"Aria",
 		types:["Normal","Psychic"],
@@ -9787,7 +9040,6 @@ pokemon.data.pokemon = {
 		otherFormes:["meloettapirouette"],
 	},
 	"Pirouette-648":{
-		num:648,
 		species:"Meloetta-Pirouette",
 		baseSpecies:"Meloetta",
 		forme:"Pirouette",
@@ -9802,7 +9054,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	649:{
-		num:649,
 		species:"Genesect",
 		types:["Bug","Steel"],
 		gender:"N",
@@ -9815,7 +9066,6 @@ pokemon.data.pokemon = {
 		otherFormes:["genesectdouse","genesectshock","genesectburn","genesectchill"],
 	},
 	"Douse-649":{
-		num:649,
 		species:"Genesect-Douse",
 		baseSpecies:"Genesect",
 		forme:"Douse",
@@ -9830,7 +9080,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Shock-649":{
-		num:649,
 		species:"Genesect-Shock",
 		baseSpecies:"Genesect",
 		forme:"Shock",
@@ -9845,7 +9094,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Burn-649":{
-		num:649,
 		species:"Genesect-Burn",
 		baseSpecies:"Genesect",
 		forme:"Burn",
@@ -9860,7 +9108,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	"Chill-649":{
-		num:649,
 		species:"Genesect-Chill",
 		baseSpecies:"Genesect",
 		forme:"Chill",
@@ -9875,7 +9122,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	650:{
-		num:650,
 		species:"Chespin",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -9888,7 +9134,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	651:{
-		num:651,
 		species:"Quilladin",
 		types:["Grass"],
 		genderRatio:{M:0.875,F:0.125},
@@ -9903,7 +9148,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	652:{
-		num:652,
 		species:"Chesnaught",
 		types:["Grass","Fighting"],
 		genderRatio:{M:0.875,F:0.125},
@@ -9917,7 +9161,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	653:{
-		num:653,
 		species:"Fennekin",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -9930,7 +9173,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	654:{
-		num:654,
 		species:"Braixen",
 		types:["Fire"],
 		genderRatio:{M:0.875,F:0.125},
@@ -9945,7 +9187,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	655:{
-		num:655,
 		species:"Delphox",
 		types:["Fire","Psychic"],
 		genderRatio:{M:0.875,F:0.125},
@@ -9959,7 +9200,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	656:{
-		num:656,
 		species:"Froakie",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -9972,7 +9212,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	657:{
-		num:657,
 		species:"Frogadier",
 		types:["Water"],
 		genderRatio:{M:0.875,F:0.125},
@@ -9987,7 +9226,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	658:{
-		num:658,
 		species:"Greninja",
 		types:["Water","Dark"],
 		genderRatio:{M:0.875,F:0.125},
@@ -10001,7 +9239,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1"],
 	},
 	659:{
-		num:659,
 		species:"Bunnelby",
 		types:["Normal"],
 		baseStats:{hp:38,atk:36,def:38,spatk:32,spdef:36,spd:57},
@@ -10013,7 +9250,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	660:{
-		num:660,
 		species:"Diggersby",
 		types:["Normal","Ground"],
 		baseStats:{hp:85,atk:56,def:77,spatk:50,spdef:77,spd:78},
@@ -10026,7 +9262,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	661:{
-		num:661,
 		species:"Fletchling",
 		types:["Normal","Flying"],
 		baseStats:{hp:45,atk:50,def:43,spatk:40,spdef:38,spd:62},
@@ -10038,7 +9273,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	662:{
-		num:662,
 		species:"Fletchinder",
 		types:["Fire","Flying"],
 		baseStats:{hp:62,atk:73,def:55,spatk:56,spdef:52,spd:84},
@@ -10052,7 +9286,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	663:{
-		num:663,
 		species:"Talonflame",
 		types:["Fire","Flying"],
 		baseStats:{hp:78,atk:81,def:71,spatk:74,spdef:69,spd:126},
@@ -10065,7 +9298,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	664:{
-		num:664,
 		species:"Scatterbug",
 		types:["Bug"],
 		baseStats:{hp:38,atk:35,def:40,spatk:27,spdef:25,spd:35},
@@ -10077,7 +9309,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	665:{
-		num:665,
 		species:"Spewpa",
 		types:["Bug"],
 		baseStats:{hp:45,atk:22,def:60,spatk:27,spdef:30,spd:29},
@@ -10091,7 +9322,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	666:{
-		num:666,
 		species:"Vivillon",
 		types:["Bug","Flying"],
 		baseStats:{hp:80,atk:52,def:50,spatk:90,spdef:50,spd:89},
@@ -10106,7 +9336,6 @@ pokemon.data.pokemon = {
 		otherFormes:["vivillonfancy","vivillonpokeball"],
 	},
 	"Fancy-666":{
-		num:666,
 		species:"Vivillon-Fancy",
 		baseSpecies:"Vivillon",
 		forme:"Fancy",
@@ -10120,7 +9349,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	"Pokeball-666":{
-		num:666,
 		species:"Vivillon-Pokeball",
 		baseSpecies:"Vivillon",
 		forme:"Pokeball",
@@ -10134,7 +9362,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Bug"],
 	},
 	667:{
-		num:667,
 		species:"Litleo",
 		types:["Fire","Normal"],
 		baseStats:{hp:62,atk:50,def:58,spatk:73,spdef:54,spd:72},
@@ -10146,7 +9373,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	668:{
-		num:668,
 		species:"Pyroar",
 		types:["Fire","Normal"],
 		genderRatio:{M:0.25,F:0.75},
@@ -10160,7 +9386,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	669:{
-		num:669,
 		species:"Flabebe",
 		types:["Fairy"],
 		gender:"F",
@@ -10174,7 +9399,6 @@ pokemon.data.pokemon = {
 		otherForms:["flabebeblue","flabebeorange","flabebewhite","flabebeyellow"],
 	},
 	670:{
-		num:670,
 		species:"Floette",
 		baseForme:"Red-Flower",
 		types:["Fairy"],
@@ -10192,7 +9416,6 @@ pokemon.data.pokemon = {
 		otherFormes:["floetteeternal"],
 	},
 	"Eternal-670":{
-		num:670,
 		species:"Floette-Eternal",
 		baseSpecies:"Floette",
 		forme:"Eternal",
@@ -10207,7 +9430,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	671:{
-		num:671,
 		species:"Florges",
 		types:["Fairy"],
 		gender:"F",
@@ -10222,7 +9444,6 @@ pokemon.data.pokemon = {
 		otherForms:["florgesblue","florgesorange","florgeswhite","florgesyellow"],
 	},
 	672:{
-		num:672,
 		species:"Skiddo",
 		types:["Grass"],
 		baseStats:{hp:66,atk:65,def:48,spatk:62,spdef:57,spd:52},
@@ -10234,7 +9455,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	673:{
-		num:673,
 		species:"Gogoat",
 		types:["Grass"],
 		baseStats:{hp:123,atk:100,def:62,spatk:97,spdef:81,spd:68},
@@ -10247,7 +9467,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	674:{
-		num:674,
 		species:"Pancham",
 		types:["Fighting"],
 		baseStats:{hp:67,atk:82,def:62,spatk:46,spdef:48,spd:43},
@@ -10259,7 +9478,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	675:{
-		num:675,
 		species:"Pangoro",
 		types:["Fighting","Dark"],
 		baseStats:{hp:95,atk:124,def:78,spatk:69,spdef:71,spd:58},
@@ -10272,7 +9490,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Human-Like"],
 	},
 	676:{
-		num:676,
 		species:"Furfrou",
 		types:["Normal"],
 		baseStats:{hp:75,atk:80,def:60,spatk:65,spdef:90,spd:102},
@@ -10283,7 +9500,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	677:{
-		num:677,
 		species:"Espurr",
 		types:["Psychic"],
 		baseStats:{hp:62,atk:48,def:54,spatk:63,spdef:60,spd:68},
@@ -10295,7 +9511,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	678:{
-		num:678,
 		species:"Meowstic",
 		baseForme:"M",
 		types:["Psychic"],
@@ -10311,7 +9526,6 @@ pokemon.data.pokemon = {
 		otherFormes:["meowsticf"],
 	},
 	"F-678":{
-		num:678,
 		species:"Meowstic-F",
 		baseSpecies:"Meowstic",
 		forme:"F",
@@ -10328,7 +9542,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	679:{
-		num:679,
 		species:"Honedge",
 		types:["Steel","Ghost"],
 		baseStats:{hp:45,atk:80,def:100,spatk:35,spdef:37,spd:28},
@@ -10340,7 +9553,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	680:{
-		num:680,
 		species:"Doublade",
 		types:["Steel","Ghost"],
 		baseStats:{hp:59,atk:110,def:150,spatk:45,spdef:49,spd:35},
@@ -10354,7 +9566,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	681:{
-		num:681,
 		species:"Aegislash",
 		baseForme:"Shield",
 		types:["Steel","Ghost"],
@@ -10369,7 +9580,6 @@ pokemon.data.pokemon = {
 		otherFormes:["aegislashblade"],
 	},
 	"Blade-681":{
-		num:681,
 		species:"Aegislash-Blade",
 		baseSpecies:"Aegislash",
 		forme:"Blade",
@@ -10385,7 +9595,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	682:{
-		num:682,
 		species:"Spritzee",
 		types:["Fairy"],
 		baseStats:{hp:78,atk:52,def:60,spatk:63,spdef:65,spd:23},
@@ -10397,7 +9606,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	683:{
-		num:683,
 		species:"Aromatisse",
 		types:["Fairy"],
 		baseStats:{hp:101,atk:72,def:72,spatk:99,spdef:89,spd:29},
@@ -10409,7 +9617,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	684:{
-		num:684,
 		species:"Swirlix",
 		types:["Fairy"],
 		baseStats:{hp:62,atk:48,def:66,spatk:59,spdef:57,spd:49},
@@ -10421,7 +9628,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	685:{
-		num:685,
 		species:"Slurpuff",
 		types:["Fairy"],
 		baseStats:{hp:82,atk:80,def:86,spatk:85,spdef:75,spd:72},
@@ -10433,7 +9639,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy"],
 	},
 	686:{
-		num:686,
 		species:"Inkay",
 		types:["Dark","Psychic"],
 		baseStats:{hp:53,atk:54,def:53,spatk:37,spdef:46,spd:45},
@@ -10445,7 +9650,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 2"],
 	},
 	687:{
-		num:687,
 		species:"Malamar",
 		types:["Dark","Psychic"],
 		baseStats:{hp:86,atk:92,def:88,spatk:68,spdef:75,spd:73},
@@ -10458,7 +9662,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 2"],
 	},
 	688:{
-		num:688,
 		species:"Binacle",
 		types:["Rock","Water"],
 		baseStats:{hp:42,atk:52,def:67,spatk:39,spdef:56,spd:50},
@@ -10470,7 +9673,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	689:{
-		num:689,
 		species:"Barbaracle",
 		types:["Rock","Water"],
 		baseStats:{hp:72,atk:105,def:115,spatk:54,spdef:86,spd:68},
@@ -10483,7 +9685,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 3"],
 	},
 	690:{
-		num:690,
 		species:"Skrelp",
 		types:["Poison","Water"],
 		baseStats:{hp:50,atk:60,def:60,spatk:60,spdef:60,spd:30},
@@ -10495,7 +9696,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	691:{
-		num:691,
 		species:"Dragalge",
 		types:["Poison","Dragon"],
 		baseStats:{hp:65,atk:75,def:90,spatk:97,spdef:123,spd:44},
@@ -10508,7 +9708,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Dragon"],
 	},
 	692:{
-		num:692,
 		species:"Clauncher",
 		types:["Water"],
 		baseStats:{hp:50,atk:53,def:62,spatk:58,spdef:63,spd:44},
@@ -10520,7 +9719,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	693:{
-		num:693,
 		species:"Clawitzer",
 		types:["Water"],
 		baseStats:{hp:71,atk:73,def:88,spatk:120,spdef:89,spd:59},
@@ -10533,7 +9731,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Water 1","Water 3"],
 	},
 	694:{
-		num:694,
 		species:"Helioptile",
 		types:["Electric","Normal"],
 		baseStats:{hp:44,atk:38,def:33,spatk:61,spdef:43,spd:70},
@@ -10545,7 +9742,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	695:{
-		num:695,
 		species:"Heliolisk",
 		types:["Electric","Normal"],
 		baseStats:{hp:62,atk:55,def:52,spatk:109,spdef:94,spd:109},
@@ -10557,7 +9753,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	696:{
-		num:696,
 		species:"Tyrunt",
 		types:["Rock","Dragon"],
 		genderRatio:{M:0.875,F:0.125},
@@ -10570,7 +9765,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	697:{
-		num:697,
 		species:"Tyrantrum",
 		types:["Rock","Dragon"],
 		genderRatio:{M:0.875,F:0.125},
@@ -10584,7 +9778,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster","Dragon"],
 	},
 	698:{
-		num:698,
 		species:"Amaura",
 		types:["Rock","Ice"],
 		genderRatio:{M:0.875,F:0.125},
@@ -10597,7 +9790,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	699:{
-		num:699,
 		species:"Aurorus",
 		types:["Rock","Ice"],
 		genderRatio:{M:0.875,F:0.125},
@@ -10611,7 +9803,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	700:{
-		num:700,
 		species:"Sylveon",
 		types:["Fairy"],
 		genderRatio:{M:0.875,F:0.125},
@@ -10625,7 +9816,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field"],
 	},
 	701:{
-		num:701,
 		species:"Hawlucha",
 		types:["Fighting","Flying"],
 		baseStats:{hp:78,atk:92,def:75,spatk:74,spdef:63,spd:118},
@@ -10636,7 +9826,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Human-Like"],
 	},
 	702:{
-		num:702,
 		species:"Dedenne",
 		types:["Electric","Fairy"],
 		baseStats:{hp:67,atk:58,def:57,spatk:81,spdef:67,spd:101},
@@ -10647,7 +9836,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Field","Fairy"],
 	},
 	703:{
-		num:703,
 		species:"Carbink",
 		types:["Rock","Fairy"],
 		gender:"N",
@@ -10659,7 +9847,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Fairy","Mineral"],
 	},
 	704:{
-		num:704,
 		species:"Goomy",
 		types:["Dragon"],
 		baseStats:{hp:45,atk:50,def:35,spatk:55,spdef:75,spd:40},
@@ -10671,7 +9858,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	705:{
-		num:705,
 		species:"Sliggoo",
 		types:["Dragon"],
 		baseStats:{hp:68,atk:75,def:53,spatk:83,spdef:113,spd:60},
@@ -10685,7 +9871,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	706:{
-		num:706,
 		species:"Goodra",
 		types:["Dragon"],
 		baseStats:{hp:90,atk:100,def:70,spatk:110,spdef:150,spd:80},
@@ -10698,7 +9883,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Dragon"],
 	},
 	707:{
-		num:707,
 		species:"Klefki",
 		types:["Steel","Fairy"],
 		baseStats:{hp:57,atk:80,def:91,spatk:80,spdef:87,spd:75},
@@ -10709,7 +9893,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Mineral"],
 	},
 	708:{
-		num:708,
 		species:"Phantump",
 		types:["Ghost","Grass"],
 		baseStats:{hp:43,atk:70,def:48,spatk:50,spdef:60,spd:38},
@@ -10721,7 +9904,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass","Amorphous"],
 	},
 	709:{
-		num:709,
 		species:"Trevenant",
 		types:["Ghost","Grass"],
 		baseStats:{hp:85,atk:110,def:76,spatk:65,spdef:82,spd:56},
@@ -10733,7 +9915,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Grass","Amorphous"],
 	},
 	710:{
-		num:710,
 		species:"Pumpkaboo",
 		baseForme:"Average",
 		types:["Ghost","Grass"],
@@ -10747,7 +9928,6 @@ pokemon.data.pokemon = {
 		otherFormes:["pumpkaboosmall","pumpkaboolarge","pumpkaboosuper"],
 	},
 	"Small-710":{
-		num:710,
 		species:"Pumpkaboo-Small",
 		baseSpecies:"Pumpkaboo",
 		forme:"Small",
@@ -10762,7 +9942,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	"Large-710":{
-		num:710,
 		species:"Pumpkaboo-Large",
 		baseSpecies:"Pumpkaboo",
 		forme:"Large",
@@ -10777,7 +9956,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	"Super-710":{
-		num:710,
 		species:"Pumpkaboo-Super",
 		baseSpecies:"Pumpkaboo",
 		forme:"Super",
@@ -10792,7 +9970,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	711:{
-		num:711,
 		species:"Gourgeist",
 		baseForme:"Average",
 		types:["Ghost","Grass"],
@@ -10806,7 +9983,6 @@ pokemon.data.pokemon = {
 		otherFormes:["gourgeistsmall","gourgeistlarge","gourgeistsuper"],
 	},
 	"Small-711":{
-		num:711,
 		species:"Gourgeist-Small",
 		baseSpecies:"Gourgeist",
 		forme:"Small",
@@ -10821,7 +9997,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	"Large-711":{
-		num:711,
 		species:"Gourgeist-Large",
 		baseSpecies:"Gourgeist",
 		forme:"Large",
@@ -10836,7 +10011,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	"Super-711":{
-		num:711,
 		species:"Gourgeist-Super",
 		baseSpecies:"Gourgeist",
 		forme:"Super",
@@ -10851,7 +10025,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Amorphous"],
 	},
 	712:{
-		num:712,
 		species:"Bergmite",
 		types:["Ice"],
 		baseStats:{hp:55,atk:69,def:85,spatk:32,spdef:35,spd:28},
@@ -10863,7 +10036,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	713:{
-		num:713,
 		species:"Avalugg",
 		types:["Ice"],
 		baseStats:{hp:95,atk:117,def:184,spatk:44,spdef:46,spd:28},
@@ -10876,7 +10048,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Monster"],
 	},
 	714:{
-		num:714,
 		species:"Noibat",
 		types:["Flying","Dragon"],
 		baseStats:{hp:40,atk:30,def:35,spatk:45,spdef:40,spd:55},
@@ -10888,7 +10059,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	715:{
-		num:715,
 		species:"Noivern",
 		types:["Flying","Dragon"],
 		baseStats:{hp:85,atk:70,def:80,spatk:97,spdef:80,spd:123},
@@ -10901,7 +10071,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Flying"],
 	},
 	716:{
-		num:716,
 		species:"Xerneas",
 		types:["Fairy"],
 		gender:"N",
@@ -10913,7 +10082,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	717:{
-		num:717,
 		species:"Yveltal",
 		types:["Dark","Flying"],
 		gender:"N",
@@ -10925,7 +10093,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	718:{
-		num:718,
 		species:"Zygarde",
 		types:["Dragon","Ground"],
 		gender:"N",
@@ -10937,7 +10104,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	719:{
-		num:719,
 		species:"Diancie",
 		types:["Rock","Fairy"],
 		gender:"N",
@@ -10950,7 +10116,6 @@ pokemon.data.pokemon = {
 		otherFormes:["dianciemega"],
 	},
 	"Mega-719":{
-		num:719,
 		species:"Diancie-Mega",
 		baseSpecies:"Diancie",
 		forme:"Mega",
@@ -10965,7 +10130,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	720:{
-		num:720,
 		species:"Hoopa",
 		baseForme:"Confined",
 		types:["Psychic","Ghost"],
@@ -10979,7 +10143,6 @@ pokemon.data.pokemon = {
 		otherFormes:["hoopaunbound"],
 	},
 	"Unbound-720":{
-		num:720,
 		species:"Hoopa-Unbound",
 		baseSpecies:"Hoopa",
 		forme:"Unbound",
@@ -10994,7 +10157,6 @@ pokemon.data.pokemon = {
 		eggGroups:["Undiscovered"],
 	},
 	721:{
-		num:721,
 		species:"Volcanion",
 		types:["Fire","Water"],
 		gender:"N",

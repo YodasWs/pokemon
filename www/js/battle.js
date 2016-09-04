@@ -1,10 +1,27 @@
-pokemon.BattleStats = function(){
-	this.spatk = 0
-	this.spdef = 0
-	this.atk = 0
-	this.def = 0
-	this.spd = 0
-	this.hp = 0
+pokemon.BattleStats = function(pkmn){
+	this.isInfatuated = false
+	this.isConfused = false
+	this.status = null
+	this.boosts = {
+		accuracy: 0,
+		evasion: 0,
+		spatk: 0,
+		spdef: 0,
+		atk: 0,
+		def: 0,
+		spd: 0
+	}
+	this.ppMoves = []
+	this.stats = {
+		spatk: 0,
+		spdef: 0,
+		atk: 0,
+		def: 0,
+		spd: 0
+	}
+	for (var i in this.stats) {
+		this.stats[i] = Math.floor(Math.floor(2 * pkmn.baseStats[i] + pkmn.ivs[i] + Math.floor(pkmn.evs[i] / 4)) * pkmn.lvl / 100 + 5)
+	}
 }
 
 pokemon.Battle = function(){
@@ -21,7 +38,7 @@ pokemon.Battle.prototype.start = function(){
 	// Add Pokémon
 	;['player','foe'].forEach(function(t){
 		pokemon.battle[t].pokemon.forEach(function(p,i){
-			p.battleStats = new pokemon.BattleStats()
+			p.battleStats = new pokemon.BattleStats(p)
 			p.img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
 			p.img.addClass(pokemon.data.getPokemonImageClass(p.number))
 			fldBattle.find('.trainer.' + t + ' .inactive.pokemon').append(p.img)
@@ -46,6 +63,13 @@ pokemon.Battle.prototype.start = function(){
 		}, 1000)
 	}, 500)
 }
+pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn){
+	pokemon.battle.activePokemon[trainer] = [pkmn]
+	pokemon.battle[trainer].pokemon.forEach(function(p){
+		if (p.img && p.img.removeClass) p.img.removeClass('active')
+	})
+	pkmn.img.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
+}
 pokemon.Battle.prototype.startRound = function(){
 	pokemon.battle.activePokemon.foe.forEach(function(){
 		// TODO: Select foe's action
@@ -58,13 +82,6 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	$('.pokemon-name').text(pkmn.name)
 	pkmn.img.addClass('ready')
 	$('#battle').find('.menu').delayShow('show')
-}
-pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn){
-	pokemon.battle.activePokemon[trainer] = [pkmn]
-	pokemon.battle[trainer].pokemon.forEach(function(p){
-		if (p.img && p.img.removeClass) p.img.removeClass('active')
-	})
-	pkmn.img.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
 }
 
 pokemon.wildEncounter = function(intSpecies) {
