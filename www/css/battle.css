@@ -44,8 +44,10 @@
 	align-items: flex-end;
 }
 #battle .trainer.player > .pokemon {
-	justify-content: space-between;
 	max-width: 49%;
+}
+#battle .trainer.foe > .pokemon {
+	justify-content: flex-end;
 }
 
 #battle .pokemon-img {
@@ -62,6 +64,9 @@
 	opacity: 1;
 }
 
+#battle .foe .pokemon-img.active {
+	--size: 2;
+}
 #battle .pokemon-img.active {
 	box-shadow: none;
 	--size: 4;

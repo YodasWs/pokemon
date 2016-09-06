@@ -215,12 +215,57 @@
 .pokemon-img.oras.pkmn-70 {
 	background-position: calc(-1040px * var(--size)) calc(-60px * var(--size));
 }
+.pokemon-img.oras.pkmn-71 {
+	background-position: calc(-1080px * var(--size)) calc(-60px * var(--size));
+}
+.pokemon-img.oras.pkmn-72 {
+	background-position: calc(-1120px * var(--size)) calc(-60px * var(--size));
+}
+.pokemon-img.oras.pkmn-73 {
+	background-position: calc(-1160px * var(--size)) calc(-60px * var(--size));
+}
+.pokemon-img.oras.pkmn-74 {
+	background-position: calc(-1200px * var(--size)) calc(-60px * var(--size));
+}
+.pokemon-img.oras.pkmn-75 {
+	background-position: calc(-1240px * var(--size)) calc(-60px * var(--size));
+}
+.pokemon-img.oras.pkmn-76 {
+	background-position: 0px calc(-90px * var(--size));
+}
 .pokemon-img.oras.pkmn-77 {
 	background-position: calc(-40px * var(--size)) calc(-90px * var(--size));
+}
+.pokemon-img.oras.pkmn-78 {
+	background-position: calc(-80px * var(--size)) calc(-90px * var(--size));
+}
+.pokemon-img.oras.pkmn-79 {
+	background-position: calc(-120px * var(--size)) calc(-90px * var(--size));
+}
+.pokemon-img.oras.pkmn-80 {
+	background-position: calc(-160px * var(--size)) calc(-90px * var(--size));
+}
+.pokemon-img.oras.pkmn-81 {
+	background-position: calc(-240px * var(--size)) calc(-90px * var(--size));
 }
 .pokemon-img.oras.pkmn-155 {
 	background-position: calc(-960px * var(--size)) calc(-150px * var(--size));
 }
+.pokemon-img.oras.pkmn-156 {
+	background-position: calc(-1000px * var(--size)) calc(-150px * var(--size));
+}
+.pokemon-img.oras.pkmn-157 {
+	background-position: calc(-1040px * var(--size)) calc(-150px * var(--size));
+}
+.pokemon-img.oras.pkmn-158 {
+	background-position: calc(-1080px * var(--size)) calc(-150px * var(--size));
+}
 .pokemon-img.oras.pkmn-255 {
 	background-position: calc(-1000px * var(--size)) calc(-300px * var(--size));
+}
+.pokemon-img.oras.pkmn-256 {
+	background-position: calc(-1040px * var(--size)) calc(-300px * var(--size));
+}
+.pokemon-img.oras.pkmn-257 {
+	background-position: calc(-1120px * var(--size)) calc(-300px * var(--size));
 }

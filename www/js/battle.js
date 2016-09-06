@@ -45,9 +45,15 @@ pokemon.Battle.prototype.start = function(){
 		})
 	})
 
+	// Open Menus
 	$('[data-action="pkmn"], [data-action="fight"]').off('click').on('click', function() {
 		$(this).parents('li').siblings().find('[data-action].active').removeClass('active')
 		$(this).toggleClass('active')
+	})
+
+	// Attack
+	$('[data-action="fight"] + ul').off('click').on('click', '[data-action]', function(e) {
+		console.log($(e.target).attr('data-action'))
 	})
 
 	// Start
@@ -57,6 +63,11 @@ pokemon.Battle.prototype.start = function(){
 		;['player','foe'].forEach(function(t){
 			pokemon.battle.activatePokemon(t, pokemon.battle[t].pokemon[0])
 		})
+		if (fldBattle.is('.wild') && pokemon.battle.foe.pokemon.length > 1) {
+			pokemon.battle.foe.pokemon.forEach(function(p) {
+				pokemon.battle.activatePokemon('foe', p)
+			})
+		}
 		setTimeout(function() {
 			// Start Round
 			pokemon.battle.startRound()
@@ -66,7 +77,9 @@ pokemon.Battle.prototype.start = function(){
 pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn){
 	pokemon.battle.activePokemon[trainer] = [pkmn]
 	pokemon.battle[trainer].pokemon.forEach(function(p){
-		if (p.img && p.img.removeClass) p.img.removeClass('active')
+		if (trainer !== 'foe' || !$('#battle').is('.wild')) {
+			if (p.img && p.img.removeClass) p.img.removeClass('active')
+		}
 	})
 	pkmn.img.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
 }

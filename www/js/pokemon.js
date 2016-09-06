@@ -3,10 +3,15 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 	var nature = {
 		deStat: 0,
 		inStat: 0
-	}, i, prop,
-		self = this
+	}, i, prop, version,
+		versionsTried = [],
+		self = this,
+		max = 2
 	// Verify Species Number
 	if (!Number.isInteger(intSpecies) || intSpecies <= 0) {
+		throw TypeError("Not a valid Pokémon number!")
+	}
+	if (!pokemon.data.pokemon[intSpecies]) {
 		throw TypeError("Not a valid Pokémon number!")
 	}
 	// Verify Valid Level
@@ -38,7 +43,7 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 	})
 	// Personalize Pokémon
 	for (i in nature) {
-		switch (Math.floor(Math.random() * 5)) {
+		switch (Math.randInt()) {
 		case 0:
 			nature[i] = 'atk'
 			break;
@@ -65,6 +70,33 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 	pokemon.data.statKeys.forEach(function(stat) {
 		self.ivs[stat] = Math.randInt(31)
 	})
+	// Give Pokémon Moves
+	switch (pokemon.player.generation) {
+	case 2:
+		max = 4
+		break;
+	case 3:
+		max = 7
+		break;
+	case 4:
+		max = 10
+		break;
+	case 5:
+		max = 12
+		break;
+	case 6:
+		max = 14
+		break;
+	}
+//	do {
+//		version = Math.randInt(1, max)
+		this.moves = pokemon.data.moves.getByPkmn(this)
+		this.moves.sort(function(a, b){
+			return b.level - a.level
+		})
+		this.moves = this.moves.slice(0,4)
+//	} while (!this.moves.length)
+console.log(this.moves)
 }
 
 pokemon.PokemonList = function(){
