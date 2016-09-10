@@ -6,18 +6,31 @@ Zepto.fn.delayShow = function(classname) {
 	return this
 }
 pokemon.data = pokemon.data || {}
-pokemon.data.getPokemonImageClass = function(intSpecies){
-	if (!intSpecies || !Number.isInteger(intSpecies) || intSpecies <= 0) {
-		throw TypeError("Need a positive integer in pokemon.data.getPokemonImageClass")
-	}
-	switch (pokemon.player.generation) {
+pokemon.data.getPokemonImageClass = function(pkmn){
+	if (Number.isInteger(pkmn)) switch (pokemon.player.generation) {
 	case 1:
-		if (intSpecies <= 151) {
+		if (pkmn <= 151) {
 		}
 	case 6:
-		if (intSpecies <= 721) {
+		if (pkmn <= 721) {
 			return 'oras'
 		}
+	} else if (pkmn.version) switch(pkmn.version) {
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+	case 10:
+	case 11:
+	case 14:
+	case 15:
+	case 16:
+		return 'oras';
 	}
 }
 Math.randInt = function() {

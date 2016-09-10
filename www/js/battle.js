@@ -40,7 +40,7 @@ pokemon.Battle.prototype.start = function(){
 		pokemon.battle[t].pokemon.forEach(function(p,i){
 			p.battleStats = new pokemon.BattleStats(p)
 			p.img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
-			p.img.addClass(pokemon.data.getPokemonImageClass(p.number))
+			p.img.addClass(pokemon.data.getPokemonImageClass(p))
 			fldBattle.find('.trainer.' + t + ' .inactive.pokemon').append(p.img)
 		})
 	})

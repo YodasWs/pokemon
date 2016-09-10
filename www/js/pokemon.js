@@ -102,6 +102,10 @@ version = 1
 		})
 		this.moves = this.moves.slice(0,4)
 //	} while (!this.moves.length)
+	Object.defineProperty(this, 'version', {
+		get: function() { return version },
+		enumerable: true
+	})
 console.log(this.number + ' moves:', this.moves)
 }
 
