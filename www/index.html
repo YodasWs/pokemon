@@ -146,6 +146,7 @@ pokemon.world.drawRoute = function(route){
 
 $(document).on('ready', function(){
 	if (!document.getElementById("map")) return false;
+	if (typeof google === 'undefined' || !google) return false;
 	pokemon.world.geocoder = new google.maps.Geocoder();
 	$.extend(pokemon.world.options.map, {
 		center: new google.maps.LatLng(35.410694, -80.84285),
@@ -207,18 +208,21 @@ $(document).on('ready', function(){
 	})
 });
 // Start Battle for Development
-window.onReady(function(){
-	pokemon.player = new pokemon.Player('Sam');
-	pokemon.player.pokemon.push(
-		new pokemon.Pokemon(4, 10),
-		new pokemon.Pokemon(5, 10),
-		new pokemon.Pokemon(6, 10),
-		new pokemon.Pokemon(77, 10),
-		new pokemon.Pokemon(155, 9),
-		new pokemon.Pokemon(255, 10)
-	)
-	console.log(pokemon.player.pokemon)
-	pokemon.wildEncounter(25)
+var i = 0
+$(document).on('csv-loaded', function(e) {
+	if (++i == 4) {
+		pokemon.player = new pokemon.Player('Sam');
+		pokemon.player.pokemon.push(
+			new pokemon.Pokemon(4, 10),
+			new pokemon.Pokemon(5, 10),
+			new pokemon.Pokemon(6, 10),
+			new pokemon.Pokemon(77, 10),
+			new pokemon.Pokemon(155, 9),
+			new pokemon.Pokemon(255, 10)
+		)
+		console.log(pokemon.player.pokemon)
+		pokemon.wildEncounter(25)
+	}
 })
 </script>
 </head>

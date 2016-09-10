@@ -190,6 +190,7 @@ pokemon.world.drawRoute = function(route){
 
 $(document).on('ready', function(){
 	if (!document.getElementById("map")) return false;
+	if (typeof google === 'undefined' || !google) return false;
 	pokemon.world.geocoder = new google.maps.Geocoder();
 	$.extend(pokemon.world.options.map, {
 		center: new google.maps.LatLng(35.410694, -80.84285),

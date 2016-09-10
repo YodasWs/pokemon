@@ -89,14 +89,20 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 		break;
 	}
 //	do {
-//		version = Math.randInt(1, max)
-		this.moves = pokemon.data.moves.getByPkmn(this)
+//		do {
+			version = Math.randInt(1, max)
+			if (version > 11) version += 2
+version = 1
+//		} while (versionsTried.indexOf(version) >= 0 && versionsTried.length < 14)
+//		versionsTried.push(version)
+//		if (versionsTried.length >= 14) version = 0
+		this.moves = pokemon.data.moves.getByPkmn(this, version)
 		this.moves.sort(function(a, b){
 			return b.level - a.level
 		})
 		this.moves = this.moves.slice(0,4)
 //	} while (!this.moves.length)
-console.log(this.moves)
+console.log(this.number + ' moves:', this.moves)
 }
 
 pokemon.PokemonList = function(){
