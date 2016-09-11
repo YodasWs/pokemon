@@ -121,38 +121,6 @@ pokemon.storage = {
 	}
 }
 
-pokemon.data.moves = {
-	getByPkmn:function(pkmn){
-		if (!pkmn.version) return []
-		var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version),
-			all_moves = pokemon.storage.get('moves'),
-			pkmn_moves = []
-		// Collect Moves for Pokémon
-		all_pkmn_moves.forEach(function(pm){
-			if (pkmn.number != pm['pokemon_id']) return
-			if (pm['pokemon_move_method_id'] != 1) return // 1 == Learned Naturally
-			if (pkmn.lvl >= pm['level']) pkmn_moves.push(pm)
-		})
-		return pkmn_moves
-	},
-	getById:function(id){
-		var moves = pokemon.storage.get('moves'),
-			move = null
-		moves.forEach(function(m){
-			if (m.id == id) move = m
-		})
-		return move
-	},
-	getByName:function(name){
-		var moves = pokemon.storage.get('moves'),
-			move = null
-		moves.forEach(function(m){
-			if (m.identifier == name) move = m
-		})
-		return move
-	}
-}
-
 window.onReady(function(){
 	Papa.SCRIPT_PATH = 'res/papaparse.min.js'
 	var csvFiles = ['moves','pkmn_moves_v1','pkmn_moves_v2','versions_generations'],

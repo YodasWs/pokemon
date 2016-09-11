@@ -1,3 +1,38 @@
+pokemon.data.moves = {
+	getByPkmn:function(pkmn){
+		if (!pkmn.version) return []
+		var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version),
+			all_moves = pokemon.storage.get('moves'),
+			pkmn_moves = []
+		// Collect Moves for Pokémon
+		all_pkmn_moves.forEach(function(pm){
+			if (pkmn.number != pm['pokemon_id']) return
+			if (pm['pokemon_move_method_id'] != 1) return // 1 == Learned Naturally
+			if (pkmn.lvl >= pm['level']) pkmn_moves.push(pm)
+		})
+		return pkmn_moves
+	},
+	getById:function(id){
+		var moves = pokemon.storage.get('moves'),
+			move = null
+		moves.forEach(function(m){
+			if (m.id == id) {
+				move = m
+				return false
+			}
+		})
+		return move
+	},
+	getByName:function(name){
+		var moves = pokemon.storage.get('moves'),
+			move = null
+		moves.forEach(function(m){
+			if (m.identifier == name) move = m
+		})
+		return move
+	}
+}
+
 pokemon.PokemonMoveset = function(pkmn) {
 	this.length = 0
 	Object.defineProperty(this, 'pokemon', {
@@ -21,28 +56,45 @@ pokemon.PokemonMoveset = function(pkmn) {
 	})
 	pkmn_moves.forEach(function(pm) {
 		if (pm.pokemon_move_method_id != 1) return // 1 == Learned Naturally
-		if (pkmn.lvl >= pm.level) self.push(pm.move_id)
+		if (pm.version_group_id != pkmn.version) return
+		if (self.indexOf(pm.move_id) >= 0) return
+		if (pkmn.lvl >= pm.level) self.push(pm)
 		if (self.length >= 4) return false
 	})
 }
 pokemon.PokemonMoveset.prototype = Object.create(Array.prototype)
 pokemon.PokemonMoveset.prototype.constructor = pokemon.PokemonMoveset
 pokemon.PokemonMoveset.prototype.indexOf = function(move_id) {
+	var intIndex = -1
+	if (Number.isInteger(move_id) && move_id > 0) {
+		this.forEach(function(move, i){
+			if (move.id == move_id) {
+				intIndex = i
+				return false
+			}
+		})
+	}
+	return intIndex
 }
-pokemon.PokemonMoveset.prototype.replace = function(index, move_id) {
+pokemon.PokemonMoveset.prototype.replace = function(index, move) {
+	if (Number.isInteger(move) && move > 0) {
+		move = pokemon.data.moves.getById(move)
+	}
+	return this.splice(index, 1, move)
 }
-pokemon.PokemonMoveset.prototype.splice = function(move_id) {
-}
-pokemon.PokemonMoveset.prototype.slice = function(move_id) {
-}
-pokemon.PokemonMoveset.prototype.push = function(move_id) {
-	var self = this
+pokemon.PokemonMoveset.prototype.push = function() {
+	var self = this, move_data, move_id
 	for (var i=0; i<arguments.length; i++) {
 		if (self.length >= 4) break
+		move_data = {}
+		if (arguments[i].move_id) {
+			move_id = arguments[i].move_id
+			move_data = arguments[i]
+		}
 		// Add Data from moves.csv
 		pokemon.storage.get('moves').forEach(function(move){
 			if (move.id !== move_id) return
-			self[self.length] = move
+			self[self.length] = $.extend(move_data, move)
 			self.length++
 		})
 	}
