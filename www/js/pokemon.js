@@ -88,24 +88,14 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 		max = 14
 		break;
 	}
-//	do {
-//		do {
-			version = Math.randInt(1, max)
-			if (version > 11) version += 2
+	version = Math.randInt(pokemon.data.generations.pokemonFirstSeenIn(this.number), max)
+	if (version > 11) version += 2
 version = 1
-//		} while (versionsTried.indexOf(version) >= 0 && versionsTried.length < 14)
-//		versionsTried.push(version)
-//		if (versionsTried.length >= 14) version = 0
-		this.moves = pokemon.data.moves.getByPkmn(this, version)
-		this.moves.sort(function(a, b){
-			return b.level - a.level
-		})
-		this.moves = this.moves.slice(0,4)
-//	} while (!this.moves.length)
 	Object.defineProperty(this, 'version', {
 		get: function() { return version },
 		enumerable: true
 	})
+	this.moves = new pokemon.PokemonMoveset(this)
 console.log(this.number + ' moves:', this.moves)
 }
 

@@ -55,6 +55,27 @@ pokemon.data.versions = {
 		return versions
 	}
 }
+pokemon.data.generations = {
+	maxPokemonNumber:function(generation){
+		switch (generation) {
+		case 1:
+			return 151;
+		case 2:
+			return 251;
+		case 3:
+			return 386;
+		}
+	},
+	pokemonFirstSeenIn:function(pkmn){
+		var num = pkmn
+		if (typeof pkmn == 'object' && pkmn.number) {
+			num = pkmn.number
+		}
+		if (pkmn <= 151) return 1;
+		if (pkmn <= 251) return 2;
+		if (pkmn <= 386) return 3;
+	}
+}
 
 pokemon.db = null
 
@@ -79,7 +100,12 @@ if (window.indexedDB) pokemon.db = (function(){
 
 pokemon.storage = {
 	get:function(k){
-		return JSON.parse(localStorage[k] || '[]')
+		var data = localStorage[k] || '[];0'
+		return JSON.parse(data.substring(0, data.lastIndexOf(';')))
+	},
+	checkTime:function(k){
+		var data = localStorage[k] || '[];0'
+		return Number.parseFloat(data.substring(data.lastIndexOf(';') + 1))
 	},
 	append:function(k,d){
 		var data = pokemon.storage.get(k)
@@ -91,16 +117,17 @@ pokemon.storage = {
 		pokemon.storage.set(k, data)
 	},
 	set:function(k,d){
-		localStorage[k] = JSON.stringify(d)
+		localStorage[k] = JSON.stringify(d) + ';' + (new Date()).getTime()
 	}
 }
 
 pokemon.data.moves = {
-	getByPkmn:function(pkmn, version){
-		version = version || 1
-		var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + version),
+	getByPkmn:function(pkmn){
+		if (!pkmn.version) return []
+		var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version),
 			all_moves = pokemon.storage.get('moves'),
 			pkmn_moves = []
+		// Collect Moves for Pokémon
 		all_pkmn_moves.forEach(function(pm){
 			if (pkmn.number != pm['pokemon_id']) return
 			if (pm['pokemon_move_method_id'] != 1) return // 1 == Learned Naturally

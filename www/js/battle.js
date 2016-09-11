@@ -93,6 +93,12 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	pkmn = pokemon.battle.activePokemon.player[pkmn]
 	$('.pokemon-img.ready').removeClass('ready')
 	$('.pokemon-name').text(pkmn.name)
+	// List Pokémon Moves
+	var $moves = $('#battle ul.moves')
+	$moves.children().remove()
+	pkmn.moves.forEach(function(move) {
+		$moves.append('<li><button data-action="' + move.id + '">' + move.identifier)
+	})
 	pkmn.img.addClass('ready')
 	$('#battle').find('.menu').delayShow('show')
 }
