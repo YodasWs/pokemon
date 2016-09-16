@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<title>Map Builder</title>
+<link rel="stylesheet" href="css/scss/main.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+String.prototype.trim=function(c){c=c||"\\s\uFEFF\xA0";return this.replace(new RegExp('^['+c+']+|['+c+']+$','g'),'')};
+var map = {
+	"cities":[
+		{
+			"id":"CLT",
+			"size":20
+		},
+		{
+			"id":"UNCC",
+			"size":10
+		},
+		{
+			"id":"Northlake Mall",
+			"size":5
+		},
+		{
+			"id":"Huntersville",
+			"size":5
+		},
+		{
+			"id":"Northcross",
+			"size":5
+		},
+		{
+			"id":"Lowesville",
+			"size":5
+		},
+		{
+			"id":"Birkdale",
+			"size":5
+		},
+		{
+			"id":"Cornelius",
+			"size":10
+		},
+		{
+			"id":"Davidson",
+			"size":5
+		},
+		{
+			"id":"Pineville",
+			"size":5
+		},
+		{
+			"id":"Mooresville",
+			"size":5
+		}
+	],
+	"routes":[
+		{
+			"name":"Route 115",
+			"cardinality":"ns",
+			"points":["CLT","Northlake Mall"]
+		},
+		{
+			"name":"Route 115",
+			"cardinality":"ns",
+			"points":["Huntersville","Northlake Mall"]
+		},
+		{
+			"name":"Route 24",
+			"cardinality":"ew",
+			"points":["UNCC","Northlake Mall"]
+		},
+		{
+			"name":"Route 29",
+			"cardinality":"ns",
+			"points":["CLT","UNCC"]
+		},
+		{
+			"name":"Route 115",
+			"cardinality":"ns",
+			"points":["Huntersville","Northcross"]
+		},
+		{
+			"name":"Route 115",
+			"cardinality":"ns",
+			"points":["Cornelius","Northcross"]
+		},
+		{
+			"name":"Route 73",
+			"cardinality":"ew",
+			"points":["Birkdale","Northcross"]
+		},
+		{
+			"name":"Route 73",
+			"cardinality":"ew",
+			"points":["Birkdale","Lowesville"]
+		},
+		{
+			"name":"Route 16",
+			"cardinality":"ns",
+			"points":["CLT","Lowesville"]
+		},
+		{
+			"name":"Route 115",
+			"cardinality":"ns",
+			"points":["Cornelius","Davidson"]
+		},
+		{
+			"name":"Sugar Creek Greenway",
+			"cardinality":"ns",
+			"points":["CLT","Pineville"]
+		},
+		{
+			"name":"Route 115",
+			"cardinality":"ns",
+			"points":["Davidson","Mooresville"]
+		}
+	]
+},
+svg = {
+	path: function() {
+		return document.createElementNS("http://www.w3.org/2000/svg", "path")
+	},
+	circle: function(x, y, r) {
+		var e = document.createElementNS("http://www.w3.org/2000/svg", "circle")
+		if (x) e.setAttribute("cx", x)
+		if (y) e.setAttribute("cy", y)
+		if (r) e.setAttribute("r", r)
+		return e
+	}
+},
+getAngleRange = function(cardinality) {
+	switch (cardinality) {
+	case 'ew':
+	case 'ns':
+	}
+},
+fitAngleRange = function(angle, cardinality) {
+	// TODO: Need to fit angle within one of two ranges
+	var min = -360, max = 360
+	switch (cardinality) {
+	case 'ew':
+		// TODO: [45, 135] or [225, 315]
+	case 'ns':
+		// TODO: [135, 225] or [315, 45]
+	}
+	while (min > angle) {
+		angle += 90
+	}
+	while (max < angle) {
+		angle -= 90
+	}
+	return angle
+}
+map.cities.indexOf = function(id) {
+	var index = -1
+	for (var i=0; i<this.length; i++) {
+		if (this[i].id == id) {
+			index = i
+			break
+		}
+	}
+	return index
+}
+map.cities.indexOf.bind(map.cities)
+map.routes.from = function(point) {
+	if (typeof point === 'object' && point.id) {
+		point = point.id
+	}
+	var arrReturn = []
+	for (var i=0; i<this.length; i++) {
+		if (this[i].points.indexOf(point) > -1) arrReturn.push(this[i])
+	}
+	return arrReturn
+}
+map.routes.from.bind(map.routes)
+$(document).ready(function() {
+	svg.root = document.getElementsByTagNameNS("http://www.w3.org/2000/svg", 'svg')[0]
+	var x = 250, y = 250
+	// Place Cities on Map
+	map.cities.forEach(function(city) {
+		var routes = map.routes.from(city),
+			connectedCities = [],
+			citiesToDraw = []
+			angle = 0
+		// Add Circle for City to Map
+		if (!city.circle) {
+			city.circle = svg.circle(x, y, city.size)
+			city.circle.setAttribute("title", city.id)
+			svg.root.appendChild(city.circle)
+		} else {
+			x = city.circle.getAttribute('cx')
+			y = city.circle.getAttribute('cy')
+		}
+		// Get List of Cities to add vs already added
+		routes.forEach(function(route) {
+			route.points.forEach(function(pnt) {
+				if (pnt == city.id) return
+				var i = map.cities.indexOf(pnt)
+				if (map.cities[i].circle) {
+					// City already drawn
+					connectedCities.push(map.cities[i])
+				} else if (citiesToDraw.indexOf(pnt) == -1) {
+					// Need to draw City
+					citiesToDraw.push({
+						cardinality:route.cardinality,
+						city:pnt
+					})
+				}
+			})
+		})
+		// Need to make sure we don't overlap existing routes!
+		var angles = []
+		connectedCities.forEach(function(cc) {
+			angles.push(
+				Math.round(Math.atan(
+					(cc.circle.getAttribute("cy") - y)
+					/
+					(cc.circle.getAttribute("cx") - x)
+				) * 180 / Math.PI)
+			)
+			console.log(angles[angles.length-1])
+		})
+		// Draw new Connected Cities
+		var numSpokes = Math.max(citiesToDraw.length + connectedCities.length, 3)
+		citiesToDraw.forEach(function(pnt) {
+			var cc = map.cities.indexOf(pnt.city),
+				radius = Math.max(city.size, Number.parseFloat(map.cities[cc].size)) * 5
+			do {
+				angle -= 360 / numSpokes
+				if (angle < 180) angle += 360
+				if (angle > 180) angle -= 360
+			} while (angles.indexOf(angle) > -1)
+			map.cities[cc].circle = svg.circle(
+				Number.parseFloat((radius * Math.sin(angle * Math.PI / 180)).toFixed(4)) + Number.parseFloat(x),
+				Number.parseFloat((radius * Math.cos(angle * Math.PI / 180)).toFixed(4)) + Number.parseFloat(y),
+				map.cities[cc].size
+			)
+			map.cities[cc].circle.setAttribute("title", map.cities[cc].id)
+			svg.root.appendChild(map.cities[cc].circle)
+		})
+	})
+	// Draw Routes between Cities
+	map.routes.forEach(function(route) {
+		path = svg.path()
+		path.setAttribute('d', 'M' + [
+				[
+					map.cities[map.cities.indexOf(route.points[0])].circle.getAttribute("cx"),
+					map.cities[map.cities.indexOf(route.points[0])].circle.getAttribute("cy")
+				],
+				[
+					map.cities[map.cities.indexOf(route.points[1])].circle.getAttribute("cx"),
+					map.cities[map.cities.indexOf(route.points[1])].circle.getAttribute("cy")
+				]
+			].map(function(point) {
+				return point.join(',')
+			}).join('L').trim('L')
+		)
+		svg.root.insertBefore(path, svg.root.childNodes[0])
+	})
+})
+</script>
+</head>
+<body>
+<h1>Map Builder</h1>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"></svg>
+</body>
+</html>
