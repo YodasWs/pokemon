@@ -120,6 +120,9 @@ var map = {
 			"cardinality":["s","n"],
 			"points":["Davidson","Mooresville"]
 		}
+	],
+	"visited":[
+		"CLT","Northlake Mall","UNCC","Huntersville","Northcross"
 	]
 },
 svg = {
@@ -196,6 +199,7 @@ fitAngleRange = function(angle, cardinality) {
 	angle -= 90
 	return angle
 }
+map.visited.indexOf =
 map.cities.indexOf = function(id) {
 	var index = -1
 	for (var i=0; i<this.length; i++) {
@@ -217,12 +221,25 @@ map.routes.from = function(point) {
 	}
 	return arrReturn
 }
+Array.prototype.unique = function() {
+	var arr = [];
+	for (var i=0; i<this.length; i++) {
+		if (arr.indexOf(this[i]) == -1) {
+			arr.push(this[i]);
+		}
+	}
+	return arr;
+}
 map.routes.from.bind(map.routes)
 $(document).ready(function() {
 	svg.root = document.getElementsByTagNameNS("http://www.w3.org/2000/svg", 'svg')[0]
 	var x = 250, y = 250
+	// Only map cities visited and their neighbors
+	map.visited.forEach(function(city, i) {
+		map.visited[i] = map.cities[map.cities.indexOf(city)]
+	})
 	// Place Cities on Map
-	map.cities.forEach(function(city) {
+	map.visited.forEach(function(city) {
 		var routes = map.routes.from(city),
 			connectedCities = [],
 			citiesToDraw = []
@@ -287,6 +304,14 @@ $(document).ready(function() {
 	})
 	// Draw Routes between Cities
 	map.routes.forEach(function(route) {
+		if (!map.cities[map.cities.indexOf(route.points[0])].circle) return
+		if (!map.cities[map.cities.indexOf(route.points[1])].circle) return
+		var routeVisible = false
+		route.points.forEach(function(pnt){
+			if (map.visited.indexOf(pnt) > -1)
+				routeVisible = true
+		})
+		if (!routeVisible) return
 		path = svg.path()
 		path.setAttribute('d', 'M' + [
 				[
