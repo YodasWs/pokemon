@@ -61,11 +61,13 @@ pokemon.Battle.prototype.start = function(){
 	setTimeout(function() {
 		// Activate Pokémon
 		;['player','foe'].forEach(function(t){
-			pokemon.battle.activatePokemon(t, pokemon.battle[t].pokemon[0])
+			for (var i=0; i<pokemon.battle.activePokemon[t].length; i++) {
+				pokemon.battle.activatePokemon(t, pokemon.battle[t].pokemon[i], i)
+			}
 		})
 		if (fldBattle.is('.wild') && pokemon.battle.foe.pokemon.length > 1) {
-			pokemon.battle.foe.pokemon.forEach(function(p) {
-				pokemon.battle.activatePokemon('foe', p)
+			pokemon.battle.foe.pokemon.forEach(function(p, i) {
+				pokemon.battle.activatePokemon('foe', p, i)
 			})
 		}
 		setTimeout(function() {
@@ -74,13 +76,10 @@ pokemon.Battle.prototype.start = function(){
 		}, 1000)
 	}, 500)
 }
-pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn){
-	pokemon.battle.activePokemon[trainer] = [pkmn]
-	pokemon.battle[trainer].pokemon.forEach(function(p){
-		if (trainer !== 'foe' || !$('#battle').is('.wild')) {
-			if (p.img && p.img.removeClass) p.img.removeClass('active')
-		}
-	})
+pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i){
+	if (!pkmn) return false
+	if (i > pokemon.battle.activePokemon[trainer]) return false
+	pokemon.battle.activePokemon[trainer][i] = pkmn
 	pkmn.img.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
 }
 pokemon.Battle.prototype.startRound = function(){
