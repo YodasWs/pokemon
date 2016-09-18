@@ -64,6 +64,12 @@ pokemon.data.generations = {
 			return 251;
 		case 3:
 			return 386;
+		case 4:
+			return 493;
+		case 5:
+			return 649;
+		case 6:
+			return 721;
 		}
 	},
 	pokemonFirstSeenIn:function(pkmn){
@@ -74,6 +80,9 @@ pokemon.data.generations = {
 		if (pkmn <= 151) return 1;
 		if (pkmn <= 251) return 2;
 		if (pkmn <= 386) return 3;
+		if (pkmn <= 493) return 4;
+		if (pkmn <= 649) return 5;
+		if (pkmn <= 721) return 6;
 	}
 }
 
@@ -122,6 +131,7 @@ pokemon.storage = {
 }
 
 window.onReady(function(){
+	// TODO: Need to move this to the server
 	Papa.SCRIPT_PATH = 'res/papaparse.min.js'
 	var csvFiles = ['moves','pkmn_moves_v1','pkmn_moves_v2','versions_generations'],
 		index = 0,

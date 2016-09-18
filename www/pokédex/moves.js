@@ -1,3 +1,4 @@
+pokemon.data = pokemon.data || {}
 pokemon.data.moves = {
 	getByPkmn:function(pkmn){
 		if (!pkmn.version) return []
