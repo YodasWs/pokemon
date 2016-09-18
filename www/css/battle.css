@@ -34,7 +34,7 @@
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
-
+	align-items: flex-end;
 }
 
 #battle .trainer .pokemon {
@@ -94,10 +94,15 @@
 #battle .menu [data-action="pkmn"] + * {
 	display: flex;
 	justify-content: flex-start;
-	transition: all 1s;
 	transform-origin: top center;
 	overflow: hidden;
 	max-height: 0;
+}
+#battle .menu [data-action="fight"] + * {
+	transition: all 800ms;
+}
+#battle .menu [data-action="pkmn"] + * {
+	transition: all 500ms;
 }
 #battle .menu [data-action="fight"].active + * {
 	max-height: calc( ( 2em + 2px * 2 ) * 4 );
