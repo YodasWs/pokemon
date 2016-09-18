@@ -39,7 +39,7 @@ Math.randInt = function() {
 	else if (arguments.length === 1)
 		return Math.floor(Math.random() * arguments[0])
 	else if (arguments.length >= 2)
-		return Math.floor(Math.random() * (arguments[1] - arguments[0]) + arguments[0])
+		return Math.round(Math.random() * (arguments[1] - arguments[0])) + arguments[0]
 }
 pokemon.data.statKeys = [ 'hp', 'atk', 'def', 'spatk', 'spdef', 'spd' ];
 

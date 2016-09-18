@@ -72,6 +72,9 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 	})
 	// Give Pokémon Moves
 	switch (pokemon.player.generation) {
+	case 1:
+		max = 2
+		break;
 	case 2:
 		max = 4
 		break;
@@ -88,9 +91,9 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 		max = 14
 		break;
 	}
+max=2
 	version = Math.randInt(pokemon.data.generations.pokemonFirstSeenIn(this.number), max)
 	if (version > 11) version += 2
-version = 1
 	Object.defineProperty(this, 'version', {
 		get: function() { return version },
 		enumerable: true
