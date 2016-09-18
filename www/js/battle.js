@@ -1,6 +1,7 @@
 pokemon.BattleStats = function(pkmn){
 	this.isInfatuated = false
 	this.isConfused = false
+	this.isWild = false
 	this.status = null
 	this.boosts = {
 		accuracy: 0,
@@ -31,6 +32,10 @@ pokemon.Battle = function(){
 		player:[null],
 		foe:[null]
 	}
+	this.actions = {
+		player:[],
+		foe:[]
+	}
 }
 pokemon.Battle.prototype.start = function(){
 	var fldBattle = $('#battle')
@@ -52,9 +57,7 @@ pokemon.Battle.prototype.start = function(){
 	})
 
 	// Attack
-	$('[data-action="fight"] + ul').off('click').on('click', '[data-action]', function(e) {
-		console.log($(e.target).attr('data-action'))
-	})
+	$('[data-action="fight"] + ul').off('click').on('click', '[data-action]', pokemon.battle.setAction)
 
 	// Start
 	fldBattle.addClass('show')
@@ -83,6 +86,8 @@ pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i){
 	pkmn.img.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
 }
 pokemon.Battle.prototype.startRound = function(){
+	this.actions.foe = []
+	this.actions.player = []
 	pokemon.battle.activePokemon.foe.forEach(function(){
 		// TODO: Select foe's action
 	})
@@ -100,6 +105,38 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	})
 	pkmn.img.addClass('ready')
 	$('#battle').find('.menu').delayShow('show')
+}
+pokemon.Battle.prototype.setAction = function(e){
+	var btn = $(e.target),
+		menu = btn.parents('.menu, .pokemon'),
+		activePkmn = pokemon.battle.activePokemon.player[pokemon.battle.actions.player.length],
+		action = null
+	if (!activePkmn) {
+		// Set Action without an Active Pokmon? Something's wrong!
+		pokemon.battle.runRound()
+		return
+	}
+	if (menu.is('.menu')) {
+		action = activePkmn.moves.indexOf(btn.attr('data-action'))
+		if (action == -1) {
+			pokemon.battle.readyPkmn(pokemon.battle.actions.player.length)
+			return
+		}
+		action = activePkmn.moves[action]
+	} else if (menu.is('.pokemon')) {
+		action = 'pokemon'
+	}
+	pokemon.battle.actions.player.push(action)
+	if (pokemon.battle.actions.player.length < pokemon.battle.activePokemon.player.length) {
+		pokemon.battle.readyPkmn(pokemon.battle.actions.player.length)
+		return
+	}
+	console.log('Action:',action)
+	pokemon.battle.runRound()
+}
+pokemon.Battle.prototype.runRound = function(){
+	$('.pokemon-img.ready').removeClass('ready')
+	$('#battle').find('.menu').removeClass('show')
 }
 
 pokemon.wildEncounter = function(intSpecies) {
@@ -119,6 +156,7 @@ pokemon.wildEncounter = function(intSpecies) {
 	}
 
 	$('#battle').addClass('wild')
+	pokemon.battle.isWild = true
 
 	console.log(pokemon.battle.foe)
 

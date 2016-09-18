@@ -67,6 +67,7 @@ pokemon.PokemonMoveset.prototype = Object.create(Array.prototype)
 pokemon.PokemonMoveset.prototype.constructor = pokemon.PokemonMoveset
 pokemon.PokemonMoveset.prototype.indexOf = function(move_id) {
 	var intIndex = -1
+	if (typeof move_id !== 'number') move_id = Number.parseInt(move_id, 10)
 	if (Number.isInteger(move_id) && move_id > 0) {
 		this.forEach(function(move, i){
 			if (move.id == move_id) {
