@@ -96,6 +96,7 @@ pokemon.PokemonMoveset.prototype.push = function() {
 		// Add Data from moves.csv
 		pokemon.storage.get('moves').forEach(function(move){
 			if (move.id !== move_id) return
+			move.pp = move.maxPP
 			self[self.length] = $.extend(move_data, move)
 			self.length++
 		})
