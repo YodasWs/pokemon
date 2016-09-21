@@ -1,7 +1,6 @@
 pokemon.BattleStats = function(pkmn){
 	this.isInfatuated = false
 	this.isConfused = false
-	this.isWild = false
 	this.status = null
 	this.boosts = {
 		accuracy: 0,
@@ -27,6 +26,7 @@ pokemon.BattleStats = function(pkmn){
 
 pokemon.Battle = function(){
 	this.player = pokemon.player
+	this.isWild = false
 	this.foe = {}
 	this.activePokemon = {
 		player:[null],
@@ -86,10 +86,12 @@ pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i){
 	pkmn.img.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
 }
 pokemon.Battle.prototype.startRound = function(){
-	this.actions.foe = []
-	this.actions.player = []
-	pokemon.battle.activePokemon.foe.forEach(function(){
+	pokemon.battle.actions.foe = []
+	pokemon.battle.actions.player = []
+	pokemon.battle.activePokemon.foe.forEach(function(pkmn){
 		// TODO: Select foe's action
+		console.log('Foe Pkmn Moves:', pkmn.moves)
+		pkmn.moves.sort()
 	})
 	pokemon.battle.readyPkmn(0)
 }
@@ -137,6 +139,8 @@ pokemon.Battle.prototype.setAction = function(e){
 pokemon.Battle.prototype.runRound = function(){
 	$('.pokemon-img.ready').removeClass('ready')
 	$('#battle').find('.menu').removeClass('show')
+	pokemon.battle.actions = pokemon.battle.actions.player.concat(pokemon.battle.actions.foe)
+	console.log(pokemon.battle.actions)
 }
 
 pokemon.wildEncounter = function(intSpecies) {

@@ -103,3 +103,7 @@ pokemon.PokemonMoveset.prototype.push = function() {
 	}
 	return self.length
 }
+pokemon.PokemonMoveset.prototype.sort = function() {
+	return Array.prototype.sort.call(this, function(a, b) {
+	})
+}
