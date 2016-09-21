@@ -97,6 +97,11 @@ pokemon.PokemonMoveset.prototype.push = function() {
 		pokemon.storage.get('moves').forEach(function(move){
 			if (move.id !== move_id) return
 			move.pp = move.maxPP
+			Object.defineProperty(move, 'pokemon', {
+				get: function() { return self.pokemon },
+				enumerable: true
+			})
+			if (!move.power) move.power = 0
 			self[self.length] = $.extend(move_data, move)
 			self.length++
 		})
@@ -105,5 +110,10 @@ pokemon.PokemonMoveset.prototype.push = function() {
 }
 pokemon.PokemonMoveset.prototype.sort = function() {
 	return Array.prototype.sort.call(this, function(a, b) {
+		// Wild Pokémon picks a random Move
+		if (pokemon.battle.isWild) {
+			return Math.round(Math.random() * 2 - 1)
+		}
+		return a.power - b.power
 	})
 }

@@ -11,7 +11,6 @@ pokemon.BattleStats = function(pkmn){
 		def: 0,
 		spd: 0
 	}
-	this.ppMoves = []
 	this.stats = {
 		spatk: 0,
 		spdef: 0,
@@ -61,9 +60,12 @@ pokemon.Battle.prototype.start = function(){
 
 	// Start
 	fldBattle.addClass('show')
-	setTimeout(function() {
+	setTimeout(function() { // Wait for fadein
 		// Activate Pokémon
-		;['player','foe'].forEach(function(t){
+		;['player','foe'].forEach(function(t) {
+			while (pokemon.battle.activePokemon[t].length > pokemon.battle[t].pokemon.length) {
+				pokemon.battle.activePokemon[t].pop()
+			}
 			for (var i=0; i<pokemon.battle.activePokemon[t].length; i++) {
 				pokemon.battle.activatePokemon(t, pokemon.battle[t].pokemon[i], i)
 			}
@@ -92,29 +94,40 @@ pokemon.Battle.prototype.startRound = function(){
 		// TODO: Select foe's action
 		console.log('Foe Pkmn Moves:', pkmn.moves)
 		pkmn.moves.sort()
+		pokemon.battle.actions.foe.push(pkmn.moves[0])
 	})
 	pokemon.battle.readyPkmn(0)
 }
 pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	pkmn = pokemon.battle.activePokemon.player[pkmn]
-	$('.pokemon-img.ready').removeClass('ready')
-	$('.pokemon-name').text(pkmn.name)
-	// List Pokémon Moves
-	var $moves = $('#battle ul.moves')
-	$moves.children().remove()
-	pkmn.moves.forEach(function(move) {
-		$moves.append('<li><button data-action="' + move.id + '">' + move.identifier)
-	})
-	pkmn.img.addClass('ready')
-	$('#battle').find('.menu').delayShow('show')
+	var $moves = $('#battle ul.moves'),
+		$menu = $('#battle').find('.menu'),
+	cb = function() {
+		// Update View
+		$('.pokemon-img.ready').removeClass('ready')
+		$('.pokemon-name').text(pkmn.name)
+		// List Pokémon Moves
+		$moves.children().remove()
+		pkmn.moves.forEach(function(move) {
+			$moves.append('<li><button data-action="' + move.id + '">' + move.identifier)
+		})
+		pkmn.img.addClass('ready')
+		$menu.delayShow('show')
+	}
+	if ($menu.is('.show')) {
+		// Hide Menu first!
+		$menu.removeClass('show')
+		setTimeout(cb, 1000)
+	} else cb()
 }
 pokemon.Battle.prototype.setAction = function(e){
 	var btn = $(e.target),
 		menu = btn.parents('.menu, .pokemon'),
 		activePkmn = pokemon.battle.activePokemon.player[pokemon.battle.actions.player.length],
 		action = null
+	$('#battle').find('[data-action].active').removeClass('active')
 	if (!activePkmn) {
-		// Set Action without an Active Pokmon? Something's wrong!
+		// Set Action without an Active Pokémon? Something's wrong!
 		pokemon.battle.runRound()
 		return
 	}
@@ -140,6 +153,10 @@ pokemon.Battle.prototype.runRound = function(){
 	$('.pokemon-img.ready').removeClass('ready')
 	$('#battle').find('.menu').removeClass('show')
 	pokemon.battle.actions = pokemon.battle.actions.player.concat(pokemon.battle.actions.foe)
+	pokemon.battle.actions.sort(function(a, b) {
+		if (a.priority != b.priority) return b.priority - a.priority
+		return b.pokemon.battleStats.stats.spd - a.pokemon.battleStats.stats.spd
+	})
 	console.log(pokemon.battle.actions)
 }
 
