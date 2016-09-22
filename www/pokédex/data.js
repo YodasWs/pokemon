@@ -9,10 +9,14 @@ pokemon.data = pokemon.data || {}
 pokemon.data.getPokemonImageClass = function(pkmn){
 	if (Number.isInteger(pkmn)) switch (pokemon.player.generation) {
 	case 1:
-		if (pkmn <= 151) {
+		if (pkmn <= pokemon.data.generations.maxPokemonNumber(pokemon.player.generation)) {
+		}
+	case 3:
+		if (pkmn <= pokemon.data.generations.maxPokemonNumber(pokemon.player.generation)) {
+			return 'rs'
 		}
 	case 6:
-		if (pkmn <= 721) {
+		if (pkmn <= pokemon.data.generations.maxPokemonNumber(pokemon.player.generation)) {
 			return 'oras'
 		}
 	} else if (pkmn.version) switch(pkmn.version) {
@@ -21,6 +25,7 @@ pokemon.data.getPokemonImageClass = function(pkmn){
 	case 3:
 	case 4:
 	case 5:
+		return 'rs';
 	case 6:
 	case 7:
 	case 8:

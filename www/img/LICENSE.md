@@ -8,6 +8,12 @@ Pokémon Copyright &copy; The Pokemon Company, Nintendo, Game Freak, Creatures. 
 
 From [The Spriters Resource](http://www.spriters-resource.com/3ds/pokemonomegarubyalphasapphire/sheet/64163/), user [Ploaj](http://www.spriters-resource.com/submitter/Ploaj/)
 
+### Pokémon Ruby and Sapphire
+
+From The Spriters Resource user [Polar Koala](http://www.spriters-resource.com/submitter/Polar+Koala/)
+
+* [Generation 1](http://www.spriters-resource.com/game_boy_advance/pokemonrubysapphire/sheet/8158/)
+
 ### PokemonBattleTrozei.png
 
 From [The Spriters Resource](http://www.spriters-resource.com/3ds/pokemonbattletrozei/sheet/64891/), user [Ploaj](http://www.spriters-resource.com/submitter/Ploaj/)
