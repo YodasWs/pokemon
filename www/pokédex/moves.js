@@ -96,12 +96,14 @@ pokemon.PokemonMoveset.prototype.push = function() {
 		// Add Data from moves.csv
 		pokemon.storage.get('moves').forEach(function(move){
 			if (move.id !== move_id) return
+			// Extend Move Data
 			move.pp = move.maxPP
 			Object.defineProperty(move, 'pokemon', {
 				get: function() { return self.pokemon },
 				enumerable: true
 			})
 			if (!move.power) move.power = 0
+			move.type = pokemon.types.toString(move.type_id)
 			self[self.length] = $.extend(move_data, move)
 			self.length++
 		})
@@ -114,6 +116,14 @@ pokemon.PokemonMoveset.prototype.sort = function() {
 		if (pokemon.battle.isWild) {
 			return Math.round(Math.random() * 2 - 1)
 		}
-		return a.power - b.power
+		var pwr = [ a.power, b.power ]
+		;[a,b].forEach(function(move, i) {
+			if (!pwr[i]) return // If 0, no point continuing
+			pokemon.battle.activePokemon.player[0].types.forEach(function(type) {
+				if (!pwr[i]) return // If 0, no point continuing
+				pwr[i] *= pokemon.types.efficacy(move.type, type)
+			})
+		})
+		return pwr[1] - pwr[0]
 	})
 }
