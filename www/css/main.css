@@ -68,7 +68,7 @@ body {
 	}
 }
 #player > div {
-	background-image: url('../img/hero/RubyMay/standing.png');
+	background-image: url('../img/hero/May/standing.png');
 	backface-visibility: hidden;
 	background-size: 400%;
 	position: absolute;
