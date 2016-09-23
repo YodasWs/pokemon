@@ -3912,7 +3912,7 @@ pokemon.data.pokemon = {
 		types:["bug","ghost"],
 		gender:"N",
 		baseStats:{hp:1,atk:90,def:45,spatk:30,spdef:30,spd:40},
-		maxHP:1,
+		maxhp:1,
 		abilities:{0:"Wonder Guard"},
 		heightm:0.8,
 		weightkg:1.2,

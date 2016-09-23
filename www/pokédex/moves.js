@@ -37,8 +37,8 @@ pokemon.data.moves = {
 pokemon.PokemonMoveset = function(pkmn) {
 	this.length = 0
 	Object.defineProperty(this, 'pokemon', {
-		get: function() { return pkmn },
-		enumerable: true
+		enumerable: true,
+		value: pkmn
 	})
 	var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version),
 		pkmn_moves = [], self = this
@@ -48,7 +48,7 @@ pokemon.PokemonMoveset = function(pkmn) {
 		pkmn_moves.push(pm)
 	})
 	Object.defineProperty(this, 'all_pkmn_moves', {
-		get: function() { return pkmn_moves },
+		value: pkmn_moves,
 		enumerable: true
 	})
 	// Initialize Pokémon with 4 Moves
@@ -99,7 +99,7 @@ pokemon.PokemonMoveset.prototype.push = function() {
 			// Extend Move Data
 			move.pp = move.maxPP
 			Object.defineProperty(move, 'pokemon', {
-				get: function() { return self.pokemon },
+				value: self.pokemon,
 				enumerable: true
 			})
 			if (!move.power) move.power = 0

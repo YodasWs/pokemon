@@ -43,11 +43,14 @@ pokemon.Battle.prototype.start = function(){
 	;['player','foe'].forEach(function(t){
 		pokemon.battle[t].pokemon.forEach(function(p,i){
 			p.battleStats = new pokemon.BattleStats(p)
-			p.img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
-			p.img.addClass(pokemon.data.getPokemonImageClass(p))
-			fldBattle.find('.trainer.' + t + ' .inactive.pokemon').append(p.img)
+			p.html = $('<div class="pokemon-html">')
+			p.html.img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
+			p.html.img.addClass(pokemon.data.getPokemonImageClass(p)).appendTo(p.html)
+			p.html.append('<progress class="hp" min="0" max="' + p.maxhp + '" value="' + p.hp + '">')
+			fldBattle.find('.trainer.' + t + ' .inactive.pokemon').append(p.html)
 		})
 	})
+$("input[type='range'][name='hp']").on('change',function(){console.log($(this).val())})
 
 	// Open Menus
 	$('[data-action="pkmn"], [data-action="fight"]').off('click').on('click', function() {
@@ -85,15 +88,15 @@ pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i){
 	if (!pkmn) return false
 	if (i > pokemon.battle.activePokemon[trainer]) return false
 	pokemon.battle.activePokemon[trainer][i] = pkmn
-	pkmn.img.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
+	pkmn.html.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
 }
 pokemon.Battle.prototype.startRound = function(){
 	pokemon.battle.actions.foe = []
 	pokemon.battle.actions.player = []
 	pokemon.battle.activePokemon.foe.forEach(function(pkmn){
 		// TODO: Select foe's action
-		console.log('Foe Pkmn Moves:', pkmn.moves)
 		pkmn.moves.sort()
+		console.log('Foe Pkmn Moves:', pkmn.moves)
 		pokemon.battle.actions.foe.push(pkmn.moves[0])
 	})
 	pokemon.battle.readyPkmn(0)
@@ -111,7 +114,7 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 		pkmn.moves.forEach(function(move) {
 			$moves.append('<li><button data-action="' + move.id + '">' + move.identifier)
 		})
-		pkmn.img.addClass('ready')
+		pkmn.html.addClass('ready')
 		$menu.delayShow('show')
 	}
 	if ($menu.is('.show')) {
@@ -146,7 +149,6 @@ pokemon.Battle.prototype.setAction = function(e){
 		pokemon.battle.readyPkmn(pokemon.battle.actions.player.length)
 		return
 	}
-	console.log('Action:',action)
 	pokemon.battle.runRound()
 }
 pokemon.Battle.prototype.runRound = function(){
@@ -157,7 +159,13 @@ pokemon.Battle.prototype.runRound = function(){
 		if (a.priority != b.priority) return b.priority - a.priority
 		return b.pokemon.battleStats.stats.spd - a.pokemon.battleStats.stats.spd
 	})
-	console.log(pokemon.battle.actions)
+	pokemon.battle.actions.forEach(function(action) {
+		console.log(action)
+		// This is a Move
+		if (action.move_id) {
+			// TODO: Check Pokémon Status
+		}
+	})
 }
 
 pokemon.wildEncounter = function(intSpecies) {

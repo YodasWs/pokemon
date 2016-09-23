@@ -50,29 +50,36 @@
 	justify-content: flex-end;
 }
 
-#battle .pokemon-img {
-	--size-transition: 1s;
-	transition: opacity 2s var(--battle-fade-in), top 200ms, width var(--size-transition), height var(--size-transition), background-position var(--size-transition);
+#battle .pokemon-html {
 	box-shadow: 0px 0px 5px 1px black;
-	position: relative;
+	transition: opacity 2s var(--battle-fade-in);
 	margin: 3px;
 	opacity: 0;
 	--size: 1;
-	top: 0;
 }
-#battle.show .pokemon-img {
+#battle.show .pokemon-html {
 	opacity: 1;
 }
 
-#battle .foe .pokemon-img.active {
+#battle .foe .pokemon-html.active {
 	--size: 2;
 }
-#battle .pokemon-img.active {
+#battle .pokemon-html.active {
 	box-shadow: none;
 	--size: 4;
 }
 
-#battle .pokemon-img.ready {
+#battle .pokemon-html .pokemon-img {
+	--size-transition: 1s;
+	transition: top 200ms, width var(--size-transition), height var(--size-transition), background-position var(--size-transition);
+	position: relative;
+	top: 0;
+}
+#battle .menu .pokemon-html > :not(.pokemon-img) {
+	display: none;
+}
+
+#battle .pokemon-html.ready .pokemon-img {
 	animation: pkmn-ready 1s infinite;
 }
 @keyframes pkmn-ready {
@@ -163,4 +170,17 @@
 #battle .menu [data-action]:active {
 	padding: 3px 4px 1px 6px;
 	border-style: inset;
+}
+
+progress.hp {
+	-webkit-appearance: none;
+	display: block;
+	height: 5px;
+	width: 100%;
+}
+progress.hp::-webkit-progress-bar {
+	background: whitesmoke;
+}
+progress.hp::-webkit-progress-value {
+	background: forestgreen;
 }

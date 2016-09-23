@@ -3,7 +3,7 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 	var nature = {
 		deStat: 0,
 		inStat: 0
-	}, i, prop, version,
+	}, i, version,
 		versionsTried = [],
 		self = this,
 		max = 2
@@ -20,25 +20,20 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 	}
 	// Copy Pokémon from Pokédex
 	for (i in pokemon.data.pokemon[intSpecies]) {
-		prop = pokemon.data.pokemon[intSpecies][i]
-		if (typeof prop === 'object') this[i] = Object.create(prop)
-		else this[i] = prop
+		Object.defineProperty(this, i, {
+			value: pokemon.data.pokemon[intSpecies][i],
+			enumerable: true
+		})
 	}
 	// Set Common Values
 	this.name = this.species
 	Object.defineProperty(this, 'number', {
-		get: function() { return intSpecies },
+		value: intSpecies,
 		enumerable: true
 	})
 	Object.defineProperty(this, 'lvl', {
 		// TODO: Need to calculate this based upon experience points
 		get: function() { return intLevel },
-		enumerable: true
-	})
-	Object.defineProperty(this, 'maxhp', {
-		get: function() {
-			return Math.floor(Math.floor(2 * this.baseStats.hp + this.ivs.hp + Math.floor(this.evs.hp / 4) + 100) * this.lvl / 100 + 10);
-		},
 		enumerable: true
 	})
 	// Personalize Pokémon
@@ -62,15 +57,22 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 		}
 	}
 	Object.defineProperty(this, 'nature', {
-		get: function() { return nature },
-		enumerable: true
+		enumerable: true,
+		value: nature
 	})
 	this.evs = {hp: 0, atk: 0, def: 0, spatk: 0, spdef: 0, spd: 0};
 	this.ivs = {};
 	pokemon.data.statKeys.forEach(function(stat) {
 		self.ivs[stat] = Math.randInt(31)
 	})
-	// Give Pokémon Moves
+	Object.defineProperty(this, 'maxhp', {
+		get: function() {
+			return Math.floor(Math.floor(2 * self.baseStats.hp + self.ivs.hp + Math.floor(self.evs.hp / 4) + 100) * self.lvl / 100 + 10);
+		},
+		enumerable: true
+	})
+	this.hp = this.maxhp
+	// Set Pokémon Version
 	switch (pokemon.player.generation) {
 	case 1:
 		max = 2
@@ -95,9 +97,10 @@ max=2
 	version = Math.randInt(pokemon.data.generations.pokemonFirstSeenIn(this.number), max)
 	if (version > 11) version += 2
 	Object.defineProperty(this, 'version', {
-		get: function() { return version },
-		enumerable: true
+		enumerable: true,
+		value: version
 	})
+	// Give Pokémon Moves
 	this.moves = new pokemon.PokemonMoveset(this)
 console.log(this.number + ' moves:', this.moves)
 }
