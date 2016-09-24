@@ -50,7 +50,7 @@ pokemon.Battle.prototype.start = function(){
 			fldBattle.find('.trainer.' + t + ' .inactive.pokemon').append(p.html)
 		})
 	})
-$("input[type='range'][name='hp']").on('change',function(){console.log($(this).val())})
+$("progress[name='hp']").on('change',function(){console.log($(this).val())})
 
 	// Open Menus
 	$('[data-action="pkmn"], [data-action="fight"]').off('click').on('click', function() {
@@ -107,7 +107,7 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 		$menu = $('#battle').find('.menu'),
 	cb = function() {
 		// Update View
-		$('.pokemon-img.ready').removeClass('ready')
+		$('.pokemon-html.ready').removeClass('ready')
 		$('.pokemon-name').text(pkmn.name)
 		// List Pokémon Moves
 		$moves.children().remove()
@@ -141,6 +141,7 @@ pokemon.Battle.prototype.setAction = function(e){
 			return
 		}
 		action = activePkmn.moves[action]
+		action.target = pokemon.data.moves.selectTarget(action)
 	} else if (menu.is('.pokemon')) {
 		action = 'pokemon'
 	}
@@ -152,7 +153,7 @@ pokemon.Battle.prototype.setAction = function(e){
 	pokemon.battle.runRound()
 }
 pokemon.Battle.prototype.runRound = function(){
-	$('.pokemon-img.ready').removeClass('ready')
+	$('.pokemon-html.ready').removeClass('ready')
 	$('#battle').find('.menu').removeClass('show')
 	pokemon.battle.actions = pokemon.battle.actions.player.concat(pokemon.battle.actions.foe)
 	pokemon.battle.actions.sort(function(a, b) {

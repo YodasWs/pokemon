@@ -127,3 +127,38 @@ pokemon.PokemonMoveset.prototype.sort = function() {
 		return pwr[1] - pwr[0]
 	})
 }
+pokemon.data.moves.selectTarget = function(move) {
+	var target = move.target_id
+	// TODO: Select Target
+	switch (move.target_id) {
+	case 2:
+		// TODO: Selected pokémon
+		if (pokemon.battle.activePokemon.foe.length == 1) {
+			target = pokemon.battle.activePokemon.foe[0]
+		}
+		break;
+	case 5:
+		// TODO: Either the user or ally, selected by player
+		if (pokemon.battle.activePokemon.player.length == 1) {
+			target = pokemon.battle.activePokemon.player[0]
+		}
+		break;
+	case 7:
+		// The User Itself
+		target = move.pokemon
+		break;
+	case 8:
+		// TODO: Random opponent
+		if (pokemon.battle.activePokemon.foe.length == 1) {
+			target = pokemon.battle.activePokemon.foe[0]
+		}
+		break;
+	case 10:
+		// TODO: Selected pokémon
+		if (pokemon.battle.activePokemon.foe.length == 1) {
+			target = pokemon.battle.activePokemon.foe[0]
+		}
+		break;
+	}
+	return target
+}
