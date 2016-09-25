@@ -119,13 +119,18 @@ pokemon.PokemonMoveset.prototype.sort = function() {
 		var pwr = [ a.power, b.power ]
 		;[a,b].forEach(function(move, i) {
 			if (!pwr[i]) return // If 0, no point continuing
-			pokemon.battle.activePokemon.player[0].types.forEach(function(type) {
-				if (!pwr[i]) return // If 0, no point continuing
-				pwr[i] *= pokemon.types.efficacy(move.type, type)
-			})
+			pwr[i] = pokemon.data.moves.calcEfficacy(move, pokemon.battle.activePokemon.player[0])
 		})
 		return pwr[1] - pwr[0]
 	})
+}
+pokemon.data.moves.calcEfficacy = function(move, def) {
+	var efficacy = 1
+	def.types.forEach(function(type) {
+		if (!efficacy) return // If 0, no point continuing
+		efficacy *= pokemon.types.efficacy(move.type, type)
+	})
+	return efficacy
 }
 pokemon.data.moves.selectTarget = function(move) {
 	var target = move.target_id
@@ -134,29 +139,32 @@ pokemon.data.moves.selectTarget = function(move) {
 	case 2:
 		// TODO: Selected pokémon
 		if (pokemon.battle.activePokemon.foe.length == 1) {
-			target = pokemon.battle.activePokemon.foe[0]
+			target = [pokemon.battle.activePokemon.foe[0]]
 		}
 		break;
 	case 5:
 		// TODO: Either the user or ally, selected by player
 		if (pokemon.battle.activePokemon.player.length == 1) {
-			target = pokemon.battle.activePokemon.player[0]
+			target = [pokemon.battle.activePokemon.player[0]]
 		}
 		break;
 	case 7:
 		// The User Itself
-		target = move.pokemon
+		target = [move.pokemon]
 		break;
 	case 8:
-		// TODO: Random opponent
+		// Random opponent
+		console.log('picking random opponent')
 		if (pokemon.battle.activePokemon.foe.length == 1) {
-			target = pokemon.battle.activePokemon.foe[0]
+			target = [pokemon.battle.activePokemon.foe[0]]
+		} else {
+			target = [pokemon.battle.activePokemon.foe[Math.randInt(pokemon.battle.activePokemon.foe.length)]]
 		}
 		break;
 	case 10:
 		// TODO: Selected pokémon
 		if (pokemon.battle.activePokemon.foe.length == 1) {
-			target = pokemon.battle.activePokemon.foe[0]
+			target = [pokemon.battle.activePokemon.foe[0]]
 		}
 		break;
 	}

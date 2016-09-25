@@ -11,16 +11,6 @@ pokemon.BattleStats = function(pkmn){
 		def: 0,
 		spd: 0
 	}
-	this.stats = {
-		spatk: 0,
-		spdef: 0,
-		atk: 0,
-		def: 0,
-		spd: 0
-	}
-	for (var i in this.stats) {
-		this.stats[i] = Math.floor(Math.floor(2 * pkmn.baseStats[i] + pkmn.ivs[i] + Math.floor(pkmn.evs[i] / 4)) * pkmn.lvl / 100 + 5)
-	}
 }
 
 pokemon.Battle = function(){
@@ -158,15 +148,69 @@ pokemon.Battle.prototype.runRound = function(){
 	pokemon.battle.actions = pokemon.battle.actions.player.concat(pokemon.battle.actions.foe)
 	pokemon.battle.actions.sort(function(a, b) {
 		if (a.priority != b.priority) return b.priority - a.priority
-		return b.pokemon.battleStats.stats.spd - a.pokemon.battleStats.stats.spd
+		return b.pokemon.stats.spd - a.pokemon.stats.spd
 	})
 	pokemon.battle.actions.forEach(function(action) {
-		console.log(action)
+		var damage = 0, efficacy = 1
+		console.log('Action',action)
 		// This is a Move
 		if (action.move_id) {
+			var move = action
 			// TODO: Check Pokémon Status
+			// Deduct PP
+			move.pp--
+			// TODO: Check Efficacy
+			if (move.damage_class != 'status') {
+				if (move.target && move.target.forEach) move.target.forEach(function(def) {
+					efficacy *= pokemon.data.moves.calcEfficacy(move, def)
+				})
+				if (efficacy) {
+					// TODO: Calculate Accuracy
+					if (Math.random(100) > move.accuracy) {
+					} else {
+						// TODO: Give Damage
+						if (move.target && move.target.forEach) move.target.forEach(function(def) {
+							damage = pokemon.battle.calcDamage(move, def)
+						}); else switch (move.target) {
+						}
+					}
+				} else {
+					console.log(move.identifier + ' has no effect')
+				}
+			}
+			// TODO: Check Attacker Ability
+			// TODO: Check Defender Ability
+			// TODO: Check Effect
 		}
 	})
+}
+pokemon.Battle.prototype.calcDamage = function(move, def) {
+	var intAtk = 0, intDef = 0, damage = 0,
+		modifier = Math.random() * ( 1 - 0.85 ) + 0.85
+	// Get Attack and Defense Stats
+	switch (move.damage_class) {
+	case 'phsyical':
+		intAtk = move.pokemon.stats.atk
+		intDef = def.stats.def
+		break;
+	case 'special':
+		intAtk = move.pokemon.stats.spatk
+		intDef = def.stats.spdef
+		break;
+	default:
+		return 0
+	}
+console.log(intAtk + ' vs ' + intDef)
+	// TODO: Calculate Modifier
+console.log('modifier', modifier)
+	// Calculate Damage
+	damage = (2 * move.pokemon.lvl + 10) / 250
+	damage *= intAtk / intDef
+	damage *= move.power
+	damage += 2
+	damage *= modifier
+console.log('damage', damage)
+	return damage
 }
 
 pokemon.wildEncounter = function(intSpecies) {

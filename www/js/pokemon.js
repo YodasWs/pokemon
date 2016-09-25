@@ -60,10 +60,28 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 		enumerable: true,
 		value: nature
 	})
-	this.evs = {hp: 0, atk: 0, def: 0, spatk: 0, spdef: 0, spd: 0};
-	this.ivs = {};
+	this.ivs = {}
 	pokemon.data.statKeys.forEach(function(stat) {
 		self.ivs[stat] = Math.randInt(31)
+	})
+	this.evs = {}
+	pokemon.data.statKeys.forEach(function(stat) {
+		self.evs[stat] = 0
+	})
+	// Set Pokémon Stats
+	var stats = {}
+	pokemon.data.statKeys.forEach(function(i) {
+		var stat = i
+		Object.defineProperty(stats, stat, {
+			enumerable: true,
+			get: function() {
+				return Math.floor(Math.floor(2 * self.baseStats[stat] + self.ivs[stat] + Math.floor(self.evs[stat] / 4)) * self.lvl / 100 + 5)
+			}
+		})
+	})
+	Object.defineProperty(this, 'stats', {
+		enumerable: true,
+		value: stats
 	})
 	Object.defineProperty(this, 'maxhp', {
 		get: function() {
@@ -71,7 +89,7 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 		},
 		enumerable: true
 	})
-	this.hp = this.maxhp
+	this.hp = new Number(this.maxhp)
 	// Set Pokémon Version
 	switch (pokemon.player.generation) {
 	case 1:
