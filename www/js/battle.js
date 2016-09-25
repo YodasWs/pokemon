@@ -202,6 +202,11 @@ pokemon.Battle.prototype.calcDamage = function(move, def) {
 	}
 console.log(intAtk + ' vs ' + intDef)
 	// TODO: Calculate Modifier
+	// Same-Type Attack Bonus
+	if (move.pokemon.types.indexOf(move.type) != -1) {
+		console.log('STAB!')
+		modifier *= 1.5
+	}
 console.log('modifier', modifier)
 	// Calculate Damage
 	damage = (2 * move.pokemon.lvl + 10) / 250
