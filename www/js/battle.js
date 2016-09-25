@@ -207,6 +207,8 @@ console.log(intAtk + ' vs ' + intDef)
 		console.log('STAB!')
 		modifier *= 1.5
 	}
+	// Type Efficacy
+	modifier *= pokemon.data.moves.calcEfficacy(move, def)
 console.log('modifier', modifier)
 	// Calculate Damage
 	damage = (2 * move.pokemon.lvl + 10) / 250
