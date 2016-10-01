@@ -167,10 +167,16 @@ pokemon.Battle.prototype.runRound = function(){
 				if (efficacy) {
 					// TODO: Calculate Accuracy
 					if (Math.random(100) > move.accuracy) {
+						console.log('Attack Missed!')
 					} else {
 						// TODO: Give Damage
 						if (move.target && move.target.forEach) move.target.forEach(function(def) {
 							damage = pokemon.battle.calcDamage(move, def)
+							def.hp -= damage
+							console.log('Defender',def)
+							if (!def.hp) {
+								// TODO: Fainted!
+							}
 						}); else switch (move.target) {
 						}
 					}
@@ -183,6 +189,11 @@ pokemon.Battle.prototype.runRound = function(){
 			// TODO: Check Effect
 		}
 	})
+	if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
+		pokemon.battle.startRound()
+	} else {
+		pokemon.battle.finish()
+	}
 }
 pokemon.Battle.prototype.calcDamage = function(move, def) {
 	var intAtk = 0, intDef = 0, damage = 0,
@@ -216,8 +227,12 @@ console.log('modifier', modifier)
 	damage *= move.power
 	damage += 2
 	damage *= modifier
+	damage = Math.ceil(damage)
 console.log('damage', damage)
 	return damage
+}
+pokemon.Battle.prototype.finish = function() {
+	console.log('Battle Finished?')
 }
 
 pokemon.wildEncounter = function(intSpecies) {

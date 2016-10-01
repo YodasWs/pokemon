@@ -6,7 +6,8 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 	}, i, version,
 		versionsTried = [],
 		self = this,
-		max = 2
+		max = 2,
+		hp = 0
 	// Verify Species Number
 	if (!Number.isInteger(intSpecies) || intSpecies <= 0) {
 		throw TypeError("Not a valid Pokémon number!")
@@ -89,7 +90,20 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 		},
 		enumerable: true
 	})
-	this.hp = new Number(this.maxhp)
+	hp = new Number(this.maxhp)
+	Object.defineProperty(this, 'hp', {
+		enumerable: true,
+		get: function() { return hp },
+		set: function(i) {
+			hp = Math.max(0, i)
+			if (self.html) {
+				self.html.find('progress.hp').attr('value', hp)
+			}
+			if (!hp) {
+				// TODO: Fainted!
+			}
+		}
+	})
 	// Set Pokémon Version
 	switch (pokemon.player.generation) {
 	case 1:

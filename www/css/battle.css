@@ -1,5 +1,10 @@
 #battle {
 	--battle-fade-in: 500ms;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5vh 10vw 10vh;
 	transition: opacity var(--battle-fade-in);
 	visibility: hidden;
 	background: white;
@@ -18,18 +23,13 @@
 }
 
 #battle .trainer.foe {
-	position: absolute;
-	right: 10vw;
-	top: 10vh;
+	align-self: flex-end;
 }
 #battle .trainer.foe > .inactive.pokemon {
 	display: none;
 }
 
 #battle .trainer.player {
-	position: absolute;
-	bottom: 10vh;
-	left: 10vw;
 	width: 80vw;
 	display: flex;
 	flex-flow: row nowrap;
