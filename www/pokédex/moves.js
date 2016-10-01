@@ -115,7 +115,7 @@ pokemon.PokemonMoveset.prototype.sort = function() {
 	return Array.prototype.sort.call(this, function(a, b) {
 		// Wild Pokémon picks a random Move
 		if (pokemon.battle.isWild) {
-			return Math.round(Math.random() * 2 - 1)
+			return Math.random() - 0.5
 		}
 		var pwr = [ a.power, b.power ]
 		;[a,b].forEach(function(move, i) {
@@ -134,13 +134,14 @@ pokemon.data.moves.calcEfficacy = function(move, def) {
 	return efficacy
 }
 pokemon.data.moves.selectTarget = function(move) {
-	var target = move.target_id
+	var trainer = move.pokemon.trainer == 'foe' ? 'player' : 'foe'
+		target = move.target_id
 	// TODO: Select Target
 	switch (move.target_id) {
 	case 2:
 		// TODO: Selected pokémon
-		if (pokemon.battle.activePokemon.foe.length == 1) {
-			target = [pokemon.battle.activePokemon.foe[0]]
+		if (pokemon.battle.activePokemon[trainer].length == 1) {
+			target = [pokemon.battle.activePokemon[trainer][0]]
 		}
 		break;
 	case 5:
@@ -156,16 +157,16 @@ pokemon.data.moves.selectTarget = function(move) {
 	case 8:
 		// Random opponent
 		console.log('picking random opponent')
-		if (pokemon.battle.activePokemon.foe.length == 1) {
-			target = [pokemon.battle.activePokemon.foe[0]]
+		if (pokemon.battle.activePokemon[trainer].length == 1) {
+			target = [pokemon.battle.activePokemon[trainer][0]]
 		} else {
-			target = [pokemon.battle.activePokemon.foe[Math.randInt(pokemon.battle.activePokemon.foe.length)]]
+			target = [pokemon.battle.activePokemon[trainer][Math.randInt(pokemon.battle.activePokemon[trainer].length)]]
 		}
 		break;
 	case 10:
 		// TODO: Selected pokémon
-		if (pokemon.battle.activePokemon.foe.length == 1) {
-			target = [pokemon.battle.activePokemon.foe[0]]
+		if (pokemon.battle.activePokemon[trainer].length == 1) {
+			target = [pokemon.battle.activePokemon[trainer][0]]
 		}
 		break;
 	}

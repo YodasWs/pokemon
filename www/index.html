@@ -217,12 +217,12 @@ $(document).on('csv-loaded', function(e) {
 	if (++i == 4) {
 		pokemon.player = new pokemon.Player('Sam');
 		pokemon.player.pokemon.push(
-			new pokemon.Pokemon(4, 10),
-			new pokemon.Pokemon(5, 10),
-			new pokemon.Pokemon(6, 10),
-			new pokemon.Pokemon(77, 10),
-			new pokemon.Pokemon(155, 9),
-			new pokemon.Pokemon(255, 10)
+			new pokemon.Pokemon(4, 10, 'player'),
+			new pokemon.Pokemon(5, 10, 'player'),
+			new pokemon.Pokemon(6, 40, 'player'),
+			new pokemon.Pokemon(58, 10, 'player'),
+			new pokemon.Pokemon(77, 10, 'player'),
+			new pokemon.Pokemon(146, 50, 'player')
 		)
 		console.log(pokemon.player.pokemon)
 		pokemon.wildEncounter(25)

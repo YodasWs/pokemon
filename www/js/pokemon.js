@@ -1,4 +1,4 @@
-pokemon.Pokemon = function(intSpecies, intLevel) {
+pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 	// Declare Variables
 	var nature = {
 		deStat: 0,
@@ -35,6 +35,10 @@ pokemon.Pokemon = function(intSpecies, intLevel) {
 	Object.defineProperty(this, 'lvl', {
 		// TODO: Need to calculate this based upon experience points
 		get: function() { return intLevel },
+		enumerable: true
+	})
+	Object.defineProperty(this, 'trainer', {
+		value: trainer || 'foe',
 		enumerable: true
 	})
 	// Personalize Pokémon

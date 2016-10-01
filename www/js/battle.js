@@ -87,6 +87,7 @@ pokemon.Battle.prototype.startRound = function(){
 		// TODO: Select foe's action
 		pkmn.moves.sort()
 		console.log('Foe Pkmn Moves:', pkmn.moves)
+		pkmn.moves[0].target = pokemon.data.moves.selectTarget(pkmn.moves[0])
 		pokemon.battle.actions.foe.push(pkmn.moves[0])
 	})
 	pokemon.battle.readyPkmn(0)
@@ -237,7 +238,6 @@ pokemon.Battle.prototype.calcDamage = function(move, def) {
 	default:
 		return 0
 	}
-console.log(intAtk + ' vs ' + intDef)
 	// TODO: Calculate Modifier
 	// Same-Type Attack Bonus
 	if (move.pokemon.types.indexOf(move.type) != -1) {
@@ -245,7 +245,6 @@ console.log(intAtk + ' vs ' + intDef)
 	}
 	// Type Efficacy
 	modifier *= pokemon.data.moves.calcEfficacy(move, def)
-console.log('modifier', modifier)
 	// Calculate Damage
 	damage = (2 * move.pokemon.lvl + 10) / 250
 	damage *= intAtk / intDef
