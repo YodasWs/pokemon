@@ -183,4 +183,5 @@ progress.hp::-webkit-progress-bar {
 }
 progress.hp::-webkit-progress-value {
 	background: forestgreen;
+	transition: all 500ms;
 }

@@ -16,6 +16,7 @@ pokemon.BattleStats = function(pkmn){
 pokemon.Battle = function(){
 	this.player = pokemon.player
 	this.isWild = false
+	this.animationTime
 	this.foe = {}
 	this.activePokemon = {
 		player:[null],
@@ -118,6 +119,7 @@ pokemon.Battle.prototype.setAction = function(e){
 		menu = btn.parents('.menu, .pokemon'),
 		activePkmn = pokemon.battle.activePokemon.player[pokemon.battle.actions.player.length],
 		action = null
+	pokemon.battle.animationTime = (new Date()).getTime()
 	$('#battle').find('[data-action].active').removeClass('active')
 	if (!activePkmn) {
 		// Set Action without an Active Pokémon? Something's wrong!
@@ -159,8 +161,8 @@ pokemon.Battle.prototype.runRound = function(){
 			// TODO: Check Pokémon Status
 			// Deduct PP
 			move.pp--
-			// TODO: Check Efficacy
 			if (move.damage_class != 'status') {
+				// Check Efficacy
 				if (move.target && move.target.forEach) move.target.forEach(function(def) {
 					efficacy *= pokemon.data.moves.calcEfficacy(move, def)
 				})
@@ -173,7 +175,6 @@ pokemon.Battle.prototype.runRound = function(){
 						if (move.target && move.target.forEach) move.target.forEach(function(def) {
 							damage = pokemon.battle.calcDamage(move, def)
 							def.hp -= damage
-							console.log('Defender',def)
 							if (!def.hp) {
 								// TODO: Fainted!
 							}
@@ -183,24 +184,31 @@ pokemon.Battle.prototype.runRound = function(){
 				} else {
 					console.log(move.identifier + ' has no effect')
 				}
+			} else {
+				// TODO: Change Status
 			}
 			// TODO: Check Attacker Ability
 			// TODO: Check Defender Ability
 			// TODO: Check Effect
 		}
 	})
-	if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
-		pokemon.battle.startRound()
-	} else {
-		pokemon.battle.finish()
-	}
+	;['foe','player'].forEach(function(t) {
+		pokemon.battle.activePokemon[t]
+	})
+	setTimeout(function() {
+		if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
+			pokemon.battle.startRound()
+		} else {
+			pokemon.battle.finish()
+		}
+	}, Math.max(0, 1000 - (new Date()).getTime() + pokemon.battle.animationTime))
 }
 pokemon.Battle.prototype.calcDamage = function(move, def) {
 	var intAtk = 0, intDef = 0, damage = 0,
 		modifier = Math.random() * ( 1 - 0.85 ) + 0.85
 	// Get Attack and Defense Stats
 	switch (move.damage_class) {
-	case 'phsyical':
+	case 'physical':
 		intAtk = move.pokemon.stats.atk
 		intDef = def.stats.def
 		break;
@@ -215,7 +223,6 @@ console.log(intAtk + ' vs ' + intDef)
 	// TODO: Calculate Modifier
 	// Same-Type Attack Bonus
 	if (move.pokemon.types.indexOf(move.type) != -1) {
-		console.log('STAB!')
 		modifier *= 1.5
 	}
 	// Type Efficacy
