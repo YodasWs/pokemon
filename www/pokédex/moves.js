@@ -102,9 +102,10 @@ pokemon.PokemonMoveset.prototype.push = function() {
 				value: self.pokemon,
 				enumerable: true
 			})
+			move.criticalHitStage = 0
 			if (!move.power) move.power = 0
 			move.type = pokemon.types.toString(move.type_id)
-			self[self.length] = $.extend(move_data, move)
+			self[self.length] = $.extend(move_data, move, pokemon.data.move_effects(move.effect_id))
 			self.length++
 		})
 	}

@@ -388,7 +388,7 @@ pokemon.data.pokemon = {
 		color:"Yellow",
 		prevo:"pichu",
 		evos:["raichu"],
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 		otherFormes:["pikachucosplay","pikachurockstar","pikachubelle","pikachupopstar","pikachuphd","pikachulibre"],
 	},
 	"Cosplay-25":{
@@ -484,7 +484,7 @@ pokemon.data.pokemon = {
 		weightkg:30,
 		color:"Yellow",
 		prevo:25,
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 	},
 	27:{
 		species:"Sandshrew",
@@ -2418,7 +2418,7 @@ pokemon.data.pokemon = {
 		prevo:"togepi",
 		evos:["togekiss"],
 		evoLevel:2,
-		eggGroups:["Flying","fairy"],
+		eggGroups:["Flying","Fairy"],
 	},
 	177:{
 		species:"Natu",
@@ -2515,7 +2515,7 @@ pokemon.data.pokemon = {
 		color:"Blue",
 		prevo:"azurill",
 		evos:["azumarill"],
-		eggGroups:["Water 1","fairy"],
+		eggGroups:["Water 1","Fairy"],
 	},
 	184:{
 		species:"Azumarill",
@@ -2527,7 +2527,7 @@ pokemon.data.pokemon = {
 		color:"Blue",
 		prevo:"marill",
 		evoLevel:18,
-		eggGroups:["Water 1","fairy"],
+		eggGroups:["Water 1","Fairy"],
 	},
 	185:{
 		species:"Sudowoodo",
@@ -2562,7 +2562,7 @@ pokemon.data.pokemon = {
 		weightkg:0.5,
 		color:"Pink",
 		evos:["skiploom"],
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	188:{
 		species:"Skiploom",
@@ -2575,7 +2575,7 @@ pokemon.data.pokemon = {
 		prevo:"hoppip",
 		evos:["jumpluff"],
 		evoLevel:18,
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	189:{
 		species:"Jumpluff",
@@ -2587,7 +2587,7 @@ pokemon.data.pokemon = {
 		color:"Blue",
 		prevo:"skiploom",
 		evoLevel:27,
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	190:{
 		species:"Aipom",
@@ -2829,7 +2829,7 @@ pokemon.data.pokemon = {
 		weightkg:7.8,
 		color:"Pink",
 		evos:["granbull"],
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 	},
 	210:{
 		species:"Granbull",
@@ -2842,7 +2842,7 @@ pokemon.data.pokemon = {
 		color:"Purple",
 		prevo:"snubbull",
 		evoLevel:23,
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 	},
 	211:{
 		species:"Qwilfish",
@@ -3834,7 +3834,7 @@ pokemon.data.pokemon = {
 		weightkg:4.5,
 		color:"Brown",
 		evos:["breloom"],
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	286:{
 		species:"Breloom",
@@ -3846,7 +3846,7 @@ pokemon.data.pokemon = {
 		color:"Green",
 		prevo:"shroomish",
 		evoLevel:23,
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	287:{
 		species:"Slakoth",
@@ -4015,7 +4015,7 @@ pokemon.data.pokemon = {
 		weightkg:11,
 		color:"Pink",
 		evos:["delcatty"],
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 	},
 	301:{
 		species:"Delcatty",
@@ -4027,7 +4027,7 @@ pokemon.data.pokemon = {
 		weightkg:32.6,
 		color:"Purple",
 		prevo:"skitty",
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 	},
 	302:{
 		species:"Sableye",
@@ -4061,7 +4061,7 @@ pokemon.data.pokemon = {
 		heightm:0.6,
 		weightkg:11.5,
 		color:"Black",
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 		otherFormes:["mawilemega"],
 	},
 	"Mega-303":{
@@ -4075,7 +4075,7 @@ pokemon.data.pokemon = {
 		heightm:1,
 		weightkg:23.5,
 		color:"Black",
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 	},
 	304:{
 		species:"Aron",
@@ -4253,7 +4253,7 @@ pokemon.data.pokemon = {
 		color:"Green",
 		prevo:"budew",
 		evos:["roserade"],
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	316:{
 		species:"Gulpin",
@@ -4707,7 +4707,7 @@ pokemon.data.pokemon = {
 		heightm:0.3,
 		weightkg:0.8,
 		color:"White",
-		eggGroups:["fairy","Amorphous"],
+		eggGroups:["Fairy","Amorphous"],
 		otherFormes:["castformsunny","castformrainy","castformsnowy"],
 	},
 	"Sunny-351":{
@@ -4721,7 +4721,7 @@ pokemon.data.pokemon = {
 		heightm:0.3,
 		weightkg:0.8,
 		color:"White",
-		eggGroups:["fairy","Amorphous"],
+		eggGroups:["Fairy","Amorphous"],
 	},
 	"Rainy-351":{
 		species:"Castform-Rainy",
@@ -4734,7 +4734,7 @@ pokemon.data.pokemon = {
 		heightm:0.3,
 		weightkg:0.8,
 		color:"White",
-		eggGroups:["fairy","Amorphous"],
+		eggGroups:["Fairy","Amorphous"],
 	},
 	"Snowy-351":{
 		species:"Castform-Snowy",
@@ -4747,7 +4747,7 @@ pokemon.data.pokemon = {
 		heightm:0.3,
 		weightkg:0.8,
 		color:"White",
-		eggGroups:["fairy","Amorphous"],
+		eggGroups:["Fairy","Amorphous"],
 	},
 	352:{
 		species:"Kecleon",
@@ -4885,7 +4885,7 @@ pokemon.data.pokemon = {
 		weightkg:16.8,
 		color:"Gray",
 		evos:["glalie","froslass"],
-		eggGroups:["fairy","Mineral"],
+		eggGroups:["Fairy","Mineral"],
 	},
 	362:{
 		species:"Glalie",
@@ -4897,7 +4897,7 @@ pokemon.data.pokemon = {
 		color:"Gray",
 		prevo:"snorunt",
 		evoLevel:42,
-		eggGroups:["fairy","Mineral"],
+		eggGroups:["Fairy","Mineral"],
 		otherFormes:["glaliemega"],
 	},
 	"Mega-362":{
@@ -4911,7 +4911,7 @@ pokemon.data.pokemon = {
 		heightm:2.1,
 		weightkg:350.2,
 		color:"Gray",
-		eggGroups:["fairy","Mineral"],
+		eggGroups:["Fairy","Mineral"],
 	},
 	363:{
 		species:"Spheal",
@@ -5592,7 +5592,7 @@ pokemon.data.pokemon = {
 		weightkg:14.5,
 		color:"Green",
 		prevo:"roselia",
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	408:{
 		species:"Cranidos",
@@ -5750,7 +5750,7 @@ pokemon.data.pokemon = {
 		heightm:0.4,
 		weightkg:3.9,
 		color:"White",
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 	},
 	418:{
 		species:"Buizel",
@@ -5784,7 +5784,7 @@ pokemon.data.pokemon = {
 		weightkg:3.3,
 		color:"Pink",
 		evos:["cherrim"],
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	421:{
 		species:"Cherrim",
@@ -5797,7 +5797,7 @@ pokemon.data.pokemon = {
 		color:"Pink",
 		prevo:"cherubi",
 		evoLevel:25,
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 		otherFormes:["cherrimsunshine"],
 	},
 	"Sunshine-421":{
@@ -5813,7 +5813,7 @@ pokemon.data.pokemon = {
 		color:"Pink",
 		prevo:"cherubi",
 		evoLevel:25,
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	422:{
 		species:"Shellos",
@@ -6427,7 +6427,7 @@ pokemon.data.pokemon = {
 		color:"White",
 		prevo:"togetic",
 		evoLevel:2,
-		eggGroups:["Flying","fairy"],
+		eggGroups:["Flying","Fairy"],
 	},
 	469:{
 		species:"Yanmega",
@@ -6567,7 +6567,7 @@ pokemon.data.pokemon = {
 		weightkg:26.6,
 		color:"White",
 		prevo:"snorunt",
-		eggGroups:["fairy","Mineral"],
+		eggGroups:["Fairy","Mineral"],
 	},
 	479:{
 		species:"Rotom",
@@ -6774,7 +6774,7 @@ pokemon.data.pokemon = {
 		heightm:0.4,
 		weightkg:3.1,
 		color:"Blue",
-		eggGroups:["Water 1","fairy"],
+		eggGroups:["Water 1","Fairy"],
 	},
 	490:{
 		species:"Manaphy",
@@ -6785,7 +6785,7 @@ pokemon.data.pokemon = {
 		heightm:0.3,
 		weightkg:1.4,
 		color:"Blue",
-		eggGroups:["Water 1","fairy"],
+		eggGroups:["Water 1","Fairy"],
 	},
 	491:{
 		species:"Darkrai",
@@ -7723,7 +7723,7 @@ pokemon.data.pokemon = {
 		weightkg:0.6,
 		color:"Green",
 		evos:["whimsicott"],
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	547:{
 		species:"Whimsicott",
@@ -7734,7 +7734,7 @@ pokemon.data.pokemon = {
 		weightkg:6.6,
 		color:"Green",
 		prevo:"cottonee",
-		eggGroups:["fairy","Grass"],
+		eggGroups:["Fairy","Grass"],
 	},
 	548:{
 		species:"Petilil",
@@ -9833,7 +9833,7 @@ pokemon.data.pokemon = {
 		heightm:0.2,
 		weightkg:2.2,
 		color:"Yellow",
-		eggGroups:["Field","fairy"],
+		eggGroups:["Field","Fairy"],
 	},
 	703:{
 		species:"Carbink",
@@ -9844,7 +9844,7 @@ pokemon.data.pokemon = {
 		heightm:0.3,
 		weightkg:5.7,
 		color:"Gray",
-		eggGroups:["fairy","Mineral"],
+		eggGroups:["Fairy","Mineral"],
 	},
 	704:{
 		species:"Goomy",

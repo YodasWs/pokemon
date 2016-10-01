@@ -205,7 +205,25 @@ pokemon.Battle.prototype.runRound = function(){
 }
 pokemon.Battle.prototype.calcDamage = function(move, def) {
 	var intAtk = 0, intDef = 0, damage = 0,
+		criticalHitRate = 1, criticalHit = false,
 		modifier = Math.random() * ( 1 - 0.85 ) + 0.85
+	// Is this a critical hit?
+	switch (move.criticalHitStage) {
+	case 0:
+		criticalHitRate = 1/16
+		break;
+	case 1:
+		criticalHitRate = 1/8
+		break;
+	case 2:
+		criticalHitRate = 1/4
+		break;
+	case 3:
+		criticalHitRate = 1/2
+		break;
+	}
+	criticalHit = (Math.random() < criticalHitRate)
+	if (criticalHit) modifier *= 2
 	// Get Attack and Defense Stats
 	switch (move.damage_class) {
 	case 'physical':
