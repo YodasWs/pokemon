@@ -4,7 +4,7 @@
 	flex-flow: column nowrap;
 	justify-content: space-between;
 	align-items: center;
-	padding: 5vh 10vw 10vh;
+	padding: 5vh 10vw;
 	transition: opacity var(--battle-fade-in);
 	visibility: hidden;
 	background: white;
@@ -35,6 +35,7 @@
 	flex-flow: row nowrap;
 	justify-content: space-between;
 	align-items: flex-end;
+	align-items: center;
 }
 
 #battle .trainer .pokemon {
@@ -184,4 +185,54 @@ progress.hp::-webkit-progress-bar {
 progress.hp::-webkit-progress-value {
 	background: forestgreen;
 	transition: all 500ms;
+}
+
+.history {
+	display: flex;
+	flex-flow: column-reverse nowrap;
+	justify-content: flex-end;
+	list-style: none;
+	overflow: hidden;
+	height: 7.2rem;
+	width: 100%;
+	padding: 0;
+}
+.history > li {
+	line-height: 1.2rem;
+	transition: all 1s;
+	overflow: hidden;
+	height: 1.2rem;
+}
+.history > li.hidden {
+	opacity: 0;
+	height: 0;
+}
+.history > li:nth-last-child(1) {
+	font-size: 1em;
+	opacity: 1;
+}
+.history > li:nth-last-child(2) {
+	font-size: 0.9em;
+	opacity: 0.9;
+}
+.history > li:nth-last-child(3) {
+	font-size: 0.8em;
+	opacity: 0.8;
+}
+.history > li:nth-last-child(4) {
+	font-size: 0.7em;
+	opacity: 0.7;
+}
+.history > li:nth-last-child(5) {
+	font-size: 0.6em;
+	opacity: 0.6;
+}
+.history > li:nth-last-child(6) {
+	font-size: 0.5em;
+	opacity: 0.5;
+}
+.history > li:nth-last-child(n + 7) {
+	font-size: 0.4em;
+	opacity: 0;
+	height: 0;
 }

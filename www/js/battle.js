@@ -41,7 +41,6 @@ pokemon.Battle.prototype.start = function(){
 			fldBattle.find('.trainer.' + t + ' .inactive.pokemon').append(p.html)
 		})
 	})
-$("progress[name='hp']").on('change',function(){console.log($(this).val())})
 
 	// Open Menus
 	$('[data-action="pkmn"], [data-action="fight"]').off('click').on('click', function() {
@@ -153,11 +152,12 @@ pokemon.Battle.prototype.runRound = function(){
 		return b.pokemon.stats.spd - a.pokemon.stats.spd
 	})
 	pokemon.battle.actions.forEach(function(action) {
-		var damage = 0, efficacy = 1
+		var damage = 0, efficacy = 1, move
 		console.log('Action',action)
 		// This is a Move
 		if (action.move_id) {
-			var move = action
+			move = action
+			pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
 			// TODO: Check Pokémon Status
 			// Deduct PP
 			move.pp--
@@ -255,6 +255,13 @@ console.log('modifier', modifier)
 	damage = Math.ceil(damage)
 console.log('damage', damage)
 	return damage
+}
+pokemon.Battle.prototype.log = function(msg) {
+	var $log = $('#battle').children('.history')
+	$log.append('<li class="hidden">' + msg)
+	setTimeout(function() {
+		$log.find('li.hidden').removeClass('hidden')
+	}, 1)
 }
 pokemon.Battle.prototype.finish = function() {
 	console.log('Battle Finished?')
