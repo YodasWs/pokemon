@@ -25,16 +25,26 @@ pokemon.data.getPokemonImageClass = function(pkmn){
 	case 3:
 	case 4:
 	case 5:
-		return 'rs';
 	case 6:
 	case 7:
 	case 8:
+		return 'rs';
 	case 9:
 	case 10:
 	case 11:
+	case 12:
+	case 13:
 	case 14:
 	case 15:
 	case 16:
+	case 17:
+	case 18:
+	case 21:
+	case 22:
+	case 23:
+	case 24:
+	case 25:
+	case 26:
 		return 'oras';
 	}
 }
@@ -48,18 +58,6 @@ Math.randInt = function() {
 }
 pokemon.data.statKeys = [ 'hp', 'atk', 'def', 'spatk', 'spdef', 'spd' ];
 
-pokemon.data.versions = {
-	getForGeneration:function(generation){
-		var vg = pokemon.storage.get('versions_generations'),
-			versions = []
-		vg.forEach(function(row) {
-			if (row.generation == generation) {
-				versions[row.id] = row
-			}
-		})
-		return versions
-	}
-}
 pokemon.data.generations = {
 	maxPokemonNumber:function(generation){
 		switch (generation) {
@@ -82,12 +80,22 @@ pokemon.data.generations = {
 		if (typeof pkmn == 'object' && pkmn.number) {
 			num = pkmn.number
 		}
-		if (pkmn <= 151) return 1;
-		if (pkmn <= 251) return 2;
-		if (pkmn <= 386) return 3;
-		if (pkmn <= 493) return 4;
-		if (pkmn <= 649) return 5;
-		if (pkmn <= 721) return 6;
+		if (num <= 151) return 1;
+		if (num <= 251) return 2;
+		if (num <= 386) return 3;
+		if (num <= 493) return 4;
+		if (num <= 649) return 5;
+		if (num <= 721) return 6;
+	},
+	maxVersion:function(generation){
+		switch (generation) {
+			case 1: return 3;
+			case 2: return 6;
+			case 3: return 11;
+			case 4: return 16;
+			case 5: return 20;
+			case 6: return 24;
+		}
 	}
 }
 
@@ -134,6 +142,48 @@ pokemon.storage = {
 		localStorage[k] = JSON.stringify(d) + ';' + (new Date()).getTime()
 	}
 }
+
+pokemon.data.versions = [];
+pokemon.data.versions.getForGeneration = function(generation) {
+	var vg = pokemon.storage.get('versions_generations'),
+		versions = []
+	pokemon.data.versions.forEach(function(row) {
+		if (row.generation == generation) {
+			versions.push(row.id)
+		}
+	})
+	return versions
+}
+pokemon.data.versions.pokemonFirstSeenIn = function(pkmn) {
+	var num = pkmn
+	if (typeof pkmn == 'object' && pkmn.number) {
+		num = pkmn.number
+	}
+	if (num <= 151) return 1;
+	if (num <= 251) return 4;
+	if (num <= 386) return 7;
+	if (num <= 493) return 12;
+	if (num <= 649) return 17;
+	if (num <= 721) return 23;
+}
+pokemon.data.versions.getVersionGroup = function(version) {
+	var vg = pokemon.storage.get('versions_generations'),
+		group = 0
+	vg.forEach(function(row) {
+		if (row.id == version) {
+			group = row.group_id
+		}
+	})
+	return group
+}
+// Expand Version Information
+;(function(){
+	var vg = pokemon.storage.get('versions_generations')
+	vg.forEach(function(row) {
+		pokemon.data.versions[row.id] = row
+	})
+console.log('pokemon.data.versions',pokemon.data.versions)
+}())
 
 window.onReady(function(){
 	// TODO: Need to move this to the server

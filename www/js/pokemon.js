@@ -4,9 +4,7 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 		deStat: 0,
 		inStat: 0
 	}, i, version,
-		versionsTried = [],
 		self = this,
-		max = 2,
 		hp = 0
 	// Verify Species Number
 	if (!Number.isInteger(intSpecies) || intSpecies <= 0) {
@@ -109,32 +107,19 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 		}
 	})
 	// Set Pokémon Version
-	switch (pokemon.player.generation) {
-	case 1:
-		max = 2
-		break;
-	case 2:
-		max = 4
-		break;
-	case 3:
-		max = 7
-		break;
-	case 4:
-		max = 10
-		break;
-	case 5:
-		max = 12
-		break;
-	case 6:
-		max = 14
-		break;
-	}
-max=2
-	version = Math.randInt(pokemon.data.generations.pokemonFirstSeenIn(this.number), max)
-	if (version > 11) version += 2
+	version = Math.randInt(
+		pokemon.data.versions.pokemonFirstSeenIn(this.number),
+		pokemon.data.generations.maxVersion(pokemon.player.generation)
+	)
+version = Math.randInt(1, 3)
+	if (version > 18) version += 2
 	Object.defineProperty(this, 'version', {
 		enumerable: true,
 		value: version
+	})
+	Object.defineProperty(this, 'version_group', {
+		value: pokemon.data.versions.getVersionGroup(version),
+		enumerable: true
 	})
 	// Give Pokémon Moves
 	this.moves = new pokemon.PokemonMoveset(this)

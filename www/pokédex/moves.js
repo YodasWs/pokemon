@@ -1,8 +1,8 @@
 pokemon.data = pokemon.data || {}
 pokemon.data.moves = {
 	getByPkmn:function(pkmn){
-		if (!pkmn.version) return []
-		var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version),
+		if (!pkmn.version_group) return []
+		var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version_group),
 			all_moves = pokemon.storage.get('moves'),
 			pkmn_moves = []
 		// Collect Moves for Pokémon
@@ -40,7 +40,7 @@ pokemon.PokemonMoveset = function(pkmn) {
 		enumerable: true,
 		value: pkmn
 	})
-	var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version),
+	var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version_group),
 		pkmn_moves = [], self = this
 	// Collect Moves for Pokémon
 	all_pkmn_moves.forEach(function(pm){
@@ -57,7 +57,7 @@ pokemon.PokemonMoveset = function(pkmn) {
 	})
 	pkmn_moves.forEach(function(pm) {
 		if (pm.pokemon_move_method_id != 1) return // 1 == Learned Naturally
-		if (pm.version_group_id != pkmn.version) return
+		if (pm.version_group_id != pkmn.version_group) return
 		if (self.indexOf(pm.move_id) >= 0) return
 		if (pkmn.lvl >= pm.level) self.push(pm)
 		if (self.length >= 4) return false
