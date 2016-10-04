@@ -32,6 +32,11 @@ svg {
 		stroke-width: 1px;
 		stroke: black;
 		fill: lightgrey;
+		&:first-of-type {
+			stroke-width: 4px;
+			stroke: #ff3333;
+			fill: black;
+		}
 	}
 	path {
 		stroke-width: 1px;
