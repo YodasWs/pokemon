@@ -32,6 +32,10 @@ svg {
     stroke-width: 1px;
     stroke: black;
     fill: lightgrey; }
+    svg circle:first-of-type {
+      stroke-width: 4px;
+      stroke: #ff3333;
+      fill: black; }
   svg path {
     stroke-width: 1px;
     stroke: green; }
