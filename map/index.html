@@ -136,7 +136,7 @@ var map = {
 		}
 	],
 	"visited":[
-		"CLT","Northlake Mall","UNCC","Huntersville","Northcross"
+		"Cornelius","UNCC","Northlake Mall","Lowesville","Davidson","Matthews","Huntersville","CLT","Birkdale"
 	]
 },
 svg = {
@@ -193,6 +193,18 @@ map.cities.indexOf = function(id) {
 	}
 	return index
 }
+map.citiesAreJoined = function(a, b) {
+	if (typeof b === 'object' && b.id) {
+		b = b.id
+	}
+	var joined = false;
+	;(map.routes.from(a)).forEach(function(route) {
+		if (route.points.indexOf(b) > -1) {
+			joined = true;
+		}
+	});
+	return joined;
+}
 map.cities.indexOf.bind(map.cities)
 map.routes.from = function(point) {
 	if (typeof point === 'object' && point.id) {
@@ -217,7 +229,58 @@ map.routes.from.bind(map.routes)
 $(document).ready(function() {
 	svg.root = document.getElementsByTagNameNS("http://www.w3.org/2000/svg", 'svg')[0]
 	var x = 250, y = 250
-	// Only map cities visited and their neighbors
+	// Sort Cities Visited
+console.log(map.visited);
+	map.visited = map.visited.sort(function(a, b) {
+console.log(a, b)
+console.log(map.visited.indexOf(a), map.visited.indexOf(b))
+		// Keep Front City in Place
+		if (map.visited.indexOf(a) === 0) {
+			return -1;
+		}
+		if (map.visited.indexOf(b) === 0) {
+			return 1;
+		}
+		// TODO: Find if Cities Connected to First City
+		// Lower Cities Further Away
+		indices = [a, b].map(function(city) {
+			for (var j=0; j<map.visited.length; j++) {
+				if (map.citiesAreJoined(map.visited[j], city)) {
+					return j
+				}
+			}
+			return false;
+		})
+console.log(indices, indices[0] - indices[1])
+		if (indices[0] === false && indices[1] !== false) return 1
+		if (indices[0] !== false && indices[1] === false) return -1
+		return indices[0] - indices[1];
+	})
+console.log(map.visited);
+	// Remove Cities Not Connected
+	var toRemove
+	do {
+		toRemove = []
+		map.visited.forEach(function(city) {
+			var i = map.visited.indexOf(city)
+			if (i === 0) return
+			var connected = false
+			for (var j=0; j<i; j++) {
+				if (map.citiesAreJoined(map.visited[j], city)) {
+					connected = true;
+					break;
+				}
+			}
+			if (!connected) {
+				toRemove.push(i)
+			}
+		})
+		toRemove.forEach(function(i) {
+			map.visited.splice(i, 1)
+		})
+	} while (toRemove.length)
+console.log(map.visited);
+	// Fill Out Visited City Information
 	map.visited.forEach(function(city, i) {
 		map.visited[i] = map.cities[map.cities.indexOf(city)]
 	})
