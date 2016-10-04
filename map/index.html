@@ -34,6 +34,10 @@ var map = {
 			"size":5
 		},
 		{
+			"id":"Matthews",
+			"size":10
+		},
+		{
 			"id":"Birkdale",
 			"size":5
 		},
@@ -116,6 +120,16 @@ var map = {
 			"points":["CLT","Pineville"]
 		},
 		{
+			"name":"Route 74",
+			"cardinality":["nw","se"],
+			"points":["CLT","Matthews"]
+		},
+		{
+			"name":"Route 51",
+			"cardinality":["w","e"],
+			"points":["Pineville","Matthews"]
+		},
+		{
 			"name":"Route 115",
 			"cardinality":["s","n"],
 			"points":["Davidson","Mooresville"]
@@ -145,50 +159,20 @@ getAngleRange = function(cardinality) {
 },
 fitAngleRange = function(angle, cardinality) {
 	// TODO: Need to fit angle within range
-	var min = -360, max = 360
-	switch (cardinality) {
-	case 'e':
-		min = 45
-		max = 135
-		angle = 90
-		break;
-	case 'w':
-		min = 225
-		max = 315
-		angle = 270
-		break;
-	case 'n':
-		min = 315
-		max = 405
-		angle = 360
-		break;
-	case 's':
-		min = 135
-		max = 225
-		angle = 180
-		break;
-	case 'ne':
-		min = 0
-		max = 90
-		angle = 45
-		break;
-	case 'se':
-		min = 90
-		max = 180
-		angle = 135
-		break;
-	case 'sw':
-		min = 180
-		max = 270
-		angle = 225
-		break;
-	case 'nw':
-		min = 270
-		max = 360
-		angle = 315
-		break;
-	}
-	while (min > angle || max < angle) {
+	var dirs = [
+		'e',
+		'se',
+		's',
+		'sw',
+		'w',
+		'nw',
+		'n',
+		'ne',
+	],
+	min = dirs.indexOf(cardinality) * 45 - 30,
+	max = dirs.indexOf(cardinality) * 45 + 30,
+	i = 0;
+	while (min > angle || max < angle || i++ < 10000) {
 		if (min > angle) {
 			angle += 45
 		}
@@ -196,14 +180,13 @@ fitAngleRange = function(angle, cardinality) {
 			angle -= 45
 		}
 	}
-	angle -= 90
 	return angle
 }
 map.visited.indexOf =
 map.cities.indexOf = function(id) {
 	var index = -1
 	for (var i=0; i<this.length; i++) {
-		if (this[i].id == id) {
+		if ((this[i].id && this[i].id == id) || this[i] == id) {
 			index = i
 			break
 		}
@@ -243,7 +226,7 @@ $(document).ready(function() {
 		var routes = map.routes.from(city),
 			connectedCities = [],
 			citiesToDraw = []
-			angle = 0
+			angle = 360
 		// Add Circle for City to Map
 		if (!city.circle) {
 			city.circle = svg.circle(x, y, city.size)
@@ -289,8 +272,8 @@ $(document).ready(function() {
 				radius = Math.max(city.size, Number.parseFloat(map.cities[cc].size)) * 5
 			do {
 				angle -= 360 / numSpokes
-				if (angle < 0) angle += 360
-				if (angle > 405) angle -= 360
+				if (angle < -30) angle += 360
+				if (angle > 345) angle -= 360
 			} while (angles.indexOf(angle) > -1)
 			angle = fitAngleRange(angle, cardinality)
 			map.cities[cc].circle = svg.circle(
