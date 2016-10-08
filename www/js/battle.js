@@ -16,7 +16,6 @@ pokemon.BattleStats = function(pkmn){
 pokemon.Battle = function(){
 	this.player = pokemon.player
 	this.isWild = false
-	this.animationTime
 	this.foe = {}
 	this.activePokemon = {
 		player:[null],
@@ -31,8 +30,8 @@ pokemon.Battle.prototype.start = function(){
 	var fldBattle = $('#battle')
 
 	// Add Pokémon
-	;['player','foe'].forEach(function(t){
-		pokemon.battle[t].pokemon.forEach(function(p,i){
+	;['player','foe'].forEach((t) => {
+		pokemon.battle[t].pokemon.forEach((p,i) => {
 			p.battleStats = new pokemon.BattleStats(p)
 			p.html = $('<div class="pokemon-html">')
 			p.html.img = $('<div class="pokemon-img">').addClass('pkmn-' + p.number)
@@ -53,9 +52,9 @@ pokemon.Battle.prototype.start = function(){
 
 	// Start
 	fldBattle.addClass('show')
-	setTimeout(function() { // Wait for fadein
+	setTimeout(() => { // Wait for fadein
 		// Activate Pokémon
-		;['player','foe'].forEach(function(t) {
+		;['player','foe'].forEach((t) => {
 			while (pokemon.battle.activePokemon[t].length > pokemon.battle[t].pokemon.length) {
 				pokemon.battle.activePokemon[t].pop()
 			}
@@ -64,11 +63,11 @@ pokemon.Battle.prototype.start = function(){
 			}
 		})
 		if (fldBattle.is('.wild') && pokemon.battle.foe.pokemon.length > 1) {
-			pokemon.battle.foe.pokemon.forEach(function(p, i) {
+			pokemon.battle.foe.pokemon.forEach((p, i) => {
 				pokemon.battle.activatePokemon('foe', p, i)
 			})
 		}
-		setTimeout(function() {
+		setTimeout(() => {
 			// Start Round
 			pokemon.battle.startRound()
 		}, 1000)
@@ -83,7 +82,7 @@ pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i){
 pokemon.Battle.prototype.startRound = function(){
 	pokemon.battle.actions.foe = []
 	pokemon.battle.actions.player = []
-	pokemon.battle.activePokemon.foe.forEach(function(pkmn){
+	pokemon.battle.activePokemon.foe.forEach((pkmn) => {
 		// TODO: Select foe's action
 		pkmn.moves.sort()
 		console.log('Foe Pkmn Moves:', pkmn.moves)
@@ -102,7 +101,7 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 		$('.pokemon-name').text(pkmn.name)
 		// List Pokémon Moves
 		$moves.children().remove()
-		pkmn.moves.forEach(function(move) {
+		pkmn.moves.forEach((move) => {
 			$moves.append('<li><button data-action="' + move.id + '">' + move.identifier)
 		})
 		pkmn.html.addClass('ready')
@@ -119,7 +118,6 @@ pokemon.Battle.prototype.setAction = function(e){
 		menu = btn.parents('.menu, .pokemon'),
 		activePkmn = pokemon.battle.activePokemon.player[pokemon.battle.actions.player.length],
 		action = null
-	pokemon.battle.animationTime = (new Date()).getTime()
 	$('#battle').find('[data-action].active').removeClass('active')
 	if (!activePkmn) {
 		// Set Action without an Active Pokémon? Something's wrong!
@@ -148,61 +146,65 @@ pokemon.Battle.prototype.runRound = function(){
 	$('.pokemon-html.ready').removeClass('ready')
 	$('#battle').find('.menu').removeClass('show')
 	pokemon.battle.actions = pokemon.battle.actions.player.concat(pokemon.battle.actions.foe)
-	pokemon.battle.actions.sort(function(a, b) {
+	pokemon.battle.actions.sort((a, b) => {
 		if (a.priority != b.priority) return b.priority - a.priority
 		return b.pokemon.stats.spd - a.pokemon.stats.spd
 	})
-	pokemon.battle.actions.forEach(function(action) {
-		var damage = 0, efficacy = 1, move
-		console.log('Action',action)
-		// This is a Move
-		if (action.move_id) {
-			move = action
-			pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
-			// TODO: Check Pokémon Status
-			// Deduct PP
-			move.pp--
-			if (move.damage_class != 'status') {
+	pokemon.battle.actions.forEach((action, i) => {
+		setTimeout(() => {
+			var damage = 0, efficacy = 1, move
+			console.log('Action',action)
+			// This is a Move
+			if (action.move_id) {
+				move = action
+				pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
+				// TODO: Check Pokémon Status
 				// Check Efficacy
-				if (move.target && move.target.forEach) move.target.forEach(function(def) {
+				if (move.target && move.target.forEach) move.target.forEach((def) => {
 					efficacy *= pokemon.data.moves.calcEfficacy(move, def)
 				})
 				if (efficacy) {
-					// TODO: Calculate Accuracy
-					if (Math.random(100) > move.accuracy) {
-						console.log('Attack Missed!')
-					} else {
-						// TODO: Give Damage
-						if (move.target && move.target.forEach) move.target.forEach(function(def) {
-							damage = pokemon.battle.calcDamage(move, def)
-							def.hp -= damage
-							if (!def.hp) {
-								// TODO: Fainted!
+					// Deduct PP
+					move.pp--
+					if (move.damage_class != 'status') {
+						console.log('efficacy', efficacy)
+						console.log('accuracy', move.accuracy)
+						// TODO: Calculate Accuracy
+						if (Math.random(100) > move.accuracy) {
+							console.log('Attack Missed!')
+						} else {
+							// TODO: Give Damage
+							if (move.target && move.target.forEach) move.target.forEach((def) => {
+								damage = pokemon.battle.calcDamage(move, def)
+								def.hp -= damage
+								if (!def.hp) {
+									// TODO: Fainted!
+								}
+							}); else switch (move.target) {
 							}
-						}); else switch (move.target) {
 						}
+					} else {
+						// TODO: Change Status
 					}
 				} else {
 					console.log(move.identifier + ' has no effect')
 				}
-			} else {
-				// TODO: Change Status
+				// TODO: Check Attacker Ability
+				// TODO: Check Defender Ability
+				// TODO: Check Effect
 			}
-			// TODO: Check Attacker Ability
-			// TODO: Check Defender Ability
-			// TODO: Check Effect
-		}
+		}, 2000 * i + 500)
 	})
-	;['foe','player'].forEach(function(t) {
+	;['foe','player'].forEach((t) => {
 		pokemon.battle.activePokemon[t]
 	})
-	setTimeout(function() {
+	setTimeout(() => {
 		if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
 			pokemon.battle.startRound()
 		} else {
 			pokemon.battle.finish()
 		}
-	}, Math.max(0, 1000 - (new Date()).getTime() + pokemon.battle.animationTime))
+	}, Math.max(0, 2000 * pokemon.battle.actions.length + 500))
 }
 pokemon.Battle.prototype.calcDamage = function(move, def) {
 	var intAtk = 0, intDef = 0, damage = 0,
@@ -258,9 +260,9 @@ console.log('damage', damage)
 pokemon.Battle.prototype.log = function(msg) {
 	var $log = $('#battle').children('.history')
 	$log.append('<li class="hidden">' + msg)
-	setTimeout(function() {
+	setTimeout(() => {
 		$log.find('li.hidden').removeClass('hidden')
-	}, 1)
+	}, 100)
 }
 pokemon.Battle.prototype.finish = function() {
 	console.log('Battle Finished?')
