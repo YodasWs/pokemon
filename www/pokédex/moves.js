@@ -139,7 +139,7 @@ pokemon.data.moves.selectTarget = function(move) {
 	// TODO: Select Target
 	switch (move.target_id) {
 	case 2:
-		// TODO: Selected pokémon
+		// TODO: Selected Pokémon
 		if (pokemon.battle.activePokemon[trainer].length == 1) {
 			target = [pokemon.battle.activePokemon[trainer][0]]
 		}
@@ -155,7 +155,7 @@ pokemon.data.moves.selectTarget = function(move) {
 		target = [move.pokemon]
 		break;
 	case 8:
-		// Random opponent
+		// Random Opponent
 		console.log('picking random opponent')
 		if (pokemon.battle.activePokemon[trainer].length == 1) {
 			target = [pokemon.battle.activePokemon[trainer][0]]
@@ -164,10 +164,14 @@ pokemon.data.moves.selectTarget = function(move) {
 		}
 		break;
 	case 10:
-		// TODO: Selected pokémon
+		// TODO: Selected Pokémon
 		if (pokemon.battle.activePokemon[trainer].length == 1) {
 			target = [pokemon.battle.activePokemon[trainer][0]]
 		}
+		break;
+	case 11:
+		// All Opponents
+		target = pokemon.battle.activePokemon[trainer]
 		break;
 	}
 	return target

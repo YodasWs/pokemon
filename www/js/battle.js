@@ -60,6 +60,24 @@ pokemon.BattleStats.prototype.stat = function(stat) {
 	}
 	return multiplier
 }
+pokemon.BattleStats.prototype.adjust = function(stat, change) {
+	var msg = ''
+	if (this.boosts[stat] + change > 6) {
+		change = 6 - this.boosts[stat]
+	}
+	if (this.boosts[stat] + change < -6) {
+		change = -6 - this.boosts[stat]
+	}
+	this.boosts[stat] += change
+	if (change === 0) {
+		msg = pokemon.data.statToString(stat) + "couldn't change!"
+	} else if (change < 0) {
+		msg = 'Lowered ' + pokemon.data.statToString(stat)
+	} else if (change > 0) {
+		msg = 'Raised ' + pokemon.data.statToString(stat)
+	}
+	pokemon.battle.log(msg)
+}
 
 pokemon.Battle = function(){
 	this.player = pokemon.player
@@ -226,6 +244,11 @@ pokemon.Battle.prototype.runRound = function(){
 								damage = pokemon.battle.calcDamage(move, def)
 								setTimeout(() => {
 									def.hp -= damage
+									if (efficacy > 1) {
+										pokemon.battle.log("It's super effective!")
+									} else if (efficacy < 1) {
+										pokemon.battle.log("It's not very effective&hellip;")
+									}
 									if (!def.hp) {
 										// TODO: Fainted!
 									}
@@ -235,6 +258,14 @@ pokemon.Battle.prototype.runRound = function(){
 						}
 					} else {
 						// TODO: Change Status
+					}
+					// Stats Boost
+					if (move.boost && move.boost.stat) {
+						setTimeout(() => {
+							if (move.target && move.target.forEach) move.target.forEach((def) => {
+								def.battleStats.adjust(move.boost.stat, move.boost.num)
+							})
+						}, 1000)
 					}
 				} else {
 					console.log(move.identifier + ' has no effect')
@@ -321,6 +352,7 @@ console.log('damage', damage)
 	return damage
 }
 pokemon.Battle.prototype.log = function(msg) {
+	if (!msg) return
 	var $log = $('#battle').children('.history')
 	$log.append('<li class="hidden">' + msg)
 	setTimeout(() => {

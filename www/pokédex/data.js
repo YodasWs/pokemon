@@ -91,6 +91,20 @@ pokemon.data.generations = {
 	}
 }
 
+pokemon.data.statToString = function(stat) {
+	switch (stat) {
+	case 'accuracy': return 'Accuracy'
+	case 'evasion': return 'Evasion'
+	case 'spatk': return 'Special Attack'
+	case 'spdef': return 'Special Defense'
+	case 'atk': return 'Attack'
+	case 'def': return 'Defense'
+	case 'spd': return 'Speed'
+	case 'hp': return 'HP'
+	}
+	return ''
+}
+
 pokemon.db = null
 
 // Build Databases for Pokémon Move Sets

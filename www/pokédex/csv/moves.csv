@@ -1,37 +1,37 @@
 id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,damage_class,effect_id,effect_chance
-1,Pound,1,1,40,35,100,0,10,physical,1,
+1,Pound,1,1,40,35,100,0,10,physical,,
 2,Karate Chop,1,2,50,25,100,0,10,physical,44,
 3,Double Slap,1,1,15,10,85,0,10,physical,30,
 4,Comet Punch,1,1,18,15,85,0,10,physical,30,
-5,Mega Punch,1,1,80,20,85,0,10,physical,1,
+5,Mega Punch,1,1,80,20,85,0,10,physical,,
 6,Pay Day,1,1,40,20,100,0,10,physical,35,
 7,Fire Punch,1,10,75,15,100,0,10,physical,5,10
 8,Ice Punch,1,15,75,15,100,0,10,physical,6,10
 9,Thunder Punch,1,13,75,15,100,0,10,physical,7,10
-10,Scratch,1,1,40,35,100,0,10,physical,1,
-11,Vice Grip,1,1,55,30,100,0,10,physical,1,
+10,Scratch,1,1,40,35,100,0,10,physical,,
+11,Vice Grip,1,1,55,30,100,0,10,physical,,
 12,Guillotine,1,1,,5,30,0,10,physical,39,
 13,Razor Wind,1,1,80,10,100,0,11,special,40,
 14,Swords Dance,1,1,,20,,0,7,status,51,
-15,Cut,1,1,50,30,95,0,10,physical,1,
+15,Cut,1,1,50,30,95,0,10,physical,,
 16,Gust,1,3,40,35,100,0,10,special,150,
-17,Wing Attack,1,3,60,35,100,0,10,physical,1,
+17,Wing Attack,1,3,60,35,100,0,10,physical,,
 18,Whirlwind,1,1,,20,,-6,10,status,29,
 19,Fly,1,3,90,15,95,0,10,physical,156,
 20,Bind,1,1,15,20,85,0,10,physical,43,100
-21,Slam,1,1,80,20,75,0,10,physical,1,
-22,Vine Whip,1,12,45,25,100,0,10,physical,1,
+21,Slam,1,1,80,20,75,0,10,physical,,
+22,Vine Whip,1,12,45,25,100,0,10,physical,,
 23,Stomp,1,1,65,20,100,0,10,physical,151,30
 24,Double Kick,1,2,30,30,100,0,10,physical,45,
-25,Mega Kick,1,1,120,5,75,0,10,physical,1,
+25,Mega Kick,1,1,120,5,75,0,10,physical,,
 26,Jump Kick,1,2,100,10,95,0,10,physical,46,
 27,Rolling Kick,1,2,60,15,85,0,10,physical,32,30
 28,Sand Attack,1,5,,15,100,0,10,status,24,
 29,Headbutt,1,1,70,15,100,0,10,physical,32,30
-30,Horn Attack,1,1,65,25,100,0,10,physical,1,
+30,Horn Attack,1,1,65,25,100,0,10,physical,,
 31,Fury Attack,1,1,15,20,85,0,10,physical,30,
 32,Horn Drill,1,1,,5,30,0,10,physical,39,
-33,Tackle,1,1,50,35,100,0,10,physical,1,
+33,Tackle,1,1,50,35,100,0,10,physical,,
 34,Body Slam,1,1,85,15,100,0,10,physical,7,30
 35,Wrap,1,1,15,20,90,0,10,physical,43,100
 36,Take Down,1,1,90,20,85,0,10,physical,49,
@@ -53,8 +53,8 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 52,Ember,1,10,40,25,100,0,10,special,5,10
 53,Flamethrower,1,10,90,15,100,0,10,special,5,10
 54,Mist,1,15,,30,,0,4,status,47,
-55,Water Gun,1,11,40,25,100,0,10,special,1,
-56,Hydro Pump,1,11,110,5,80,0,10,special,1,
+55,Water Gun,1,11,40,25,100,0,10,special,,
+56,Hydro Pump,1,11,110,5,80,0,10,special,,
 57,Surf,1,11,90,15,100,0,9,special,258,
 58,Ice Beam,1,15,90,10,100,0,10,special,6,10
 59,Blizzard,1,15,110,5,70,0,11,special,261,10
@@ -62,13 +62,13 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 61,Bubble Beam,1,11,65,20,100,0,10,special,71,10
 62,Aurora Beam,1,15,65,20,100,0,10,special,69,10
 63,Hyper Beam,1,1,150,5,90,0,10,special,81,
-64,Peck,1,3,35,35,100,0,10,physical,1,
-65,Drill Peck,1,3,80,20,100,0,10,physical,1,
+64,Peck,1,3,35,35,100,0,10,physical,,
+65,Drill Peck,1,3,80,20,100,0,10,physical,,
 66,Submission,1,2,80,20,80,0,10,physical,49,
 67,Low Kick,1,2,,20,100,0,10,physical,197,
 68,Counter,1,2,,20,100,-5,1,physical,90,
 69,Seismic Toss,1,2,,20,100,0,10,physical,88,
-70,Strength,1,1,80,15,100,0,10,physical,1,
+70,Strength,1,1,80,15,100,0,10,physical,,
 71,Absorb,1,12,20,25,100,0,10,special,4,
 72,Mega Drain,1,12,40,15,100,0,10,special,4,
 73,Leech Seed,1,12,,10,90,0,10,status,85,
@@ -86,7 +86,7 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 85,Thunderbolt,1,13,90,15,100,0,10,special,7,10
 86,Thunder Wave,1,13,,20,100,0,10,status,68,
 87,Thunder,1,13,110,10,70,0,10,special,153,30
-88,Rock Throw,1,6,50,15,90,0,10,physical,1,
+88,Rock Throw,1,6,50,15,90,0,10,physical,,
 89,Earthquake,1,5,100,10,100,0,9,physical,148,
 90,Fissure,1,5,,5,30,0,10,physical,39,
 91,Dig,1,5,80,10,100,0,10,physical,257,
@@ -119,7 +119,7 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 118,Metronome,1,1,,10,,0,7,status,84,
 119,Mirror Move,1,3,,20,,0,10,status,10,
 120,Self Destruct,1,1,200,5,100,0,9,physical,8,
-121,Egg Bomb,1,1,100,10,75,0,10,physical,1,
+121,Egg Bomb,1,1,100,10,75,0,10,physical,,
 122,Lick,1,8,30,30,100,0,10,physical,7,30
 123,Smog,1,4,30,20,70,0,10,special,3,40
 124,Sludge,1,4,65,20,100,0,10,special,3,30
@@ -222,7 +222,7 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 221,Sacred Fire,2,10,100,5,95,0,10,physical,126,50
 222,Magnitude,2,5,,30,100,0,9,physical,127,
 223,Dynamic Punch,2,2,100,5,50,0,10,physical,77,100
-224,Megahorn,2,7,120,10,85,0,10,physical,1,
+224,Megahorn,2,7,120,10,85,0,10,physical,,
 225,Dragon Breath,2,16,60,20,100,0,10,special,7,30
 226,Baton Pass,2,1,,40,,0,7,status,128,
 227,Encore,2,1,,5,100,0,10,status,91,
@@ -302,7 +302,7 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 301,Ice Ball,3,15,30,20,90,0,10,physical,118,
 302,Needle Arm,3,12,60,15,100,0,10,physical,32,30
 303,Slack off,3,1,,10,,0,7,status,33,
-304,Hyper Voice,3,1,90,10,100,0,11,special,1,
+304,Hyper Voice,3,1,90,10,100,0,11,special,,
 305,Poison Fang,3,4,50,15,100,0,10,physical,203,50
 306,Crush Claw,3,1,75,10,95,0,10,physical,70,50
 307,Blast Burn,3,10,150,5,90,0,10,special,81,
@@ -335,7 +335,7 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 334,Iron Defense,3,9,,15,,0,7,status,52,
 335,Block,3,1,,5,,0,10,status,107,
 336,Howl,3,1,,40,,0,7,status,11,
-337,Dragon Claw,3,16,80,15,100,0,10,physical,1,
+337,Dragon Claw,3,16,80,15,100,0,10,physical,,
 338,Frenzy Plant,3,12,150,5,90,0,10,special,81,
 339,Bulk Up,3,2,,20,,0,7,status,209,
 340,Bounce,3,3,85,5,85,0,10,physical,264,30
@@ -399,14 +399,14 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 398,Poison Jab,4,4,80,20,100,0,10,physical,3,30
 399,Dark Pulse,4,17,80,15,100,0,10,special,32,20
 400,Night Slash,4,17,70,15,100,0,10,physical,44,
-401,Aqua Tail,4,11,90,10,90,0,10,physical,1,
-402,Seed Bomb,4,12,80,15,100,0,10,physical,1,
+401,Aqua Tail,4,11,90,10,90,0,10,physical,,
+402,Seed Bomb,4,12,80,15,100,0,10,physical,,
 403,Air Slash,4,3,75,15,95,0,10,special,32,30
-404,X Scissor,4,7,80,15,100,0,10,physical,1,
+404,X Scissor,4,7,80,15,100,0,10,physical,,
 405,Bug Buzz,4,7,90,10,100,0,10,special,73,10
-406,Dragon Pulse,4,16,85,10,100,0,10,special,1,
+406,Dragon Pulse,4,16,85,10,100,0,10,special,,
 407,Dragon Rush,4,16,100,10,75,0,10,physical,32,20
-408,Power Gem,4,6,80,20,100,0,10,special,1,
+408,Power Gem,4,6,80,20,100,0,10,special,,
 409,Drain Punch,4,2,75,10,100,0,10,physical,4,
 410,Vacuum Wave,4,2,40,30,100,1,10,special,104,
 411,Focus Blast,4,2,120,5,70,0,10,special,73,10
@@ -436,7 +436,7 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 435,Discharge,4,13,80,15,100,0,9,special,7,30
 436,Lava Plume,4,10,80,15,100,0,9,special,5,30
 437,Leaf Storm,4,12,130,5,90,0,10,special,205,100
-438,Power Whip,4,12,120,10,85,0,10,physical,1,
+438,Power Whip,4,12,120,10,85,0,10,physical,,
 439,Rock Wrecker,4,6,150,5,90,0,10,physical,81,
 440,Cross Poison,4,4,70,20,100,0,10,physical,210,10
 441,Gunk Shot,4,4,120,5,80,0,10,physical,3,30
@@ -570,7 +570,7 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 569,Ion Deluge,6,13,,25,,1,12,status,347,
 570,Parabolic Charge,6,13,50,20,100,0,9,special,348,
 571,Forests Curse,6,12,,20,100,0,10,status,349,
-572,Petal Blizzard,6,12,90,15,100,0,9,physical,1,
+572,Petal Blizzard,6,12,90,15,100,0,9,physical,,
 573,Freeze Dry,6,15,70,20,100,0,10,special,350,10
 574,Disarming Voice,6,18,40,15,,0,11,special,18,
 575,Parting Shot,6,17,,20,100,0,10,status,351,100
@@ -582,9 +582,9 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 581,Misty Terrain,6,18,,10,,0,12,status,357,
 582,Electrify,6,13,,20,,0,10,status,358,
 583,Play Rough,6,18,90,10,90,0,10,physical,69,10
-584,Fairy Wind,6,18,40,30,100,0,10,special,1,
+584,Fairy Wind,6,18,40,30,100,0,10,special,,
 585,Moonblast,6,18,95,15,100,0,10,special,72,30
-586,Boomburst,6,1,140,10,100,0,9,special,1,
+586,Boomburst,6,1,140,10,100,0,9,special,,
 587,Fairy Lock,6,18,,10,,0,12,status,359,
 588,Kings Shield,6,9,,10,,4,7,status,360,
 589,Play Nice,6,1,,20,,0,10,status,19,100
@@ -602,16 +602,16 @@ id,identifier,generation_id,type_id,power,maxPP,accuracy,priority,target_id,dama
 602,Magnetic Flux,6,13,,20,,0,13,status,367,
 603,Happy Hour,6,1,,30,,0,4,status,370,
 604,Electric Terrain,6,13,,10,,0,12,status,368,
-605,Dazzling Gleam,6,18,80,10,100,0,11,special,1,
+605,Dazzling Gleam,6,18,80,10,100,0,11,special,,
 608,Baby Doll Eyes,6,18,,30,100,1,10,status,19,
 609,Nuzzle,6,13,20,20,100,0,10,physical,7,100
 610,Hold Back,6,1,40,40,100,0,10,physical,102,
 611,Infestation,6,7,20,20,100,0,10,special,43,100
 612,Power-up Punch,6,2,40,20,100,0,10,physical,140,100
 613,Oblivion Wing,6,3,80,10,100,0,10,special,353,
-616,Lands Wrath,6,5,90,10,100,0,11,physical,1,
+616,Lands Wrath,6,5,90,10,100,0,11,physical,,
 617,Light of Ruin,6,18,140,5,90,0,10,special,270,
-618,Origin Pulse,6,11,110,10,85,0,11,special,1,
-619,Precipice Blades,6,5,120,10,85,0,11,physical,1,
+618,Origin Pulse,6,11,110,10,85,0,11,special,,
+619,Precipice Blades,6,5,120,10,85,0,11,physical,,
 620,Dragon Ascent,6,3,120,5,100,0,10,physical,230,
 621,Hyperspace Fury,6,17,100,5,,0,10,physical,360,
