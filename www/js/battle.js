@@ -1,6 +1,7 @@
 pokemon.BattleStats = function(pkmn){
 	this.isInfatuated = false
 	this.isConfused = false
+	this.pokemon = pkmn
 	this.status = null
 	this.boosts = {
 		accuracy: 0,
@@ -11,6 +12,53 @@ pokemon.BattleStats = function(pkmn){
 		def: 0,
 		spd: 0
 	}
+}
+pokemon.BattleStats.prototype.stat = function(stat) {
+	var multiplier = 1
+	// Battle Boost
+	switch (this.boosts[stat]) {
+	case -6:
+		multiplier *= 2/8
+		break;
+	case -5:
+		multiplier *= 2/7
+		break;
+	case -4:
+		multiplier *= 2/6
+		break;
+	case -3:
+		multiplier *= 2/5
+		break;
+	case -2:
+		multiplier *= 2/4
+		break;
+	case -1:
+		multiplier *= 2/3
+		break;
+	case 1:
+		multiplier *= 1.5
+		break;
+	case 2:
+		multiplier *= 2
+		break;
+	case 3:
+		multiplier *= 2.5
+		break;
+	case 4:
+		multiplier *= 3
+		break;
+	case 5:
+		multiplier *= 3.5
+		break;
+	case 6:
+		multiplier *= 4
+		break;
+	}
+	// Now for the actual stat
+	if (this.pokemon.stats[stat] !== undefined) {
+		multiplier *= this.pokemon.stats[stat]
+	}
+	return multiplier
 }
 
 pokemon.Battle = function(){
@@ -176,10 +224,12 @@ pokemon.Battle.prototype.runRound = function(){
 							// TODO: Give Damage
 							if (move.target && move.target.forEach) move.target.forEach((def) => {
 								damage = pokemon.battle.calcDamage(move, def)
-								def.hp -= damage
-								if (!def.hp) {
-									// TODO: Fainted!
-								}
+								setTimeout(() => {
+									def.hp -= damage
+									if (!def.hp) {
+										// TODO: Fainted!
+									}
+								}, 1000)
 							}); else switch (move.target) {
 							}
 						}
@@ -226,16 +276,29 @@ pokemon.Battle.prototype.calcDamage = function(move, def) {
 		break;
 	}
 	criticalHit = (Math.random() < criticalHitRate)
-	if (criticalHit) modifier *= 2
+	if (criticalHit) {
+		modifier *= 2
+		pokemon.battle.log('A critical hit!')
+	}
 	// Get Attack and Defense Stats
 	switch (move.damage_class) {
 	case 'physical':
-		intAtk = move.pokemon.stats.atk
-		intDef = def.stats.def
+		intAtk = move.pokemon.battleStats.stat('atk')
+		intDef = def.battleStats.stat('def')
+		if (criticalHit) {
+			// Ignore Boosts in wrong direction
+			intAtk = Math.max(intAtk, move.pokemon.stats.atk)
+			intDef = Math.min(intDef, def.stats.def)
+		}
 		break;
 	case 'special':
-		intAtk = move.pokemon.stats.spatk
-		intDef = def.stats.spdef
+		intAtk = move.pokemon.battleStats.stat('spatk')
+		intDef = def.battleStats.stat('spdef')
+		if (criticalHit) {
+			// Ignore Boosts in wrong direction
+			intAtk = Math.max(intAtk, move.pokemon.stats.spatk)
+			intDef = Math.min(intDef, def.stats.spdef)
+		}
 		break;
 	default:
 		return 0

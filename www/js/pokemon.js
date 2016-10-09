@@ -34,7 +34,7 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 	})
 	Object.defineProperty(this, 'lvl', {
 		// TODO: Need to calculate this based upon experience points
-		get: function() { return intLevel },
+		get: () => { return intLevel },
 		enumerable: true
 	})
 	Object.defineProperty(this, 'trainer', {
@@ -66,20 +66,20 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 		value: nature
 	})
 	this.ivs = {}
-	pokemon.data.statKeys.forEach(function(stat) {
+	pokemon.data.statKeys.forEach((stat) => {
 		self.ivs[stat] = Math.randInt(31)
 	})
 	this.evs = {}
-	pokemon.data.statKeys.forEach(function(stat) {
+	pokemon.data.statKeys.forEach((stat) => {
 		self.evs[stat] = 0
 	})
 	// Set Pokémon Stats
 	var stats = {}
-	pokemon.data.statKeys.forEach(function(i) {
+	pokemon.data.statKeys.forEach((i) => {
 		var stat = i
 		Object.defineProperty(stats, stat, {
 			enumerable: true,
-			get: function() {
+			get: () => {
 				return Math.floor(Math.floor(2 * self.baseStats[stat] + self.ivs[stat] + Math.floor(self.evs[stat] / 4)) * self.lvl / 100 + 5)
 			}
 		})
@@ -89,7 +89,7 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 		value: stats
 	})
 	Object.defineProperty(this, 'maxhp', {
-		get: function() {
+		get: () => {
 			return Math.floor(Math.floor(2 * self.baseStats.hp + self.ivs.hp + Math.floor(self.evs.hp / 4) + 100) * self.lvl / 100 + 10);
 		},
 		enumerable: true
@@ -97,8 +97,8 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 	hp = new Number(this.maxhp)
 	Object.defineProperty(this, 'hp', {
 		enumerable: true,
-		get: function() { return hp },
-		set: function(i) {
+		get: () => { return hp },
+		set: (i) => {
 			hp = Math.max(0, i)
 			if (self.html) {
 				self.html.find('progress.hp').attr('value', hp)
