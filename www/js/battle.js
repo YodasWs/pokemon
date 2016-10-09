@@ -1,3 +1,4 @@
+var timing = 1200
 pokemon.BattleStats = function(pkmn){
 	this.isInfatuated = false
 	this.isConfused = false
@@ -136,8 +137,8 @@ pokemon.Battle.prototype.start = function(){
 		setTimeout(() => {
 			// Start Round
 			pokemon.battle.startRound()
-		}, 1000)
-	}, 500)
+		}, timing)
+	}, timing / 2)
 }
 pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i){
 	if (!pkmn) return false
@@ -176,7 +177,7 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	if ($menu.is('.show')) {
 		// Hide Menu first!
 		$menu.removeClass('show')
-		setTimeout(cb, 1000)
+		setTimeout(cb, timing)
 	} else cb()
 }
 pokemon.Battle.prototype.setAction = function(e){
@@ -252,7 +253,7 @@ pokemon.Battle.prototype.runRound = function(){
 									if (!def.hp) {
 										// TODO: Fainted!
 									}
-								}, 1000)
+								}, timing)
 							}); else switch (move.target) {
 							}
 						}
@@ -265,7 +266,7 @@ pokemon.Battle.prototype.runRound = function(){
 							if (move.target && move.target.forEach) move.target.forEach((def) => {
 								def.battleStats.adjust(move.boost.stat, move.boost.num)
 							})
-						}, 1000)
+						}, timing)
 					}
 				} else {
 					console.log(move.identifier + ' has no effect')
@@ -274,7 +275,7 @@ pokemon.Battle.prototype.runRound = function(){
 				// TODO: Check Defender Ability
 				// TODO: Check Effect
 			}
-		}, 2000 * i + 500)
+		}, timing * 2 * i + timing / 2)
 	})
 	;['foe','player'].forEach((t) => {
 		pokemon.battle.activePokemon[t]
@@ -285,7 +286,7 @@ pokemon.Battle.prototype.runRound = function(){
 		} else {
 			pokemon.battle.finish()
 		}
-	}, Math.max(0, 2000 * pokemon.battle.actions.length + 500))
+	}, Math.max(0, timing * 2 * pokemon.battle.actions.length + timing / 2))
 }
 pokemon.Battle.prototype.calcDamage = function(move, def) {
 	var intAtk = 0, intDef = 0, damage = 0,
