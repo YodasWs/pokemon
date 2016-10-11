@@ -1,4 +1,5 @@
-var timing = 1200
+"use strict";
+const timing = 1200
 pokemon.BattleStats = function(pkmn){
 	this.isInfatuated = false
 	this.isConfused = false
@@ -15,7 +16,7 @@ pokemon.BattleStats = function(pkmn){
 	}
 }
 pokemon.BattleStats.prototype.stat = function(stat) {
-	var multiplier = 1
+	let multiplier = 1
 	// Battle Boost
 	switch (this.boosts[stat]) {
 	case -6:
@@ -61,8 +62,8 @@ pokemon.BattleStats.prototype.stat = function(stat) {
 	}
 	return multiplier
 }
-pokemon.BattleStats.prototype.adjust = function(stat, change) {
-	var msg = ''
+pokemon.BattleStats.prototype.adjust = function(stat, change = 0) {
+	let msg = ''
 	if (this.boosts[stat] + change > 6) {
 		change = 6 - this.boosts[stat]
 	}
@@ -94,7 +95,7 @@ pokemon.Battle = function(){
 	}
 }
 pokemon.Battle.prototype.start = function(){
-	var fldBattle = $('#battle')
+	let fldBattle = $('#battle')
 
 	// Add Pokémon
 	;['player','foe'].forEach((t) => {
@@ -125,7 +126,7 @@ pokemon.Battle.prototype.start = function(){
 			while (pokemon.battle.activePokemon[t].length > pokemon.battle[t].pokemon.length) {
 				pokemon.battle.activePokemon[t].pop()
 			}
-			for (var i=0; i<pokemon.battle.activePokemon[t].length; i++) {
+			for (let i=0; i<pokemon.battle.activePokemon[t].length; i++) {
 				pokemon.battle.activatePokemon(t, pokemon.battle[t].pokemon[i], i)
 			}
 		})
@@ -140,7 +141,7 @@ pokemon.Battle.prototype.start = function(){
 		}, timing)
 	}, timing / 2)
 }
-pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i){
+pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i = 0){
 	if (!pkmn) return false
 	if (i > pokemon.battle.activePokemon[trainer]) return false
 	pokemon.battle.activePokemon[trainer][i] = pkmn
@@ -160,7 +161,7 @@ pokemon.Battle.prototype.startRound = function(){
 }
 pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	pkmn = pokemon.battle.activePokemon.player[pkmn]
-	var $moves = $('#battle ul.moves'),
+	let $moves = $('#battle ul.moves'),
 		$menu = $('#battle').find('.menu'),
 	cb = function() {
 		// Update View
@@ -181,7 +182,7 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	} else cb()
 }
 pokemon.Battle.prototype.setAction = function(e){
-	var btn = $(e.target),
+	let btn = $(e.target),
 		menu = btn.parents('.menu, .pokemon'),
 		activePkmn = pokemon.battle.activePokemon.player[pokemon.battle.actions.player.length],
 		action = null
@@ -219,13 +220,15 @@ pokemon.Battle.prototype.runRound = function(){
 	})
 	pokemon.battle.actions.forEach((action, i) => {
 		setTimeout(() => {
-			var damage = 0, efficacy = 1, move
+			let damage = 0, efficacy = 1, move
 			console.log('Action',action)
 			// This is a Move
 			if (action.move_id) {
 				move = action
 				pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
 				// TODO: Check Pokémon Status
+				if (move.pokemon.battleStats.status) {
+				}
 				// Check Efficacy
 				if (move.target && move.target.forEach) move.target.forEach((def) => {
 					efficacy *= pokemon.data.moves.calcEfficacy(move, def)
@@ -257,8 +260,6 @@ pokemon.Battle.prototype.runRound = function(){
 							}); else switch (move.target) {
 							}
 						}
-					} else {
-						// TODO: Change Status
 					}
 					// Stats Boost
 					if (move.boost && move.boost.stat) {
@@ -267,6 +268,10 @@ pokemon.Battle.prototype.runRound = function(){
 								def.battleStats.adjust(move.boost.stat, move.boost.num)
 							})
 						}, timing)
+					}
+					// Change Status
+					if (move.changeStatus && move.target && move.target.forEach) {
+						move.target.forEach(move.changeStatus)
 					}
 				} else {
 					console.log(move.identifier + ' has no effect')
@@ -277,9 +282,20 @@ pokemon.Battle.prototype.runRound = function(){
 			}
 		}, timing * 2 * i + timing / 2)
 	})
+	// Update Statuses
 	;['foe','player'].forEach((t) => {
-		pokemon.battle.activePokemon[t]
+		pokemon.battle.activePokemon[t].forEach((pkmn) => {
+			if (pkmn.battleStats.status && pkmn.battleStats.status.num) {
+				switch (pkmn.battleStats.status) {
+				case 'sleep':
+					// Countdown to Waking Up
+					pkmn.battleStats.status.num--
+					break;
+				}
+			}
+		})
 	})
+	// Move on to Next Round
 	setTimeout(() => {
 		if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
 			pokemon.battle.startRound()
@@ -289,7 +305,7 @@ pokemon.Battle.prototype.runRound = function(){
 	}, Math.max(0, timing * 2 * pokemon.battle.actions.length + timing / 2))
 }
 pokemon.Battle.prototype.calcDamage = function(move, def) {
-	var intAtk = 0, intDef = 0, damage = 0,
+	let intAtk = 0, intDef = 0, damage = 0,
 		criticalHitRate = 1, criticalHit = false,
 		modifier = Math.random() * ( 1 - 0.85 ) + 0.85
 	// Is this a critical hit?
@@ -354,7 +370,7 @@ console.log('damage', damage)
 }
 pokemon.Battle.prototype.log = function(msg) {
 	if (!msg) return
-	var $log = $('#battle').children('.history')
+	let $log = $('#battle').children('.history')
 	$log.append('<li class="hidden">' + msg)
 	setTimeout(() => {
 		$log.find('li.hidden').removeClass('hidden')
@@ -374,9 +390,10 @@ pokemon.wildEncounter = function(intSpecies) {
 	pokemon.battle = new pokemon.Battle()
 	pokemon.battle.foe = new pokemon.Trainer()
 
-	var intLevel = Math.floor(Math.random() * pokemon.player.level * 5) + 2
+//	const intLevel = Math.floor(Math.random() * pokemon.player.level * 5) + 2
+const intLevel = 14;
 
-	for (var i=0; i<1; i++) {
+	for (let i=0; i<1; i++) {
 		pokemon.battle.foe.pokemon.push(new pokemon.Pokemon(intSpecies, intLevel))
 	}
 

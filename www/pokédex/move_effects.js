@@ -52,5 +52,19 @@ pokemon.data.move_effects = function(effect_id) {
 		effect.boost.stat = 'evasion'
 		break;
 	}
+	// Alter Status Conditions
+	switch (effect_id) {
+	case 2:
+		// Put Target to Sleep!
+		effect.changeStatus = (target) => {
+			if (!target.battleStats.status || !target.battleStats.status.num) {
+				target.battleStats.status = {
+					num: Math.randInt(1, 4),
+					status: 'sleep'
+				}
+			}
+		}
+		break;
+	}
 	return effect
 }
