@@ -397,7 +397,7 @@ pokemon.wildEncounter = function(intSpecies) {
 	pokemon.battle.foe = new pokemon.Trainer()
 
 //	const intLevel = Math.floor(Math.random() * pokemon.player.level * 5) + 2
-const intLevel = 14;
+const intLevel = 30;
 
 	for (let i=0; i<1; i++) {
 		pokemon.battle.foe.pokemon.push(new pokemon.Pokemon(intSpecies, intLevel))

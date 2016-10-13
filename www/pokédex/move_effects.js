@@ -1,7 +1,7 @@
 pokemon.data = pokemon.data || {}
 pokemon.data.move_effects = {
 	onEndRound(pkmn){
-		if (!pkmn.battleStats.status || pkmn.battleStats.status.num <= 0) return;
+		if (!pkmn.battleStats.status) return;
 		switch (pkmn.battleStats.status.status) {
 		case 'sleep':
 			// Countdown to Waking Up
@@ -10,7 +10,7 @@ pokemon.data.move_effects = {
 		}
 	},
 	setStatus(status, pkmn){
-		if (!pkmn.battleStats.status || pkmn.battleStats.status.num <= 0) switch (status) {
+		if (!pkmn.battleStats.status) switch (status) {
 			case 'sleep':
 				pokemon.battle.log(pkmn.name + " fell asleep!")
 				pkmn.battleStats.status = {
