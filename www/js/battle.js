@@ -225,10 +225,20 @@ pokemon.Battle.prototype.runRound = function(){
 			// This is a Move
 			if (action.move_id) {
 				move = action
-				pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
 				// TODO: Check Pokémon Status
-				if (move.pokemon.battleStats.status) {
+console.log(move.pokemon.name, 'status:', move.pokemon.battleStats.status);
+				if (move.pokemon.battleStats.status && move.pokemon.battleStats.status.status) switch (move.pokemon.battleStats.status.status) {
+					case 'sleep':
+						if (move.pokemon.battleStats.status.num) {
+							pokemon.battle.log(move.pokemon.name + " is asleep!")
+							return;
+						} else {
+							pokemon.battle.log(move.pokemon.name + " woke up!")
+							delete move.pokemon.battleStats.status;
+						}
+						break;
 				}
+				pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
 				// Check Efficacy
 				if (move.target && move.target.forEach) move.target.forEach((def) => {
 					efficacy *= pokemon.data.moves.calcEfficacy(move, def)
@@ -271,9 +281,12 @@ pokemon.Battle.prototype.runRound = function(){
 					}
 					// Change Status
 					if (move.changeStatus && move.target && move.target.forEach) {
-						move.target.forEach(move.changeStatus)
+						move.target.map(move.changeStatus)
 					}
 				} else {
+					setTimeout(() => {
+						pokemon.battle.log(move.identifier + ' has no effect&hellip;')
+					}, timing)
 					console.log(move.identifier + ' has no effect')
 				}
 				// TODO: Check Attacker Ability
@@ -285,14 +298,7 @@ pokemon.Battle.prototype.runRound = function(){
 	// Update Statuses
 	;['foe','player'].forEach((t) => {
 		pokemon.battle.activePokemon[t].forEach((pkmn) => {
-			if (pkmn.battleStats.status && pkmn.battleStats.status.num) {
-				switch (pkmn.battleStats.status) {
-				case 'sleep':
-					// Countdown to Waking Up
-					pkmn.battleStats.status.num--
-					break;
-				}
-			}
+			if (pkmn.battleStats.status) pokemon.data.move_effects.onEndRound(pkmn);
 		})
 	})
 	// Move on to Next Round
