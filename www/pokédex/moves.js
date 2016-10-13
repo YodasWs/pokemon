@@ -6,31 +6,16 @@ pokemon.data.moves = {
 			all_moves = pokemon.storage.get('moves'),
 			pkmn_moves = []
 		// Collect Moves for Pokémon
-		all_pkmn_moves.forEach(function(pm){
-			if (pkmn.number != pm['pokemon_id']) return
-			if (pm['pokemon_move_method_id'] != 1) return // 1 == Learned Naturally
-			if (pkmn.lvl >= pm['level']) pkmn_moves.push(pm)
-		})
+		pkmn_moves = all_pkmn_moves.filter(pm => pkmn.number == pm['pokemon_id'] && pm['pokemon_move_method_id'] === 1 && pkmn.lvl >= pm['level'] )
 		return pkmn_moves
 	},
 	getById:function(id){
-		var moves = pokemon.storage.get('moves'),
-			move = null
-		moves.forEach(function(m){
-			if (m.id == id) {
-				move = m
-				return false
-			}
-		})
-		return move
+		var moves = pokemon.storage.get('moves')
+		return moves.find(m => m.id == id)
 	},
 	getByName:function(name){
-		var moves = pokemon.storage.get('moves'),
-			move = null
-		moves.forEach(function(m){
-			if (m.identifier == name) move = m
-		})
-		return move
+		var moves = pokemon.storage.get('moves')
+		return moves.find(m => m.identifier == name)
 	}
 }
 
@@ -43,10 +28,7 @@ pokemon.PokemonMoveset = function(pkmn) {
 	var all_pkmn_moves = pokemon.storage.get('pkmn_moves_v' + pkmn.version),
 		pkmn_moves = [], self = this
 	// Collect Moves for Pokémon
-	all_pkmn_moves.forEach(function(pm){
-		if (pkmn.number != pm['pokemon_id']) return
-		pkmn_moves.push(pm)
-	})
+	pkmn_moves = all_pkmn_moves.filter(pm => pkmn.number == pm['pokemon_id'] )
 	Object.defineProperty(this, 'all_pkmn_moves', {
 		value: pkmn_moves,
 		enumerable: true
@@ -55,12 +37,12 @@ pokemon.PokemonMoveset = function(pkmn) {
 	pkmn_moves.sort(function(a, b){
 		return b.level - a.level
 	})
-	pkmn_moves.forEach(function(pm) {
+	pkmn_moves.forEach(pm => {
 		if (pm.pokemon_move_method_id != 1) return // 1 == Learned Naturally
 		if (pm.version_group_id != pkmn.version) return
 		if (self.indexOf(pm.move_id) >= 0) return
+		if (self.length >= 4) return
 		if (pkmn.lvl >= pm.level) self.push(pm)
-		if (self.length >= 4) return false
 	})
 }
 pokemon.PokemonMoveset.prototype = Object.create(Array.prototype)
@@ -69,12 +51,7 @@ pokemon.PokemonMoveset.prototype.indexOf = function(move_id) {
 	var intIndex = -1
 	if (typeof move_id !== 'number') move_id = Number.parseInt(move_id, 10)
 	if (Number.isInteger(move_id) && move_id > 0) {
-		this.forEach(function(move, i){
-			if (move.id == move_id) {
-				intIndex = i
-				return false
-			}
-		})
+		intIndex = this.findIndex(move => move.id == move_id)
 	}
 	return intIndex
 }
