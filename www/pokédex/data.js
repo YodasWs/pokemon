@@ -93,13 +93,13 @@ pokemon.data.generations = {
 
 pokemon.data.statToString = function(stat) {
 	switch (stat) {
-	case 'accuracy': return 'Accuracy'
-	case 'evasion': return 'Evasion'
-	case 'spatk': return 'Special Attack'
-	case 'spdef': return 'Special Defense'
-	case 'atk': return 'Attack'
-	case 'def': return 'Defense'
-	case 'spd': return 'Speed'
+	case 'accuracy': return 'accuracy'
+	case 'evasion': return 'evasion'
+	case 'spatk': return 'special attack'
+	case 'spdef': return 'special defense'
+	case 'atk': return 'attack'
+	case 'def': return 'defense'
+	case 'spd': return 'speed'
 	case 'hp': return 'HP'
 	}
 	return ''

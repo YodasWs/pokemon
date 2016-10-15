@@ -206,7 +206,7 @@ console.log(move.pokemon.name, 'status:', move.pokemon.battleStats.status);
 					}
 					break;
 			}
-			pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
+			pokemon.battle.log(move.pokemon.name + " used " + move.identifier + ".")
 			// Check Efficacy
 			if (move.target && move.target.forEach) move.target.forEach((def) => {
 				efficacy *= pokemon.data.moves.calcEfficacy(move, def)
