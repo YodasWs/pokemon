@@ -10,6 +10,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'steel':
 			return .5
 		}
+		break;
 	case 'fighting':
 		switch (def) {
 		case 'normal':
@@ -35,6 +36,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'fairy':
 			return .5
 		}
+		break;
 	case 'flying':
 		switch (def) {
 		case 'fighting':
@@ -50,6 +52,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'electric':
 			return .5
 		}
+		break;
 	case 'poison':
 		switch (def) {
 		case 'poison':
@@ -67,6 +70,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'fairy':
 			return 2
 		}
+		break;
 	case 'ground':
 		switch (def) {
 		case 'flying':
@@ -86,6 +90,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'electric':
 			return 2
 		}
+		break;
 	case 'rock':
 		switch (def) {
 		case 'fighting':
@@ -103,6 +108,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'ice':
 			return 2
 		}
+		break;
 	case 'bug':
 		switch (def) {
 		case 'fighting':
@@ -126,6 +132,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'fairy':
 			return .5
 		}
+		break;
 	case 'ghost':
 		switch (def) {
 		case 'normal':
@@ -137,6 +144,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'dark':
 			return .5
 		}
+		break;
 	case 'steel':
 		switch (def) {
 		case 'rock':
@@ -154,6 +162,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'fairy':
 			return 2
 		}
+		break;
 	case 'fire':
 		switch (def) {
 		case 'rock':
@@ -173,6 +182,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'dragon':
 			return .5
 		}
+		break;
 	case 'water':
 		switch (def) {
 		case 'ground':
@@ -188,6 +198,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'dragon':
 			return .5
 		}
+		break;
 	case 'grass':
 		switch (def) {
 		case 'flying':
@@ -211,6 +222,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'dragon':
 			return .5
 		}
+		break;
 	case 'electric':
 		switch (def) {
 		case 'flying':
@@ -226,6 +238,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'dragon':
 			return .5
 		}
+		break;
 	case 'psychic':
 		switch (def) {
 		case 'fighting':
@@ -239,6 +252,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'dark':
 			return 0
 		}
+		break;
 	case 'ice':
 		switch (def) {
 		case 'flying':
@@ -258,6 +272,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'dragon':
 			return 2
 		}
+		break;
 	case 'dragon':
 		switch (def) {
 		case 'steel':
@@ -267,6 +282,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'fairy':
 			return 0
 		}
+		break;
 	case 'dark':
 		switch (def) {
 		case 'fighting':
@@ -280,6 +296,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'fairy':
 			return .5
 		}
+		break;
 	case 'fairy':
 		switch (def) {
 		case 'fighting':
@@ -295,6 +312,7 @@ pokemon.types.efficacy = function(atk, def) {
 		case 'dark':
 			return 2
 		}
+		break;
 	}
 	return 1
 }
