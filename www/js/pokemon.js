@@ -100,8 +100,10 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 		get: () => { return hp },
 		set: (i) => {
 			hp = Math.max(0, i)
-			if (self.html) {
-				self.html.find('progress.hp').attr('value', hp)
+			if (self.html && pokemon.battle) {
+				pokemon.battle.log(()=>{
+					self.html.find('progress.hp').attr('value', hp)
+				}, 500)
 			}
 			if (!hp) {
 				// TODO: Fainted!

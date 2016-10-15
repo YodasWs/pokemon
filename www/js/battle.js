@@ -1,5 +1,5 @@
 "use strict";
-const timing = 1200
+const logTiming = 1500
 pokemon.BattleStats = function(pkmn){
 	this.isInfatuated = false
 	this.isConfused = false
@@ -106,11 +106,9 @@ pokemon.Battle.prototype.start = function(){
 				pokemon.battle.activatePokemon('foe', p, i)
 			})
 		}
-		setTimeout(() => {
-			// Start Round
-			pokemon.battle.startRound()
-		}, timing)
-	}, timing / 2)
+		// Start Round
+		this.log(pokemon.battle.startRound)
+	}, logTiming / 2)
 }
 pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i = 0){
 	if (!pkmn) return false
@@ -149,7 +147,7 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	if ($menu.is('.show')) {
 		// Hide Menu first!
 		$menu.removeClass('show')
-		setTimeout(cb, timing)
+		setTimeout(cb, logTiming)
 	} else cb()
 }
 pokemon.Battle.prototype.setAction = function(e){
@@ -266,7 +264,7 @@ console.log('Move efficacy', efficacy)
 	})
 	// Move on to Next Round
 	if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
-		pokemon.battle.log(pokemon.battle.startRound)
+		pokemon.battle.log(pokemon.battle.startRound, logTiming * 3 / 2)
 	} else {
 		pokemon.battle.log(pokemon.battle.finish)
 	}
@@ -335,15 +333,15 @@ pokemon.Battle.prototype.calcDamage = function(move, def) {
 console.log('damage', damage)
 	return damage
 }
-pokemon.Battle.prototype.log = function(msg = '') {
+pokemon.Battle.prototype.log = function(msg = '', timing = logTiming) {
 	if (!msg) return
-	this.logQueue.push(msg);
+	this.logQueue.push([msg, timing]);
 	if (!this.logTimeout) this.popQueue();
 }
 pokemon.Battle.prototype.popQueue = function() {
 	this.logTimeout = null
 	if (!this.logQueue.length) return
-	let msg = this.logQueue.shift();
+	let [msg, timing] = this.logQueue.shift();
 	if (!msg) return
 	if (typeof msg === 'string') {
 		// Output Messages
@@ -371,8 +369,7 @@ pokemon.wildEncounter = function(intSpecies) {
 	pokemon.battle = new pokemon.Battle()
 	pokemon.battle.foe = new pokemon.Trainer()
 
-//	const intLevel = Math.floor(Math.random() * pokemon.player.level * 5) + 2
-const intLevel = 30;
+	const intLevel = Math.floor(Math.random() * pokemon.player.level * 5) + 2
 
 	for (let i=0; i<1; i++) {
 		pokemon.battle.foe.pokemon.push(new pokemon.Pokemon(intSpecies, intLevel))

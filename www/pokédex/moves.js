@@ -38,10 +38,10 @@ pokemon.PokemonMoveset = function(pkmn) {
 		return b.level - a.level
 	})
 	pkmn_moves.forEach(pm => {
+		if (self.length >= 4) return
 		if (pm.pokemon_move_method_id != 1) return // 1 == Learned Naturally
 		if (pm.version_group_id != pkmn.version) return
 		if (self.indexOf(pm.move_id) >= 0) return
-		if (self.length >= 4) return
 		if (pkmn.lvl >= pm.level) self.push(pm)
 	})
 }
@@ -103,8 +103,8 @@ pokemon.PokemonMoveset.prototype.sort = function() {
 	})
 }
 pokemon.data.moves.calcEfficacy = function(move, def) {
-	var efficacy = 1
-	def.types.forEach(function(type) {
+	let efficacy = 1
+	def.types.forEach((type) => {
 		if (!efficacy) return // If 0, no point continuing
 		efficacy *= pokemon.types.efficacy(move.type, type)
 	})
