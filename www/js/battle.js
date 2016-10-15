@@ -43,9 +43,9 @@ pokemon.BattleStats.prototype.adjust = function(stat, change = 0) {
 	if (change === 0) {
 		msg = pokemon.data.statToString(stat) + "couldn't change!"
 	} else if (change < 0) {
-		msg = 'Lowered ' + pokemon.data.statToString(stat)
+		msg = this.pokemon.name + "'s " + pokemon.data.statToString(stat) + ' fell.'
 	} else if (change > 0) {
-		msg = 'Raised ' + pokemon.data.statToString(stat)
+		msg = this.pokemon.name + "'s " + pokemon.data.statToString(stat) + ' rose.'
 	}
 	pokemon.battle.log(msg)
 }
@@ -217,12 +217,13 @@ console.log('Move efficacy', efficacy)
 				move.pp--
 				if (move.damage_class != 'status') {
 					console.log('accuracy', move.accuracy)
-					// TODO: Calculate Accuracy
-					if (Math.random(100) > move.accuracy) {
-						console.log('Attack Missed!')
-					} else {
-						// TODO: Give Damage
-						if (move.target && move.target.forEach) move.target.forEach((def) => {
+					if (move.target && move.target.forEach) move.target.forEach((def) => {
+						// TODO: Calculate Accuracy
+						if (Math.random(100) > move.accuracy * move.pokemon.battleStats.stat['accuracy'] / def.battleStats.stat['evasion']) {
+							console.log('Attack Missed!')
+							pokemon.battle.log(move.pokemon.name + " missed!")
+						} else {
+							// TODO: Give Damage
 							damage = pokemon.battle.calcDamage(move, def)
 							def.hp -= damage
 							if (efficacy > 1) {
@@ -233,8 +234,8 @@ console.log('Move efficacy', efficacy)
 							if (!def.hp) {
 								// TODO: Fainted!
 							}
-						}); else switch (move.target) {
 						}
+					}); else switch (move.target) {
 					}
 				}
 				// Stats Boost
