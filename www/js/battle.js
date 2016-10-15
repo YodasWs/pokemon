@@ -17,44 +17,13 @@ pokemon.BattleStats = function(pkmn){
 }
 pokemon.BattleStats.prototype.stat = function(stat) {
 	let multiplier = 1
+	if (this.boosts[stat] < -6) this.boosts[stat] = -6
+	if (this.boosts[stat] > 6) this.boosts[stat] = 6
 	// Battle Boost
-	switch (this.boosts[stat]) {
-	case -6:
-		multiplier *= 2/8
-		break;
-	case -5:
-		multiplier *= 2/7
-		break;
-	case -4:
-		multiplier *= 2/6
-		break;
-	case -3:
-		multiplier *= 2/5
-		break;
-	case -2:
-		multiplier *= 2/4
-		break;
-	case -1:
-		multiplier *= 2/3
-		break;
-	case 1:
-		multiplier *= 1.5
-		break;
-	case 2:
-		multiplier *= 2
-		break;
-	case 3:
-		multiplier *= 2.5
-		break;
-	case 4:
-		multiplier *= 3
-		break;
-	case 5:
-		multiplier *= 3.5
-		break;
-	case 6:
-		multiplier *= 4
-		break;
+	if (this.boosts[stat] > 0) {
+		multiplier *= (this.boosts[stat] + 2) / 2
+	} else {
+		multiplier /= (this.boosts[stat] - 2) / 2
 	}
 	// Now for the actual stat
 	if (this.pokemon.stats[stat] !== undefined) {
@@ -244,11 +213,11 @@ console.log(move.pokemon.name, 'status:', move.pokemon.battleStats.status);
 			if (move.target && move.target.forEach) move.target.forEach((def) => {
 				efficacy *= pokemon.data.moves.calcEfficacy(move, def)
 			})
+console.log('Move efficacy', efficacy)
 			if (efficacy) {
 				// Deduct PP
 				move.pp--
 				if (move.damage_class != 'status') {
-					console.log('efficacy', efficacy)
 					console.log('accuracy', move.accuracy)
 					// TODO: Calculate Accuracy
 					if (Math.random(100) > move.accuracy) {
