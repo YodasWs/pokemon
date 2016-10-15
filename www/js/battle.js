@@ -215,6 +215,7 @@ console.log('Move efficacy', efficacy)
 			if (efficacy) {
 				// Deduct PP
 				move.pp--
+				if (move.onBeforeAttack) move.onBeforeAttack.call(move)
 				if (move.damage_class != 'status') {
 					console.log('accuracy', move.accuracy)
 					if (move.target && move.target.forEach) move.target.forEach((def) => {

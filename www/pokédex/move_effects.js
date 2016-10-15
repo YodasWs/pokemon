@@ -27,9 +27,10 @@ pokemon.data.move_effects = {
 		}
 	},
 	moveData(effect_id){
-		var effect = {}
-		// Increase Critical Hit Stage
+		let effect = {}
+		effect.boost = {}
 		switch (effect_id) {
+		// Increase Critical Hit Stage
 		case 44:
 		case 201:
 		case 210:
@@ -38,10 +39,13 @@ pokemon.data.move_effects = {
 		case 289:
 			effect.criticalHitStage = 4
 			break;
-		}
+		// User Faints
+		case 8:
+			effect.onBeforeAttack = function() {
+				this.pokemon.hp = 0
+			}
+			break;
 		// Alter Battle Stats Boosts
-		effect.boost = {}
-		switch (effect_id) {
 		case 11:
 			effect.boost.num = 1
 			effect.boost.stat = 'atk'
@@ -78,9 +82,7 @@ pokemon.data.move_effects = {
 			effect.boost.num = -1
 			effect.boost.stat = 'evasion'
 			break;
-		}
 		// Alter Status Conditions
-		switch (effect_id) {
 		case 2:
 			// Put Target to Sleep!
 			effect.changeStatus = (target) => {

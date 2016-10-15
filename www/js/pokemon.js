@@ -1,9 +1,6 @@
 pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 	// Declare Variables
-	var nature = {
-		deStat: 0,
-		inStat: 0
-	}, i, version,
+	var i, version,
 		versionsTried = [],
 		self = this,
 		max = 2,
@@ -42,6 +39,10 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 		enumerable: true
 	})
 	// Personalize Pokémon
+	let nature = {
+		deStat: 0,
+		inStat: 0
+	}
 	for (i in nature) {
 		switch (Math.randInt()) {
 		case 0:
