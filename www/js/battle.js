@@ -93,6 +93,8 @@ pokemon.Battle = function(){
 		player:[],
 		foe:[]
 	}
+	this.logQueue = [];
+	this.logTimeout;
 }
 pokemon.Battle.prototype.start = function(){
 	let fldBattle = $('#battle')
@@ -219,81 +221,73 @@ pokemon.Battle.prototype.runRound = function(){
 		return b.pokemon.stats.spd - a.pokemon.stats.spd
 	})
 	pokemon.battle.actions.forEach((action, i) => {
-		setTimeout(() => {
-			let damage = 0, efficacy = 1, move
-			console.log('Action',action)
-			// This is a Move
-			if (action.move_id) {
-				move = action
-				// TODO: Check Pokémon Status
+		let damage = 0, efficacy = 1, move
+		console.log('Action',action)
+		// This is a Move
+		if (action.move_id) {
+			move = action
+			// TODO: Check Pokémon Status
 console.log(move.pokemon.name, 'status:', move.pokemon.battleStats.status);
-				if (move.pokemon.battleStats.status && move.pokemon.battleStats.status.status) switch (move.pokemon.battleStats.status.status) {
-					case 'sleep':
-						if (move.pokemon.battleStats.status.num) {
-							pokemon.battle.log(move.pokemon.name + " is asleep!")
-							return;
-						} else {
-							pokemon.battle.log(move.pokemon.name + " woke up!")
-							delete move.pokemon.battleStats.status;
-						}
-						break;
-				}
-				pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
-				// Check Efficacy
-				if (move.target && move.target.forEach) move.target.forEach((def) => {
-					efficacy *= pokemon.data.moves.calcEfficacy(move, def)
-				})
-				if (efficacy) {
-					// Deduct PP
-					move.pp--
-					if (move.damage_class != 'status') {
-						console.log('efficacy', efficacy)
-						console.log('accuracy', move.accuracy)
-						// TODO: Calculate Accuracy
-						if (Math.random(100) > move.accuracy) {
-							console.log('Attack Missed!')
-						} else {
-							// TODO: Give Damage
-							if (move.target && move.target.forEach) move.target.forEach((def) => {
-								damage = pokemon.battle.calcDamage(move, def)
-								setTimeout(() => {
-									def.hp -= damage
-									if (efficacy > 1) {
-										pokemon.battle.log("It's super effective!")
-									} else if (efficacy < 1) {
-										pokemon.battle.log("It's not very effective&hellip;")
-									}
-									if (!def.hp) {
-										// TODO: Fainted!
-									}
-								}, timing)
-							}); else switch (move.target) {
-							}
-						}
+			if (move.pokemon.battleStats.status && move.pokemon.battleStats.status.status) switch (move.pokemon.battleStats.status.status) {
+				case 'sleep':
+					if (move.pokemon.battleStats.status.num) {
+						pokemon.battle.log(move.pokemon.name + " is asleep!")
+						return;
+					} else {
+						pokemon.battle.log(move.pokemon.name + " woke up!")
+						delete move.pokemon.battleStats.status;
 					}
-					// Stats Boost
-					if (move.boost && move.boost.stat) {
-						setTimeout(() => {
-							if (move.target && move.target.forEach) move.target.forEach((def) => {
-								def.battleStats.adjust(move.boost.stat, move.boost.num)
-							})
-						}, timing)
-					}
-					// Change Status
-					if (move.changeStatus && move.target && move.target.forEach) {
-						move.target.map(move.changeStatus)
-					}
-				} else {
-					setTimeout(() => {
-						pokemon.battle.log(move.identifier + ' has no effect&hellip;')
-					}, timing)
-					console.log(move.identifier + ' has no effect')
-				}
-				// TODO: Check Attacker Ability
-				// TODO: Check Defender Ability
-				// TODO: Check Effect
+					break;
 			}
-		}, timing * 2 * i + timing / 2)
+			pokemon.battle.log(move.pokemon.name + " used " + move.identifier + "!")
+			// Check Efficacy
+			if (move.target && move.target.forEach) move.target.forEach((def) => {
+				efficacy *= pokemon.data.moves.calcEfficacy(move, def)
+			})
+			if (efficacy) {
+				// Deduct PP
+				move.pp--
+				if (move.damage_class != 'status') {
+					console.log('efficacy', efficacy)
+					console.log('accuracy', move.accuracy)
+					// TODO: Calculate Accuracy
+					if (Math.random(100) > move.accuracy) {
+						console.log('Attack Missed!')
+					} else {
+						// TODO: Give Damage
+						if (move.target && move.target.forEach) move.target.forEach((def) => {
+							damage = pokemon.battle.calcDamage(move, def)
+							def.hp -= damage
+							if (efficacy > 1) {
+								pokemon.battle.log("It's super effective!")
+							} else if (efficacy < 1) {
+								pokemon.battle.log("It's not very effective&hellip;")
+							}
+							if (!def.hp) {
+								// TODO: Fainted!
+							}
+						}); else switch (move.target) {
+						}
+					}
+				}
+				// Stats Boost
+				if (move.boost && move.boost.stat) {
+					if (move.target && move.target.forEach) move.target.forEach((def) => {
+						def.battleStats.adjust(move.boost.stat, move.boost.num)
+					})
+				}
+				// Change Status
+				if (move.changeStatus && move.target && move.target.forEach) {
+					move.target.map(move.changeStatus)
+				}
+			} else {
+				pokemon.battle.log(move.identifier + ' has no effect&hellip;')
+				console.log(move.identifier + ' has no effect')
+			}
+			// TODO: Check Attacker Ability
+			// TODO: Check Defender Ability
+			// TODO: Check Effect
+		}
 	})
 	// Update Statuses
 	;['foe','player'].forEach((t) => {
@@ -302,13 +296,11 @@ console.log(move.pokemon.name, 'status:', move.pokemon.battleStats.status);
 		})
 	})
 	// Move on to Next Round
-	setTimeout(() => {
-		if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
-			pokemon.battle.startRound()
-		} else {
-			pokemon.battle.finish()
-		}
-	}, Math.max(0, timing * 2 * pokemon.battle.actions.length + timing / 2))
+	if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
+		pokemon.battle.log(pokemon.battle.startRound)
+	} else {
+		pokemon.battle.log(pokemon.battle.finish)
+	}
 }
 pokemon.Battle.prototype.calcDamage = function(move, def) {
 	let intAtk = 0, intDef = 0, damage = 0,
@@ -374,13 +366,27 @@ pokemon.Battle.prototype.calcDamage = function(move, def) {
 console.log('damage', damage)
 	return damage
 }
-pokemon.Battle.prototype.log = function(msg) {
+pokemon.Battle.prototype.log = function(msg = '') {
 	if (!msg) return
-	let $log = $('#battle').children('.history')
-	$log.append('<li class="hidden">' + msg)
-	setTimeout(() => {
-		$log.find('li.hidden').removeClass('hidden')
-	}, 100)
+	this.logQueue.push(msg);
+	if (!this.logTimeout) this.popQueue();
+}
+pokemon.Battle.prototype.popQueue = function() {
+	this.logTimeout = null
+	if (!this.logQueue.length) return
+	let msg = this.logQueue.shift();
+	if (!msg) return
+	if (typeof msg === 'string') {
+		// Output Messages
+		let $log = $('#battle').children('.history')
+		$log.append('<li class="hidden">' + msg)
+		setTimeout(() => {
+			$log.find('li.hidden').removeClass('hidden')
+		}, 100)
+	} else if (typeof msg === 'function') {
+		msg();
+	}
+	this.logTimeout = setTimeout(this.popQueue.bind(this), timing)
 }
 pokemon.Battle.prototype.finish = function() {
 	console.log('Battle Finished?')
