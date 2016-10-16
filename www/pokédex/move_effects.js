@@ -62,19 +62,32 @@ pokemon.data.move_effects = {
 			effect.boost.num = 1
 			effect.boost.stat = 'evasion'
 			break;
+
 		case 19:
+		case 69:
 			effect.boost.num = -1
 			effect.boost.stat = 'atk'
 			break;
 		case 20:
+		case 70:
 			effect.boost.num = -1
 			effect.boost.stat = 'def'
 			break;
 		case 21:
+		case 71:
 			effect.boost.num = -1
 			effect.boost.stat = 'spd'
 			break;
+		case 72:
+			effect.boost.num = -1
+			effect.boost.stat = 'spatk'
+			break;
+		case 73:
+			effect.boost.num = -1
+			effect.boost.stat = 'spdef'
+			break;
 		case 24:
+		case 74:
 			effect.boost.num = -1
 			effect.boost.stat = 'accuracy'
 			break;

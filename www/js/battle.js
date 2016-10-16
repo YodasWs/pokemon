@@ -242,6 +242,7 @@ console.log('Move efficacy', efficacy)
 				// Stats Boost
 				if (move.boost && move.boost.stat) {
 					if (move.target && move.target.forEach) move.target.forEach((def) => {
+						if (move.effect_chance && Math.randInt(100) > move.effect_chance) return
 						def.battleStats.adjust(move.boost.stat, move.boost.num)
 					})
 				}
