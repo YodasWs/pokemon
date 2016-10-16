@@ -31,8 +31,8 @@ pokemon.BattleStats.prototype.stat = function(stat) {
 	}
 	return multiplier
 }
-pokemon.BattleStats.prototype.adjust = function(stat, change = 0) {
-	for (let i=0 i<stat.length; i++) {
+pokemon.BattleStats.prototype.adjust = function(stats, change = 0) {
+	stats.forEach((stat) => {
 		let msg = ''
 		if (this.boosts[stat] + change > 6) {
 			change = 6 - this.boosts[stat]
@@ -43,7 +43,7 @@ pokemon.BattleStats.prototype.adjust = function(stat, change = 0) {
 		this.boosts[stat] += change
 		switch (change) {
 		case 0:
-			msg = pokemon.data.statToString(stat) + "couldn't change!"
+			msg = pokemon.data.statToString(stat) + " couldn't change!"
 			break;
 		case -1:
 		case -2:
@@ -63,7 +63,7 @@ pokemon.BattleStats.prototype.adjust = function(stat, change = 0) {
 			break;
 		}
 		pokemon.battle.log(msg)
-	}
+	})
 }
 
 pokemon.Battle = function(){
@@ -259,7 +259,7 @@ console.log('Move efficacy', efficacy)
 					}
 				}
 				// Stats Boost
-				if (move.boost && move.boost.stat) {
+				if (!move.boost.isEmpty() && move.boost.stat) {
 					if (move.target && move.target.forEach) move.target.forEach((def) => {
 						if (move.effect_chance && Math.randInt(100) > move.effect_chance) return
 						def.battleStats.adjust(move.boost.stat, move.boost.num)

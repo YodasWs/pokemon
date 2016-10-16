@@ -22,6 +22,8 @@ Object.assign = function() {
 	}
 	return obj
 }
+// Need to check if an object is empty
+Object.prototype.isEmpty=function(){if(this===null||this===undefined)return true;if(this.length>0)return false;if(this.length===0)return true;if(typeof this!=="object")return true;if(Object.getOwnPropertyNames(this).length)return false;return true}
 // JavaScript 1.8
 if (!Array.prototype.forEach)
 Array.prototype.forEach=function(a,b){var T,k,O,l,m;if(this==null){throw new TypeError('this is null or not defined')}O=Object(this);l=O.length>>>0;if(typeof a!=="function"){throw new TypeError(a+' is not a function')}if(arguments.length>1)T=b;k=0;while(k<l){if(k in O){m=O[k];a.call(T,m,k,O)}k++}};

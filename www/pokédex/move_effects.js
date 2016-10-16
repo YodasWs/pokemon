@@ -173,7 +173,7 @@ pokemon.data.move_effects = {
 			break;
 		}
 		// Clean up boost effect object
-		if (effect.boost) {
+		if (!effect.boost.isEmpty()) {
 			if (!Array.isArray(effect.boost.stat)) effect.boost.stat = [effect.boost.stat]
 			if (!effect.boost.target) effect.boost.target = 'user'
 		}
