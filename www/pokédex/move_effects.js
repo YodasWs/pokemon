@@ -133,6 +133,7 @@ pokemon.data.move_effects = {
 			break;
 		// Never misses
 		case 18:
+		case 79:
 			effect.neverMiss = true
 			break;
 		// Alter Status Conditions
@@ -141,6 +142,17 @@ pokemon.data.move_effects = {
 			effect.changeStatus = (target) => {
 				pokemon.data.move_effects.setStatus('sleep', target)
 			}
+			break;
+		// Hits Multiple Times
+		case 30:
+			effect.onBeforeHit = function() {
+				let numHits = [2,2,3,3,4,5]
+				this.hits = numHits[Math.randInt(numHits)]
+			}
+			break;
+		case 45:
+		case 78:
+			this.hits = 2
 			break;
 		}
 		return effect

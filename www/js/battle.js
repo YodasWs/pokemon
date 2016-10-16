@@ -187,7 +187,7 @@ pokemon.Battle.prototype.runRound = function(){
 		if (a.priority != b.priority) return b.priority - a.priority
 		return b.pokemon.stats.spd - a.pokemon.stats.spd
 	})
-	pokemon.battle.actions.forEach((action, i) => {
+	pokemon.battle.actions.forEach((action) => {
 		let damage = 0, efficacy = 1, move
 		console.log('Action',action)
 		// This is a Move
@@ -224,16 +224,19 @@ console.log('Move efficacy', efficacy)
 							console.log('Attack Missed!')
 							pokemon.battle.log(move.pokemon.name + " missed!")
 						} else {
-							// TODO: Give Damage
-							damage = pokemon.battle.calcDamage(move, def)
-							def.hp -= damage
-							if (efficacy > 1) {
-								pokemon.battle.log("It's super effective!")
-							} else if (efficacy < 1) {
-								pokemon.battle.log("It's not very effective&hellip;")
-							}
-							if (!def.hp) {
-								// TODO: Fainted!
+							if (move.onBeforeHit) move.onBeforeHit.call(move)
+							for (let i=0; i<(move.hits||1); i++) {
+								// TODO: Give Damage
+								damage = pokemon.battle.calcDamage(move, def)
+								def.hp -= damage
+								if (efficacy > 1) {
+									pokemon.battle.log("It's super effective!")
+								} else if (efficacy < 1) {
+									pokemon.battle.log("It's not very effective&hellip;")
+								}
+								if (!def.hp) {
+									// TODO: Fainted!
+								}
 							}
 						}
 					}); else switch (move.target) {
