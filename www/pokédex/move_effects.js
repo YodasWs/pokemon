@@ -46,11 +46,17 @@ pokemon.data.move_effects = {
 			}
 			break;
 		// Alter Battle Stats Boosts
+		case 141:
+			effect.boost.stat = pokemon.BattleStats.boosts.keys()
+			effect.boost.num = 1
+			break;
 		case 11:
+		case 140:
 			effect.boost.num = 1
 			effect.boost.stat = 'atk'
 			break;
 		case 12:
+		case 139:
 			effect.boost.num = 1
 			effect.boost.stat = 'def'
 			break;
@@ -67,33 +73,40 @@ pokemon.data.move_effects = {
 		case 69:
 			effect.boost.num = -1
 			effect.boost.stat = 'atk'
+			effect.boost.target = 'target'
 			break;
 		case 20:
 		case 70:
 			effect.boost.num = -1
 			effect.boost.stat = 'def'
+			effect.boost.target = 'target'
 			break;
 		case 21:
 		case 71:
 			effect.boost.num = -1
 			effect.boost.stat = 'spd'
+			effect.boost.target = 'target'
 			break;
 		case 72:
 			effect.boost.num = -1
 			effect.boost.stat = 'spatk'
+			effect.boost.target = 'target'
 			break;
 		case 73:
 			effect.boost.num = -1
 			effect.boost.stat = 'spdef'
+			effect.boost.target = 'target'
 			break;
 		case 24:
 		case 74:
 			effect.boost.num = -1
 			effect.boost.stat = 'accuracy'
+			effect.boost.target = 'target'
 			break;
 		case 25:
 			effect.boost.num = -1
 			effect.boost.stat = 'evasion'
+			effect.boost.target = 'target'
 			break;
 		case 51:
 			effect.boost.num = 2
@@ -118,18 +131,22 @@ pokemon.data.move_effects = {
 		case 59:
 			effect.boost.num = -2
 			effect.boost.stat = 'atk'
+			effect.boost.target = 'target'
 			break;
 		case 60:
 			effect.boost.num = -2
 			effect.boost.stat = 'def'
+			effect.boost.target = 'target'
 			break;
 		case 61:
 			effect.boost.num = -2
 			effect.boost.stat = 'spd'
+			effect.boost.target = 'target'
 			break;
 		case 63:
 			effect.boost.num = -2
 			effect.boost.stat = 'spdef'
+			effect.boost.target = 'target'
 			break;
 		// Never misses
 		case 18:
@@ -154,6 +171,11 @@ pokemon.data.move_effects = {
 		case 78:
 			this.hits = 2
 			break;
+		}
+		// Clean up boost effect object
+		if (effect.boost) {
+			if (!Array.isArray(effect.boost.stat)) effect.boost.stat = [effect.boost.stat]
+			if (!effect.boost.target) effect.boost.target = 'user'
 		}
 		return effect
 	}

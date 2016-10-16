@@ -32,22 +32,38 @@ pokemon.BattleStats.prototype.stat = function(stat) {
 	return multiplier
 }
 pokemon.BattleStats.prototype.adjust = function(stat, change = 0) {
-	let msg = ''
-	if (this.boosts[stat] + change > 6) {
-		change = 6 - this.boosts[stat]
+	for (let i=0 i<stat.length; i++) {
+		let msg = ''
+		if (this.boosts[stat] + change > 6) {
+			change = 6 - this.boosts[stat]
+		}
+		if (this.boosts[stat] + change < -6) {
+			change = -6 - this.boosts[stat]
+		}
+		this.boosts[stat] += change
+		switch (change) {
+		case 0:
+			msg = pokemon.data.statToString(stat) + "couldn't change!"
+			break;
+		case -1:
+		case -2:
+		case -3:
+		case -4:
+		case -5:
+		case -6:
+			msg = this.pokemon.name + "'s " + pokemon.data.statToString(stat) + ' fell.'
+			break;
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			msg = this.pokemon.name + "'s " + pokemon.data.statToString(stat) + ' rose.'
+			break;
+		}
+		pokemon.battle.log(msg)
 	}
-	if (this.boosts[stat] + change < -6) {
-		change = -6 - this.boosts[stat]
-	}
-	this.boosts[stat] += change
-	if (change === 0) {
-		msg = pokemon.data.statToString(stat) + "couldn't change!"
-	} else if (change < 0) {
-		msg = this.pokemon.name + "'s " + pokemon.data.statToString(stat) + ' fell.'
-	} else if (change > 0) {
-		msg = this.pokemon.name + "'s " + pokemon.data.statToString(stat) + ' rose.'
-	}
-	pokemon.battle.log(msg)
 }
 
 pokemon.Battle = function(){
