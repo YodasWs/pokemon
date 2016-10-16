@@ -82,6 +82,10 @@ pokemon.data.move_effects = {
 			effect.boost.num = -1
 			effect.boost.stat = 'evasion'
 			break;
+		// Never misses
+		case 18:
+			effect.neverMiss = true
+			break;
 		// Alter Status Conditions
 		case 2:
 			// Put Target to Sleep!
