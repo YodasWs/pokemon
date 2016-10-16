@@ -10,7 +10,8 @@ Object.extendIfEmpty = function() {
 	}
 	return obj
 }
-Object.extend = function() {
+if (typeof Object.assign !== 'function')
+Object.assign = function() {
 	if (!arguments.length) return {}
 	if (arguments.length < 2) return arguments[0]
 	var i,j,obj = arguments[0]

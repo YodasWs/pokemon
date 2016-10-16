@@ -53,6 +53,7 @@ pokemon.BattleStats.prototype.adjust = function(stat, change = 0) {
 pokemon.Battle = function(){
 	this.player = pokemon.player
 	this.isWild = false
+	this.round = 0
 	this.foe = {}
 	this.activePokemon = {
 		player:[null],
@@ -107,7 +108,7 @@ pokemon.Battle.prototype.start = function(){
 			})
 		}
 		// Start Round
-		this.log(pokemon.battle.startRound)
+		this.log(pokemon.battle.startRound, logTiming / 4)
 	}, logTiming / 2)
 }
 pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i = 0){
@@ -117,6 +118,7 @@ pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i = 0){
 	pkmn.html.addClass('active').prependTo($('#battle .trainer.' + trainer + ' .active.pokemon'))
 }
 pokemon.Battle.prototype.startRound = function(){
+	pokemon.battle.round++
 	pokemon.battle.actions.foe = []
 	pokemon.battle.actions.player = []
 	pokemon.battle.activePokemon.foe.forEach((pkmn) => {
@@ -126,6 +128,7 @@ pokemon.Battle.prototype.startRound = function(){
 		pkmn.moves[0].target = pokemon.data.moves.selectTarget(pkmn.moves[0])
 		pokemon.battle.actions.foe.push(pkmn.moves[0])
 	})
+	pokemon.battle.log('Starting Round ' + pokemon.battle.round)
 	pokemon.battle.readyPkmn(0)
 }
 pokemon.Battle.prototype.readyPkmn = function(pkmn){
@@ -144,11 +147,8 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 		pkmn.html.addClass('ready')
 		$menu.delayShow('show')
 	}
-	if ($menu.is('.show')) {
-		// Hide Menu first!
-		$menu.removeClass('show')
-		setTimeout(cb, logTiming)
-	} else cb()
+	$menu.removeClass('show')
+	pokemon.battle.log(cb)
 }
 pokemon.Battle.prototype.setAction = function(e){
 	let btn = $(e.target),
@@ -177,7 +177,7 @@ pokemon.Battle.prototype.setAction = function(e){
 		pokemon.battle.readyPkmn(pokemon.battle.actions.player.length)
 		return
 	}
-	pokemon.battle.runRound()
+	pokemon.battle.log(pokemon.battle.runRound)
 }
 pokemon.Battle.prototype.runRound = function(){
 	$('.pokemon-html.ready').removeClass('ready')
@@ -351,9 +351,9 @@ pokemon.Battle.prototype.popQueue = function() {
 		$log.append('<li class="hidden">' + msg)
 		setTimeout(() => {
 			$log.find('li.hidden').removeClass('hidden')
-		}, 100)
+		}, logTiming / 15)
 	} else if (typeof msg === 'function') {
-		msg();
+		setTimeout(msg, logTiming / 150)
 	}
 	this.logTimeout = setTimeout(this.popQueue.bind(this), timing)
 }
