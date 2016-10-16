@@ -219,14 +219,14 @@ console.log('Move efficacy', efficacy)
 				if (move.damage_class != 'status') {
 					console.log('accuracy', move.accuracy)
 					if (move.target && move.target.forEach) move.target.forEach((def) => {
-						// TODO: Calculate Accuracy
+						// Calculate Accuracy
 						if (!move.neverMiss && Math.random(100) > move.accuracy * move.pokemon.battleStats.stat['accuracy'] / def.battleStats.stat['evasion']) {
 							console.log('Attack Missed!')
 							pokemon.battle.log(move.pokemon.name + " missed!")
 						} else {
-							if (move.onBeforeHit) move.onBeforeHit.call(move)
+							if (move.onBeforeHits) move.onBeforeHits.call(move)
 							for (let i=0; i<(move.hits||1); i++) {
-								// TODO: Give Damage
+								// Give Damage
 								damage = pokemon.battle.calcDamage(move, def)
 								def.hp -= damage
 								if (efficacy > 1) {

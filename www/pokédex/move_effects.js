@@ -145,7 +145,7 @@ pokemon.data.move_effects = {
 			break;
 		// Hits Multiple Times
 		case 30:
-			effect.onBeforeHit = function() {
+			effect.onBeforeHits = function() {
 				let numHits = [2,2,3,3,4,5]
 				this.hits = numHits[Math.randInt(numHits)]
 			}
