@@ -95,7 +95,7 @@
 	}
 }
 
-#battle:not(.wild) [data-action="run"] {
+#battle:not(.wild) .menu [data-action="run"] {
 	display: none;
 }
 #battle .menu [data-action="fight"] + *,
@@ -188,51 +188,57 @@ progress.hp::-webkit-progress-value {
 }
 
 .history {
+	overflow-y: auto;
+	height: 7.2rem;
+	width: 100%;
+}
+.history > ol {
 	display: flex;
 	flex-flow: column-reverse nowrap;
 	justify-content: flex-end;
+	overflow: visible;
 	list-style: none;
-	overflow: hidden;
-	height: 7.2rem;
+	min-height: 100%;
 	width: 100%;
 	padding: 0;
+	margin: 0;
 }
-.history > li {
+.history > ol > li {
 	line-height: 1.2rem;
 	transition: all 1s;
 	overflow: hidden;
 	height: 1.2rem;
+	flex: 0 0 auto;
 }
-.history > li.hidden {
+.history > ol > li.hidden {
 	opacity: 0;
 	height: 0;
 }
-.history > li:nth-last-child(1) {
+.history > ol > li:nth-last-child(1) {
 	font-size: 1em;
 	opacity: 1;
 }
-.history > li:nth-last-child(2) {
+.history > ol > li:nth-last-child(2) {
 	font-size: 0.9em;
 	opacity: 0.9;
 }
-.history > li:nth-last-child(3) {
+.history > ol > li:nth-last-child(3) {
 	font-size: 0.8em;
 	opacity: 0.8;
 }
-.history > li:nth-last-child(4) {
+.history > ol > li:nth-last-child(4) {
 	font-size: 0.7em;
 	opacity: 0.7;
 }
-.history > li:nth-last-child(5) {
+.history > ol > li:nth-last-child(5) {
 	font-size: 0.6em;
 	opacity: 0.6;
 }
-.history > li:nth-last-child(6) {
+.history > ol > li:nth-last-child(6) {
 	font-size: 0.5em;
 	opacity: 0.5;
 }
-.history > li:nth-last-child(n + 7) {
+.history > ol > li:nth-last-child(n + 7) {
 	font-size: 0.4em;
-	opacity: 0;
-	height: 0;
+	opacity: 0.4;
 }

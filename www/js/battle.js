@@ -124,7 +124,7 @@ pokemon.Battle.prototype.start = function(){
 			})
 		}
 		// Start Round
-		this.log(pokemon.battle.startRound, logTiming / 4)
+		this.log(pokemon.battle.startRound, logTiming / 2)
 	}, logTiming / 2)
 }
 pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i = 0){
@@ -144,7 +144,7 @@ pokemon.Battle.prototype.startRound = function(){
 		pkmn.moves[0].target = pokemon.data.moves.selectTarget(pkmn.moves[0])
 		pokemon.battle.actions.foe.push(pkmn.moves[0])
 	})
-	pokemon.battle.log('Starting Round ' + pokemon.battle.round)
+	pokemon.battle.log('Starting Round ' + pokemon.battle.round, logTiming / 2)
 	pokemon.battle.readyPkmn(0)
 }
 pokemon.Battle.prototype.readyPkmn = function(pkmn){
@@ -286,7 +286,7 @@ console.log('Move efficacy', efficacy)
 	})
 	// Move on to Next Round
 	if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
-		pokemon.battle.log(pokemon.battle.startRound, logTiming * 3 / 2)
+		pokemon.battle.log(pokemon.battle.startRound, logTiming / 2)
 	} else {
 		pokemon.battle.log(pokemon.battle.finish)
 	}
@@ -296,20 +296,7 @@ pokemon.Battle.prototype.calcDamage = function(move, def) {
 		criticalHitRate = 1, criticalHit = false,
 		modifier = Math.random() * ( 1 - 0.85 ) + 0.85
 	// Is this a critical hit?
-	switch (move.criticalHitStage) {
-	case 0:
-		criticalHitRate = 1/16
-		break;
-	case 1:
-		criticalHitRate = 1/8
-		break;
-	case 2:
-		criticalHitRate = 1/4
-		break;
-	case 3:
-		criticalHitRate = 1/2
-		break;
-	}
+	criticalHitRate = 1 / Math.pow(2, 4 - move.criticalHitStage)
 	criticalHit = (Math.random() < criticalHitRate)
 	if (criticalHit) {
 		modifier *= 2
@@ -367,7 +354,7 @@ pokemon.Battle.prototype.popQueue = function() {
 	if (!msg) return
 	if (typeof msg === 'string') {
 		// Output Messages
-		let $log = $('#battle').children('.history')
+		let $log = $('#battle').children('.history').children('ol')
 		$log.append('<li class="hidden">' + msg)
 		setTimeout(() => {
 			$log.find('li.hidden').removeClass('hidden')
