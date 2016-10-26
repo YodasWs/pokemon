@@ -24,40 +24,58 @@
 	background-position: calc(-321px * var(--size)) calc(-46px * var(--size));
 }
 .pokemon-img.rs.pkmn-7 {
+	background-position: calc(-3px * var(--size)) calc(-80px * var(--size));
 }
 .pokemon-img.rs.pkmn-8 {
+	background-position: calc(-162px * var(--size)) calc(-80px * var(--size));
 }
 .pokemon-img.rs.pkmn-9 {
+	background-position: calc(-320px * var(--size)) calc(-80px * var(--size));
 }
 .pokemon-img.rs.pkmn-10 {
+	background-position: calc(-3px * var(--size)) calc(-114px * var(--size));
 }
 .pokemon-img.rs.pkmn-11 {
+	background-position: calc(-162px * var(--size)) calc(-114px * var(--size));
 }
 .pokemon-img.rs.pkmn-12 {
+	background-position: calc(-320px * var(--size)) calc(-114px * var(--size));
 }
 .pokemon-img.rs.pkmn-13 {
+	background-position: calc(-3px * var(--size)) calc(-150px * var(--size));
 }
 .pokemon-img.rs.pkmn-14 {
+	background-position: calc(-162px * var(--size)) calc(-150px * var(--size));
 }
 .pokemon-img.rs.pkmn-15 {
+	background-position: calc(-320px * var(--size)) calc(-150px * var(--size));
 }
 .pokemon-img.rs.pkmn-16 {
+	background-position: calc(-3px * var(--size)) calc(-184px * var(--size));
 }
 .pokemon-img.rs.pkmn-17 {
+	background-position: calc(-162px * var(--size)) calc(-184px * var(--size));
 }
 .pokemon-img.rs.pkmn-18 {
+	background-position: calc(-320px * var(--size)) calc(-185px * var(--size));
 }
 .pokemon-img.rs.pkmn-19 {
+	background-position: calc(-3px * var(--size)) calc(-220px * var(--size));
 }
 .pokemon-img.rs.pkmn-20 {
+	background-position: calc(-162px * var(--size)) calc(-220px * var(--size));
 }
 .pokemon-img.rs.pkmn-21 {
+	background-position: calc(-320px * var(--size)) calc(-220px * var(--size));
 }
 .pokemon-img.rs.pkmn-22 {
+	background-position: calc(-3px * var(--size)) calc(-255px * var(--size));
 }
 .pokemon-img.rs.pkmn-23 {
+	background-position: calc(-162px * var(--size)) calc(-255px * var(--size));
 }
 .pokemon-img.rs.pkmn-24 {
+	background-position: calc(-320px * var(--size)) calc(-255px * var(--size));
 }
 .pokemon-img.rs.pkmn-25 {
 	background-position: calc(-3px * var(--size)) calc(-290px * var(--size));
