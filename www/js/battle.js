@@ -106,6 +106,17 @@ pokemon.Battle.prototype.start = function(){
 	// Attack
 	$('[data-action="fight"] + ul').off('click').on('click', '[data-action]', pokemon.battle.setAction)
 
+	// Run
+	$('[data-action="run"]').off('click').on('click', (e) => {
+		if (!$('#battle').is('.wild')) {
+			// Can't run from a Trainer!
+			$(this).hide()
+			return false
+		}
+		$('#battle').find('[data-action].active').removeClass('active')
+		pokemon.battle.setAction(e)
+	})
+
 	// Start
 	fldBattle.addClass('show')
 	setTimeout(() => { // Wait for fadein
@@ -147,13 +158,23 @@ pokemon.Battle.prototype.startRound = function(){
 	pokemon.battle.log('Starting Round ' + pokemon.battle.round, logTiming / 2)
 	pokemon.battle.readyPkmn(0)
 }
+pokemon.Battle.prototype.standdownPkmn = function() {
+	let $battle = $('#battle')
+	$('.pokemon-html.ready').removeClass('ready')
+	let cb = function() {
+		$battle.find('.menu').removeClass('show')
+	}
+	if ($battle.find('[data-action].active').length) {
+		$battle.find('[data-action].active').removeClass('active')
+		setTimeout(cb, 200)
+	} else cb()
+}
 pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	pkmn = pokemon.battle.activePokemon.player[pkmn]
 	let $moves = $('#battle ul.moves'),
 		$menu = $('#battle').find('.menu'),
 	cb = function() {
 		// Update View
-		$('.pokemon-html.ready').removeClass('ready')
 		$('.pokemon-name').text(pkmn.name)
 		// List Pokémon Moves
 		$moves.children().remove()
@@ -168,10 +189,10 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 }
 pokemon.Battle.prototype.setAction = function(e){
 	let btn = $(e.target),
-		menu = btn.parents('.menu, .pokemon'),
+		menu = btn.closest('.menu, .pokemon, [data-action="run"]'),
 		activePkmn = pokemon.battle.activePokemon.player[pokemon.battle.actions.player.length],
 		action = null
-	$('#battle').find('[data-action].active').removeClass('active')
+	pokemon.Battle.prototype.standdownPkmn()
 	if (!activePkmn) {
 		// Set Action without an Active Pokémon? Something's wrong!
 		pokemon.battle.runRound()
@@ -187,6 +208,15 @@ pokemon.Battle.prototype.setAction = function(e){
 		action.target = pokemon.data.moves.selectTarget(action)
 	} else if (menu.is('.pokemon')) {
 		action = 'pokemon'
+	} else if (menu.is('[data-action="run"]')) {
+		action = 'run'
+		if (Math.random() < 1 / 32) {
+			pokemon.battle.log("Couldn't run away!")
+		} else {
+			pokemon.battle.log("Ran away!")
+			pokemon.battle.log(pokemon.battle.finish)
+			return
+		}
 	}
 	pokemon.battle.actions.player.push(action)
 	if (pokemon.battle.actions.player.length < pokemon.battle.activePokemon.player.length) {
@@ -196,8 +226,6 @@ pokemon.Battle.prototype.setAction = function(e){
 	pokemon.battle.log(pokemon.battle.runRound)
 }
 pokemon.Battle.prototype.runRound = function(){
-	$('.pokemon-html.ready').removeClass('ready')
-	$('#battle').find('.menu').removeClass('show')
 	pokemon.battle.actions = pokemon.battle.actions.player.concat(pokemon.battle.actions.foe)
 	pokemon.battle.actions.sort((a, b) => {
 		if (a.priority != b.priority) return b.priority - a.priority
@@ -236,7 +264,7 @@ console.log('Move efficacy', efficacy)
 					console.log('accuracy', move.accuracy)
 					if (move.target && move.target.forEach) move.target.forEach((def) => {
 						// Calculate Accuracy
-						if (!move.neverMiss && Math.random(100) > move.accuracy * move.pokemon.battleStats.stat['accuracy'] / def.battleStats.stat['evasion']) {
+						if (!move.neverMiss && Math.randInt(100) > move.accuracy * move.pokemon.battleStats.stat['accuracy'] / def.battleStats.stat['evasion']) {
 							console.log('Attack Missed!')
 							pokemon.battle.log(move.pokemon.name + " missed!")
 						} else {
