@@ -232,21 +232,27 @@ pokemon.Battle.prototype.runRound = function(){
 		return b.pokemon.stats.spd - a.pokemon.stats.spd
 	})
 	pokemon.battle.actions.forEach((action) => {
-		let damage = 0, efficacy = 1, move
+		let efficacy = 1, move
 		console.log('Action',action)
 		// This is a Move
 		if (action.move_id) {
 			move = action
 			// TODO: Check Pokémon Status
-console.log(move.pokemon.name, 'status:', move.pokemon.battleStats.status);
-			if (move.pokemon.battleStats.status && move.pokemon.battleStats.status.status) switch (move.pokemon.battleStats.status.status) {
+console.log(move.pokemon.name, 'status:', move.pokemon.status);
+			if (move.pokemon.status && move.pokemon.status.status) switch (move.pokemon.status.status) {
+				case 'paralysis':
+					if (Math.random() < 1 / 4) {
+						pokemon.battle.log(move.pokemon.name + " is paralyzed! It can't move!")
+						return;
+					}
+					break;
 				case 'sleep':
-					if (move.pokemon.battleStats.status.num) {
+					if (move.pokemon.status.num > 0) {
 						pokemon.battle.log(move.pokemon.name + " is asleep!")
 						return;
 					} else {
 						pokemon.battle.log(move.pokemon.name + " woke up!")
-						delete move.pokemon.battleStats.status;
+						delete move.pokemon.status;
 					}
 					break;
 			}
@@ -268,10 +274,15 @@ console.log('Move efficacy', efficacy)
 							console.log('Attack Missed!')
 							pokemon.battle.log(move.pokemon.name + " missed!")
 						} else {
+							let damage = 0
 							if (move.onBeforeHits) move.onBeforeHits.call(move)
 							for (let i=0; i<(move.hits||1); i++) {
 								// Give Damage
-								damage = pokemon.battle.calcDamage(move, def)
+								if (move.power > 0) {
+									damage = pokemon.battle.calcDamage(move, def)
+								} else if (move.damage) {
+									damage = move.damage
+								}
 								def.hp -= damage
 								if (efficacy > 1) {
 									pokemon.battle.log("It's super effective!")
@@ -294,7 +305,8 @@ console.log('Move efficacy', efficacy)
 					})
 				}
 				// Change Status
-				if (move.changeStatus && move.target && move.target.forEach) {
+				if (move.changeStatus && move.target && move.target.map) {
+					if (move.effect_chance && Math.randInt(100) > move.effect_chance) return
 					move.target.map(move.changeStatus)
 				}
 			} else {
@@ -309,7 +321,7 @@ console.log('Move efficacy', efficacy)
 	// Update Statuses
 	;['foe','player'].forEach((t) => {
 		pokemon.battle.activePokemon[t].forEach((pkmn) => {
-			if (pkmn.battleStats.status) pokemon.data.move_effects.onEndRound(pkmn);
+			if (pkmn.status) pokemon.data.move_effects.onEndRound(pkmn);
 		})
 	})
 	// Move on to Next Round
