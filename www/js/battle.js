@@ -22,7 +22,7 @@ pokemon.BattleStats.prototype.stat = function(stat) {
 	// Battle Boost
 	if (this.boosts[stat] > 0) {
 		multiplier *= (this.boosts[stat] + 2) / 2
-	} else {
+	} else if (this.boosts[stat] < 0) {
 		multiplier /= (this.boosts[stat] - 2) / 2
 	}
 	// Now for the actual stat

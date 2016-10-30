@@ -1,8 +1,14 @@
+"use strict";
 pokemon.data = pokemon.data || {}
 pokemon.data.move_effects = {
 	onEndRound(pkmn){
 		if (!pkmn.status) return;
 		switch (pkmn.status.status) {
+		case 'burn':
+			// Hurt Pokémon
+			pokemon.battle.log(pkmn.name + " is hurt by burn.")
+			pkmn.hp -= pkmn.maxhp / 8
+			break;
 		case 'sleep':
 			// Countdown to Waking Up
 			pkmn.status.num--
@@ -12,9 +18,20 @@ pokemon.data.move_effects = {
 	setStatus(status, pkmn, warnPkmnHasStatus = true){
 		// Give Pokémon Status Condition
 		if (!pkmn.status) switch (status) {
+			case 'burn':
+				if (pkmn.types.indexOf('burn') > -1 && warnPkmnHasStatus) {
+					pokemon.battle.log(pkmn.name + " cannot be burned.")
+					return
+				}
+				pokemon.battle.log(pkmn.name + " was burned!")
+				pkmn.status = {
+					status: 'burn'
+				}
+				break;
 			case 'paralysis':
-				if (pkmn.types.indexOf('electric') > -1) {
+				if (pkmn.types.indexOf('electric') > -1 && warnPkmnHasStatus) {
 					pokemon.battle.log(pkmn.name + " cannot be paralyzed.")
+					return
 				}
 				pokemon.battle.log(pkmn.name + " became paralyzed! It may be unable to attack&hellip;")
 				pkmn.status = {
@@ -30,6 +47,9 @@ pokemon.data.move_effects = {
 				break;
 		// Pokémon Already Has Status Condition!
 		} else if (pkmn.status.status == status && warnPkmnHasStatus) switch (status) {
+			case 'burn':
+				pokemon.battle.log(pkmn.name + " is already burned&hellip;")
+				break;
 			case 'paralysis':
 				pokemon.battle.log(pkmn.name + " is already paralyzed&hellip;")
 				break;
@@ -181,6 +201,19 @@ pokemon.data.move_effects = {
 				pokemon.data.move_effects.setStatus('sleep', target)
 			}
 			break;
+		// Burn Target!
+		case 5:
+		case 126:
+		case 201:
+			effect.changeStatus = (target) => {
+				pokemon.data.move_effects.setStatus('burn', target, false)
+			}
+			break;
+		case 168:
+			effect.changeStatus = (target) => {
+				pokemon.data.move_effects.setStatus('burn', target)
+			}
+			break;
 		// Paralyze Target!
 		case 7:
 		case 153:
@@ -209,7 +242,7 @@ pokemon.data.move_effects = {
 			break;
 		case 45:
 		case 78:
-			this.hits = 2
+			effect.hits = 2
 			break;
 		}
 		// Clean up boost effect object
