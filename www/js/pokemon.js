@@ -77,7 +77,7 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 	// Set Pokémon Stats
 	var stats = {}
 	pokemon.data.statKeys.forEach((i) => {
-		var stat = i
+		let stat = i
 		Object.defineProperty(stats, stat, {
 			enumerable: true,
 			get: () => {

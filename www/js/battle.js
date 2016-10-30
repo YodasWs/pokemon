@@ -29,6 +29,10 @@ pokemon.BattleStats.prototype.stat = function(stat) {
 	if (this.pokemon.stats[stat] !== undefined) {
 		multiplier *= this.pokemon.stats[stat]
 	}
+	// If Paralyzed, the Pokémon is slower!
+	if (stat === 'spd' && this.pokemon.status && this.pokemon.status.status === 'paralysis') {
+		multiplier *= 3 / 4
+	}
 	return multiplier
 }
 pokemon.BattleStats.prototype.adjust = function(stats, change = 0) {
@@ -229,7 +233,7 @@ pokemon.Battle.prototype.runRound = function(){
 	pokemon.battle.actions = pokemon.battle.actions.player.concat(pokemon.battle.actions.foe)
 	pokemon.battle.actions.sort((a, b) => {
 		if (a.priority != b.priority) return b.priority - a.priority
-		return b.pokemon.stats.spd - a.pokemon.stats.spd
+		return b.pokemon.battleStats.stat('spd') - a.pokemon.battleStats.stat('spd')
 	})
 	pokemon.battle.actions.forEach((action) => {
 		let efficacy = 1, move
@@ -270,7 +274,7 @@ console.log('Move efficacy', efficacy)
 					console.log('accuracy', move.accuracy)
 					if (move.target && move.target.forEach) move.target.forEach((def) => {
 						// Calculate Accuracy
-						if (!move.neverMiss && Math.randInt(100) > move.accuracy * move.pokemon.battleStats.stat['accuracy'] / def.battleStats.stat['evasion']) {
+						if (!move.neverMiss && Math.randInt(100) > move.accuracy * move.pokemon.battleStats.stat('accuracy') / def.battleStats.stat('evasion')) {
 							console.log('Attack Missed!')
 							pokemon.battle.log(move.pokemon.name + " missed!")
 						} else {
