@@ -102,6 +102,11 @@ pokemon.data.move_effects = {
 			effect.boost.num = 1
 			effect.boost.stat = 'spatk'
 			break;
+		case 167:
+			effect.boost.num = 1
+			effect.boost.stat = 'spatk'
+			effect.boost.target = 'target'
+			break;
 		case 17:
 			effect.boost.num = 1
 			effect.boost.stat = 'evasion'
@@ -148,6 +153,11 @@ pokemon.data.move_effects = {
 		case 51:
 			effect.boost.num = 2
 			effect.boost.stat = 'atk'
+			break;
+		case 119:
+			effect.boost.num = 2
+			effect.boost.stat = 'atk'
+			effect.boost.target = 'target'
 			break;
 		case 52:
 			effect.boost.num = 2
@@ -231,6 +241,24 @@ pokemon.data.move_effects = {
 				pokemon.data.move_effects.setStatus('paralysis', target)
 			}
 			break;
+		}
+		switch (effect_id) {
+		// Confuse Target
+		case 50:
+		case 77:
+		case 119:
+		case 167:
+			effect.confuse = (move) => {
+				if (move.target && move.target.map) {
+					move.target.map((pkmn) => {
+						let numTurns = [1,2,3,4]
+						pkmn.battleStats.isConfused = numTurns[Math.randInt(numTurns)]
+						pokemon.battle.log(pkmn.name + " became confused!")
+					})
+				}
+			}
+			break;
+		// TODO: Confuse User
 		}
 		// Hits Multiple Times
 		switch (effect_id) {
