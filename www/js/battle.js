@@ -288,14 +288,16 @@ console.log('Move efficacy', efficacy)
 									damage = move.damage
 								}
 								def.hp -= damage
-								if (efficacy > 1) {
-									pokemon.battle.log("It's super effective!")
-								} else if (efficacy < 1) {
-									pokemon.battle.log("It's not very effective&hellip;")
-								}
 								if (!def.hp) {
 									// TODO: Fainted!
 								}
+							}
+							// Display Efficacy Message for each Target
+							efficacy = pokemon.data.moves.calcEfficacy(move, def)
+							if (efficacy > 1) {
+								pokemon.battle.log("It's super effective!")
+							} else if (efficacy < 1) {
+								pokemon.battle.log("It's not very effective&hellip;")
 							}
 						}
 					}); else switch (move.target) {
