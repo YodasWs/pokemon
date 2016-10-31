@@ -260,6 +260,29 @@ console.log(move.pokemon.name, 'status:', move.pokemon.status);
 					}
 					break;
 			}
+			// Check Pokémon Confusion
+			if (typeof move.pokemon.battleStats.isConfused === 'number') {
+				move.pokemon.battleStats.isConfused--
+				if (move.pokemon.battleStats.isConfused < 0) {
+					move.pokemon.battleStats.isConfused = false
+					pokemon.battle.log(move.pokemon.name + " snapped out of confusion!")
+				} else {
+					pokemon.battle.log(move.pokemon.name + " is confused.")
+					if (Math.random() < 1/2) {
+						// Pokémon hurts itself!
+						pokemon.battle.log(move.pokemon.name + " hurt itself in its confusion!")
+						let damage = pokemon.battle.calcDamage({
+							damage_class: 'physical',
+							pokemon: move.pokemon,
+							criticlHitStage: -1,
+							power: 40,
+							type: ''
+						}, move.pokemon)
+						move.pokemon.hp -= damage
+						return
+					}
+				}
+			}
 			pokemon.battle.log(move.pokemon.name + " used " + move.identifier + ".")
 			// Check Efficacy
 			if (move.target && move.target.forEach) move.target.forEach((def) => {
@@ -341,9 +364,11 @@ pokemon.Battle.prototype.calcDamage = function(move, def) {
 	let intAtk = 0, intDef = 0, damage = 0,
 		criticalHitRate = 1, criticalHit = false,
 		modifier = Math.random() * ( 1 - 0.85 ) + 0.85
-	// Is this a critical hit?
-	criticalHitRate = 1 / Math.pow(2, 4 - move.criticalHitStage)
-	criticalHit = (Math.random() < criticalHitRate)
+	if (move.criticalHitStage >= 0) {
+		// Is this a critical hit?
+		criticalHitRate = 1 / Math.pow(2, 4 - move.criticalHitStage)
+		criticalHit = (Math.random() < criticalHitRate)
+	}
 	if (criticalHit) {
 		modifier *= 2
 		pokemon.battle.log('A critical hit!')
