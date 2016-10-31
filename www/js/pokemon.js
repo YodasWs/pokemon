@@ -77,7 +77,7 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 	// Set Pokémon Stats
 	var stats = {}
 	pokemon.data.statKeys.forEach((i) => {
-		var stat = i
+		let stat = i
 		Object.defineProperty(stats, stat, {
 			enumerable: true,
 			get: () => {
@@ -100,7 +100,7 @@ pokemon.Pokemon = function(intSpecies, intLevel, trainer) {
 		enumerable: true,
 		get: () => { return hp },
 		set: (i) => {
-			hp = Math.max(0, i)
+			hp = Math.max(0, Math.floor(i))
 			if (self.html && pokemon.battle) {
 				pokemon.battle.log(()=>{
 					self.html.find('progress.hp').attr('value', hp)

@@ -1,36 +1,70 @@
+"use strict";
 pokemon.data = pokemon.data || {}
 pokemon.data.move_effects = {
 	onEndRound(pkmn){
-		if (!pkmn.battleStats.status) return;
-		switch (pkmn.battleStats.status.status) {
+		if (!pkmn.status) return;
+		switch (pkmn.status.status) {
+		case 'burn':
+			// Hurt Pokémon
+			pokemon.battle.log(pkmn.name + " is hurt by burn.")
+			pkmn.hp -= pkmn.maxhp / 8
+			break;
 		case 'sleep':
 			// Countdown to Waking Up
-			pkmn.battleStats.status.num--
+			pkmn.status.num--
 			break;
 		}
 	},
-	setStatus(status, pkmn){
-		if (!pkmn.battleStats.status) switch (status) {
+	setStatus(status, pkmn, warnPkmnHasStatus = true){
+		// Give Pokémon Status Condition
+		if (!pkmn.status) switch (status) {
+			case 'burn':
+				if (pkmn.types.indexOf('burn') > -1 && warnPkmnHasStatus) {
+					pokemon.battle.log(pkmn.name + " cannot be burned.")
+					return
+				}
+				pokemon.battle.log(pkmn.name + " was burned!")
+				pkmn.status = {
+					status: 'burn'
+				}
+				break;
+			case 'paralysis':
+				if (pkmn.types.indexOf('electric') > -1 && warnPkmnHasStatus) {
+					pokemon.battle.log(pkmn.name + " cannot be paralyzed.")
+					return
+				}
+				pokemon.battle.log(pkmn.name + " became paralyzed! It may be unable to attack&hellip;")
+				pkmn.status = {
+					status: 'paralysis'
+				}
+				break;
 			case 'sleep':
 				pokemon.battle.log(pkmn.name + " fell asleep!")
-				pkmn.battleStats.status = {
+				pkmn.status = {
 					num: [1,2,2,3,3,4][Math.randInt(6)],
 					status: 'sleep'
 				}
 				break;
-		} else if (pkmn.battleStats.status.status == status) switch (status) {
-			case 'sleep':
-				pokemon.battle.log(pkmn.name + " is already asleep!")
+		// Pokémon Already Has Status Condition!
+		} else if (pkmn.status.status == status && warnPkmnHasStatus) switch (status) {
+			case 'burn':
+				pokemon.battle.log(pkmn.name + " is already burned&hellip;")
 				break;
-		} else {
+			case 'paralysis':
+				pokemon.battle.log(pkmn.name + " is already paralyzed&hellip;")
+				break;
+			case 'sleep':
+				pokemon.battle.log(pkmn.name + " is already asleep&hellip;")
+				break;
+		} else if (warnPkmnHasStatus) {
 			pokemon.battle.log("No effect&hellip;")
 		}
 	},
 	moveData(effect_id){
 		let effect = {}
 		effect.boost = {}
-		switch (effect_id) {
 		// Increase Critical Hit Stage
+		switch (effect_id) {
 		case 44:
 		case 201:
 		case 210:
@@ -39,13 +73,17 @@ pokemon.data.move_effects = {
 		case 289:
 			effect.criticalHitStage = 4
 			break;
+		}
 		// User Faints
+		switch (effect_id) {
 		case 8:
 			effect.onBeforeAttack = function() {
 				this.pokemon.hp = 0
 			}
 			break;
+		}
 		// Alter Battle Stats Boosts
+		switch (effect_id) {
 		case 141:
 			effect.boost.stat = pokemon.BattleStats.boosts.keys()
 			effect.boost.num = 1
@@ -64,11 +102,15 @@ pokemon.data.move_effects = {
 			effect.boost.num = 1
 			effect.boost.stat = 'spatk'
 			break;
+		case 167:
+			effect.boost.num = 1
+			effect.boost.stat = 'spatk'
+			effect.boost.target = 'target'
+			break;
 		case 17:
 			effect.boost.num = 1
 			effect.boost.stat = 'evasion'
 			break;
-
 		case 19:
 		case 69:
 			effect.boost.num = -1
@@ -112,6 +154,11 @@ pokemon.data.move_effects = {
 			effect.boost.num = 2
 			effect.boost.stat = 'atk'
 			break;
+		case 119:
+			effect.boost.num = 2
+			effect.boost.stat = 'atk'
+			effect.boost.target = 'target'
+			break;
 		case 52:
 			effect.boost.num = 2
 			effect.boost.stat = 'def'
@@ -148,19 +195,73 @@ pokemon.data.move_effects = {
 			effect.boost.stat = 'spdef'
 			effect.boost.target = 'target'
 			break;
+		}
 		// Never misses
+		switch (effect_id) {
 		case 18:
 		case 79:
 			effect.neverMiss = true
 			break;
+		}
 		// Alter Status Conditions
+		switch (effect_id) {
+		// Put Target to Sleep!
 		case 2:
-			// Put Target to Sleep!
 			effect.changeStatus = (target) => {
 				pokemon.data.move_effects.setStatus('sleep', target)
 			}
 			break;
+		// Burn Target!
+		case 5:
+		case 126:
+		case 201:
+			effect.changeStatus = (target) => {
+				pokemon.data.move_effects.setStatus('burn', target, false)
+			}
+			break;
+		case 168:
+			effect.changeStatus = (target) => {
+				pokemon.data.move_effects.setStatus('burn', target)
+			}
+			break;
+		// Paralyze Target!
+		case 7:
+		case 153:
+		case 263:
+		case 264:
+		case 276:
+		case 332:
+			effect.changeStatus = (target) => {
+				// But don't warn when paralysis fails
+				pokemon.data.move_effects.setStatus('paralysis', target, false)
+			}
+			break;
+		case 68:
+			effect.changeStatus = (target) => {
+				pokemon.data.move_effects.setStatus('paralysis', target)
+			}
+			break;
+		}
+		switch (effect_id) {
+		// Confuse Target
+		case 50:
+		case 77:
+		case 119:
+		case 167:
+			effect.confuse = (move) => {
+				if (move.target && move.target.map) {
+					move.target.map((pkmn) => {
+						let numTurns = [1,2,3,4]
+						pkmn.battleStats.isConfused = numTurns[Math.randInt(numTurns)]
+						pokemon.battle.log(pkmn.name + " became confused!")
+					})
+				}
+			}
+			break;
+		// TODO: Confuse User
+		}
 		// Hits Multiple Times
+		switch (effect_id) {
 		case 30:
 			effect.onBeforeHits = function() {
 				let numHits = [2,2,3,3,4,5]
@@ -169,7 +270,7 @@ pokemon.data.move_effects = {
 			break;
 		case 45:
 		case 78:
-			this.hits = 2
+			effect.hits = 2
 			break;
 		}
 		// Clean up boost effect object

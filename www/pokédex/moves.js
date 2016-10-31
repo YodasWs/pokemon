@@ -71,7 +71,7 @@ pokemon.PokemonMoveset.prototype.push = function() {
 			move_data = arguments[i]
 		}
 		// Add Data from moves.csv
-		pokemon.storage.get('moves').forEach(function(move){
+		pokemon.storage.get('moves').forEach((move) => {
 			if (move.id !== move_id) return
 			// Extend Move Data
 			move.pp = move.maxPP
@@ -95,7 +95,7 @@ pokemon.PokemonMoveset.prototype.sort = function() {
 			return Math.random() - 0.5
 		}
 		var pwr = [ a.power, b.power ]
-		;[a,b].forEach(function(move, i) {
+		;[a,b].forEach((move, i) => {
 			if (!pwr[i]) return // If 0, no point continuing
 			pwr[i] = pokemon.data.moves.calcEfficacy(move, pokemon.battle.activePokemon.player[0])
 		})
@@ -111,14 +111,14 @@ pokemon.data.moves.calcEfficacy = function(move, def) {
 	return efficacy
 }
 pokemon.data.moves.selectTarget = function(move) {
-	var trainer = move.pokemon.trainer == 'foe' ? 'player' : 'foe'
+	let opponent = move.pokemon.trainer == 'foe' ? 'player' : 'foe'
 		target = move.target_id
 	// TODO: Select Target
 	switch (move.target_id) {
 	case 2:
 		// TODO: Selected Pokémon
-		if (pokemon.battle.activePokemon[trainer].length == 1) {
-			target = [pokemon.battle.activePokemon[trainer][0]]
+		if (pokemon.battle.activePokemon[opponent].length == 1) {
+			target = [pokemon.battle.activePokemon[opponent][0]]
 		}
 		break;
 	case 5:
@@ -134,21 +134,21 @@ pokemon.data.moves.selectTarget = function(move) {
 	case 8:
 		// Random Opponent
 		console.log('picking random opponent')
-		if (pokemon.battle.activePokemon[trainer].length == 1) {
-			target = [pokemon.battle.activePokemon[trainer][0]]
+		if (pokemon.battle.activePokemon[opponent].length == 1) {
+			target = [pokemon.battle.activePokemon[opponent][0]]
 		} else {
-			target = [pokemon.battle.activePokemon[trainer][Math.randInt(pokemon.battle.activePokemon[trainer].length)]]
+			target = [pokemon.battle.activePokemon[opponent][Math.randInt(pokemon.battle.activePokemon[opponent].length)]]
 		}
 		break;
 	case 10:
 		// TODO: Selected Pokémon
-		if (pokemon.battle.activePokemon[trainer].length == 1) {
-			target = [pokemon.battle.activePokemon[trainer][0]]
+		if (pokemon.battle.activePokemon[opponent].length == 1) {
+			target = [pokemon.battle.activePokemon[opponent][0]]
 		}
 		break;
 	case 11:
 		// All Opponents
-		target = pokemon.battle.activePokemon[trainer]
+		target = pokemon.battle.activePokemon[opponent]
 		break;
 	}
 	return target

@@ -22,12 +22,16 @@ pokemon.BattleStats.prototype.stat = function(stat) {
 	// Battle Boost
 	if (this.boosts[stat] > 0) {
 		multiplier *= (this.boosts[stat] + 2) / 2
-	} else {
+	} else if (this.boosts[stat] < 0) {
 		multiplier /= (this.boosts[stat] - 2) / 2
 	}
 	// Now for the actual stat
 	if (this.pokemon.stats[stat] !== undefined) {
 		multiplier *= this.pokemon.stats[stat]
+	}
+	// If Paralyzed, the Pokémon is slower!
+	if (stat === 'spd' && this.pokemon.status && this.pokemon.status.status === 'paralysis') {
+		multiplier *= 3 / 4
 	}
 	return multiplier
 }
@@ -106,6 +110,17 @@ pokemon.Battle.prototype.start = function(){
 	// Attack
 	$('[data-action="fight"] + ul').off('click').on('click', '[data-action]', pokemon.battle.setAction)
 
+	// Run
+	$('[data-action="run"]').off('click').on('click', (e) => {
+		if (!$('#battle').is('.wild')) {
+			// Can't run from a Trainer!
+			$(this).hide()
+			return false
+		}
+		$('#battle').find('[data-action].active').removeClass('active')
+		pokemon.battle.setAction(e)
+	})
+
 	// Start
 	fldBattle.addClass('show')
 	setTimeout(() => { // Wait for fadein
@@ -124,7 +139,7 @@ pokemon.Battle.prototype.start = function(){
 			})
 		}
 		// Start Round
-		this.log(pokemon.battle.startRound, logTiming / 4)
+		this.log(pokemon.battle.startRound, logTiming / 2)
 	}, logTiming / 2)
 }
 pokemon.Battle.prototype.activatePokemon = function(trainer, pkmn, i = 0){
@@ -144,8 +159,19 @@ pokemon.Battle.prototype.startRound = function(){
 		pkmn.moves[0].target = pokemon.data.moves.selectTarget(pkmn.moves[0])
 		pokemon.battle.actions.foe.push(pkmn.moves[0])
 	})
-	pokemon.battle.log('Starting Round ' + pokemon.battle.round)
+	pokemon.battle.log('Starting Round ' + pokemon.battle.round, logTiming / 2)
 	pokemon.battle.readyPkmn(0)
+}
+pokemon.Battle.prototype.standdownPkmn = function() {
+	let $battle = $('#battle')
+	$('.pokemon-html.ready').removeClass('ready')
+	let cb = function() {
+		$battle.find('.menu').removeClass('show')
+	}
+	if ($battle.find('[data-action].active').length) {
+		$battle.find('[data-action].active').removeClass('active')
+		setTimeout(cb, 200)
+	} else cb()
 }
 pokemon.Battle.prototype.readyPkmn = function(pkmn){
 	pkmn = pokemon.battle.activePokemon.player[pkmn]
@@ -153,7 +179,6 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 		$menu = $('#battle').find('.menu'),
 	cb = function() {
 		// Update View
-		$('.pokemon-html.ready').removeClass('ready')
 		$('.pokemon-name').text(pkmn.name)
 		// List Pokémon Moves
 		$moves.children().remove()
@@ -168,10 +193,10 @@ pokemon.Battle.prototype.readyPkmn = function(pkmn){
 }
 pokemon.Battle.prototype.setAction = function(e){
 	let btn = $(e.target),
-		menu = btn.parents('.menu, .pokemon'),
+		menu = btn.closest('.menu, .pokemon, [data-action="run"]'),
 		activePkmn = pokemon.battle.activePokemon.player[pokemon.battle.actions.player.length],
 		action = null
-	$('#battle').find('[data-action].active').removeClass('active')
+	pokemon.Battle.prototype.standdownPkmn()
 	if (!activePkmn) {
 		// Set Action without an Active Pokémon? Something's wrong!
 		pokemon.battle.runRound()
@@ -187,6 +212,15 @@ pokemon.Battle.prototype.setAction = function(e){
 		action.target = pokemon.data.moves.selectTarget(action)
 	} else if (menu.is('.pokemon')) {
 		action = 'pokemon'
+	} else if (menu.is('[data-action="run"]')) {
+		action = 'run'
+		if (Math.random() < 1 / 32) {
+			pokemon.battle.log("Couldn't run away!")
+		} else {
+			pokemon.battle.log("Ran away!")
+			pokemon.battle.log(pokemon.battle.finish)
+			return
+		}
 	}
 	pokemon.battle.actions.player.push(action)
 	if (pokemon.battle.actions.player.length < pokemon.battle.activePokemon.player.length) {
@@ -196,31 +230,58 @@ pokemon.Battle.prototype.setAction = function(e){
 	pokemon.battle.log(pokemon.battle.runRound)
 }
 pokemon.Battle.prototype.runRound = function(){
-	$('.pokemon-html.ready').removeClass('ready')
-	$('#battle').find('.menu').removeClass('show')
 	pokemon.battle.actions = pokemon.battle.actions.player.concat(pokemon.battle.actions.foe)
 	pokemon.battle.actions.sort((a, b) => {
 		if (a.priority != b.priority) return b.priority - a.priority
-		return b.pokemon.stats.spd - a.pokemon.stats.spd
+		return b.pokemon.battleStats.stat('spd') - a.pokemon.battleStats.stat('spd')
 	})
 	pokemon.battle.actions.forEach((action) => {
-		let damage = 0, efficacy = 1, move
+		let efficacy = 1, move
 		console.log('Action',action)
 		// This is a Move
 		if (action.move_id) {
 			move = action
 			// TODO: Check Pokémon Status
-console.log(move.pokemon.name, 'status:', move.pokemon.battleStats.status);
-			if (move.pokemon.battleStats.status && move.pokemon.battleStats.status.status) switch (move.pokemon.battleStats.status.status) {
+console.log(move.pokemon.name, 'status:', move.pokemon.status);
+			if (move.pokemon.status && move.pokemon.status.status) switch (move.pokemon.status.status) {
+				case 'paralysis':
+					if (Math.random() < 1 / 4) {
+						pokemon.battle.log(move.pokemon.name + " is paralyzed! It can't move!")
+						return;
+					}
+					break;
 				case 'sleep':
-					if (move.pokemon.battleStats.status.num) {
+					if (move.pokemon.status.num > 0) {
 						pokemon.battle.log(move.pokemon.name + " is asleep!")
 						return;
 					} else {
 						pokemon.battle.log(move.pokemon.name + " woke up!")
-						delete move.pokemon.battleStats.status;
+						delete move.pokemon.status;
 					}
 					break;
+			}
+			// Check Pokémon Confusion
+			if (typeof move.pokemon.battleStats.isConfused === 'number') {
+				move.pokemon.battleStats.isConfused--
+				if (move.pokemon.battleStats.isConfused < 0) {
+					move.pokemon.battleStats.isConfused = false
+					pokemon.battle.log(move.pokemon.name + " snapped out of confusion!")
+				} else {
+					pokemon.battle.log(move.pokemon.name + " is confused.")
+					if (Math.random() < 1/2) {
+						// Pokémon hurts itself!
+						pokemon.battle.log(move.pokemon.name + " hurt itself in its confusion!")
+						let damage = pokemon.battle.calcDamage({
+							damage_class: 'physical',
+							pokemon: move.pokemon,
+							criticlHitStage: -1,
+							power: 40,
+							type: ''
+						}, move.pokemon)
+						move.pokemon.hp -= damage
+						return
+					}
+				}
 			}
 			pokemon.battle.log(move.pokemon.name + " used " + move.identifier + ".")
 			// Check Efficacy
@@ -236,23 +297,30 @@ console.log('Move efficacy', efficacy)
 					console.log('accuracy', move.accuracy)
 					if (move.target && move.target.forEach) move.target.forEach((def) => {
 						// Calculate Accuracy
-						if (!move.neverMiss && Math.random(100) > move.accuracy * move.pokemon.battleStats.stat['accuracy'] / def.battleStats.stat['evasion']) {
+						if (!move.neverMiss && Math.randInt(100) > move.accuracy * move.pokemon.battleStats.stat('accuracy') / def.battleStats.stat('evasion')) {
 							console.log('Attack Missed!')
 							pokemon.battle.log(move.pokemon.name + " missed!")
 						} else {
+							let damage = 0
 							if (move.onBeforeHits) move.onBeforeHits.call(move)
 							for (let i=0; i<(move.hits||1); i++) {
 								// Give Damage
-								damage = pokemon.battle.calcDamage(move, def)
-								def.hp -= damage
-								if (efficacy > 1) {
-									pokemon.battle.log("It's super effective!")
-								} else if (efficacy < 1) {
-									pokemon.battle.log("It's not very effective&hellip;")
+								if (move.power > 0) {
+									damage = pokemon.battle.calcDamage(move, def)
+								} else if (move.damage) {
+									damage = move.damage
 								}
+								def.hp -= damage
 								if (!def.hp) {
 									// TODO: Fainted!
 								}
+							}
+							// Display Efficacy Message for each Target
+							efficacy = pokemon.data.moves.calcEfficacy(move, def)
+							if (efficacy > 1) {
+								pokemon.battle.log("It's super effective!")
+							} else if (efficacy < 1) {
+								pokemon.battle.log("It's not very effective&hellip;")
 							}
 						}
 					}); else switch (move.target) {
@@ -266,7 +334,8 @@ console.log('Move efficacy', efficacy)
 					})
 				}
 				// Change Status
-				if (move.changeStatus && move.target && move.target.forEach) {
+				if (move.changeStatus && move.target && move.target.map) {
+					if (move.effect_chance && Math.randInt(100) > move.effect_chance) return
 					move.target.map(move.changeStatus)
 				}
 			} else {
@@ -281,12 +350,12 @@ console.log('Move efficacy', efficacy)
 	// Update Statuses
 	;['foe','player'].forEach((t) => {
 		pokemon.battle.activePokemon[t].forEach((pkmn) => {
-			if (pkmn.battleStats.status) pokemon.data.move_effects.onEndRound(pkmn);
+			if (pkmn.status) pokemon.data.move_effects.onEndRound(pkmn);
 		})
 	})
 	// Move on to Next Round
 	if (pokemon.battle.activePokemon.foe.length && pokemon.battle.activePokemon.player.length) {
-		pokemon.battle.log(pokemon.battle.startRound, logTiming * 3 / 2)
+		pokemon.battle.log(pokemon.battle.startRound, logTiming / 2)
 	} else {
 		pokemon.battle.log(pokemon.battle.finish)
 	}
@@ -295,22 +364,11 @@ pokemon.Battle.prototype.calcDamage = function(move, def) {
 	let intAtk = 0, intDef = 0, damage = 0,
 		criticalHitRate = 1, criticalHit = false,
 		modifier = Math.random() * ( 1 - 0.85 ) + 0.85
-	// Is this a critical hit?
-	switch (move.criticalHitStage) {
-	case 0:
-		criticalHitRate = 1/16
-		break;
-	case 1:
-		criticalHitRate = 1/8
-		break;
-	case 2:
-		criticalHitRate = 1/4
-		break;
-	case 3:
-		criticalHitRate = 1/2
-		break;
+	if (move.criticalHitStage >= 0) {
+		// Is this a critical hit?
+		criticalHitRate = 1 / Math.pow(2, 4 - move.criticalHitStage)
+		criticalHit = (Math.random() < criticalHitRate)
 	}
-	criticalHit = (Math.random() < criticalHitRate)
 	if (criticalHit) {
 		modifier *= 2
 		pokemon.battle.log('A critical hit!')
@@ -367,7 +425,7 @@ pokemon.Battle.prototype.popQueue = function() {
 	if (!msg) return
 	if (typeof msg === 'string') {
 		// Output Messages
-		let $log = $('#battle').children('.history')
+		let $log = $('#battle').children('.history').children('ol')
 		$log.append('<li class="hidden">' + msg)
 		setTimeout(() => {
 			$log.find('li.hidden').removeClass('hidden')
